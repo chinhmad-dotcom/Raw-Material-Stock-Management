@@ -1,0 +1,198 @@
+[
+  {
+    "Id": "mock-1",
+    "VehiclePlate": "51C-123.45",
+    "Material": "Thép cuộn",
+    "TimeIn": "2026-06-11T11:20:09.6237081Z",
+    "TimeOut": "2026-06-11T12:50:09.6237396Z",
+    "TotalTimeMinutes": 90,
+    "ReasonForDelay": "Kẹt kho"
+  },
+  {
+    "Id": "mock-2",
+    "VehiclePlate": "60A-987.65",
+    "Material": "Xi măng",
+    "TimeIn": "2026-06-11T09:20:09.6238542Z",
+    "TimeOut": "2026-06-11T10:05:09.6238544Z",
+    "TotalTimeMinutes": 45,
+    "ReasonForDelay": ""
+  },
+  {
+    "Id": "mock-3",
+    "VehiclePlate": "29B-456.78",
+    "Material": "Cát xây dựng",
+    "TimeIn": "2026-06-11T06:20:09.6238567Z",
+    "TimeOut": "2026-06-11T07:35:09.6238567Z",
+    "TotalTimeMinutes": 75,
+    "ReasonForDelay": "Chờ cân"
+  },
+  {
+    "Id": "mock-4",
+    "VehiclePlate": "61C-333.22",
+    "Material": "Gạch ống",
+    "TimeIn": "2026-06-11T04:20:09.6238569Z",
+    "TimeOut": "2026-06-11T04:50:09.623857Z",
+    "TotalTimeMinutes": 30,
+    "ReasonForDelay": ""
+  },
+  {
+    "Id": "1782cbc5-ab54-48fe-be45-7ec9c5069ee0",
+    "VehiclePlate": "72H-999.99",
+    "Material": "Da hoa cuong",
+    "TimeIn": "2026-06-11T10:00:00Z",
+    "TimeOut": "2026-06-11T11:15:00Z",
+    "TotalTimeMinutes": 75,
+    "ReasonForDelay": "Ket cau"
+  },
+  {
+    "Id": "300ffdbd-68e4-4f95-9645-1e72c7cb36b7",
+    "VehiclePlate": "51C43466",
+    "Material": "ddgs",
+    "TimeIn": "2026-06-11T00:21:00Z",
+    "TimeOut": "2026-06-11T01:22:00Z",
+    "TotalTimeMinutes": 61,
+    "ReasonForDelay": "Kẹt xe"
+  },
+  {
+    "Id": "c1f66724-149d-4f89-8bd3-e88e11ba783c",
+    "VehiclePlate": "51C76454",
+    "Material": "rbs",
+    "TimeIn": "2026-06-11T03:22:00Z",
+    "TimeOut": "2026-06-11T04:24:00Z",
+    "TotalTimeMinutes": 62,
+    "ReasonForDelay": "Đợi bốc xếp"
+  },
+  {
+    "Id": "aaf39ff7-9b2a-470c-acb1-43e0025dab1e",
+    "VehiclePlate": "51C54674",
+    "Material": "rbg",
+    "TimeIn": "2026-06-10T03:23:00Z",
+    "TimeOut": "2026-06-10T04:25:00Z",
+    "TotalTimeMinutes": 62,
+    "ReasonForDelay": "Đợi bốc xếp"
+  },
+  {
+    "Id": "56cfada1-8334-4a6d-a1fa-43f19dbfc2d4",
+    "VehiclePlate": "51C453354",
+    "Material": "gdfg",
+    "TimeIn": "2026-06-09T02:26:00Z",
+    "TimeOut": "2026-06-09T04:27:00Z",
+    "TotalTimeMinutes": 121,
+    "ReasonForDelay": "Đợi bốc xếp"
+  },
+  {
+    "Id": "6039d329-7678-4411-bcbd-d99c59579eee",
+    "VehiclePlate": "SDGSFÀ",
+    "Material": "dsdgsd",
+    "TimeIn": "2026-05-11T03:49:00Z",
+    "TimeOut": "2026-05-11T04:51:00Z",
+    "TotalTimeMinutes": 62,
+    "ReasonForDelay": "Kẹt xe"
+  },
+  {
+    "Id": "d6629107-cb44-4b41-8204-d353e867b68e",
+    "VehiclePlate": "52C352543",
+    "Material": "RBF",
+    "TimeIn": "2026-07-13T15:03:00Z",
+    "TimeOut": "2026-07-13T16:07:00Z",
+    "TotalTimeMinutes": 64,
+    "ReasonForDelay": "Đợi bốc xếp"
+  },
+  {
+    "Id": "b74a2970-2569-42e2-8599-f51e5983757e",
+    "VehiclePlate": "52C352543",
+    "Material": "RBF",
+    "TimeIn": "2026-07-06T13:04:00Z",
+    "TimeOut": "2026-07-06T14:07:00Z",
+    "TotalTimeMinutes": 63,
+    "ReasonForDelay": "XE DINH S THÙNG"
+  },
+  {
+    "Id": "483789e4-c067-407f-91f6-1d8ab2a87f08",
+    "VehiclePlate": "52C352543",
+    "Material": "RBF",
+    "TimeIn": "2026-07-07T14:06:00Z",
+    "TimeOut": "2026-07-07T15:07:00Z",
+    "TotalTimeMinutes": 61,
+    "ReasonForDelay": "XE KHÔNG LÓT SÀN"
+  },
+  {
+    "Id": "d0d446fd-5185-4f8f-98df-b1a9ebabdc9b",
+    "VehiclePlate": "52C352543",
+    "Material": "EBDF",
+    "TimeIn": "2026-07-08T14:05:00Z",
+    "TimeOut": "2026-07-08T15:08:00Z",
+    "TotalTimeMinutes": 63,
+    "ReasonForDelay": "XE DINH S THÙNG"
+  },
+  {
+    "Id": "b4a6e91c-c99f-46cf-b279-3b447ad245d2",
+    "VehiclePlate": "215CVCC",
+    "Material": "cbcxc",
+    "TimeIn": "2026-07-16T14:35:00Z",
+    "TimeOut": "2026-07-16T15:39:00Z",
+    "TotalTimeMinutes": 64,
+    "ReasonForDelay": "Kẹt xe"
+  },
+  {
+    "Id": "daaacfdf-24f8-4ab1-93ed-6ddf79140e5d",
+    "VehiclePlate": "51C42325",
+    "Material": "corn",
+    "TimeIn": "2026-07-18T04:42:00Z",
+    "TimeOut": "2026-07-18T05:46:00Z",
+    "TotalTimeMinutes": 64,
+    "ReasonForDelay": "Lỗi cân"
+  },
+  {
+    "Id": "c493e7f0-5d5c-4329-839c-2459327b1cb2",
+    "VehiclePlate": "51V234353",
+    "Material": "bbg",
+    "TimeIn": "2026-07-20T15:24:00Z",
+    "TimeOut": "2026-07-20T16:27:00Z",
+    "TotalTimeMinutes": 63,
+    "ReasonForDelay": "Kẹt xe"
+  },
+  {
+    "Id": "8657922c-fb44-47e5-a83d-8eda5d8d8ab4",
+    "VehiclePlate": "51C534564",
+    "Material": "rbf",
+    "TimeIn": "2026-07-18T04:28:00Z",
+    "TimeOut": "2026-07-18T05:30:00Z",
+    "TotalTimeMinutes": 62,
+    "ReasonForDelay": "Đợi bốc xếp"
+  },
+  {
+    "Id": "d41e0807-77a0-49fd-8fec-995dcada2eca",
+    "VehiclePlate": "51V36535",
+    "Material": "ddgs",
+    "TimeIn": "2026-07-18T04:29:00Z",
+    "TimeOut": "2026-07-18T06:33:00Z",
+    "TotalTimeMinutes": 124,
+    "ReasonForDelay": "Lỗi cân"
+  },
+  {
+    "id": "024ad897-a8de-42f5-8dba-98e02cbd2975",
+    "vehiclePlate": "51V21232",
+    "material": "ddgs",
+    "timeIn": "2026-09-04T02:36:00.000Z",
+    "timeOut": "2026-09-04T03:38:00.000Z",
+    "totalTimeMinutes": 62,
+    "reasonForDelay": "Kẹt xe",
+    "createdAt": "2026-09-04T03:40:41.003Z"
+  },
+  {
+    "id": "8affe0e0-f6ee-4407-9c8e-50368040dd6e",
+    "vehiclePlate": "50F07796",
+    "material": "Ngô hạt",
+    "timeIn": "2026-09-11T18:09:00.000Z",
+    "timeOut": "2026-09-11T23:23:00.000Z",
+    "totalTimeMinutes": 314,
+    "reasonForDelay": "dính sàng",
+    "createdAt": "2026-09-12T09:53:01.672Z",
+    "status": "pending",
+    "reporterSignature": null,
+    "reporterName": null,
+    "reviewerSignature": null,
+    "reviewerName": null
+  }
+]

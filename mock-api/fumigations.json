@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1789118796682",
+    "siloCode": "22",
+    "materialName": "CORN USA",
+    "weightKg": 4367,
+    "startDate": "2026-09-05",
+    "endDate": "2026-09-14",
+    "notes": "",
+    "createdAt": "2026-09-11T09:26:36.682Z"
+  },
+  {
+    "id": "1789119593089",
+    "siloCode": "21",
+    "materialName": "WG",
+    "weightKg": 7432,
+    "startDate": "2026-07-14",
+    "endDate": "2026-07-24",
+    "notes": "",
+    "createdAt": "2026-09-11T09:39:53.089Z"
+  }
+]

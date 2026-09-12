@@ -1,0 +1,6062 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "admin@stockrm.com",
+      "role": "Admin",
+      "status": "Active"
+    },
+    {
+      "id": "1787561546639",
+      "email": "phamvanchinh@cp.com.vn",
+      "name": "Phạm Văn Chỉnh",
+      "password": "@12345",
+      "role": "Manager",
+      "status": "Active"
+    },
+    {
+      "id": "1788590952024",
+      "email": "ngovanlam@cp.com.vn",
+      "name": "Ngô Văn Lâm",
+      "password": "123456",
+      "role": "Operator",
+      "status": "Active",
+      "resetRequested": false
+    }
+  ],
+  "silos": [
+    {
+      "id": "s1",
+      "siloCode": "WB01",
+      "maxCapacity": 5000,
+      "dohThreshold": 3,
+      "defaultMaterial": "Corn"
+    },
+    {
+      "id": "s2",
+      "siloCode": "WB02",
+      "maxCapacity": 3000,
+      "dohThreshold": 5,
+      "defaultMaterial": "Wheat"
+    },
+    {
+      "siloCode": "201",
+      "maxCapacity": 3000,
+      "color": "#3b82f6",
+      "id": "1788263062946"
+    },
+    {
+      "siloCode": "202",
+      "maxCapacity": 3000,
+      "color": "#3b82f6",
+      "id": "1788263076931"
+    },
+    {
+      "siloCode": "WH21",
+      "maxCapacity": 6000,
+      "color": "#3b82f6",
+      "id": "1788263142113"
+    },
+    {
+      "siloCode": "FM 50,51",
+      "materialName": "Corn (USA #A)",
+      "isHidden": true,
+      "id": "1788496152999"
+    },
+    {
+      "siloCode": "FM 50,51",
+      "materialName": "Corn (USA #A)",
+      "isHidden": true,
+      "id": "1788496158917"
+    }
+  ],
+  "materials": [
+    {
+      "id": "m1",
+      "sku": "RM-CORN",
+      "name": "Corn",
+      "unit": "Ton",
+      "density": 0.72,
+      "maxStorageAgeDays": 30,
+      "dohThreshold": 7,
+      "color": "#000000"
+    },
+    {
+      "id": "m2",
+      "sku": "RM-WHT",
+      "name": "Wheat",
+      "unit": "Ton",
+      "density": 0.78,
+      "maxStorageAgeDays": 90
+    },
+    {
+      "id": "1787371720728wp4xq",
+      "sku": "Corn (ARG#A,#B)",
+      "name": "Corn (ARG#A,#B)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 30,
+      "dohThreshold": 5,
+      "color": "#f4e32a"
+    },
+    {
+      "id": "178737172072866e8b",
+      "sku": "RM-CORN",
+      "name": "Corn (Brazil #A,#B)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207285zgyx",
+      "sku": "Corn (USA #A)",
+      "name": "Corn (USA #A)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 10,
+      "dohThreshold": 5,
+      "color": "#f7c922"
+    },
+    {
+      "id": "178737172072913wmq",
+      "sku": "RM-CORN",
+      "name": "Corn VN ( Local)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729imxe8",
+      "sku": "RM-CORN",
+      "name": "Corn Extrude",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729jj90d",
+      "sku": "RM-CORN",
+      "name": "Corn Gluten Meal (USA)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729oy4s6",
+      "sku": "RM-RBF(",
+      "name": "RBF(24h)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729o31nw",
+      "sku": "RM-RBF,",
+      "name": "RBF, Rice Bran Fresh (S), Rice bran fresh (Premium)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 10,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729u5nrp",
+      "sku": "RM-RICE",
+      "name": "Rice Bran Solvent",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729s2wjm",
+      "sku": "RM-UNPO",
+      "name": "Unpolished Rice #1, #2",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "178737172072977ez8",
+      "sku": "RM-WHEA",
+      "name": "Wheat Bran",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729c4etf",
+      "sku": "RM-PADD",
+      "name": "Paddy Rice",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207298ndn0",
+      "sku": "RM-FEED",
+      "name": "Feed Wheat (UKARAINE, Australia, ARGENTINA, Brazil)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729nckkg",
+      "sku": "RM-FEED",
+      "name": "Feed Wheat (Brazil)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729lckt2",
+      "sku": "RM-BROK",
+      "name": "Broken Rice #C,#B",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729es1ek",
+      "sku": "RM-TAPI",
+      "name": "Tapioca #C, # D 2, #D 1",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729y4swd",
+      "sku": "RM-TAP ",
+      "name": "Tap By Product Fine, Tapioca by product - special (local)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207294rx5u",
+      "sku": "RM-SOY ",
+      "name": "Soy Been Meal ( Brazil )",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207294cwci",
+      "sku": "RM-SOY ",
+      "name": "Soy Bean Meal -Ex-WH (Local)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729xw0up",
+      "sku": "RM-SOY ",
+      "name": "Soy Been Meal (Arg)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207296po37",
+      "sku": "RM-SOY ",
+      "name": "Soy Been Meal (USA)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729up0iu",
+      "sku": "RM-SOY ",
+      "name": "Soy Bean Hull",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729rffv7",
+      "sku": "RM-F.F ",
+      "name": "F.F Soy Bean Meal",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729iipfg",
+      "sku": "RM-SOY ",
+      "name": "Soy Been Seed",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729hd9k0",
+      "sku": "RM-PALM",
+      "name": "Palm kernel Expeller",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207299ylo4",
+      "sku": "RM-CANO",
+      "name": "Canola meal",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729lnas9",
+      "sku": "RM-BREW",
+      "name": "Brewer Dried Grain, Brew\"s dried Grain - hight.Pro",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "178737172072970yur",
+      "sku": "RM-COCO",
+      "name": "Coconut meal",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729rnnon",
+      "sku": "RM-DDGS",
+      "name": "DDGS, DDGS-pro-26",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729ik1pl",
+      "sku": "RM-SUNF",
+      "name": "Sunflower Meal (Ukaine)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "178737172072964zni",
+      "sku": "RM-MUNG",
+      "name": "Mung Bean Shell",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207290lgrp",
+      "sku": "RM-RAPE",
+      "name": "Rapeseed meal",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207291838v",
+      "sku": "RM-FEAT",
+      "name": "Feather Meal",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729v2rwb",
+      "sku": "RM-POUL",
+      "name": "Poultry Meal",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729a29lg",
+      "sku": "RM-BASA",
+      "name": "Basa  Fish Meal",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207296kdz9",
+      "sku": "RM-FISH",
+      "name": "Fish Head Meal",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729r7fwt",
+      "sku": "RM-FISH",
+      "name": "Fish Meal",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729831zt",
+      "sku": "RM-MEAT",
+      "name": "MEAT BONE MEAL",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729jglye",
+      "sku": "RM-DI-C",
+      "name": "DI-Calcium Phosphate 21%",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729rjg6p",
+      "sku": "RM-MONO",
+      "name": "Monodicalcium Phosphate",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729tnsvy",
+      "sku": "RM-MONO",
+      "name": "Monocalcium Phosphate",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729xuhz3",
+      "sku": "RM-LIME",
+      "name": "Limestone",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729nq8dr",
+      "sku": "RM-CALC",
+      "name": "Calcium Feed",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729fdvxh",
+      "sku": "RM-DEXT",
+      "name": "Dextrose Monohydrate",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729lu7hp",
+      "sku": "RM-SWEE",
+      "name": "Sweet Whey Powder",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729zvtfw",
+      "sku": "RM-DEPR",
+      "name": "Deproteinized Whey",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207291qjr3",
+      "sku": "RM-DAIR",
+      "name": "Dairylac 80",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729jv5w2",
+      "sku": "RM-SHRI",
+      "name": "Shrimp Soluble Extract",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207292sqsz",
+      "sku": "RM-HP 3",
+      "name": "HP 300",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729bb7y7",
+      "sku": "RM-PROV",
+      "name": "Provisoy",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729lsuse",
+      "sku": "RM-TRAD",
+      "name": "Tradi-Mega LD \r\nFrance",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729izbga",
+      "sku": "RM-TRAD",
+      "name": "Tradi-Mega",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207293fhdi",
+      "sku": "RM-X - ",
+      "name": "X - Soy 600",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207294odbv",
+      "sku": "RM-TOAT",
+      "name": "Toatl X - Soy",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729jdgkm",
+      "sku": "RM-NEXT",
+      "name": "NEXTIDE",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729ra6rd",
+      "sku": "RM-SALT",
+      "name": "Salt",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729b6lpa",
+      "sku": "RM-COFF",
+      "name": "Coffe Husk Meal",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729zu62r",
+      "sku": "RM-WHEA",
+      "name": "Wheat gluten",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207291587t",
+      "sku": "RM-BAKE",
+      "name": "Bakery Meal",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729c6aj6",
+      "sku": "RM-INSE",
+      "name": "Insect Meal",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720729mjimf",
+      "sku": "RM-INSE",
+      "name": "Insect oil,",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730bp08x",
+      "sku": "RM-VEDA",
+      "name": "Vedafeed",
+      "unit": "Ton",
+      "density": 0.9,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730l9q5k",
+      "sku": "RM-SOYB",
+      "name": "Soybean Oil",
+      "unit": "Ton",
+      "density": 0.9,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207303muku",
+      "sku": "RM-FISH",
+      "name": "Fish Oil",
+      "unit": "Ton",
+      "density": 0.9,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730ufc8n",
+      "sku": "RM-MOLA",
+      "name": "MOLASSES",
+      "unit": "Ton",
+      "density": 0.9,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207300yq9r",
+      "sku": "RM-DL-M",
+      "name": "DL-Methionine",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730k0uxy",
+      "sku": "RM-RHOD",
+      "name": "Rhodimet AT88",
+      "unit": "Ton",
+      "density": 0.9,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207300weoh",
+      "sku": "RM-L-LY",
+      "name": "L-Lysine 78%",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730pgjmz",
+      "sku": "RM-CTC ",
+      "name": "CTC 20%",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207306xiuf",
+      "sku": "RM-CHLO",
+      "name": "Chlortetracyline",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207309qoaq",
+      "sku": "RM-L-LY",
+      "name": "L-Lysine 70%",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730r662y",
+      "sku": "RM-L-LY",
+      "name": "L-lysine Liquid lysine feed grade",
+      "unit": "Ton",
+      "density": 0.9,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730e5dcq",
+      "sku": "RM-L-TH",
+      "name": "L-Threonine",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207302fhrf",
+      "sku": "RM-L-TR",
+      "name": "L-Tryptophan",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "178737172073059mwu",
+      "sku": "RM-CARO",
+      "name": "Carob Powder",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730iahko",
+      "sku": "RM-CARA",
+      "name": "Carani",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730qv5kc",
+      "sku": "RM-EURO",
+      "name": "Euro Biosweet",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730x7a04",
+      "sku": "RM-DABO",
+      "name": "Dabomb-P",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730hlgks",
+      "sku": "RM-UREA",
+      "name": "Urea",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730zjy5t",
+      "sku": "RM-BANG",
+      "name": "Bangifex 190",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730cydfv",
+      "sku": "RM-BIOT",
+      "name": "Biotronic Top Liquip",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207300onlr",
+      "sku": "RM-LIQU",
+      "name": "Liquid Vitacid",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207303xepy",
+      "sku": "RM-MONO",
+      "name": "Monosodium glutamate",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207301dwsd",
+      "sku": "RM-C-C ",
+      "name": "C-C 60%,",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730ou014",
+      "sku": "RM-C-C ",
+      "name": "C-C 75%",
+      "unit": "Ton",
+      "density": 0.9,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730om2de",
+      "sku": "RM-PEP ",
+      "name": "Pep 125",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730h9i8j",
+      "sku": "RM-ZINC",
+      "name": "Zinc Oxide",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730nffly",
+      "sku": "RM-DENG",
+      "name": "Dengard 80% Coated,  TIAMULIN FUMARATE PREMIX 80%",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730ekpuj",
+      "sku": "RM-RODO",
+      "name": "Rodotium 80%",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730amg9j",
+      "sku": "RM-PULM",
+      "name": "Pulmotil Premix",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730sue4m",
+      "sku": "RM-MICL",
+      "name": "Miclozan 200",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730co594",
+      "sku": "RM-TILM",
+      "name": "Tilmovet 20% Granular Premix",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207301ecfw",
+      "sku": "RM-SACO",
+      "name": "Sacox",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207302a9t4",
+      "sku": "RM-APA ",
+      "name": "APA Enmy P",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730hjmhq",
+      "sku": "RM-LUCA",
+      "name": "Lucantin Red 10%",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "178737172073068hks",
+      "sku": "RM-LEAD",
+      "name": "Leader Red",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730wxzt5",
+      "sku": "RM-CANT",
+      "name": "Canthaxanthin 10%",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730ltpny",
+      "sku": "RM-M-TO",
+      "name": "M-TOX PLUS, MT.X+",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730qmeih",
+      "sku": "RM-FEED",
+      "name": "Feed curb",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207301lyey",
+      "sku": "RM-BETA",
+      "name": "Betafin S4",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730tqmo1",
+      "sku": "RM-BETA",
+      "name": "Betafin LQD 38%",
+      "unit": "Ton",
+      "density": 0.9,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730ad3wh",
+      "sku": "RM-SODI",
+      "name": "Sodium Bicabonate",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207303ngju",
+      "sku": "RM-ENDO",
+      "name": "Endox Dry-M",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207306ob6y",
+      "sku": "RM-MYCO",
+      "name": "Myco Sorb  A+",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207302blzu",
+      "sku": "RM-ALLP",
+      "name": "Allplex-B",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207302vbw9",
+      "sku": "RM-ALLP",
+      "name": "Allplex-GF",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730kgeur",
+      "sku": "RM-ALLP",
+      "name": "Allplex-S",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730r0998",
+      "sku": "RM-CLIN",
+      "name": "Clinacox",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730d592k",
+      "sku": "RM-PIGO",
+      "name": "Pigortek 659",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730q13m7",
+      "sku": "RM-MYCO",
+      "name": "Myco Curb liqud",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730yeb3v",
+      "sku": "RM-NATU",
+      "name": "Natuphos",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "178737172073079kxg",
+      "sku": "RM-ACID",
+      "name": "Acid Lac Premium Liquip",
+      "unit": "Ton",
+      "density": 0.9,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730pb62d",
+      "sku": "RM-PHYT",
+      "name": "Phytocee Powder",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207309vi57",
+      "sku": "RM-ENER",
+      "name": "Enerzyme",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730wripc",
+      "sku": "RM-ROVA",
+      "name": "Rovabio Advance T-flex 25",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730cehp8",
+      "sku": "RM-ROVA",
+      "name": "ROVABIO# PHY PLUS 10000T",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730mswdy",
+      "sku": "RM-ROVA",
+      "name": "Rovabio  Max Advance L, Rovabio Advance Phy L",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730at85o",
+      "sku": "RM-MYCO",
+      "name": "Mycostatin-20",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207307n8qa",
+      "sku": "RM-PHYL",
+      "name": "PhyLink",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730npj77",
+      "sku": "RM-MYCO",
+      "name": "Mycofix Plus 3.0, 5.0",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207309m0vy",
+      "sku": "RM-NOVA",
+      "name": "Novasil Plus",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730djctw",
+      "sku": "RM-BIOF",
+      "name": "Biofil Yellow 2%",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730lbz74",
+      "sku": "RM-XAMA",
+      "name": "Xamacol 40",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207305y3gi",
+      "sku": "RM-LEAD",
+      "name": "Leader Yellow",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207307gmhk",
+      "sku": "RM-VERS",
+      "name": "Versazyme",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207308hdaz",
+      "sku": "RM-ROXO",
+      "name": "Roxolin -",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720730bk82v",
+      "sku": "RM-ADVA",
+      "name": "Advance Haquinol",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731wbtka",
+      "sku": "RM-FLOR",
+      "name": "FLORPAN -S",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731ugk7y",
+      "sku": "RM-APA ",
+      "name": "APA FLOFE 4P, FlorPAN-4S",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731vdn73",
+      "sku": "RM-FLUB",
+      "name": "Flubenol 5%",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731hzikl",
+      "sku": "RM-PIGF",
+      "name": "Pigfen 40mg/g",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731ygi4j",
+      "sku": "RM-AVI-",
+      "name": "Avi-Mul Top Feed Grade,",
+      "unit": "Ton",
+      "density": 0.9,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207319txsq",
+      "sku": "RM-ACTI",
+      "name": "Actisaf",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731l63p7",
+      "sku": "RM-ADVA",
+      "name": "Advance Amoxicillin",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731u7z5b",
+      "sku": "RM-VETR",
+      "name": "Vetrimoxin 50 Matrix",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731g8bo5",
+      "sku": "RM-AMOX",
+      "name": "Amoxycilin 80%",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731hczmj",
+      "sku": "RM-ADVA",
+      "name": "Advance Timicox 20",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731r3u9d",
+      "sku": "RM-LARV",
+      "name": "Larvadex",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207319yl4j",
+      "sku": "RM-AXTR",
+      "name": "Axtra# PRIME 501 T",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731iidt9",
+      "sku": "RM-PORZ",
+      "name": "Porzyme TP-100HP Dry",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731nohdd",
+      "sku": "RM-AVAT",
+      "name": "Avatec 15%",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731za0us",
+      "sku": "RM-SURM",
+      "name": "Surmax 10%",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731buusj",
+      "sku": "RM-CYGR",
+      "name": "Cygro 1%",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731sdp1b",
+      "sku": "RM-ENRA",
+      "name": "Enradin 8%",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "178737172073195b6q",
+      "sku": "RM-TYLA",
+      "name": "Tylan",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207317jfgp",
+      "sku": "RM-FLAV",
+      "name": "Flavomycin 80",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731xu3ru",
+      "sku": "RM-MAXI",
+      "name": "Maxiban",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731ktxv9",
+      "sku": "RM-AVAI",
+      "name": "Availa - ZN 120",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731i4wlj",
+      "sku": "RM-RODO",
+      "name": "Rodotium 10%",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731p01z5",
+      "sku": "RM-INTE",
+      "name": "Intelli Bond C",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731vk800",
+      "sku": "RM-LIGN",
+      "name": "LignoBond DD, Sodium Lignosulphonate",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731ve7ud",
+      "sku": "RM-MICR",
+      "name": "Microplex 1000ppm",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207314guh5",
+      "sku": "RM-ROVI",
+      "name": "Rovimix E - 50",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731ic96r",
+      "sku": "RM-BMD,",
+      "name": "BMD, zambac MD",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207313sj19",
+      "sku": "RM-GALL",
+      "name": "Gallipro  Tect",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731rk5k4",
+      "sku": "RM-BIOP",
+      "name": "BioPlus YC",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207311hj20",
+      "sku": "RM-STAF",
+      "name": "Stafac 50",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731v4iea",
+      "sku": "RM-ELAN",
+      "name": "Elancoban",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731d0m6a",
+      "sku": "RM-TIAM",
+      "name": "Tiamet 100 25kg",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731qsu8l",
+      "sku": "RM-COVO",
+      "name": "Covotek",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731z2dl2",
+      "sku": "RM-SUCR",
+      "name": "Sucram, SUCRAM 5S HYDRO",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207315gfge",
+      "sku": "RM-SUCR",
+      "name": "Sucram",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731bpfrj",
+      "sku": "RM-HIZO",
+      "name": "Hizox",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731718kf",
+      "sku": "RM-SALC",
+      "name": "Salcurb RME Liquid",
+      "unit": "Ton",
+      "density": 0.9,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731od09w",
+      "sku": "RM-SALC",
+      "name": "Salcurb RME Liquid (singapore",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731ntald",
+      "sku": "RM-L-VA",
+      "name": "L-Valine",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731kgpql",
+      "sku": "RM-VITA",
+      "name": "VITAMIN E 50",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731vfrcb",
+      "sku": "RM-COPP",
+      "name": "Copper sulfate",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "178737172073193uiu",
+      "sku": "RM-LINP",
+      "name": "Linpro",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720731t3v5y",
+      "sku": "RM-TOTA",
+      "name": "Tota Linpro",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720732exn4v",
+      "sku": "RM-MONI",
+      "name": "Monimax",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720732ych7u",
+      "sku": "RM-NOR ",
+      "name": "Nor Grape PX 100",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720732s0yih",
+      "sku": "RM-APA ",
+      "name": "APA FENBEN 10P",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720732wge6u",
+      "sku": "RM-YUCO",
+      "name": "YUCOMY-20 PREMIX POWDER",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720732362bk",
+      "sku": "RM-L-IS",
+      "name": "L-Isoleucine 20kg",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720732ygjq5",
+      "sku": "RM-L-AR",
+      "name": "L-Arginine",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720732ly7i6",
+      "sku": "RM-FERM",
+      "name": "Ferm O tide",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720732gntum",
+      "sku": "RM-MYPR",
+      "name": "Mypro",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207320povx",
+      "sku": "RM-DPS ",
+      "name": "DPS 50",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720732th0o1",
+      "sku": "RM-AP 9",
+      "name": "AP 920",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207321n9y7",
+      "sku": "RM-FIBE",
+      "name": "FiberMax- 7",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720732m1yhl",
+      "sku": "RM-TART",
+      "name": "TARTRAZINE 50% content",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720732zqwlz",
+      "sku": "RM-BPS ",
+      "name": "BPS Plus",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720732haf2f",
+      "sku": "RM-GLYC",
+      "name": "Glycine",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720732w9f9r",
+      "sku": "RM-MFEE",
+      "name": "Mfeed +",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720732w33mx",
+      "sku": "RM-XTRA",
+      "name": "XTRACT Nature",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720732pfvwb",
+      "sku": "RM-NOVI",
+      "name": "Novipel S",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720732dlvui",
+      "sku": "RM-TOXY",
+      "name": "Toxy-Nil Dry",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720732voc3w",
+      "sku": "RM-TOAT",
+      "name": "Toatl Toxy-Nil Dry",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207325a4wn",
+      "sku": "RM-LEVU",
+      "name": "Levucell sb 10",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "178737172073453uv4",
+      "sku": "RM-MEGA",
+      "name": "Megacid-F",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207346p1gk",
+      "sku": "RM-FRA ",
+      "name": "FRA Butyrin Ultra",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720734kqcql",
+      "sku": "RM-FRA ",
+      "name": "FRA Butyrin Mono",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207345zi9q",
+      "sku": "RM-CITR",
+      "name": "Citrex Powder",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720734thbku",
+      "sku": "RM-POUL",
+      "name": "PoultryGrow 250",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "178737172073483pgy",
+      "sku": "RM-HEMI",
+      "name": "Hemicell HT",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720734fli72",
+      "sku": "RM-MIX ",
+      "name": "Mix oil powder",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720734d6kfw",
+      "sku": "RM-ID P",
+      "name": "ID PHYT CAPCIN P2T 02.50",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207346fkbi",
+      "sku": "RM-VALO",
+      "name": "Valosin FG50,",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720734ga1n8",
+      "sku": "RM-CIBE",
+      "name": "CIBENZA DP 100",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207342cbkp",
+      "sku": "RM-ALTE",
+      "name": "Alterion Ne20",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720734rcxwf",
+      "sku": "RM-DIA-",
+      "name": "Dia- V Nursery",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720735wu0q8",
+      "sku": "RM-LUCT",
+      "name": "LUCTASWEET–  78049Z",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720735dng60",
+      "sku": "RM-ACID",
+      "name": "Acid Buf 10",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720735svrkb",
+      "sku": "RM-DH V",
+      "name": "DH VITAMIN PREMIX",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720735hnu5l",
+      "sku": "RM-KESS",
+      "name": "Kessent MF Dry",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207350l1bw",
+      "sku": "RM-BIOT",
+      "name": "BIOTIN 2%",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720735kq8f6",
+      "sku": "RM-LYSO",
+      "name": "Lysoforte TM Brand Dry",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720735bjbz9",
+      "sku": "RM-RUMI",
+      "name": "Rumifat R100",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720735p9zf8",
+      "sku": "RM-RUMI",
+      "name": "Rumifat Plus",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720735zn723",
+      "sku": "RM-DELT",
+      "name": "DELTA  ACIDOLINE XT",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720735s6979",
+      "sku": "RM-KEMZ",
+      "name": "Kemzin 2000 Dry",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720735skx87",
+      "sku": "RM-DIAM",
+      "name": "Diamond V Original XPC Ultra",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207359q9am",
+      "sku": "RM-NUTR",
+      "name": "Nutracor",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720735hctbi",
+      "sku": "RM-AMIN",
+      "name": "AMINOPLUS#",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720735mr3yf",
+      "sku": "RM-STEA",
+      "name": "Stearolac 90",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207351jufz",
+      "sku": "RM-TOXF",
+      "name": "Toxfin Dry",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720735hby1l",
+      "sku": "RM-KULA",
+      "name": "Kulactic",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720735wpcp3",
+      "sku": "RM-GLOB",
+      "name": "Globatan",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720735dj17w",
+      "sku": "RM-KING",
+      "name": "KingBrown",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720735w3bjn",
+      "sku": "RM-FEED",
+      "name": "FEED GRADE MONTMORILLONITE",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720735wboa1",
+      "sku": "RM-DOXA",
+      "name": "Doxan 50",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720735bardf",
+      "sku": "RM-CALI",
+      "name": "Caliton",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720735q4s2d",
+      "sku": "RM-ANTI",
+      "name": "Anti-Fly",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720736uj6zr",
+      "sku": "RM-SYNG",
+      "name": "Syngen X",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720736awru5",
+      "sku": "RM-CONC",
+      "name": "Conc. 10M",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720736q0yd7",
+      "sku": "RM-CONC",
+      "name": "Conc. 44M",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207368hy9r",
+      "sku": "RM-CONC",
+      "name": "Conc. 51M",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207367v354",
+      "sku": "RM-CONC",
+      "name": "Conc. 52M",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720736371vz",
+      "sku": "RM-CONC",
+      "name": "Conc. PX C250",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720736a416l",
+      "sku": "RM-CONC",
+      "name": "Conc.10V",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720736misvc",
+      "sku": "RM-CONC",
+      "name": "Conc. 13V",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720736zchmn",
+      "sku": "RM-CONC",
+      "name": "Conc. 12V",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720736gk4gt",
+      "sku": "RM-CONC",
+      "name": "Conc. 34V",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720736100r5",
+      "sku": "RM-CONC",
+      "name": "Conc.20V",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207369sazt",
+      "sku": "RM-CONC",
+      "name": "Conc. 21V",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720736twjyy",
+      "sku": "RM-CONC",
+      "name": "Conc. 25V",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720736xd0zh",
+      "sku": "RM-CONC",
+      "name": "Conc. 31V",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207361ai3m",
+      "sku": "RM-CONC",
+      "name": "Conc.48V",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720736254nq",
+      "sku": "RM-CONC",
+      "name": "Conc.50V",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720736nb5yy",
+      "sku": "RM-CONC",
+      "name": "Conc. 51V",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720736devz8",
+      "sku": "RM-CONC",
+      "name": "Conc. 51VF",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720736tnver",
+      "sku": "RM-CONC",
+      "name": "Conc. 52V",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207361myao",
+      "sku": "RM-CONC",
+      "name": "Conc. 53V",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720736lmuk4",
+      "sku": "RM-CONC",
+      "name": "Conc. 52VF",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720737ymv01",
+      "sku": "RM-CONC",
+      "name": "Conc. 62VF",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720737wmix5",
+      "sku": "RM-CONC",
+      "name": "Conc. 62V",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720737q7tkx",
+      "sku": "RM-CONC",
+      "name": "Conc. 62PV",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720737vpekd",
+      "sku": "RM-CONC",
+      "name": "Conc. 62PVF",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720737wbbtm",
+      "sku": "RM-CONC",
+      "name": "Conc. 66V",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720737wu95p",
+      "sku": "RM-CONC",
+      "name": "Conc. 67V",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720737jghs8",
+      "sku": "RM-CONC",
+      "name": "Conc. 52SV",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207375bgzc",
+      "sku": "RM-CONC",
+      "name": "Conc. 52SVF",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720737bh8t1",
+      "sku": "RM-CONC",
+      "name": "Conc. 67SV",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720737z7i7g",
+      "sku": "RM-CONC",
+      "name": "Conc. 67SVF",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720737cub3y",
+      "sku": "RM-CONC",
+      "name": "Conc. 572S",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "178737172073724kqf",
+      "sku": "RM-CONC",
+      "name": "Conc. 572G",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720737fm66v",
+      "sku": "RM-CONC",
+      "name": "Conc. 571",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720737n23sq",
+      "sku": "RM-CONC",
+      "name": "Conc. 582",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720737w11fo",
+      "sku": "RM-CONC",
+      "name": "Conc. MC-0697",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720737ogc7s",
+      "sku": "RM-CONC",
+      "name": "Conc. MC-0697B",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720737d5xe6",
+      "sku": "RM-CONC",
+      "name": "Conc. MC-0697G",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720737rk62i",
+      "sku": "RM-MS S",
+      "name": "MS Swine 0314",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720737zxvm6",
+      "sku": "RM-CONC",
+      "name": "Conc. CORR ABS",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720737nx6cb",
+      "sku": "RM-CONC",
+      "name": "Conc. VP PP",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720737dx8bb",
+      "sku": "RM-CONC",
+      "name": "Conc.  MD-0103",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720738sr5xq",
+      "sku": "RM-CONC",
+      "name": "Conc.EP2",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720738zi7du",
+      "sku": "RM-CONC",
+      "name": "Conc. Red  2%",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207389f62g",
+      "sku": "RM-CONC",
+      "name": "Conc. Yellow  2%",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720738cwwax",
+      "sku": "RM-TRAD",
+      "name": "TRADI-Impact LD - France",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720738212zn",
+      "sku": "RM-CONC",
+      "name": "Conc. Amnil",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720738nfshz",
+      "sku": "RM-MYCO",
+      "name": "Myco Curb",
+      "unit": "Ton",
+      "density": 0.9,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720738jmn45",
+      "sku": "RM-ROVA",
+      "name": "Rovabio  Max LC, Max Advance L",
+      "unit": "Ton",
+      "density": 0.9,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720738hhs2t",
+      "sku": "RM-TIAM",
+      "name": "Tiamutin 80% ,Tiamulin hydrogen Fumarate 80%, Dengard 80% Coated",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720738hdqor",
+      "sku": "RM-PULM",
+      "name": "PULMOTIL",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720738gksdt",
+      "sku": "RM-MYCO",
+      "name": "MYCOSTATIN",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720738xeu70",
+      "sku": "RM-ROXO",
+      "name": "ROXOLIN",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207380vee0",
+      "sku": "RM-APA ",
+      "name": "APA FLOFE 4P",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207384fuon",
+      "sku": "RM-FLUB",
+      "name": "FLUBENOL",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207389eujz",
+      "sku": "RM-PIGF",
+      "name": "Pigfer 40mg/g",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720738e4x5q",
+      "sku": "RM-AMOX",
+      "name": "Amoxycilin",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720738h924h",
+      "sku": "RM-AVAT",
+      "name": "AVATEC",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720738suz99",
+      "sku": "RM-SURM",
+      "name": "Surmax 10% 25kg",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720738plxpt",
+      "sku": "RM-ENRA",
+      "name": "ENRADIN",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17873717207397dtbt",
+      "sku": "RM-BMD",
+      "name": "BMD",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720739mvo7t",
+      "sku": "RM-TIAM",
+      "name": "TIAMVET",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720739c7jl1",
+      "sku": "RM-PROD",
+      "name": "Production Date",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787371720739hxuzk",
+      "sku": "RM-TOTA",
+      "name": "Tota lFRA Butyrin Mono",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787544299691hoh1x",
+      "sku": "RM-ACID",
+      "name": "Acid Lac Premium Liquip,",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787804978070kje1n",
+      "sku": "RM-TÊN ",
+      "name": "Tên Nguyên Liệu",
+      "unit": "Ton",
+      "density": 0.9,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879777916337xbte",
+      "sku": "RM-CORN",
+      "name": "Corn VN",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787977791634heph3",
+      "sku": "RM-CORN",
+      "name": "Corn Gluten Meal",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787977791634lr1ny",
+      "sku": "RM-RBF",
+      "name": "RBF",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879777916344x3ae",
+      "sku": "RM-RBF,",
+      "name": "RBF, Rice Bran Fresh, Rice bran fresh",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787977791634oiab2",
+      "sku": "RM-FEED",
+      "name": "Feed Wheat",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879777916343308k",
+      "sku": "RM-TAP ",
+      "name": "Tap By Product Fine, Tapioca by product - special",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787977791634m8to7",
+      "sku": "RM-SOY ",
+      "name": "Soy Been Meal",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787977791634xwwwj",
+      "sku": "RM-SOY ",
+      "name": "Soy Bean Meal -Ex-WH",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787977791635iw22f",
+      "sku": "RM-SUNF",
+      "name": "Sunflower Meal",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 90,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237054gt37u",
+      "sku": "RM-RAPE",
+      "name": "Rapeseed meal (India)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237054z8ukk",
+      "sku": "RM-FEAT",
+      "name": "Feather Meal (84.2%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370543ziah",
+      "sku": "RM-FEAT",
+      "name": "Feather Meal (85.99%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370548p45g",
+      "sku": "RM-FEAT",
+      "name": "Feather Meal (88.13%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237054rnat8",
+      "sku": "RM-FEAT",
+      "name": "Feather Meal (85.37%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237054mc5sq",
+      "sku": "RM-FEAT",
+      "name": "Feather Meal (82.66%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "178797823705471c6z",
+      "sku": "RM-POUL",
+      "name": "Poultry Meal (60%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370549cbmz",
+      "sku": "RM-FISH",
+      "name": "Fish Head Meal (53.22%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "178797823705479qfu",
+      "sku": "RM-FISH",
+      "name": "Fish Head Meal (53.84%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237054dqnau",
+      "sku": "RM-FISH",
+      "name": "Fish Meal (60.18%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237054gqi8b",
+      "sku": "RM-FISH",
+      "name": "Fish Meal (59.89%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237055y8a31",
+      "sku": "RM-FISH",
+      "name": "Fish Meal (61.26%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237055u928s",
+      "sku": "RM-FISH",
+      "name": "Fish Meal (61%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237055jrkqg",
+      "sku": "RM-FISH",
+      "name": "Fish Meal (60.79%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370558jhdq",
+      "sku": "RM-FISH",
+      "name": "Fish Meal (61.53%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370554e5ni",
+      "sku": "RM-FISH",
+      "name": "Fish Meal (60.54%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237055cm5q5",
+      "sku": "RM-MEAT",
+      "name": "MEAT BONE MEAL (49.84%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237055wv69t",
+      "sku": "RM-MEAT",
+      "name": "MEAT BONE MEAL (50.71%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237055y5jzj",
+      "sku": "RM-MEAT",
+      "name": "MEAT BONE MEAL (53.3%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237055iyt3e",
+      "sku": "RM-MEAT",
+      "name": "MEAT BONE MEAL (49.65%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237055q9gbc",
+      "sku": "RM-MEAT",
+      "name": "MEAT BONE MEAL (54.43%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237055ie5c8",
+      "sku": "RM-MEAT",
+      "name": "MEAT BONE MEAL (51.67%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370556g3iv",
+      "sku": "RM-MONO",
+      "name": "Monodicalcium Phosphate (Morocco,usa)\r\n(1000kg)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237055lvlc3",
+      "sku": "RM-MONO",
+      "name": "Monocalcium Phosphate ( China)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237055khh1m",
+      "sku": "RM-LIME",
+      "name": "Limestone (local)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237055530ay",
+      "sku": "RM-LIME",
+      "name": "Limestone (Coarse)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237055mosur",
+      "sku": "RM-DAIR",
+      "name": "Dairylac 80 (USA)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237055jnnyf",
+      "sku": "RM-HP 3",
+      "name": "HP 300 (Soya Bean Product)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "178797823705562vyk",
+      "sku": "RM-PROV",
+      "name": "Provisoy (VN)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237055n7d6o",
+      "sku": "RM-TRAD",
+      "name": "Tradi-Mega LD (Tra linseed 70%) \r\nFrance",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237055ubes7",
+      "sku": "RM-X - ",
+      "name": "X - Soy 600 (brazil)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "178797823705519h25",
+      "sku": "RM-NEXT",
+      "name": "NEXTIDE (58.8%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237055cvu3i",
+      "sku": "RM-WHEA",
+      "name": "Wheat gluten (Germany)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237055ulxy8",
+      "sku": "RM-BAKE",
+      "name": "Bakery Meal (Biscuit meal)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237055wz2rg",
+      "sku": "RM-INSE",
+      "name": "Insect oil (Local), (dầu côn trùng)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370564qejw",
+      "sku": "RM-DL-M",
+      "name": "DL-Methionine (Begium)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237056uxram",
+      "sku": "RM-RHOD",
+      "name": "Rhodimet AT88 (China)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237056o4haj",
+      "sku": "RM-CHLO",
+      "name": "Chlortetracyline (CTC 15%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370564vygv",
+      "sku": "RM-L-LY",
+      "name": "L-lysine Liquid lysine feed grade (Indo)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237056t9qkq",
+      "sku": "RM-L-TH",
+      "name": "L-Threonine (China)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370568wq2z",
+      "sku": "RM-CARA",
+      "name": "Carani (Algierial)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370566c8rd",
+      "sku": "RM-DABO",
+      "name": "Dabomb-P (soya protein)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237056lwjbc",
+      "sku": "RM-BANG",
+      "name": "Bangifex 190 (China)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237056mlzvn",
+      "sku": "RM-BIOT",
+      "name": "Biotronic Top Liquip (China)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237056boxid",
+      "sku": "RM-LIQU",
+      "name": "Liquid Vitacid (Liquid Vitacidex)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370564s16t",
+      "sku": "RM-PEP ",
+      "name": "Pep 125 (Biomin)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237056ya7gr",
+      "sku": "RM-DENG",
+      "name": "Dengard 80% Coated,  TIAMULIN FUMARATE PREMIX 80% (China)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237056xlyww",
+      "sku": "RM-RODO",
+      "name": "Rodotium 80% (Bulgaria)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370560gqrw",
+      "sku": "RM-PULM",
+      "name": "Pulmotil Premix (10 kg)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237056t5x1i",
+      "sku": "RM-MICL",
+      "name": "Miclozan 200 (Italy)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237056rx18a",
+      "sku": "RM-TILM",
+      "name": "Tilmovet 20% Granular Premix (Bulgaria)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237056ivpcu",
+      "sku": "RM-SACO",
+      "name": "Sacox (Salinomycine premix 12%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237056p0o4b",
+      "sku": "RM-LEAD",
+      "name": "Leader Red (Jiuzhou Red) (CN)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237056eufag",
+      "sku": "RM-M-TO",
+      "name": "M-TOX PLUS, MT.X+ (France)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370566fasw",
+      "sku": "RM-FEED",
+      "name": "Feed curb (singapore) (25kg)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237056bv8e4",
+      "sku": "RM-ENDO",
+      "name": "Endox Dry-M (Singapore)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "178797823705642hq7",
+      "sku": "RM-MYCO",
+      "name": "Myco Sorb  A+ (USA)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237057cp2qc",
+      "sku": "RM-ALLP",
+      "name": "Allplex-B  (USA, Local)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237057k2xxp",
+      "sku": "RM-ALLP",
+      "name": "Allplex-GF (Local)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237057wnazm",
+      "sku": "RM-ALLP",
+      "name": "Allplex-S (Local)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237057cka3y",
+      "sku": "RM-CLIN",
+      "name": "Clinacox (20kg)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237057yl9zi",
+      "sku": "RM-PIGO",
+      "name": "Pigortek 659 (france)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370576jr7i",
+      "sku": "RM-NATU",
+      "name": "Natuphos (125kg)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237057q9viw",
+      "sku": "RM-ACID",
+      "name": "Acid Lac Premium Liquip (Singapore)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237057ny797",
+      "sku": "RM-PHYT",
+      "name": "Phytocee Powder (India)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237057c75o9",
+      "sku": "RM-ENER",
+      "name": "Enerzyme (20kg)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370570bdsu",
+      "sku": "RM-ROVA",
+      "name": "ROVABIO# PHY PLUS 10000T (SG)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370572cn16",
+      "sku": "RM-ROVA",
+      "name": "Rovabio  Max Advance L, Rovabio Advance Phy L\r\n(228kg/thùng)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237057e22m8",
+      "sku": "RM-PHYL",
+      "name": "PhyLink (Singapore)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237057whvfj",
+      "sku": "RM-XAMA",
+      "name": "Xamacol 40 (25kg)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237057a0759",
+      "sku": "RM-LEAD",
+      "name": "Leader Yellow (china)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237057x5es3",
+      "sku": "RM-VERS",
+      "name": "Versazyme (25kg)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237057n8tgl",
+      "sku": "RM-ROXO",
+      "name": "Roxolin - (QUIXALUD )",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237057vd9js",
+      "sku": "RM-FLOR",
+      "name": "FLORPAN -S ( florfenicol 3%)  (20kg)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237057mjcsj",
+      "sku": "RM-APA ",
+      "name": "APA FLOFE 4P, FlorPAN-4S ( florfenicol 4%)  (20kg)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237057e8miq",
+      "sku": "RM-PIGF",
+      "name": "Pigfen 40mg/g (Bulgaria) (20kg)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370577bmd4",
+      "sku": "RM-AVI-",
+      "name": "Avi-Mul Top Feed Grade (Italy), (900kg)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "178797823705773ww5",
+      "sku": "RM-ADVA",
+      "name": "Advance Amoxicillin (VN)(20Kg)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370580toqz",
+      "sku": "RM-VETR",
+      "name": "Vetrimoxin 50 Matrix (Italy)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237058mtfsm",
+      "sku": "RM-ADVA",
+      "name": "Advance Timicox 20 (VN)(20Kg)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237058cca97",
+      "sku": "RM-LARV",
+      "name": "Larvadex (20kg)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237058gf4r6",
+      "sku": "RM-AXTR",
+      "name": "Axtra# PRIME 501 T (Singapore)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237058zaupl",
+      "sku": "RM-PORZ",
+      "name": "Porzyme TP-100HP Dry (Finland)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237058eg5qi",
+      "sku": "RM-AVAT",
+      "name": "Avatec 15% (20kg)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370587f6p3",
+      "sku": "RM-CYGR",
+      "name": "Cygro 1% (maduramycin- 20kg)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237058lvzgk",
+      "sku": "RM-ENRA",
+      "name": "Enradin 8% (20kg)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237058zlnfh",
+      "sku": "RM-TYLA",
+      "name": "Tylan (22.68 kg)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370584s0d3",
+      "sku": "RM-ROVI",
+      "name": "Rovimix E - 50 (25KG)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "178797823705864br9",
+      "sku": "RM-BMD,",
+      "name": "BMD, zambac MD (size 1 kg)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370581rrv8",
+      "sku": "RM-GALL",
+      "name": "Gallipro  Tect (20kg)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237058zpzvy",
+      "sku": "RM-BIOP",
+      "name": "BioPlus YC (Czech Republic) (20kg)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370605r60z",
+      "sku": "RM-STAF",
+      "name": "Stafac 50 (5%) (25kg)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237060cw1m0",
+      "sku": "RM-TIAM",
+      "name": "Tiamet 100( Italy) 25kg",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237060fbu4n",
+      "sku": "RM-COVO",
+      "name": "Covotek (France)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370609ojqd",
+      "sku": "RM-SUCR",
+      "name": "Sucram (Switzerland), SUCRAM 5S HYDRO",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237060spgee",
+      "sku": "RM-SUCR",
+      "name": "Sucram (Switzerland)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237061hozga",
+      "sku": "RM-HIZO",
+      "name": "Hizox (France)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370612tyfd",
+      "sku": "RM-SALC",
+      "name": "Salcurb RME Liquid (singapore)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370617wq2u",
+      "sku": "RM-L-VA",
+      "name": "L-Valine (china)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237061wtj0m",
+      "sku": "RM-COPP",
+      "name": "Copper sulfate (thai)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237061ovg2k",
+      "sku": "RM-LINP",
+      "name": "Linpro (canada)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370610zzgo",
+      "sku": "RM-TOTA",
+      "name": "Tota Linpro (canada)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370611r6jw",
+      "sku": "RM-MONI",
+      "name": "Monimax (20kg)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237061a30vw",
+      "sku": "RM-NOR ",
+      "name": "Nor Grape PX 100 (France)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370613d98p",
+      "sku": "RM-YUCO",
+      "name": "YUCOMY-20 PREMIX POWDER (20kg)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237061p3llz",
+      "sku": "RM-L-IS",
+      "name": "L-Isoleucine (CHINA) 20kg",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237061m56dw",
+      "sku": "RM-L-AR",
+      "name": "L-Arginine (china)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237061mn0cm",
+      "sku": "RM-MYPR",
+      "name": "Mypro (china)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237061p8m3u",
+      "sku": "RM-DPS ",
+      "name": "DPS 50(USA)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237062usqrf",
+      "sku": "RM-FIBE",
+      "name": "FiberMax- 7 (USA)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237062myi9a",
+      "sku": "RM-TART",
+      "name": "TARTRAZINE 50% content (India)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237062i22g7",
+      "sku": "RM-BPS ",
+      "name": "BPS Plus (France)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237062wdl8q",
+      "sku": "RM-MFEE",
+      "name": "Mfeed + (France)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "178797823706285tk5",
+      "sku": "RM-XTRA",
+      "name": "XTRACT Nature (Switzerland)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237062xcfzr",
+      "sku": "RM-NOVI",
+      "name": "Novipel S (Belgium)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237062d19b1",
+      "sku": "RM-TOXY",
+      "name": "Toxy-Nil Dry ( Belgium)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237062x75og",
+      "sku": "RM-MEGA",
+      "name": "Megacid-F (singapore)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237062qlrfz",
+      "sku": "RM-FRA ",
+      "name": "FRA Butyrin Ultra (Netherlands)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370624hbza",
+      "sku": "RM-FRA ",
+      "name": "FRA Butyrin Mono (Netherlands)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370623vby0",
+      "sku": "RM-CITR",
+      "name": "Citrex Powder (Malaysia)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370622uprr",
+      "sku": "RM-POUL",
+      "name": "PoultryGrow 250 (Canada)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237063vk3ng",
+      "sku": "RM-HEMI",
+      "name": "Hemicell HT (usa)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237063j514v",
+      "sku": "RM-MIX ",
+      "name": "Mix oil powder (20KG)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237063gqw93",
+      "sku": "RM-ID P",
+      "name": "ID PHYT CAPCIN P2T 02.50 (Switzerland)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370632bymb",
+      "sku": "RM-VALO",
+      "name": "Valosin FG50 (Tylvalosin), (5kg)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "178797823706347vlp",
+      "sku": "RM-ALTE",
+      "name": "Alterion Ne20 ( Singapore)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237063g764x",
+      "sku": "RM-DIA-",
+      "name": "Dia- V Nursery (USA)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237063s5osn",
+      "sku": "RM-LUCT",
+      "name": "LUCTASWEET–  78049Z (China)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237063b38oy",
+      "sku": "RM-ACID",
+      "name": "Acid Buf 10 (Ireland)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370642i8ws",
+      "sku": "RM-KESS",
+      "name": "Kessent MF Dry (Singapore)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237064xu15y",
+      "sku": "RM-LYSO",
+      "name": "Lysoforte TM Brand Dry (Singapore)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237064ysipg",
+      "sku": "RM-RUMI",
+      "name": "Rumifat R100 (Malaysia)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237064c1oa6",
+      "sku": "RM-RUMI",
+      "name": "Rumifat Plus (Malaysia)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237064eg5g9",
+      "sku": "RM-DELT",
+      "name": "DELTA  ACIDOLINE XT (France)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237064u2st5",
+      "sku": "RM-KEMZ",
+      "name": "Kemzin 2000 Dry (Singapore)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237064wx88c",
+      "sku": "RM-DIAM",
+      "name": "Diamond V Original XPC Ultra (USA)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237064hjpf1",
+      "sku": "RM-NUTR",
+      "name": "Nutracor (Malaysia)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "178797823706498j51",
+      "sku": "RM-AMIN",
+      "name": "AMINOPLUS# (USA)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370654ss9z",
+      "sku": "RM-STEA",
+      "name": "Stearolac 90 (Malaysia)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237065hvesw",
+      "sku": "RM-TOXF",
+      "name": "Toxfin Dry (Singapore)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237065tk91r",
+      "sku": "RM-KULA",
+      "name": "Kulactic (USA)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370659c4pp",
+      "sku": "RM-GLOB",
+      "name": "Globatan (France)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370656gxru",
+      "sku": "RM-KING",
+      "name": "KingBrown (polyphenols)(France)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237065jacvc",
+      "sku": "RM-FEED",
+      "name": "FEED GRADE MONTMORILLONITE (CN)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237065afv4l",
+      "sku": "RM-DOXA",
+      "name": "Doxan 50 (Viet Nam)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237065397na",
+      "sku": "RM-CALI",
+      "name": "Caliton (China)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237065swnno",
+      "sku": "RM-ANTI",
+      "name": "Anti-Fly (Viet Nam) (10kg)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237065jz4e8",
+      "sku": "RM-SYNG",
+      "name": "Syngen X (USA)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237065l3mrc",
+      "sku": "RM-CONC",
+      "name": "Conc. 10M (Lot 42)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370658yzuk",
+      "sku": "RM-CONC",
+      "name": "Conc. 10M (Lot 43)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237066kvk4m",
+      "sku": "RM-CONC",
+      "name": "Conc. 10M (Lot 38)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237066ms3ir",
+      "sku": "RM-CONC",
+      "name": "Conc. 10M (Lot 07)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237066gjpn0",
+      "sku": "RM-CONC",
+      "name": "Conc. 10M (Lot 4)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237066nf973",
+      "sku": "RM-CONC",
+      "name": "Conc. 10M (Lot 40)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237066py4u4",
+      "sku": "RM-CONC",
+      "name": "Conc. 52M (Lot 52)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237066jn3b3",
+      "sku": "RM-CONC",
+      "name": "Conc. 52M (Lot 54)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237066phzdj",
+      "sku": "RM-CONC",
+      "name": "Conc. 52M (Lot 56)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237066pvbtu",
+      "sku": "RM-CONC",
+      "name": "Conc. 52M (Lot 24)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370664w6y6",
+      "sku": "RM-CONC",
+      "name": "Conc. 52M (Lot 87)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237066c0htx",
+      "sku": "RM-CONC",
+      "name": "Conc. 52M (Lot 04)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370669kis8",
+      "sku": "RM-CONC",
+      "name": "Conc. 52M (Lot 06)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237067n80n6",
+      "sku": "RM-CONC",
+      "name": "Conc. 52M (Lot 03)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237067m6dzb",
+      "sku": "RM-CONC",
+      "name": "Conc.10V (Lot 17)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237067ysx4l",
+      "sku": "RM-CONC",
+      "name": "Conc.10V (Lot 31)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237067nqwyt",
+      "sku": "RM-CONC",
+      "name": "Conc.10V (Lot 32)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237067x6wo6",
+      "sku": "RM-CONC",
+      "name": "Conc.10V (Lot 28)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237067g8vvz",
+      "sku": "RM-CONC",
+      "name": "Conc.10V (Lot 2)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237067myed7",
+      "sku": "RM-CONC",
+      "name": "Conc. 12V (chờ adj out)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370675w3um",
+      "sku": "RM-CONC",
+      "name": "Conc. 34V (Lot 34 )",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370670vm1p",
+      "sku": "RM-CONC",
+      "name": "Conc. 34V (Lot 26)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370679nxh9",
+      "sku": "RM-CONC",
+      "name": "Conc. 34V (Lot 15 )",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237068zm3pf",
+      "sku": "RM-CONC",
+      "name": "Conc. 34V (Lot 04)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237068fxzhr",
+      "sku": "RM-CONC",
+      "name": "Conc. 34V (Lot 05)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370682apk7",
+      "sku": "RM-CONC",
+      "name": "Conc. 21V (Lot 32)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237068ov4ls",
+      "sku": "RM-CONC",
+      "name": "Conc. 21V (Lot 33)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237068obez8",
+      "sku": "RM-CONC",
+      "name": "Conc. 21V (Lot 26)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237068l5bhc",
+      "sku": "RM-CONC",
+      "name": "Conc. 21V (Lot 23)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370689j089",
+      "sku": "RM-CONC",
+      "name": "Conc. 21V (Lot 18)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237068e0xr8",
+      "sku": "RM-CONC",
+      "name": "Conc. 21V (Lot 35)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237068mtmhh",
+      "sku": "RM-CONC",
+      "name": "Conc. 25V (Lot 33)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237068t1z05",
+      "sku": "RM-CONC",
+      "name": "Conc. 25V (Lot 41)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237069laqd5",
+      "sku": "RM-CONC",
+      "name": "Conc. 25V (Lot 31)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237069g7jhm",
+      "sku": "RM-CONC",
+      "name": "Conc. 25V (Lot 32)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237069ejd14",
+      "sku": "RM-CONC",
+      "name": "Conc. 25V (Lot 29)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237069cequh",
+      "sku": "RM-CONC",
+      "name": "Conc. 25V (Lot 01)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237069m4pja",
+      "sku": "RM-CONC",
+      "name": "Conc. 31V (Lot 18)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237069zr8o1",
+      "sku": "RM-CONC",
+      "name": "Conc. 31V (Lot 15)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "178797823706941otg",
+      "sku": "RM-CONC",
+      "name": "Conc. 31V (Lot 13)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237069379n2",
+      "sku": "RM-CONC",
+      "name": "Conc. 31V (Lot 17)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237069vfbq9",
+      "sku": "RM-CONC",
+      "name": "Conc. 31V (Lot 19)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237069h8dkr",
+      "sku": "RM-CONC",
+      "name": "Conc.48V (Lot 47)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "178797823706994bbo",
+      "sku": "RM-CONC",
+      "name": "Conc.48V (Lot 31)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237069onb04",
+      "sku": "RM-CONC",
+      "name": "Conc.48V (Lot 19)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237070w430h",
+      "sku": "RM-CONC",
+      "name": "Conc.48V (Lot 05)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237070yi7ew",
+      "sku": "RM-CONC",
+      "name": "Conc.48V (Lot 35)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237070ohww9",
+      "sku": "RM-CONC",
+      "name": "Conc.48V (Lot 37)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237070x0een",
+      "sku": "RM-CONC",
+      "name": "Conc.48V (Lot 30)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237070kl9ww",
+      "sku": "RM-CONC",
+      "name": "Conc. 51V (Lot 31)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370700bggf",
+      "sku": "RM-CONC",
+      "name": "Conc. 51V (Lot 32)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237070tg0lw",
+      "sku": "RM-CONC",
+      "name": "Conc. 51V (Lot 18)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237070sw4dz",
+      "sku": "RM-CONC",
+      "name": "Conc. 51V (Lot 04)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237070060lf",
+      "sku": "RM-CONC",
+      "name": "Conc. 52V (Lot 16)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237070150xx",
+      "sku": "RM-CONC",
+      "name": "Conc. 52V (Lot 33)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370704flei",
+      "sku": "RM-CONC",
+      "name": "Conc. 52V (Lot 34)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370708mqf8",
+      "sku": "RM-CONC",
+      "name": "Conc. 52V (Lot 30)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370712tkzq",
+      "sku": "RM-CONC",
+      "name": "Conc. 52V (Lot 41)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237071z1p78",
+      "sku": "RM-CONC",
+      "name": "Conc. 52V (Lot 06)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237071u3sw2",
+      "sku": "RM-CONC",
+      "name": "Conc. 52V (Lot 32)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370719u7ru",
+      "sku": "RM-CONC",
+      "name": "Conc. 62V (Lot 26)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237071troky",
+      "sku": "RM-CONC",
+      "name": "Conc. 62V (Lot 34)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237071rxxro",
+      "sku": "RM-CONC",
+      "name": "Conc. 62PV (Lot 18)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237071u1hhl",
+      "sku": "RM-CONC",
+      "name": "Conc. 62PV (Lot 32)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237071mnh6j",
+      "sku": "RM-CONC",
+      "name": "Conc. 62PV (Lot 25)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370717tnrd",
+      "sku": "RM-CONC",
+      "name": "Conc. 62PV (Lot 03)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237071xcoay",
+      "sku": "RM-CONC",
+      "name": "Conc. 66V (Lot 30)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "178797823707190913",
+      "sku": "RM-CONC",
+      "name": "Conc. 66V (Lot 31)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237071y4wcl",
+      "sku": "RM-CONC",
+      "name": "Conc. 66V (Lot 32)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237071zilem",
+      "sku": "RM-CONC",
+      "name": "Conc. 66V (Lot 07)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237071daxb4",
+      "sku": "RM-CONC",
+      "name": "Conc. 67V (Lot 23)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370718133a",
+      "sku": "RM-CONC",
+      "name": "Conc. 67V (Lot 29)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237071s3e6i",
+      "sku": "RM-CONC",
+      "name": "Conc. 67V (Lot 30)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370727c5k2",
+      "sku": "RM-CONC",
+      "name": "Conc. 67V (Lot 13)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237072decre",
+      "sku": "RM-CONC",
+      "name": "Conc. 67V (Lot 47)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370720bbsn",
+      "sku": "RM-CONC",
+      "name": "Conc. 52SV (Lot 31)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237072yl1en",
+      "sku": "RM-CONC",
+      "name": "Conc. 52SV (Lot 32)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237072vq3iu",
+      "sku": "RM-CONC",
+      "name": "Conc. 52SV (Lot 28)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237072lxq52",
+      "sku": "RM-CONC",
+      "name": "Conc. 52SV (Lot 15)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370720a56b",
+      "sku": "RM-CONC",
+      "name": "Conc. 52SV (Lot 04)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237072euv97",
+      "sku": "RM-CONC",
+      "name": "Conc. 52SV (Lot 30)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237072pn177",
+      "sku": "RM-CONC",
+      "name": "Conc. 67SV (Lot 5)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237072zd2np",
+      "sku": "RM-CONC",
+      "name": "Conc. 67SV (Lot 35)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370729wasm",
+      "sku": "RM-CONC",
+      "name": "Conc. 67SV (Lot 31)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237072ml4bs",
+      "sku": "RM-CONC",
+      "name": "Conc. 67SV (Lot 17)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237072h7ogb",
+      "sku": "RM-CONC",
+      "name": "Conc. 67SV (Lot 04)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237072kw3p1",
+      "sku": "RM-CONC",
+      "name": "Conc. 572S (Lot 32)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237072mm8tg",
+      "sku": "RM-CONC",
+      "name": "Conc. 572S (Lot 33)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237072k024h",
+      "sku": "RM-CONC",
+      "name": "Conc. 572S (Lot 17)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237073qddi1",
+      "sku": "RM-CONC",
+      "name": "Conc. 572S (Lot 10)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237073qyl08",
+      "sku": "RM-CONC",
+      "name": "Conc. 572S (Lot 34)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237073810gw",
+      "sku": "RM-CONC",
+      "name": "Conc. 572S (Lot 05)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370732p6kd",
+      "sku": "RM-CONC",
+      "name": "Conc. 572G (Lot 26)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237073p5biu",
+      "sku": "RM-CONC",
+      "name": "Conc. 572G (Lot 16)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237073f1u6s",
+      "sku": "RM-CONC",
+      "name": "Conc. 572G (Lot 25)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370738a8ni",
+      "sku": "RM-CONC",
+      "name": "Conc. 571 (Lot 31)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370733a6r0",
+      "sku": "RM-CONC",
+      "name": "Conc. 571 (Lot 12)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370733xu05",
+      "sku": "RM-CONC",
+      "name": "Conc. 582 (Lot 04)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370734xtb5",
+      "sku": "RM-CONC",
+      "name": "Conc. 582 (Lot 05)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237073ap5zh",
+      "sku": "RM-CONC",
+      "name": "Conc. 582 (Lot 33)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370731e5me",
+      "sku": "RM-CONC",
+      "name": "Conc. 582 (Lot 35)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370738r5yk",
+      "sku": "RM-CONC",
+      "name": "Conc. 582 (Lot 17)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "178797823707386sfb",
+      "sku": "RM-CONC",
+      "name": "Conc. 582 (Lot 24)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370735j33m",
+      "sku": "RM-CONC",
+      "name": "Conc. 582 (Lot 43)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370737ujrn",
+      "sku": "RM-CONC",
+      "name": "Conc. 582 (Lot 32)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237074m6aol",
+      "sku": "RM-CONC",
+      "name": "Conc. MC-0697 (Lot 14)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237074leoec",
+      "sku": "RM-CONC",
+      "name": "Conc. MC-0697 (Lot 31)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370746yt4u",
+      "sku": "RM-CONC",
+      "name": "Conc. MC-0697 (Lot 30)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "178797823707453tix",
+      "sku": "RM-CONC",
+      "name": "Conc. MC-0697 (Lot 02)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237074h3v0a",
+      "sku": "RM-CONC",
+      "name": "Conc. MC-0697B (Lot 33)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237074my19u",
+      "sku": "RM-CONC",
+      "name": "Conc. MC-0697B (Lot 30)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237074t21xv",
+      "sku": "RM-CONC",
+      "name": "Conc. MC-0697B (Lot 31)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237074cqabx",
+      "sku": "RM-CONC",
+      "name": "Conc. MC-0697B (Lot 32)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237074m03jn",
+      "sku": "RM-CONC",
+      "name": "Conc. MC-0697B (Lot 22)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237074t59hc",
+      "sku": "RM-CONC",
+      "name": "Conc. MC-0697B (Lot 15)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237075o2c9q",
+      "sku": "RM-CONC",
+      "name": "Conc. MC-0697G (Lot 28)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237075mlav6",
+      "sku": "RM-CONC",
+      "name": "Conc. MC-0697G (Lot 24)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237075vokhl",
+      "sku": "RM-CONC",
+      "name": "Conc. MC-0697G (Lot 21)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237075sc1gb",
+      "sku": "RM-MS S",
+      "name": "MS Swine 0314 (25kg)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237075nel2j",
+      "sku": "RM-CONC",
+      "name": "Conc. CORR ABS (Lot 23)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237075hens8",
+      "sku": "RM-CONC",
+      "name": "Conc. CORR ABS (Lot 20)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237077p8fdy",
+      "sku": "RM-CONC",
+      "name": "Conc. VP PP (Lot 25 )",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370772sack",
+      "sku": "RM-CONC",
+      "name": "Conc.  MD-0103 (Lot 22)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370773ohgl",
+      "sku": "RM-CONC",
+      "name": "Conc.EP2 (Lot 23)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237077l1tk1",
+      "sku": "RM-CONC",
+      "name": "Conc.EP2 (Lot 26)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237078y7ylh",
+      "sku": "RM-CONC",
+      "name": "Conc.EP2 (Lot 02)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237078tv6ur",
+      "sku": "RM-CONC",
+      "name": "Conc. Red  2% (Lot 52)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370783fa8g",
+      "sku": "RM-CONC",
+      "name": "Conc. Red  2% (Lot 54)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370780kvko",
+      "sku": "RM-CONC",
+      "name": "Conc. Red  2% (Lot 42)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237078ehjfg",
+      "sku": "RM-CONC",
+      "name": "Conc. Red  2% (Lot 08)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370786467o",
+      "sku": "RM-CONC",
+      "name": "Conc. Red  2% (Lot 45)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237078h4uba",
+      "sku": "RM-CONC",
+      "name": "Conc. Red  2% (Lot 34)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237078rd46h",
+      "sku": "RM-CONC",
+      "name": "Conc. Yellow  2% (Lot 12)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "178797823707834y51",
+      "sku": "RM-CONC",
+      "name": "Conc. Yellow  2% (Lot 23)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237079twmk4",
+      "sku": "RM-CONC",
+      "name": "Conc. Amnil (Lot 30)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237079oggbo",
+      "sku": "RM-CONC",
+      "name": "Conc. Amnil (Lot 31)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237079dzpo4",
+      "sku": "RM-CONC",
+      "name": "Conc. Amnil (Lot 28)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370794kn89",
+      "sku": "RM-CONC",
+      "name": "Conc. Amnil (Lot 29)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237079uhmec",
+      "sku": "RM-C-C ",
+      "name": "C-C 75% (230kg)",
+      "unit": "Ton",
+      "density": 0.9,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237079rfond",
+      "sku": "RM-MYCO",
+      "name": "Myco Curb (1000kg)",
+      "unit": "Ton",
+      "density": 0.9,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237079cc84z",
+      "sku": "RM-ROVA",
+      "name": "Rovabio  Max LC, Max Advance L\r\n(228kg/thung)",
+      "unit": "Ton",
+      "density": 0.9,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237080try0y",
+      "sku": "RM-TIAM",
+      "name": "Tiamutin 80% ,Tiamulin hydrogen Fumarate 80%, Dengard 80% Coated (25kg)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237080krcf1",
+      "sku": "RM-APA ",
+      "name": "APA FLOFE 4P ( florfenicol 4%)  (20kg)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17879782370803fl6b",
+      "sku": "RM-PIGF",
+      "name": "Pigfer 40mg/g (Bulgaria)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237080ycb1u",
+      "sku": "RM-ADVA",
+      "name": "Advance Timicox 20 (VN)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237080qd7o5",
+      "sku": "RM-CHLO",
+      "name": "Chlortetracyline (CTC)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "178797823708075irb",
+      "sku": "RM-SACO",
+      "name": "Sacox (Salinomycine)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237080snidf",
+      "sku": "RM-ELAN",
+      "name": "Elancoban (25kg)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237080bpsra",
+      "sku": "RM-PROD",
+      "name": "Production Date (Lot VN)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237080ox2zx",
+      "sku": "RM-L-IS",
+      "name": "L-Isoleucine (korea) 20kg",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1787978237081gipee",
+      "sku": "RM-FERM",
+      "name": "Ferm O tide (usa)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1788261605815b9rne",
+      "sku": "RM-MEAT",
+      "name": "MEAT BONE MEAL (48.27%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1788261605834bsg44",
+      "sku": "RM-CONC",
+      "name": "Conc. 10M (Lot 45)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17882616058359ucde",
+      "sku": "RM-CONC",
+      "name": "Conc. 52M (Lot 58)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1788261605836balcd",
+      "sku": "RM-CONC",
+      "name": "Conc.10V (Lot 33)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1788261605840dxvlo",
+      "sku": "RM-CONC",
+      "name": "Conc.48V (Lot 33)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1788261605840yw6ua",
+      "sku": "RM-CONC",
+      "name": "Conc. 51V (Lot 34)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1788261605841jsrva",
+      "sku": "RM-CONC",
+      "name": "Conc. 52V (Lot 35)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1788261605842q9982",
+      "sku": "RM-CONC",
+      "name": "Conc. 62PV (Lot 33)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1788261605842icn6m",
+      "sku": "RM-CONC",
+      "name": "Conc. 66V (Lot 33)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17882616058431gaoa",
+      "sku": "RM-CONC",
+      "name": "Conc. 67V (Lot 33)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1788261605844mz8gm",
+      "sku": "RM-CONC",
+      "name": "Conc. 52SV (Lot 33)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1788261605845uu9w7",
+      "sku": "RM-CONC",
+      "name": "Conc. 67SV (Lot 3)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17882616058470ehl9",
+      "sku": "RM-CONC",
+      "name": "Conc. 582 (Lot 36)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1788261605848s1zij",
+      "sku": "RM-CONC",
+      "name": "Conc. MC-0697 (Lot 33)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17882616058501faf4",
+      "sku": "RM-CONC",
+      "name": "Conc. MC-0697G (Lot 32)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1788261605852dokgj",
+      "sku": "RM-CONC",
+      "name": "Conc. Red  2% (Lot 56)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1788261605853aos5h",
+      "sku": "RM-CONC",
+      "name": "Conc. Amnil (Lot 32)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1788490560896fbkxt",
+      "sku": "RM-MEAT",
+      "name": "MEAT BONE MEAL (52.66%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "178849056089762a1p",
+      "sku": "RM-MEAT",
+      "name": "MEAT BONE MEAL (51.8%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1788490560897m1t2w",
+      "sku": "RM-MEAT",
+      "name": "MEAT BONE MEAL (48.32%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1788490560897ujsxa",
+      "sku": "RM-MEAT",
+      "name": "MEAT BONE MEAL (48.26%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1788490560899mp3lr",
+      "sku": "RM-NEXT",
+      "name": "NEXTIDE (58.5%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789091913907lg0qe",
+      "sku": "RM-FEAT",
+      "name": "Feather Meal (86.26%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789091913907ewsdi",
+      "sku": "RM-FEAT",
+      "name": "Feather Meal (84.95%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789091913909gitcy",
+      "sku": "RM-MEAT",
+      "name": "MEAT BONE MEAL (49.64%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17890919139097yjiv",
+      "sku": "RM-MEAT",
+      "name": "MEAT BONE MEAL (50.45%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789091913909nxlbp",
+      "sku": "RM-MEAT",
+      "name": "MEAT BONE MEAL (49.27%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17890919139093b5vx",
+      "sku": "RM-MEAT",
+      "name": "MEAT BONE MEAL (50.06%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789091913922m88cq",
+      "sku": "RM-ANTI",
+      "name": "Anti-Fly (Viet Nam)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789091913922lphoc",
+      "sku": "RM-CONC",
+      "name": "Conc. 10M (Lot 46)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789091913923jsbt4",
+      "sku": "RM-CONC",
+      "name": "Conc. 52M (Lot 60)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789091913924x1ub0",
+      "sku": "RM-CONC",
+      "name": "Conc.10V (Lot 34)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789091913926eb5zf",
+      "sku": "RM-CONC",
+      "name": "Conc.48V (Lot 34)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17890919139263etxg",
+      "sku": "RM-CONC",
+      "name": "Conc. 51V (Lot 35)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17890919139271xo4q",
+      "sku": "RM-CONC",
+      "name": "Conc. 52V (Lot 36)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789091913928btx28",
+      "sku": "RM-CONC",
+      "name": "Conc. 62PV (Lot 34)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789091913928eaet6",
+      "sku": "RM-CONC",
+      "name": "Conc. 66V (Lot 34)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789091913929d06d8",
+      "sku": "RM-CONC",
+      "name": "Conc. 52SV (Lot 34)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789091913930gqoif",
+      "sku": "RM-CONC",
+      "name": "Conc. 67SV (Lot 33)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17890919139306ximq",
+      "sku": "RM-CONC",
+      "name": "Conc. 67SV (Lot 34)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789091913931mnc1s",
+      "sku": "RM-CONC",
+      "name": "Conc. 571 (Lot 34)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789091913932k04rn",
+      "sku": "RM-CONC",
+      "name": "Conc. MC-0697 (Lot 34)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789091913934p7q5d",
+      "sku": "RM-CONC",
+      "name": "Conc. Red  2% (Lot 57)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789091913934iyawa",
+      "sku": "RM-CONC",
+      "name": "Conc. Amnil (Lot 33)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789099328008vw8f6",
+      "sku": "RM-CONC",
+      "name": "Conc. 10M (Lot 47)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789099328009wj09x",
+      "sku": "RM-CONC",
+      "name": "Conc. 52M (Lot 62)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17890993280097nfgu",
+      "sku": "RM-CONC",
+      "name": "Conc.10V (Lot 35)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17890993280101v5zr",
+      "sku": "RM-CONC",
+      "name": "Conc. 25V (Lot 35)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789099328011sfaqk",
+      "sku": "RM-CONC",
+      "name": "Conc. 51V (Lot 36)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789099328011ppo4d",
+      "sku": "RM-CONC",
+      "name": "Conc. 52V (Lot 37)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789099328011pybpo",
+      "sku": "RM-CONC",
+      "name": "Conc. 62V (Lot 35)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789099328012z2vze",
+      "sku": "RM-CONC",
+      "name": "Conc. 62PV (Lot 35)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789099328012s9ldr",
+      "sku": "RM-CONC",
+      "name": "Conc. 66V (Lot 35)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789099328012vgzf3",
+      "sku": "RM-CONC",
+      "name": "Conc. 67V (Lot 35)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789099328012pch04",
+      "sku": "RM-CONC",
+      "name": "Conc. 52SV (Lot 35)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789099328013578m5",
+      "sku": "RM-CONC",
+      "name": "Conc. 572S (Lot 36)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "178909932801397lrh",
+      "sku": "RM-CONC",
+      "name": "Conc. 572G (Lot 32)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789099328013nfe6r",
+      "sku": "RM-CONC",
+      "name": "Conc. 571 (Lot 35)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789099328014iqqud",
+      "sku": "RM-CONC",
+      "name": "Conc. 582 (Lot 38)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17890993280141b9wj",
+      "sku": "RM-CONC",
+      "name": "Conc. MC-0697 (Lot 35)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17890993280158zfmp",
+      "sku": "RM-CONC",
+      "name": "Conc. MC-0697G (Lot 34)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789099328015dcjpp",
+      "sku": "RM-CONC",
+      "name": "Conc. Red  2% (Lot 58)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17890993280167nvvx",
+      "sku": "RM-CONC",
+      "name": "Conc. Amnil (Lot 34)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    }
+  ],
+  "logs": [
+    {
+      "id": "l1",
+      "timestamp": "2026-08-15T08:00:00Z",
+      "type": "Mail_Scan",
+      "message": "Scanned inbox for new reports. Found 1 file.",
+      "successCount": 0,
+      "errorCount": 0
+    },
+    {
+      "id": "l2",
+      "timestamp": "2026-08-15T08:05:22Z",
+      "type": "Excel_Parse",
+      "message": "Parsed STOCK_REPORT_1508.xlsx successfully.",
+      "successCount": 1135,
+      "errorCount": 0
+    }
+  ]
+}
