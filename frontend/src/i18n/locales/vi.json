@@ -161,5 +161,33 @@
     "t85": "Đã duyệt",
     "t86": "Chờ duyệt",
     "t87": "Tải xuống"
+  },
+  "dashboardPage": {
+    "title": "Quản Lý Tồn Kho Nguyên Liệu",
+    "reportDate": "NGÀY BÁO CÁO",
+    "noData": "Không có dữ liệu",
+    "materialGroup": "NHÓM NGUYÊN LIỆU",
+    "all": "Tất cả",
+    "silo": "Silo",
+    "additives": "Phụ gia",
+    "liquid": "Hàng lỏng",
+    "materialName": "TÊN NGUYÊN LIỆU",
+    "readingExcel": "Đang đọc Excel...",
+    "chooseExcel": "Chọn file Excel",
+    "errorLoad": "Không thể tải bảng điều khiển",
+    "totalVolume": "Tổng Khối Lượng",
+    "estUsageDay": "EST. Usage (Day)",
+    "estUsageWeek": "EST. Usage (Week)",
+    "actualUsage": "Sử Dụng Thực Tế",
+    "doh": "DOH",
+    "todayReceived": "Nhập Trong Ngày",
+    "rawMaterialDetails": "CHI TIẾT NGUYÊN LIỆU",
+    "unitTons": "Đơn vị: Tấn",
+    "material": "Nguyên Liệu",
+    "location": "Vị Trí",
+    "receivedDay": "Nhập Hàng",
+    "amount": "Khối Lượng",
+    "estDay": "Est. Day",
+    "loadingContent": "Đang tải nội dung..."
   }
 }

@@ -143,9 +143,12 @@ function parseExcelReport(filePath) {
             materialsTotals[currentMaterialName].estUsageKg = Math.max(0, estUsageKg);
             materialsTotals[currentMaterialName].totalStockTons = Math.max(0, totalStockTons);
             materialsTotals[currentMaterialName].dohDay = Math.max(0, dohDay);
-            // Lấy tổng nhập từ dòng SubTotal (colH + colI) thay vì cộng dồn từng dòng location
-            // để tránh đếm trùng khi có nhiều sub-group (VD: Corn ARG + Corn Brazil)
-            const subReceiveKg = (parseFloat(colH) || 0) + (parseFloat(colI) || 0);
+            // Cập nhật: Net Receive = Receive (H) + (Trans.In (I) - Trans.Out (K))
+            const subReceiveVal = parseFloat(colH) || 0;
+            const subTransInVal = parseFloat(colI) || 0;
+            const subTransOutVal = parseFloat(colK) || 0;
+            
+            const subReceiveKg = subReceiveVal + Math.max(0, subTransInVal - subTransOutVal);
             if (subReceiveKg > 0) {
                 materialsTotals[currentMaterialName].totalReceiveKg = Math.max(
                     materialsTotals[currentMaterialName].totalReceiveKg,
@@ -194,10 +197,12 @@ function parseExcelReport(filePath) {
       
       if (colC && (isLocationRow || /^(wh|wb|fm|a|b|c|d|e|h|v|x|y|z|\d)/i.test(cStrVal))) {
         if (currentMaterialName && materialsTotals[currentMaterialName]) {
-          // Cộng cả Receive (colH) VÀ Trans.In (colI): nguyên liệu Silo thường dùng Trans.In
-          // chỉ cộng dồn từ location rows nếu chưa có SubTotal (sẽ bị override bởi SubTotal sau)
-          const locReceive = (parseFloat(colH) || 0) + (parseFloat(colI) || 0);
-          materialsTotals[currentMaterialName].totalReceiveKg += Math.max(0, locReceive);
+          // Cộng cả Receive (colH) VÀ (Trans.In (colI) - Trans.Out (colK))
+          const locReceiveVal = parseFloat(colH) || 0;
+          const locTransInVal = parseFloat(colI) || 0;
+          const locTransOutVal = parseFloat(colK) || 0;
+          const locNetReceive = locReceiveVal + (locTransInVal - locTransOutVal);
+          materialsTotals[currentMaterialName].totalReceiveKg += locNetReceive;
           
           const locBalance = parseFloat(colL) || 0;
           const locDoh = parseFloat(colN) || 0;
@@ -373,6 +378,21 @@ function parseExcelReport(filePath) {
   });
   alerts.splice(0, alerts.length, ...Array.from(uniqueAlertsMap.values()));
 
+  // Đồng bộ maxCapacity từ cài đặt
+  const siloSettings = settingsData && settingsData.silos ? settingsData.silos : [];
+  silos.forEach(s => {
+      const setting = siloSettings.find(set => set.siloCode === s.siloCode);
+      if (setting && setting.maxCapacity) {
+          s.capacityTons = setting.maxCapacity;
+      }
+  });
+  additives.forEach(a => {
+      const setting = siloSettings.find(set => set.siloCode === a.warehouseLocation);
+      if (setting && setting.maxCapacity) {
+          a.capacityTons = setting.maxCapacity;
+      }
+  });
+
   return {
     silos,
     additives,
@@ -413,9 +433,8 @@ const ALLOWED_ORIGINS = [
 ];
 
 function cors(req, res) {
-  const origin = req.headers.origin || '';
-  const allowedOrigin = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
-  res.setHeader('Access-Control-Allow-Origin', allowedOrigin);
+  const origin = req.headers.origin || '*';
+  res.setHeader('Access-Control-Allow-Origin', origin);
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   res.setHeader('Access-Control-Allow-Credentials', 'true');
@@ -1145,6 +1164,10 @@ if (reqPath === '/api/records' && method === 'POST') {
   return;
 }
 
+if (reqPath === '/api/records' && method === 'GET') {
+  return json(req, res, getRecords());
+}
+
 if (reqPath.startsWith('/api/records/monthly-report') && method === 'GET') {
   const query = new URL(req.url, 'http://localhost').searchParams;
   const month = parseInt(query.get('month'));
@@ -1382,45 +1405,73 @@ if (reqPath === '/api/trucks/queue-login' && method === 'POST') {
 }
 
 if (reqPath === '/api/trucks/queue-report' && method === 'GET') {
-  console.log('[GET queue-report] cpQueueCredentials=', cpQueueCredentials);
-  if (!cpQueueCredentials) {
-    return json(req, res, { error: 'REQUIRES_LOGIN', message: 'Yêu cầu đăng nhập vào hệ thống CP' }, 401);
-  }
-
-  // Lấy DateFrom và DateTo từ query, mặc định là ngày hôm nay nếu không có
   const today = new Date().toISOString().split('T')[0];
   const dateFrom = url.searchParams.get('from') || today;
   const dateTo = url.searchParams.get('to') || today;
-  
-  console.log(`[Queue Report] cpQueueCredentials:`, cpQueueCredentials ? 'Exists' : 'Null');
+  const forceSync = url.searchParams.get('sync') === 'true';
+
+  const historyPath = path.join(__dirname, 'queue-history.json');
+  let historyData = [];
+  if (fs.existsSync(historyPath)) {
+    try { historyData = JSON.parse(fs.readFileSync(historyPath, 'utf8')); } catch(e){}
+  }
+
+  let scrapeRequired = false;
+  let scrapeFrom = dateFrom;
+  let scrapeTo = dateTo;
+
+  if (forceSync && dateTo >= today) {
+    scrapeRequired = true;
+    scrapeTo = today; // CP web chỉ có data đến hôm nay
+  }
 
   try {
-    const data = await scrapeQueueData(cpQueueCredentials.username, cpQueueCredentials.password, dateFrom, dateTo);
-    
-    // Lưu lịch sử để theo dõi KPI năm
-    const historyPath = path.join(__dirname, 'queue-history.json');
-    let historyData = [];
-    if (fs.existsSync(historyPath)) {
-      try { historyData = JSON.parse(fs.readFileSync(historyPath, 'utf8')); } catch(e){}
-    }
-    
-    // Cập nhật hoặc thêm mới các bản ghi dựa trên Số xe + Thời gian đến (weight1)
-    data.forEach(item => {
-      const existingIdx = historyData.findIndex(h => h.licensePlate === item.licensePlate && h.weight1 === item.weight1);
-      if (existingIdx >= 0) {
-        historyData[existingIdx] = { ...historyData[existingIdx], ...item };
-      } else {
-        historyData.push(item);
+    if (scrapeRequired) {
+      if (!cpQueueCredentials) {
+        return json(req, res, { error: 'REQUIRES_LOGIN', message: 'Yêu cầu đăng nhập vào hệ thống CP' }, 401);
       }
-    });
-    
-    fs.writeFileSync(historyPath, JSON.stringify(historyData, null, 2));
+      
+      try {
+        const liveData = await scrapeQueueData(cpQueueCredentials.username, cpQueueCredentials.password, scrapeFrom, scrapeTo);
+        
+        // Merge liveData vào history
+        liveData.forEach(item => {
+          const existingIdx = historyData.findIndex(h => h.licensePlate === item.licensePlate && h.weight1 === item.weight1);
+          if (existingIdx >= 0) {
+            historyData[existingIdx] = { ...historyData[existingIdx], ...item };
+          } else {
+            historyData.push(item);
+          }
+        });
+        fs.writeFileSync(historyPath, JSON.stringify(historyData, null, 2));
+      } catch (scrapeErr) {
+        console.error('[Scrape Error]', scrapeErr.message);
+        cpQueueCredentials = null; // reset
+        return json(req, res, { error: 'REQUIRES_LOGIN', message: scrapeErr.message || 'Đăng nhập thất bại' }, 401);
+      }
+    }
 
-    return json(req, res, data);
+    // Filter historyData theo dateFrom, dateTo
+    const parseDateStr = (dateStr) => { // format DD/MM/YYYY
+      if (!dateStr) return null;
+      const parts = dateStr.split(' ')[0].split('/');
+      if (parts.length !== 3) return null;
+      return new Date(`${parts[2]}-${parts[1]}-${parts[0]}`);
+    };
+    
+    // Set hours to 0 to compare purely by date
+    const dFrom = new Date(dateFrom); dFrom.setHours(0,0,0,0);
+    const dTo = new Date(dateTo); dTo.setHours(23,59,59,999);
+    
+    const result = historyData.filter(item => {
+      const d = parseDateStr(item.weight1);
+      if (!d) return false;
+      return d >= dFrom && d <= dTo;
+    });
+
+    return json(req, res, result);
   } catch (err) {
-    // Nếu sai mật khẩu hoặc lỗi cào dữ liệu, xóa credential để login lại
-    cpQueueCredentials = null;
-    return json(req, res, { error: 'Lỗi cào dữ liệu', details: err.message }, 500);
+    return json(req, res, { error: 'Lỗi máy chủ nội bộ', details: err.message }, 500);
   }
 }
 
@@ -1430,6 +1481,26 @@ if (reqPath === '/api/trucks/queue-history' && method === 'GET') {
   if (fs.existsSync(historyPath)) {
     try { historyData = JSON.parse(fs.readFileSync(historyPath, 'utf8')); } catch(e){}
   }
+
+  const dateFrom = url.searchParams.get('from');
+  const dateTo = url.searchParams.get('to');
+  
+  if (dateFrom && dateTo) {
+    const parseDateStr = (dateStr) => { 
+      if (!dateStr) return null;
+      const parts = dateStr.split(' ')[0].split('/');
+      if (parts.length !== 3) return null;
+      return new Date(`${parts[2]}-${parts[1]}-${parts[0]}`);
+    };
+    const dFrom = new Date(dateFrom); dFrom.setHours(0,0,0,0);
+    const dTo = new Date(dateTo); dTo.setHours(23,59,59,999);
+    historyData = historyData.filter(item => {
+      const d = parseDateStr(item.weight1);
+      if (!d) return false;
+      return d >= dFrom && d <= dTo;
+    });
+  }
+
   return json(req, res, historyData);
 }
 

@@ -17,8 +17,8 @@ export function Sidebar() {
   ];
 
   return (
-    <div className="fixed inset-y-0 left-0 z-50 flex h-full">
-      <div className="group relative flex h-full w-3 hover:w-80 transition-all duration-300 z-50">
+    <div className="fixed inset-y-0 left-0 z-[100] flex h-full">
+      <div className="group relative flex h-full w-3 hover:w-80 transition-all duration-300 z-[100]">
         
         <aside className="absolute left-0 top-0 h-full w-80 -translate-x-full bg-white/95 dark:bg-slate-950/95 backdrop-blur-2xl border-r border-slate-200 dark:border-white/10 p-6 shadow-[15px_0_30px_rgba(0,0,0,0.5)] transition-transform duration-300 group-hover:translate-x-0 flex flex-col gap-6">
           <div className="flex items-center gap-4 px-2 mt-2">

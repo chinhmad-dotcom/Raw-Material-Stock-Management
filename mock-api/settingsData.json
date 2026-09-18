@@ -68,6 +68,60 @@
       "materialName": "Corn (USA #A)",
       "isHidden": true,
       "id": "1788496158917"
+    },
+    {
+      "siloCode": "WH22",
+      "maxCapacity": 6000,
+      "color": "#cc8305",
+      "id": "1789446102251"
+    },
+    {
+      "siloCode": "203",
+      "maxCapacity": 3000,
+      "color": "#3b82f6",
+      "id": "1789446480223"
+    },
+    {
+      "siloCode": "204",
+      "maxCapacity": 3000,
+      "color": "#3b82f6",
+      "id": "1789446490745"
+    },
+    {
+      "siloCode": "D301",
+      "maxCapacity": 8000,
+      "color": "#3b82f6",
+      "id": "1789446506190"
+    },
+    {
+      "siloCode": "D302",
+      "maxCapacity": 8000,
+      "color": "#3b82f6",
+      "id": "1789446516965"
+    },
+    {
+      "siloCode": "D303",
+      "maxCapacity": 8000,
+      "color": "#3b82f6",
+      "id": "1789446529019"
+    },
+    {
+      "siloCode": "D304",
+      "maxCapacity": 8000,
+      "color": "#3b82f6",
+      "id": "1789446539420"
+    },
+    {
+      "siloCode": "WH23",
+      "maxCapacity": 6000,
+      "color": "#3b82f6",
+      "id": "1789446562060"
+    },
+    {
+      "siloCode": "WH24",
+      "maxCapacity": 6000,
+      "color": "#3b82f6",
+      "id": "1789446578510"
     }
   ],
   "materials": [
@@ -114,9 +168,9 @@
       "name": "Corn (USA #A)",
       "unit": "Ton",
       "density": 0.7,
-      "maxStorageAgeDays": 10,
+      "maxStorageAgeDays": 45,
       "dohThreshold": 5,
-      "color": "#f7c922"
+      "color": "#fbd756"
     },
     {
       "id": "178737172072913wmq",
@@ -201,12 +255,13 @@
     },
     {
       "id": "17873717207298ndn0",
-      "sku": "RM-FEED",
+      "sku": "Feed Wheat (UKARAINE, Australia, ARGENTINA, Brazil)",
       "name": "Feed Wheat (UKARAINE, Australia, ARGENTINA, Brazil)",
       "unit": "Ton",
       "density": 0.7,
       "maxStorageAgeDays": 90,
-      "dohThreshold": 5
+      "dohThreshold": 5,
+      "color": "#bc5b0b"
     },
     {
       "id": "1787371720729nckkg",
@@ -6035,6 +6090,42 @@
       "id": "17890993280167nvvx",
       "sku": "RM-CONC",
       "name": "Conc. Amnil (Lot 34)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789369440679xssfy",
+      "sku": "RM-FEAT",
+      "name": "Feather Meal (84.64%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789369440680ovdt5",
+      "sku": "RM-MEAT",
+      "name": "MEAT BONE MEAL (49.6%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789369440680ddvad",
+      "sku": "RM-MEAT",
+      "name": "MEAT BONE MEAL (49.9%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1789445091355prb04",
+      "sku": "RM-MEAT",
+      "name": "MEAT BONE MEAL (50.45)",
       "unit": "Ton",
       "density": 0.7,
       "maxStorageAgeDays": 120,

@@ -161,5 +161,33 @@
     "t85": "Approved",
     "t86": "Pending",
     "t87": "Download"
+  },
+  "dashboardPage": {
+    "title": "Raw Material Stock Management",
+    "reportDate": "REPORT DATE",
+    "noData": "No data",
+    "materialGroup": "MATERIAL GROUP",
+    "all": "All",
+    "silo": "Silo",
+    "additives": "Additives",
+    "liquid": "Liquid",
+    "materialName": "MATERIAL NAME",
+    "readingExcel": "Reading Excel...",
+    "chooseExcel": "Choose Excel file",
+    "errorLoad": "Unable to load dashboard",
+    "totalVolume": "Total Volume",
+    "estUsageDay": "EST. Usage (Day)",
+    "estUsageWeek": "EST. Usage (Week)",
+    "actualUsage": "Actual Usage",
+    "doh": "DOH",
+    "todayReceived": "Today Received",
+    "rawMaterialDetails": "RAW MATERIAL DETAILS",
+    "unitTons": "Unit: tons",
+    "material": "Material",
+    "location": "Location",
+    "receivedDay": "Received Day",
+    "amount": "Amount",
+    "estDay": "Est. Day",
+    "loadingContent": "Loading dashboard content..."
   }
 }

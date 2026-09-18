@@ -1492,28 +1492,35 @@
     "month": 9,
     "date": 11,
     "bapHap": {
-      "ton": 0,
-      "tonPerHour": 0,
-      "totalKWh": 0,
-      "kwhPerTon": 0
+      "ton": 96,
+      "tonPerHour": 9.142857142857142,
+      "totalKWh": 1836,
+      "kwhPerTon": 19.125
     },
     "nanhHap": {
-      "ton": 0,
-      "tonPerHour": 0,
-      "totalKWh": 0,
-      "kwhPerTon": 0
+      "ton": 38,
+      "tonPerHour": 4.470588235294118,
+      "totalKWh": 1542,
+      "kwhPerTon": 40.578947368421055
     },
     "oee": {
-      "average": 0,
+      "average": 0.8395800106326422,
       "target": 0.78
     },
-    "losses": [],
+    "losses": [
+      {
+        "code": "153",
+        "description": "Ngưng máy có kế hoạch",
+        "occurrences": 2,
+        "timeMins": 5
+      }
+    ],
     "warnings": [],
     "electricity": {
-      "e1": 0,
-      "e2": 0,
-      "line": 0,
-      "hamer": 0
+      "e1": 719,
+      "e2": 653,
+      "line": 578,
+      "hamer": 1428
     }
   },
   {
@@ -1527,22 +1534,29 @@
       "kwhPerTon": 0
     },
     "nanhHap": {
-      "ton": 0,
-      "tonPerHour": 0,
-      "totalKWh": 0,
-      "kwhPerTon": 0
+      "ton": 52,
+      "tonPerHour": 4.521739130434782,
+      "totalKWh": 2100,
+      "kwhPerTon": 40.38461538461539
     },
     "oee": {
-      "average": 0,
+      "average": 0.7559523809523809,
       "target": 0.78
     },
-    "losses": [],
+    "losses": [
+      {
+        "code": "153",
+        "description": "Ngưng máy có kế hoạch",
+        "occurrences": 2,
+        "timeMins": 12.5
+      }
+    ],
     "warnings": [],
     "electricity": {
       "e1": 0,
-      "e2": 0,
-      "line": 0,
-      "hamer": 0
+      "e2": 878,
+      "line": 338,
+      "hamer": 884
     }
   },
   {

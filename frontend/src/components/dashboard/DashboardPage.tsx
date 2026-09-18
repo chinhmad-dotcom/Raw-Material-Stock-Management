@@ -12,8 +12,10 @@ import { TopImportedMaterials } from './TopImportedMaterials';
 import { AlertsPanel } from './AlertsPanel';
 import { SearchableSelect } from './SearchableSelect';
 import { UserMenu } from '../layout/UserMenu';
+import { useTranslation } from 'react-i18next';
 
 export function DashboardPage() {
+  const { t, i18n } = useTranslation();
   const { user, logout } = useAuthStore();
   const { theme, toggleTheme } = useThemeStore();
   const { summary, loading, error, availableDates, selectedDate, loadAvailableDates, setSelectedDate, loadDashboard } = useDashboardStore();
@@ -153,28 +155,28 @@ export function DashboardPage() {
       <div className="mx-auto flex h-screen max-w-full flex-col gap-1 px-1 py-1 overflow-hidden bg-slate-50 dark:bg-slate-950">
         <header className="rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-slate-900/80 p-2 sm:px-3  shadow-panel backdrop-blur-xl flex flex-col xl:flex-row items-center justify-between gap-2 shrink-0 min-h-[60px] relative z-50">
           <div className="shrink-0 w-full xl:w-auto text-center xl:text-left mr-auto">
-            <h1 className="text-base sm:text-lg font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400">Raw Material Stock Management</h1>
+            <h1 className="text-base sm:text-lg font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400">{t('dashboardPage.title')}</h1>
           </div>
 
           <div className="flex flex-wrap items-center justify-end gap-2 z-10 flex-1">
             {/* Dropdown Lọc */}
             <div className="flex flex-wrap items-center gap-2 bg-slate-100 dark:bg-slate-950/80 border border-slate-200 dark:border-white/10 px-2.5 py-1 rounded-xl ring-1 ring-sky-500/20">
               <div className="flex flex-col gap-1">
-                <label className="text-[10px] sm:text-xs font-semibold tracking-wider text-slate-700 dark:text-slate-300">REPORT DATE</label>
+                <label className="text-[10px] sm:text-xs font-semibold tracking-wider text-slate-700 dark:text-slate-300">{t('dashboardPage.reportDate')}</label>
                 <select
                   value={selectedDate || ''}
                   onChange={(e) => setSelectedDate(e.target.value)}
                   className="bg-white dark:bg-slate-900 border border-emerald-500/50 text-xs sm:text-sm text-slate-900 dark:text-slate-100 rounded-md px-2 py-0.5 outline-none focus:border-emerald-400 cursor-pointer min-w-[120px]"
                 >
                   {availableDates.map(date => (
-                    <option key={date} value={date}>{date}</option>
+                    <option key={date} value={date} className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100">{date}</option>
                   ))}
-                  {availableDates.length === 0 && <option value="">No data</option>}
+                  {availableDates.length === 0 && <option value="" className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100">{t('dashboardPage.noData')}</option>}
                 </select>
               </div>
 
               <div className="flex flex-col gap-1">
-                <label className="text-[10px] sm:text-xs font-semibold tracking-wider text-slate-700 dark:text-slate-300">MATERIAL GROUP</label>
+                <label className="text-[10px] sm:text-xs font-semibold tracking-wider text-slate-700 dark:text-slate-300">{t('dashboardPage.materialGroup')}</label>
                 <select
                   value={selectedGroup}
                   onChange={(e) => {
@@ -183,15 +185,15 @@ export function DashboardPage() {
                   }}
                   className="bg-white dark:bg-slate-900 border border-sky-500/50 text-xs sm:text-sm text-slate-900 dark:text-slate-100 rounded-md px-2 py-0.5 outline-none focus:border-sky-400 cursor-pointer min-w-[120px]"
                 >
-                  <option value="All">All</option>
-                  <option value="Silo">Silo</option>
-                  <option value="Additives">Additives</option>
-                  <option value="Liquid">Liquid</option>
+                  <option value="All" className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100">{t('dashboardPage.all')}</option>
+                  <option value="Silo" className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100">{t('dashboardPage.silo')}</option>
+                  <option value="Additives" className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100">{t('dashboardPage.additives')}</option>
+                  <option value="Liquid" className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100">{t('dashboardPage.liquid')}</option>
                 </select>
               </div>
 
               <div className="flex flex-col gap-1 z-10">
-                <label className="text-[10px] sm:text-xs font-semibold tracking-wider text-slate-700 dark:text-slate-300">MATERIAL NAME</label>
+                <label className="text-[10px] sm:text-xs font-semibold tracking-wider text-slate-700 dark:text-slate-300">{t('dashboardPage.materialName')}</label>
                 <SearchableSelect
                   value={selectedMaterial}
                   onChange={(val) => setSelectedMaterial(val)}
@@ -204,7 +206,7 @@ export function DashboardPage() {
             <label className={`inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl px-4 py-2 text-xs sm:text-sm font-semibold transition ${importing ? 'bg-slate-200 dark:bg-slate-800 text-slate-500 cursor-not-allowed' : 'bg-emerald-500 text-slate-950 hover:bg-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.3)] hover:shadow-[0_0_20px_rgba(16,185,129,0.5)]'}`}>
               <input type="file" accept=".xlsx,.xls,.xlsm" className="hidden" onChange={handleFileChange} disabled={importing} />
               <span className="truncate max-w-[160px] sm:max-w-[200px]">
-                {importing ? 'Reading Excel...' : (selectedFile?.name ?? 'Choose Excel file')}
+                {importing ? t('dashboardPage.readingExcel') : (selectedFile?.name ?? t('dashboardPage.chooseExcel'))}
               </span>
             </label>
             <UserMenu />
@@ -214,7 +216,7 @@ export function DashboardPage() {
 
       {error && (
         <div className="rounded-3xl border border-rose-500/20 bg-rose-500/10 p-5 text-rose-200 shrink-0">
-          <p className="font-medium">Unable to load dashboard</p>
+          <p className="font-medium">{t('dashboardPage.errorLoad')}</p>
           <p className="mt-2 text-sm text-rose-100">{error}</p>
         </div>
       )}
@@ -224,7 +226,7 @@ export function DashboardPage() {
         <div className="grid gap-1 grid-cols-2 md:grid-cols-3 lg:grid-cols-6 shrink-0">
           <Card 
             icon={<Layers className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />} 
-            label="Total Volume" 
+            label={t('dashboardPage.totalVolume')} 
             value={formatTons(totalStockVolumeTons)} 
           />
           <Card 
@@ -239,7 +241,7 @@ export function DashboardPage() {
           />
           <Card 
             icon={<Zap className="h-5 w-5 text-amber-400" />} 
-            label="Actual Usage" 
+            label={t('dashboardPage.actualUsage')} 
             value={formatTons(totalActualUsageKg / 1000)} 
           />
           <Card 
@@ -249,7 +251,7 @@ export function DashboardPage() {
           />
           <Card 
             icon={<Layers className="h-5 w-5 text-indigo-400" />} 
-            label="Today Received" 
+            label={t('dashboardPage.todayReceived')} 
             value={formatTons(totalTodayReceiveTons)} 
           />
         </div>
@@ -259,17 +261,20 @@ export function DashboardPage() {
             <div className="rounded-3xl border border-slate-200 dark:border-white/10 bg-white dark:bg-slate-900/80 p-2 sm:p-3 shadow-panel flex flex-col h-full min-h-0">
               <div className="mb-1 flex items-center justify-between shrink-0">
                 <h2 className="text-sm font-semibold text-slate-900 dark:text-slate-100 uppercase tracking-wide">
-                  RAW MATERIAL DETAILS ({selectedGroup !== 'All' ? selectedGroup : 'All'})
+                  {t('dashboardPage.rawMaterialDetails')} ({selectedGroup !== 'All' ? (t(`dashboardPage.${selectedGroup.toLowerCase()}`) || selectedGroup) : t('dashboardPage.all')})
                 </h2>
+                <span className="text-xs font-medium text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-full">
+                  {t('dashboardPage.unitTons')}
+                </span>
               </div>
               <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar min-h-0">
                 <table className="w-full text-left text-base">
                   <thead className="sticky top-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md z-10">
                     <tr className="border-b border-slate-700/50 text-sm text-slate-900 dark:text-slate-100 uppercase tracking-wider font-bold">
-                      <th className="py-1 font-bold">Material</th>
-                      <th className="py-1 font-bold">Location</th>
-                      <th className="py-1 pr-4 font-bold text-right">Received Day</th>
-                      <th className="py-1 pr-4 font-bold text-right">Amount</th>
+                      <th className="py-1 font-bold">{t('dashboardPage.material')}</th>
+                      <th className="py-1 font-bold">{t('dashboardPage.location')}</th>
+                      <th className="py-1 pr-4 font-bold text-right">{t('dashboardPage.receivedDay')}</th>
+                      <th className="py-1 pr-4 font-bold text-right">{t('dashboardPage.amount')}</th>
                       <th className="py-1 pr-4 font-bold text-right">Est. Day</th>
                       <th className="py-1 pr-4 font-bold text-right">DOH</th>
                     </tr>
@@ -279,9 +284,9 @@ export function DashboardPage() {
                       <tr key={idx} className="hover:bg-slate-200 dark:hover:bg-slate-800/30 transition-colors">
                         <td className="py-1.5 font-medium break-words max-w-[140px] sm:max-w-[200px]">{item.name}</td>
                         <td className="py-1.5 text-sm text-slate-700 dark:text-slate-300 break-words max-w-[140px] sm:max-w-[220px]">{item.location}</td>
-                        <td className="py-1.5 pr-4 text-right font-mono text-emerald-600 dark:text-emerald-400">{item.receive !== 0 ? item.receive.toFixed(1) + ' t' : '--'}</td>
-                        <td className="py-1.5 pr-4 text-right font-mono text-sky-600 dark:text-sky-400">{item.stock.toFixed(1)} t</td>
-                        <td className="py-1.5 pr-4 text-right font-mono">{item.est.toFixed(1)} t</td>
+                        <td className="py-1.5 pr-4 text-right font-mono text-emerald-600 dark:text-emerald-400">{item.receive !== 0 ? item.receive.toFixed(1) : '--'}</td>
+                        <td className="py-1.5 pr-4 text-right font-mono text-sky-600 dark:text-sky-400">{item.stock.toFixed(1)}</td>
+                        <td className="py-1.5 pr-4 text-right font-mono">{item.est.toFixed(1)}</td>
                         <td className="py-1.5 pr-4 text-right font-mono">{item.doh > 0 ? item.doh.toFixed(1) : '--'}</td>
                       </tr>
                     ))}
@@ -303,7 +308,7 @@ export function DashboardPage() {
 
       {loading && (
         <div className="rounded-3xl border border-slate-200 dark:border-white/10 bg-white dark:bg-slate-900/80 p-6 text-slate-700 dark:text-slate-300 shadow-panel">
-          Loading dashboard content...
+          {t('dashboardPage.loadingContent')}
         </div>
       )}
     </div>
