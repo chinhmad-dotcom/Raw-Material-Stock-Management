@@ -54,7 +54,10 @@ export default function FanPlanList() {
     }
   };
 
-  const handleApprove = async (id: string) => {
+  const isReportApproved = filteredRecords.some(r => r.status === 'approved' && r.reviewerSignature);
+  const needsApproval = !isReportApproved && filteredRecords.length > 0;
+
+  const handleApproveAll = async () => {
     if (!user?.id) return;
     const signature = localStorage.getItem('userSignature_' + user.id);
     if (!signature) {
@@ -62,9 +65,12 @@ export default function FanPlanList() {
       return;
     }
     
-    if (!window.confirm('Xác nhận duyệt báo cáo này?')) return;
+    if (!window.confirm('Xác nhận duyệt toàn bộ kế hoạch đang chờ của báo cáo này?')) return;
     try {
-      await fanApi.approveFan(id, signature, user.name);
+      const pendingRecords = filteredRecords.filter(r => r.status !== 'approved');
+      for (const r of pendingRecords) {
+        await fanApi.approveFan(r.id!, signature, user.name);
+      }
       fetchRecords();
       alert('Đã duyệt thành công!');
     } catch (err) {
@@ -73,13 +79,17 @@ export default function FanPlanList() {
   };
 
   const handlePreviewPdf = () => {
-    const doc = generateFanPdf(filterSilo, filteredRecords);
+    const signature = user?.id ? localStorage.getItem('userSignature_' + user.id) : null;
+    const doc = generateFanPdf(filterSilo, filteredRecords, user, signature);
     const pdfUrl = doc.output('datauristring') as any as string;
     setPdfPreviewUrl(pdfUrl);
   };
 
   const handleExportPdf = () => {
-    const doc = generateFanPdf(filterSilo, filteredRecords);
+    if (needsApproval) { alert('Vui lòng chờ quản lý duyệt báo cáo trước khi xuất PDF.'); return; }
+    
+    const signature = user?.id ? localStorage.getItem('userSignature_' + user.id) : null;
+    const doc = generateFanPdf(filterSilo, filteredRecords, user, signature);
     doc.save('Ke_hoach_mo_quat_Silo_' + filterSilo + '_' + new Date().getTime() + '.pdf');
   };
 
@@ -89,13 +99,15 @@ export default function FanPlanList() {
         <h2 className="text-lg font-bold text-black dark:text-white">{t('fan.list.title', 'Danh sách & Báo cáo')}</h2>
         
         <div className="flex gap-2 items-center">
-          <input 
-            type="number" 
-            min="2020" max="2100" step="1"
+          <select 
             value={filterYear}
             onChange={e => setFilterYear(e.target.value)}
-            className="rounded border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs px-2 py-1 border outline-none w-[70px]"
-          />
+            className="rounded border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs px-2 py-1 border outline-none"
+          >
+            {Array.from({length: 10}, (_, i) => new Date().getFullYear() - 5 + i).map(y => (
+              <option key={y} value={y.toString()}>Năm {y}</option>
+            ))}
+          </select>
           <select 
             value={filterSilo}
             onChange={e => setFilterSilo(e.target.value)}
@@ -103,6 +115,12 @@ export default function FanPlanList() {
           >
             {['21', '22', '23', '24', '301', '302', '303', '304', '305', '306'].map(opt => <option key={opt} value={opt}>Silo {opt}</option>)}
           </select>
+
+          {isManager && needsApproval && (
+             <button onClick={handleApproveAll} className="flex items-center gap-1 bg-amber-500 hover:bg-amber-600 text-white px-3 py-1 rounded text-xs font-medium transition-colors">
+                <CheckCircle className="w-3 h-3" /> Duyệt Báo Cáo
+             </button>
+          )}
           
           <button 
             onClick={handlePreviewPdf}
@@ -112,7 +130,8 @@ export default function FanPlanList() {
           
           <button 
             onClick={handleExportPdf}
-            className="flex items-center gap-1 bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-1 rounded text-xs font-medium transition-colors"
+            disabled={needsApproval}
+            className={`flex items-center gap-1 px-3 py-1 rounded text-xs font-medium transition-colors ${needsApproval ? 'bg-slate-400 cursor-not-allowed text-white' : 'bg-emerald-600 hover:bg-emerald-700 text-white'}`}
           >
             <Download className="w-3 h-3" />{t('fan.list.pdf', 'Tải PDF')}</button>
         </div>
@@ -162,11 +181,6 @@ export default function FanPlanList() {
                     )}
                   </td>
                   <td className="px-2 py-1.5 flex gap-4 justify-center items-center h-full min-h-[36px] w-[80px]">
-                    {r.status !== 'approved' && isManager && (
-                      <button onClick={() => handleApprove(r.id!)} title="Duyệt" className="text-emerald-500 hover:text-emerald-700">
-                        <CheckCircle className="w-5 h-5" />
-                      </button>
-                    )}
                     <button onClick={() => handleDelete(r.id!)} title="Xóa" className="text-red-500 hover:text-red-700">
                       <Trash2 className="w-5 h-5" />
                     </button>
@@ -186,7 +200,8 @@ export default function FanPlanList() {
               <div className="flex gap-2">
                 <button 
                   onClick={() => {
-                    const doc = generateFanPdf(filterSilo, filteredRecords);
+                    const signature = user?.id ? localStorage.getItem('userSignature_' + user.id) : null;
+                    const doc = generateFanPdf(filterSilo, filteredRecords, user, signature);
                     doc.save('Ke_hoach_mo_quat_Silo_' + filterSilo + '_' + new Date().getTime() + '.pdf');
                   }}
                   className="flex items-center gap-1 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-1.5 rounded text-sm font-medium transition-colors"

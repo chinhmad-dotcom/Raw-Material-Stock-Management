@@ -107,9 +107,7 @@ export default function FanPlanForm({ onSuccess }: FanPlanFormProps) {
         inspectorSilo: formData.inspectorSilo,
         inspectorLab: formData.inspectorLab,
         note: formData.note,
-        status: 'pending',
-        reporterName: user?.name || null,
-        reporterSignature: user?.id ? localStorage.getItem('userSignature_' + user.id) : null
+        status: 'pending'
       };
       
       await fanApi.saveFan(record);

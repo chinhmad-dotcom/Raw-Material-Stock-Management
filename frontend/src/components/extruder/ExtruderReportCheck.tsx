@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ShieldAlert, Zap, AlertCircle, Loader2, Calculator } from 'lucide-react';
 import { getExtruderProduction, getExtruderOEE, checkExtruderReport } from '../../api/extruderApi';
 
@@ -75,6 +75,8 @@ export default function ExtruderReportCheck() {
   }
 
 
+  let elecScraped = { e1: 0, e2: 0, hamer: 0, line: 0 };
+
   if (filteredData.length > 0) {
     elecBaoCao = filteredData.reduce((acc, d) => {
       if (d.electricity) {
@@ -82,6 +84,16 @@ export default function ExtruderReportCheck() {
         acc.e2 += d.electricity.e2 || 0;
         acc.hamer += d.electricity.hamer || 0;
         acc.line += d.electricity.line || 0;
+      }
+      return acc;
+    }, { e1: 0, e2: 0, hamer: 0, line: 0 });
+
+    elecScraped = filteredData.reduce((acc, d) => {
+      if (d.electricity) {
+        acc.e1 += d.electricity.scraped_e1 || 0;
+        acc.e2 += d.electricity.scraped_e2 || 0;
+        acc.hamer += d.electricity.scraped_hamer || 0;
+        acc.line += d.electricity.scraped_line || 0;
       }
       return acc;
     }, { e1: 0, e2: 0, hamer: 0, line: 0 });
@@ -126,7 +138,8 @@ export default function ExtruderReportCheck() {
 
   const calculateDiff = (machine: string) => {
     const r = (elecBaoCao as any)[machine] || 0;
-    const m = parseFloat((elecData as any)[machine].mcc) || 0;
+    const scraped = (elecScraped as any)[machine];
+    const m = scraped ? scraped : (parseFloat((elecData as any)[machine].mcc) || 0);
     if (!r && !m) return null;
     return r - m;
   };
@@ -134,6 +147,9 @@ export default function ExtruderReportCheck() {
   const renderElecRow = (machineKey: string, machineName: string) => {
     const diff = calculateDiff(machineKey);
     const isError = diff !== null && Math.abs(diff) > 0;
+    const scrapedVal = (elecScraped as any)[machineKey];
+    const displayVal = scrapedVal ? Math.round(scrapedVal) : (elecData as any)[machineKey].mcc;
+    
     return (
       <tr className="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
         <td className="p-2 font-medium text-slate-800 dark:text-slate-200 border-r border-slate-200 dark:border-slate-700 text-left bg-slate-50 dark:bg-slate-800/50">
@@ -142,12 +158,13 @@ export default function ExtruderReportCheck() {
         <td className="p-2 border-r border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 font-mono font-bold text-slate-700 dark:text-slate-300">
           {Math.round((elecBaoCao as any)[machineKey] || 0)}
         </td>
-        <td className="p-0 border-r border-slate-200 dark:border-slate-700">
+        <td className="p-0 border-r border-slate-200 dark:border-slate-700 relative">
           <input 
             type="number" 
-            value={(elecData as any)[machineKey].mcc}
+            value={displayVal}
             onChange={e => handleElecInput(machineKey, 'mcc', e.target.value)}
-            className="w-full h-full p-2 bg-transparent text-center outline-none focus:bg-blue-50 dark:focus:bg-blue-900/20"
+            disabled={!!scrapedVal}
+            className={`w-full h-full p-2 bg-transparent text-center outline-none focus:bg-blue-50 dark:focus:bg-blue-900/20 ${scrapedVal ? 'text-blue-600 font-bold' : ''}`}
             placeholder="0"
           />
         </td>

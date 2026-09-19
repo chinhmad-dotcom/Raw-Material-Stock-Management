@@ -20,7 +20,7 @@ const formatTime = (isoString?: string | null) => {
   return h + ':' + m;
 };
 
-export const generateFanPdf = (siloName: string, records: FanRecord[]) => {
+export const generateFanPdf = (siloName: string, records: FanRecord[], currentUser?: any, currentUserSignature?: string | null) => {
   const doc = new jsPDF('landscape', 'mm', 'a4');
   
   // Load Custom Font
@@ -31,7 +31,7 @@ export const generateFanPdf = (siloName: string, records: FanRecord[]) => {
   
   // Title Header
   doc.setFontSize(13);
-  doc.text('CÔNG TY CỔ PHẦN CHĂN NUÔI CP VIỆT NAM', 10, 10);
+  doc.text('CÔNG TY CỔ PHẦN CHĂN NUÔI C.P VIỆT NAM', 10, 10);
   doc.text('NHÀ MÁY BÌNH DƯƠNG', 10, 16);
   doc.text('BỘ PHẬN / PHÒNG: KHO NGUYÊN LIỆU', 10, 22);
   
@@ -75,8 +75,8 @@ export const generateFanPdf = (siloName: string, records: FanRecord[]) => {
     r.note || ''
   ]);
 
-  // Fill up to 16 rows minimum
-  while (bodyData.length < 16) {
+  // Fill up to 12 rows minimum to save space at the bottom
+  while (bodyData.length < 12) {
     bodyData.push(['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']);
   }
 
@@ -84,7 +84,7 @@ export const generateFanPdf = (siloName: string, records: FanRecord[]) => {
   autoTable(doc, {
     startY: 34,
     theme: 'grid',
-    styles: { font: 'times', fontSize: 10 }, // Reduce font size in table so it fits on page, standard text outside is 13
+    styles: { font: 'times', fontSize: 10 },
     headStyles: { 
       fillColor: [255, 255, 255], 
       textColor: 0, 
@@ -146,21 +146,39 @@ export const generateFanPdf = (siloName: string, records: FanRecord[]) => {
   // Handle Signatures BOUND to the record
   const currentRecord = records.length > 0 ? records[0] : null;
 
-  if (currentRecord?.reporterSignature) {
+  // Determine Reporter Signature & Name
+  let repName = currentRecord?.reporterName || '';
+  let repSig = currentRecord?.reporterSignature || null;
+
+  // If missing and current user is operator, use current user
+  if (!repSig && currentUser?.role?.toLowerCase() === 'operator' && currentUserSignature) {
+    repSig = currentUserSignature;
+    repName = currentUser.name || repName;
+  }
+
+  if (repName) {
+    doc.setFont('times', 'normal');
+    doc.text(repName, 160, finalY + 30, { align: 'center' });
+  }
+  if (repSig) {
     try {
-      doc.addImage(currentRecord.reporterSignature, 'PNG', 145, finalY + 10, 30, 15);
-      doc.setFont('times', 'normal');
-      doc.text(currentRecord.reporterName || '', 160, finalY + 30, { align: 'center' });
+      doc.addImage(repSig, 'PNG', 145, finalY + 10, 30, 15);
     } catch (e) {
       console.warn("Invalid reporter signature image");
     }
   }
 
-  if (currentRecord?.reviewerSignature) {
+  // Determine Reviewer Signature & Name
+  let revName = currentRecord?.reviewerName || '';
+  let revSig = currentRecord?.reviewerSignature || null;
+
+  if (revName) {
+    doc.setFont('times', 'normal');
+    doc.text(revName, 240, finalY + 30, { align: 'center' });
+  }
+  if (revSig) {
     try {
-      doc.addImage(currentRecord.reviewerSignature, 'PNG', 225, finalY + 10, 30, 15);
-      doc.setFont('times', 'normal');
-      doc.text(currentRecord.reviewerName || '', 240, finalY + 30, { align: 'center' });
+      doc.addImage(revSig, 'PNG', 225, finalY + 10, 30, 15);
     } catch (e) {
       console.warn("Invalid reviewer signature image");
     }

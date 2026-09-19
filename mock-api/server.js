@@ -830,7 +830,7 @@ const server = http.createServer(async (req, res) => {
     const formidable = require('formidable');
     const form = new formidable.IncomingForm({ multiples: false });
     
-    form.parse(req, (err, fields, files) => {
+    form.parse(req, async (err, fields, files) => {
       if (err) {
         return json(req, res, { error: 'Error parsing form data' }, 500);
       }
@@ -861,6 +861,7 @@ const server = http.createServer(async (req, res) => {
         }
         
         const wb = XLSX.readFile(filePath, { cellDates: true });
+        const { fetchEnergyForDates } = require('./energyScraper');
         
         // Helper to get day record
         const getDayRecord = (dateVal) => {
@@ -1060,6 +1061,12 @@ for (let d = 1; d <= 31; d++) {
         // WARNINGS LOGIC HERE 
 let allData = []; try { const p = path.join(__dirname, 'extruderData.json'); if (fs.existsSync(p)) allData = JSON.parse(fs.readFileSync(p, 'utf8')); } catch(e){} allData = allData.filter(d => !(d.year === reportYear && d.month === reportMonth)); allData.push(...results); fs.writeFileSync(path.join(__dirname, 'extruderData.json'), JSON.stringify(allData, null, 2));
 
+        // Fetch energy for these dates asynchronously
+        const uniqueDates = Array.from(new Set(results.map(r => `${r.year}-${String(r.month).padStart(2, '0')}-${String(r.date).padStart(2, '0')}`)));
+        if(uniqueDates.length > 0) {
+           fetchEnergyForDates(uniqueDates).catch(e => console.error('Background energy fetch error:', e));
+        }
+
         return json(req, res, {
           success: true,
           message: 'Report uploaded successfully!',
@@ -1079,10 +1086,33 @@ let allData = []; try { const p = path.join(__dirname, 'extruderData.json'); if 
         const p = path.join(__dirname, 'extruderData.json');
         if (fs.existsSync(p)) {
             data = JSON.parse(fs.readFileSync(p, 'utf8'));
-        } else {
-            // fallback empty
         }
-    } catch (e) {}
+        
+        // Merge energy data if available
+        const { loadEnergyData } = require('./energyScraper');
+        const energyData = loadEnergyData();
+        
+        data = data.map(r => {
+           const dStr = `${r.year}-${String(r.month).padStart(2, '0')}-${String(r.date).padStart(2, '0')}`;
+           const e = energyData[dStr];
+           if (e && !e.__incomplete) {
+               // Map meters to new scraped fields
+               r.electricity = r.electricity || {};
+               // Extruder bắp E1 -> EXT1
+               r.electricity.scraped_e1 = e['EXT1'] || 0;
+               // Extruder nành E2 -> EXT2
+               r.electricity.scraped_e2 = e['EXT2'] || 0;
+               // Hammer -> HM4_EX
+               r.electricity.scraped_hamer = e['HM4_EX'] || 0;
+               // Line -> Line EXT(MCC25]
+               r.electricity.scraped_line = e['Line EXT(MCC25]'] || 0;
+           }
+           return r;
+        });
+        
+    } catch (e) {
+        console.error('Error fetching extruder production:', e);
+    }
     return json(req, res, data);
   }
   
