@@ -1064,7 +1064,8 @@ let allData = []; try { const p = path.join(__dirname, 'extruderData.json'); if 
         // Fetch energy for these dates asynchronously
         const uniqueDates = Array.from(new Set(results.map(r => `${r.year}-${String(r.month).padStart(2, '0')}-${String(r.date).padStart(2, '0')}`)));
         if(uniqueDates.length > 0) {
-           fetchEnergyForDates(uniqueDates).catch(e => console.error('Background energy fetch error:', e));
+           const { fetchEnergyRange } = require('./energyScraper');
+           fetchEnergyRange(uniqueDates).catch(e => console.error('Background energy fetch error:', e));
         }
 
         return json(req, res, {
@@ -1092,10 +1093,13 @@ let allData = []; try { const p = path.join(__dirname, 'extruderData.json'); if 
         const { loadEnergyData } = require('./energyScraper');
         const energyData = loadEnergyData();
         
+        let injectedMonths = new Set();
+        
         data = data.map(r => {
-           const dStr = `${r.year}-${String(r.month).padStart(2, '0')}-${String(r.date).padStart(2, '0')}`;
-           const e = energyData[dStr];
-           if (e && !e.__incomplete) {
+           const monthKey = `${r.year}-${String(r.month).padStart(2, '0')}`;
+           const e = energyData[monthKey];
+           if (e && !injectedMonths.has(monthKey)) {
+               injectedMonths.add(monthKey);
                // Map meters to new scraped fields
                r.electricity = r.electricity || {};
                // Extruder bắp E1 -> EXT1
@@ -1130,8 +1134,8 @@ let allData = []; try { const p = path.join(__dirname, 'extruderData.json'); if 
         const uniqueDates = Array.from(new Set(filtered.map(r => `${r.year}-${String(r.month).padStart(2, '0')}-${String(r.date).padStart(2, '0')}`)));
         
         if (uniqueDates.length > 0) {
-          const { fetchEnergyForDates } = require('./energyScraper');
-          await fetchEnergyForDates(uniqueDates);
+          const { fetchEnergyRange } = require('./energyScraper');
+          await fetchEnergyRange(uniqueDates);
         }
         
         return json(req, res, { success: true, count: uniqueDates.length });
