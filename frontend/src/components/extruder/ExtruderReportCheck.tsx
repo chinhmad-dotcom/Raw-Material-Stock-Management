@@ -284,7 +284,7 @@ export default function ExtruderReportCheck() {
                    try {
                      setIsSyncingEnergy(true);
                      setSyncError(null);
-                     const res = await fetch('/api/extruder/sync-energy', {
+                     const res = await fetch('http://localhost:5147/api/extruder/sync-energy', {
                        method: 'POST',
                        body: JSON.stringify({ month: selectedMonth, year: selectedYear })
                      });
