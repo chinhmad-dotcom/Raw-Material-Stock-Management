@@ -35,8 +35,21 @@ const fetchEnergyRange = async (dateStrings) => {
   const dates = dateStrings.map(d => new Date(d));
   const minDate = new Date(Math.min(...dates));
   let maxDate = new Date(Math.max(...dates));
-  // Add 1 day to maxDate to get exactly "6h ngày 1 đến 6h ngày 16h" if max date is 15
+  
+  // The Excel report might contain padded future dates (e.g., up to 31)
+  // Clamp maxDate to today so we don't query a future date
+  const today = new Date();
+  today.setHours(0,0,0,0);
+  if (maxDate > today) {
+    maxDate = new Date(today);
+  }
+  
+  // Add 1 day to maxDate to get the end boundary (e.g. 6h ngày 1 đến 6h ngày 16h)
+  // But if that boundary is still in the future (tomorrow), clamp it to today!
   maxDate.setDate(maxDate.getDate() + 1);
+  if (maxDate > today) {
+    maxDate = new Date(today);
+  }
 
   const monthKey = `${minDate.getFullYear()}-${String(minDate.getMonth() + 1).padStart(2, '0')}`;
   
