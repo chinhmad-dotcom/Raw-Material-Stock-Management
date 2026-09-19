@@ -53,7 +53,7 @@ const fetchEnergyForDates = async (dateStrings) => {
       
       await page.goto('http://172.21.36.245/energyreport/', { waitUntil: 'networkidle0' });
       
-      await page.evaluate((fStr, tStr) => {
+      await page.evaluate((fStr, tStr, fY, fM, fD, tY, tM, tD) => {
         const setVal = (sel, val) => { const el = document.querySelector(sel); if(el) el.value = val; };
         setVal('select[name="DropDownList4"]', 'User define');
         
@@ -62,9 +62,19 @@ const fetchEnergyForDates = async (dateStrings) => {
 
         setVal('input[name="TextBox2"]', fStr);
         setVal('input[name="TextBox3"]', tStr);
+        
+        // Hidden fields required by ASP.NET DevExpress
+        setVal('input[name="FromhY"]', fY);
+        setVal('input[name="FromhM"]', fM);
+        setVal('input[name="FromhD"]', fD);
+        
+        setVal('input[name="TohY"]', tY);
+        setVal('input[name="TohM"]', tM);
+        setVal('input[name="TohD"]', tD);
+        
         setVal('select[name="DropDownList5"]', '06:00');
         setVal('select[name="DropDownList6"]', '06:00');
-      }, fromStr, toStr);
+      }, fromStr, toStr, dObj.getFullYear().toString(), (dObj.getMonth()+1).toString(), dObj.getDate().toString(), nextDay.getFullYear().toString(), (nextDay.getMonth()+1).toString(), nextDay.getDate().toString());
       
       await page.click('input[name="Button5"]'); // View Data
       await new Promise(r => setTimeout(r, 4000)); // wait for popup
@@ -86,14 +96,15 @@ const fetchEnergyForDates = async (dateStrings) => {
           if (usedIdx >= 0) {
             for(let i = 1; i < data.length; i++) {
               const meterName = data[i][0];
-              const usedVal = parseFloat((data[i][usedIdx] || '0').replace(/,/g, ''));
+              let usedVal = parseFloat((data[i][usedIdx] || '0').replace(/,/g, ''));
               if(meterName) {
-                extracted[meterName] = isNaN(usedVal) ? 0 : usedVal;
+                if (isNaN(usedVal) || usedVal < 0) usedVal = 0;
+                extracted[meterName] = usedVal;
               }
             }
           }
         }
-        await newPage.close();
+        try { await newPage.close(); } catch(err){}
       }
       
       if (Object.keys(extracted).length > 0) {
@@ -103,12 +114,14 @@ const fetchEnergyForDates = async (dateStrings) => {
       }
       saveEnergyData(energyData);
       
-      await page.close();
+      try { await page.close(); } catch(err){}
     }
   } catch(e) {
     console.error('[Energy Scraper] Error:', e);
   } finally {
-    if(browser) await browser.close();
+    if(browser) {
+      try { await browser.close(); } catch(err){}
+    }
   }
   
   return loadEnergyData();
