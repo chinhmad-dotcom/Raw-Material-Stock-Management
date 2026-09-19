@@ -33,8 +33,8 @@ const fetchEnergyRange = async (dateStrings) => {
   if (!dateStrings || dateStrings.length === 0) return {};
   
   const dates = dateStrings.map(d => new Date(d));
-  const minDate = new Date(Math.min(...dates));
   let maxDate = new Date(Math.max(...dates));
+  const minDate = new Date(maxDate.getFullYear(), maxDate.getMonth(), 1);
   
   // The Excel report might contain padded future dates (e.g., up to 31)
   // Clamp maxDate to today so we don't query a future date
