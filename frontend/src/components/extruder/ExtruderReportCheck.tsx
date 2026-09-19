@@ -5,6 +5,7 @@ import { getExtruderProduction, getExtruderOEE, checkExtruderReport } from '../.
 export default function ExtruderReportCheck() {
   const [productionData, setProductionData] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [isSyncingEnergy, setIsSyncingEnergy] = useState(false);
   
   const [selectedYear, setSelectedYear] = useState<number>(new Date().getFullYear());
   const [selectedMonth, setSelectedMonth] = useState<number>(new Date().getMonth() + 1);
@@ -271,10 +272,31 @@ export default function ExtruderReportCheck() {
 
         {/* Bảng so sánh số điện */}
         <div className="shrink-0 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden mt-4 mb-2">
-           <div className="bg-slate-100 dark:bg-slate-800 p-2.5 border-b border-slate-200 dark:border-slate-700">
+           <div className="bg-slate-100 dark:bg-slate-800 p-2.5 border-b border-slate-200 dark:border-slate-700 flex justify-between items-center">
              <h3 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
                <Zap className="w-4 h-4 text-amber-500" /> So sánh số điện
              </h3>
+             <button 
+               onClick={async () => {
+                 try {
+                   setIsSyncingEnergy(true);
+                   await fetch('http://localhost:5147/api/extruder/sync-energy', {
+                     method: 'POST',
+                     body: JSON.stringify({ month: selectedMonth, year: selectedYear })
+                   });
+                   await fetchData();
+                 } catch (e) {
+                   alert('Lỗi đồng bộ!');
+                 } finally {
+                   setIsSyncingEnergy(false);
+                 }
+               }}
+               disabled={isSyncingEnergy}
+               className="bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1.5 flex items-center gap-2 text-xs font-bold rounded-md shadow-sm transition disabled:opacity-50"
+             >
+               {isSyncingEnergy ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : null}
+               {isSyncingEnergy ? 'Đang đồng bộ...' : 'Đồng bộ từ web'}
+             </button>
            </div>
            <table className="w-full text-center text-sm">
              <thead className="bg-slate-50 dark:bg-slate-900/50 border-b border-slate-200 dark:border-slate-700">

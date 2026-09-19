@@ -1116,6 +1116,33 @@ let allData = []; try { const p = path.join(__dirname, 'extruderData.json'); if 
     return json(req, res, data);
   }
   
+  if (reqPath === '/api/extruder/sync-energy' && method === 'POST') {
+    let body = '';
+    req.on('data', chunk => { body += chunk.toString(); });
+    req.on('end', async () => {
+      try {
+        const { month, year } = JSON.parse(body);
+        let allData = [];
+        const p = path.join(__dirname, 'extruderData.json');
+        if (fs.existsSync(p)) allData = JSON.parse(fs.readFileSync(p, 'utf8'));
+        
+        const filtered = allData.filter(d => d.year === year && d.month === month);
+        const uniqueDates = Array.from(new Set(filtered.map(r => `${r.year}-${String(r.month).padStart(2, '0')}-${String(r.date).padStart(2, '0')}`)));
+        
+        if (uniqueDates.length > 0) {
+          const { fetchEnergyForDates } = require('./energyScraper');
+          await fetchEnergyForDates(uniqueDates);
+        }
+        
+        return json(req, res, { success: true, count: uniqueDates.length });
+      } catch (e) {
+        console.error('Error syncing energy data:', e);
+        return json(req, res, { error: e.message }, 500);
+      }
+    });
+    return;
+  }
+
 // ==================== TRUCK TRACKING ROUTES ====================
 const recordsPath = path.join(__dirname, 'records.json');
 const reasonsPath = path.join(__dirname, 'reasons.json');
