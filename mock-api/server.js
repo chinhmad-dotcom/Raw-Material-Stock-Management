@@ -1062,7 +1062,7 @@ for (let d = 1; d <= 31; d++) {
 let allData = []; try { const p = path.join(__dirname, 'extruderData.json'); if (fs.existsSync(p)) allData = JSON.parse(fs.readFileSync(p, 'utf8')); } catch(e){} allData = allData.filter(d => !(d.year === reportYear && d.month === reportMonth)); allData.push(...results); fs.writeFileSync(path.join(__dirname, 'extruderData.json'), JSON.stringify(allData, null, 2));
 
         // Fetch energy for these dates asynchronously
-        const uniqueDates = Array.from(new Set(results.map(r => `${r.year}-${String(r.month).padStart(2, '0')}-${String(r.date).padStart(2, '0')}`)));
+        const uniqueDates = Array.from(new Set(results.filter(r => (r.bapHap?.ton > 0 || r.nanhHap?.ton > 0)).map(r => `${r.year}-${String(r.month).padStart(2, '0')}-${String(r.date).padStart(2, '0')}`)));
         if(uniqueDates.length > 0) {
            const { fetchEnergyRange } = require('./energyScraper');
            fetchEnergyRange(uniqueDates).catch(e => console.error('Background energy fetch error:', e));
@@ -1130,7 +1130,7 @@ let allData = []; try { const p = path.join(__dirname, 'extruderData.json'); if 
         const p = path.join(__dirname, 'extruderData.json');
         if (fs.existsSync(p)) allData = JSON.parse(fs.readFileSync(p, 'utf8'));
         
-        const filtered = allData.filter(d => d.year === year && d.month === month);
+        const filtered = allData.filter(d => d.year === year && d.month === month && (d.bapHap?.ton > 0 || d.nanhHap?.ton > 0));
         const uniqueDates = Array.from(new Set(filtered.map(r => `${r.year}-${String(r.month).padStart(2, '0')}-${String(r.date).padStart(2, '0')}`)));
         
         if (uniqueDates.length > 0) {
