@@ -1670,6 +1670,67 @@ if (reqPath === '/api/trucks/queue-history' && method === 'GET') {
     return;
   }
 
+  if (reqPath === '/api/reports/electricity-cost-yearly' && method === 'GET') {
+    const year = url.searchParams.get('year');
+    if (!year) return json(req, res, { error: 'Missing year' }, 400);
+
+    let dailyCache = {};
+    try { dailyCache = JSON.parse(fs.readFileSync(path.join(__dirname, 'dailyReceived.json'), 'utf8')); } catch(e){}
+    
+    let energyDaily = {};
+    try { energyDaily = JSON.parse(fs.readFileSync(path.join(__dirname, 'energyDaily.json'), 'utf8')); } catch(e){}
+    
+    let removeData = {};
+    try { removeData = JSON.parse(fs.readFileSync(path.join(__dirname, 'electricityRemove.json'), 'utf8')); } catch(e){}
+
+    const yearlyData = [];
+
+    // PDF_COLUMNS match strings logic repeated here for totalTons calculation
+    const PDF_COLUMNS = [
+      ['Corn (ARG#A,#B)'], [], ['Feed Wheat (UKARAINE, Australia, ARGENTINA, Brazil)'],
+      ['RBF, Rice Bran Fresh (S), Rice bran fresh (Premium)'], ['Broken Rice #C,#B'],
+      ['DDGS, DDGS-pro-26'], ['Palm kernel Expeller'], ['Tap By Product Fine, Tapioca by product - special (local)'],
+      ['Soy Bean Meal -Ex-WH (Local)', 'F.F Soy Bean Meal'], ['Corn Extrude'], [],
+      ['Soy Bean Hull'], ['Soy Been Seed'], ['Canola meal'], ['Brewer Dried Grain, Brew"s dried Grain - hight.Pro'],
+      [], [], ['Rice Bran Solvent'], []
+    ];
+
+    for (let m = 1; m <= 12; m++) {
+      const monthPrefix = `${year}-${String(m).padStart(2, '0')}`;
+      let totalTons = 0;
+      let totalKwh = 0;
+      
+      const daysInMonth = new Date(year, m, 0).getDate();
+      for (let d = 1; d <= daysInMonth; d++) {
+         const dateStr = `${monthPrefix}-${String(d).padStart(2, '0')}`;
+         
+         let rowTons = 0;
+         if (dailyCache[dateStr]) {
+            dailyCache[dateStr].forEach(mat => {
+               PDF_COLUMNS.forEach(matchArr => {
+                  if (matchArr.includes(mat.name)) {
+                     rowTons += mat.received / 1000;
+                  }
+               });
+            });
+         }
+         rowTons -= (removeData[dateStr] || 0);
+         if (rowTons < 0) rowTons = 0;
+         totalTons += rowTons;
+         
+         if (energyDaily[dateStr]) {
+             totalKwh += (energyDaily[dateStr]['RCV1 (MCC11)']?.used || 0)
+                       + (energyDaily[dateStr]['RCV 2(MCC12)']?.used || 0)
+                       + (energyDaily[dateStr]['RCV3&4 (MCC13)']?.used || 0);
+         }
+      }
+      
+      yearlyData.push({ month: m.toString(), val: totalTons > 0 ? totalKwh / totalTons : 0 });
+    }
+    
+    return json(req, res, { data: yearlyData });
+  }
+
   json(req, res, { message: `Endpoint ${method} ${req.url} not found` }, 404);
 
 });

@@ -3,7 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { UserMenu } from '../components/layout/UserMenu';
 import { FileText, Loader2, Save, Download } from 'lucide-react';
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, LabelList } from 'recharts';
-import * as XLSX from 'xlsx';
+import ExcelJS from 'exceljs';
+import { saveAs } from 'file-saver';
 
 interface EnergyData {
   before: number;
@@ -47,6 +48,7 @@ const PDF_COLUMNS = [
 export default function ElectricityCostReport() {
   const { t } = useTranslation();
   const [data, setData] = useState<DailyRecord[]>([]);
+  const [yearlyData, setYearlyData] = useState<{month: string, val: number}[]>([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const tableRef = useRef<HTMLTableElement>(null);
@@ -62,11 +64,15 @@ export default function ElectricityCostReport() {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const res = await fetch(`http://localhost:5147/api/reports/electricity-cost?month=${selectedMonth}&year=${selectedYear}`);
+      const [res, yearRes] = await Promise.all([
+        fetch(`http://localhost:5147/api/reports/electricity-cost?month=${selectedMonth}&year=${selectedYear}`),
+        fetch(`http://localhost:5147/api/reports/electricity-cost-yearly?year=${selectedYear}`)
+      ]);
       const json = await res.json();
-      if (json.data) {
-        setData(json.data);
-      }
+      const yearJson = await yearRes.json();
+      
+      if (json.data) setData(json.data);
+      if (yearJson.data) setYearlyData(yearJson.data);
     } catch (e) {
       console.error(e);
     }
@@ -83,14 +89,83 @@ export default function ElectricityCostReport() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ date, remove: num })
-    }).finally(() => setSaving(false));
+    }).finally(() => {
+      setSaving(false);
+      fetchData(); // reload chart data
+    });
   };
 
-  const exportToExcel = () => {
-    if (tableRef.current) {
-      const wb = XLSX.utils.table_to_book(tableRef.current, { sheet: "Electricity Cost Report" });
-      XLSX.writeFile(wb, `Electricity_Cost_Report_${selectedYear}_${selectedMonth}.xlsx`);
-    }
+  const exportToExcel = async () => {
+    const workbook = new ExcelJS.Workbook();
+    const worksheet = workbook.addWorksheet('Electricity Cost Report');
+
+    // Add Title
+    worksheet.mergeCells('A1:AC1');
+    const titleCell = worksheet.getCell('A1');
+    titleCell.value = 'BÁO CÁO NHẬP HÀNG HẰNG NGÀY';
+    titleCell.font = { name: 'Times New Roman', size: 16, bold: true, color: { argb: 'FF0000FF' } };
+    titleCell.alignment = { horizontal: 'center', vertical: 'middle' };
+    
+    // Headers Row 1
+    const headers1 = ['DATE', ...PDF_COLUMNS.map(c => c.label), 'TOTAL', 'TOTAL', 'AVE', 'MCC13', '', '', 'MCC11', '', '', 'MCC12', '', ''];
+    const row2 = worksheet.addRow(headers1);
+    row2.font = { name: 'Times New Roman', size: 12, bold: true, color: { argb: 'FFFFFFFF' } };
+    row2.eachCell(cell => {
+      cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF00B0F0' } };
+      cell.border = { top: {style:'thin'}, left: {style:'thin'}, bottom: {style:'thin'}, right: {style:'thin'} };
+      cell.alignment = { horizontal: 'center', vertical: 'middle' };
+    });
+    
+    worksheet.mergeCells('A2:A3'); // DATE
+    worksheet.mergeCells('V2:X2'); // MCC13
+    worksheet.mergeCells('Y2:AA2'); // MCC11
+    worksheet.mergeCells('AB2:AD2'); // MCC12
+
+    // Headers Row 2
+    const headers2 = [''];
+    PDF_COLUMNS.forEach(() => headers2.push('TONS'));
+    headers2.push('TONS', 'KWH', 'KWH/TONS', 'E BEFORE', 'E AFTER', 'total', 'E BEFORE', 'E AFTER', 'total', 'E BEFORE', 'E AFTER', 'TOTAL');
+    const row3 = worksheet.addRow(headers2);
+    row3.font = { name: 'Times New Roman', size: 11, bold: true, color: { argb: 'FFFFFFFF' } };
+    row3.eachCell((cell, colNum) => {
+      if(colNum > 1) { // Skip A3 since it's merged
+        cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF00B0F0' } };
+        cell.border = { top: {style:'thin'}, left: {style:'thin'}, bottom: {style:'thin'}, right: {style:'thin'} };
+        cell.alignment = { horizontal: 'center', vertical: 'middle', wrapText: true };
+      }
+    });
+
+    // Data rows
+    tableRows.forEach(row => {
+      const rowData = [row.date];
+      PDF_COLUMNS.forEach(c => rowData.push(row.mappedMaterials[c.label] || 0));
+      rowData.push(row.totalTons, row.totalKwh, row.ave > 0 ? row.ave : '#DIV/0!');
+      rowData.push(row.energy.mcc13.before, row.energy.mcc13.after, row.energy.mcc13.used);
+      rowData.push(row.energy.mcc11.before, row.energy.mcc11.after, row.energy.mcc11.used);
+      rowData.push(row.energy.mcc12.before, row.energy.mcc12.after, row.energy.mcc12.used);
+      
+      const exRow = worksheet.addRow(rowData);
+      exRow.font = { name: 'Times New Roman', size: 11 };
+      exRow.eachCell(cell => {
+        cell.border = { top: {style:'thin'}, left: {style:'thin'}, bottom: {style:'thin'}, right: {style:'thin'} };
+        cell.alignment = { horizontal: 'center', vertical: 'middle' };
+      });
+    });
+
+    // Total Row
+    const tRow1 = [''];
+    PDF_COLUMNS.forEach(c => tRow1.push(totals.materials[c.label] || 0));
+    tRow1.push(totals.totalTons, totals.totalKwh, '', '', '', '', '', '', '', '', '', '');
+    const exTRow1 = worksheet.addRow(tRow1);
+    exTRow1.font = { name: 'Times New Roman', size: 11, bold: true, color: { argb: 'FFFFFFFF' } };
+    exTRow1.eachCell(cell => {
+      cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF00B050' } };
+      cell.border = { top: {style:'thin'}, left: {style:'thin'}, bottom: {style:'thin'}, right: {style:'thin'} };
+    });
+
+    // Save
+    const buffer = await workbook.xlsx.writeBuffer();
+    saveAs(new Blob([buffer]), `Electricity_Cost_Report_${selectedYear}_${selectedMonth}.xlsx`);
   };
 
   // Tính toán dữ liệu hiển thị
@@ -150,13 +225,15 @@ export default function ElectricityCostReport() {
   }, [tableRows]);
 
   // Chart data
-  const chartData = [
-    { month: '1', val: 0.769 }, { month: '2', val: 0.776 }, { month: '3', val: 0.776 },
-    { month: '4', val: 0.776 }, { month: '5', val: 0.779 }, { month: '6', val: 0.769 },
-    { month: '7', val: 0.772 }, { month: '8', val: 0 }, { month: '9', val: 0 },
+  const chartData = yearlyData.length === 12 ? [...yearlyData] : [
+    { month: '1', val: 0 }, { month: '2', val: 0 }, { month: '3', val: 0 },
+    { month: '4', val: 0 }, { month: '5', val: 0 }, { month: '6', val: 0 },
+    { month: '7', val: 0 }, { month: '8', val: 0 }, { month: '9', val: 0 },
     { month: '10', val: 0 }, { month: '11', val: 0 }, { month: '12', val: 0 }
   ];
-  chartData[selectedMonth - 1].val = totals.ave;
+  
+  // Make sure current month is updated instantly if manual remove changes
+  chartData[selectedMonth - 1] = { month: selectedMonth.toString(), val: totals.ave };
 
   return (
     <div className="flex flex-col h-full animate-in fade-in duration-500 bg-slate-50 dark:bg-slate-950 p-2 md:p-4">
