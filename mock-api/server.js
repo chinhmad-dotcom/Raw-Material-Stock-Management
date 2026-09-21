@@ -1695,6 +1695,69 @@ if (reqPath === '/api/trucks/queue-history' && method === 'GET') {
     return json(req, res, { data });
   }
 
+  if (reqPath === '/api/kpi/targets' && method === 'GET') {
+    let targets = { truck: 80, elecReceive: 0.8, elecExtruder: 220 };
+    const file = path.join(__dirname, 'kpiTargets.json');
+    try { targets = JSON.parse(fs.readFileSync(file, 'utf8')); } catch(e){}
+    return json(req, res, { data: targets });
+  }
+
+  if (reqPath === '/api/kpi/targets' && method === 'POST') {
+    let body = '';
+    req.on('data', chunk => body += chunk.toString());
+    req.on('end', () => {
+      let targets = { truck: 80, elecReceive: 0.8, elecExtruder: 220 };
+      const file = path.join(__dirname, 'kpiTargets.json');
+      try { targets = JSON.parse(fs.readFileSync(file, 'utf8')); } catch(e){}
+      
+      const payload = JSON.parse(body);
+      targets = { ...targets, ...payload };
+      
+      fs.writeFileSync(file, JSON.stringify(targets, null, 2));
+      return json(req, res, { success: true });
+    });
+    return;
+  }
+
+  if (reqPath === '/api/kpi/truck-turnaround' && method === 'GET') {
+    const year = Number(url.searchParams.get('year')) || new Date().getFullYear();
+    
+    let records = [];
+    try {
+        const file = path.join(__dirname, 'queueHistory.json');
+        if (fs.existsSync(file)) {
+           records = JSON.parse(fs.readFileSync(file, 'utf8'));
+        }
+    } catch(e){}
+
+    const data = [];
+    for (let i = 1; i <= 12; i++) {
+        const monthlyRecords = records.filter(r => {
+           if (!r.timeOut) return false;
+           const d = new Date(r.timeOut);
+           return d.getMonth() + 1 === i && d.getFullYear() === year;
+        });
+        
+        const total = monthlyRecords.length;
+        let under1Hour = 0;
+        monthlyRecords.forEach(r => {
+           // Giả định < 1H là <= 60 phút
+           if (r.totalTimeMinutes <= 60) under1Hour++;
+        });
+        
+        let val = 0;
+        if (total > 0) {
+            val = (under1Hour / total) * 100;
+        } else {
+            // Nếu không có dữ liệu thật cho tháng đó, trả về 0
+            val = 0;
+        }
+        
+        data.push({ month: i.toString(), val });
+    }
+    return json(req, res, { data });
+  }
+
   if (reqPath === '/api/reports/electricity-remove' && method === 'POST') {
     let body = '';
     req.on('data', chunk => body += chunk.toString());
