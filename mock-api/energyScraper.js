@@ -154,9 +154,6 @@ const fetchEnergyDaily = async (dateStrings) => {
   try {
     browser = await puppeteer.launch({ headless: true });
     console.log(`[Energy Scraper] Starting daily fetch for ${dateStrings.length} dates.`);
-    const page = await browser.newPage();
-    await page.setViewport({ width: 1280, height: 800 });
-    
     for (const dStr of dateStrings) {
       const minDate = new Date(dStr);
       // Skip if future date
@@ -167,6 +164,9 @@ const fetchEnergyDaily = async (dateStrings) => {
         continue;
       }
       
+      console.log(`[Energy Scraper] Creating new page for: ${dStr}`);
+      const page = await browser.newPage();
+      await page.setViewport({ width: 1280, height: 800 });
       await page.goto('http://172.21.36.245/energyreport/', { waitUntil: 'domcontentloaded', timeout: 60000 });
       
       const maxDate = new Date(minDate);
@@ -213,9 +213,15 @@ const fetchEnergyDaily = async (dateStrings) => {
         
         if(data.length > 0) {
           const header = data[0];
-          const beforeIdx = header.findIndex(h => h.includes('Start') || h.includes('Đầu')); // Try English/Vietnamese
-          const afterIdx = header.findIndex(h => h.includes('End') || h.includes('Cuối'));
-          const usedIdx = header.findIndex(h => h.includes('Used') || h.includes('Tiêu Thụ'));
+          const usedIdx = header.findIndex(h => h.toLowerCase().includes('used') || h.toLowerCase().includes('tiêu thụ'));
+          
+          let beforeIdx = -1;
+          let afterIdx = -1;
+          
+          if (header.length >= 4 && usedIdx >= 2) {
+             beforeIdx = usedIdx - 2;
+             afterIdx = usedIdx - 1;
+          }
           
           if (usedIdx >= 0) {
             for(let i = 1; i < data.length; i++) {
@@ -237,6 +243,8 @@ const fetchEnergyDaily = async (dateStrings) => {
         }
         try { await newPage.close(); } catch(err){}
       }
+      
+      try { await page.close(); } catch(err){}
       
       if (Object.keys(extracted).length > 0) {
         const energyDailyData = loadEnergyDailyData();
