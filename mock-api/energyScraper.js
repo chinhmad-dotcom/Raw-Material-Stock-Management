@@ -60,7 +60,7 @@ const fetchEnergyRange = async (dateStrings) => {
     const page = await browser.newPage();
     await page.setViewport({ width: 1280, height: 800 });
     
-    await page.goto('http://172.21.36.245/energyreport/', { waitUntil: 'networkidle0' });
+    await page.goto('http://172.21.36.245/energyreport/', { waitUntil: 'domcontentloaded', timeout: 60000 });
     
     await page.evaluate((fStr, tStr, fY, fM, fD, tY, tM, tD) => {
       const setVal = (sel, val) => { const el = document.querySelector(sel); if(el) el.value = val; };
@@ -157,8 +157,6 @@ const fetchEnergyDaily = async (dateStrings) => {
     const page = await browser.newPage();
     await page.setViewport({ width: 1280, height: 800 });
     
-    await page.goto('http://172.21.36.245/energyreport/', { waitUntil: 'networkidle0' });
-    
     for (const dStr of dateStrings) {
       const minDate = new Date(dStr);
       // Skip if future date
@@ -168,6 +166,8 @@ const fetchEnergyDaily = async (dateStrings) => {
         console.log(`[Energy Scraper] Skipping future/today date: ${dStr}`);
         continue;
       }
+      
+      await page.goto('http://172.21.36.245/energyreport/', { waitUntil: 'domcontentloaded', timeout: 60000 });
       
       const maxDate = new Date(minDate);
       maxDate.setDate(maxDate.getDate() + 1);
