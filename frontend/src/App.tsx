@@ -12,6 +12,7 @@ import TruckTrackingPage from './pages/TruckTrackingPage';
 import FanReportPage from './pages/FanReportPage';
 import FumigationReportPage from './pages/FumigationReportPage';
 import ElectricityCostReport from './pages/ElectricityCostReport';
+import KpiDashboard from './pages/KpiDashboard';
 
 import { useAuthStore } from './features/auth/store/authStore';
 
@@ -50,7 +51,8 @@ function App() {
           <Route path="settings" element={<SettingsPage />} />
           <Route path="stock-kho" element={<StockKho />} />
           <Route path="stock-silo" element={<StockSilo />} />
-                    <Route path="extruder" element={<ExtruderPage />} />
+          <Route path="extruder" element={<ExtruderPage />} />
+          <Route path="kpi-rm" element={<KpiDashboard />} />
           <Route path="truck-tracking" element={<TruckTrackingPage />} />
           <Route path="reports/fans" element={<FanReportPage />} />
           <Route path="reports/fumigation" element={<FumigationReportPage />} />

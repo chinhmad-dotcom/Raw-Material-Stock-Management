@@ -47,14 +47,20 @@ export default function KpiDashboard() {
       const elecExtJson = await elecExtRes.json();
       
       // Compute extruder yearly average from daily extruder data
-      if (elecExtJson.data) {
+      if (Array.isArray(elecExtJson)) {
           const extMonthly = Array(12).fill(0).map(() => ({ totalTons: 0, totalKwh: 0 }));
-          elecExtJson.data.forEach((day: any) => {
-              const [y, m] = day.date.split('-');
-              const mIdx = Number(m) - 1;
-              if (mIdx >= 0 && mIdx < 12) {
-                  extMonthly[mIdx].totalTons += (day.totalTons || 0);
-                  extMonthly[mIdx].totalKwh += (day.energy?.total || 0);
+          elecExtJson.forEach((r: any) => {
+              if (r.year === selectedYear) {
+                  const mIdx = Number(r.month) - 1;
+                  if (mIdx >= 0 && mIdx < 12) {
+                      const bap = r.produce_bap || 0;
+                      const nanh = r.produce_nanh || 0;
+                      extMonthly[mIdx].totalTons += (bap + nanh);
+                      
+                      const e = r.electricity || {};
+                      const kwh = (e.scraped_e1 || 0) + (e.scraped_e2 || 0) + (e.scraped_hamer || 0) + (e.scraped_line || 0);
+                      extMonthly[mIdx].totalKwh += kwh;
+                  }
               }
           });
           const extChart = extMonthly.map((m, idx) => ({

@@ -1724,7 +1724,7 @@ if (reqPath === '/api/trucks/queue-history' && method === 'GET') {
     
     let records = [];
     try {
-        const file = path.join(__dirname, 'queueHistory.json');
+        const file = path.join(__dirname, 'records.json');
         if (fs.existsSync(file)) {
            records = JSON.parse(fs.readFileSync(file, 'utf8'));
         }
@@ -1733,16 +1733,18 @@ if (reqPath === '/api/trucks/queue-history' && method === 'GET') {
     const data = [];
     for (let i = 1; i <= 12; i++) {
         const monthlyRecords = records.filter(r => {
-           if (!r.timeOut) return false;
-           const d = new Date(r.timeOut);
+           const tOut = r.timeOut || r.TimeOut;
+           if (!tOut) return false;
+           const d = new Date(tOut);
            return d.getMonth() + 1 === i && d.getFullYear() === year;
         });
         
         const total = monthlyRecords.length;
         let under1Hour = 0;
         monthlyRecords.forEach(r => {
+           const mins = r.totalTimeMinutes !== undefined ? r.totalTimeMinutes : r.TotalTimeMinutes;
            // Giả định < 1H là <= 60 phút
-           if (r.totalTimeMinutes <= 60) under1Hour++;
+           if (mins <= 60) under1Hour++;
         });
         
         let val = 0;

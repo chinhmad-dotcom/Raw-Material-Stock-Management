@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
-import { LayoutDashboard, Boxes, Settings, PackageOpen, Container, Factory, Truck, FileText, ChevronDown, ChevronRight } from 'lucide-react';
+import { LayoutDashboard, Boxes, Settings, PackageOpen, Container, Factory, Truck, FileText, ChevronDown, ChevronRight, Activity } from 'lucide-react';
 
 export function Sidebar() {
   const { t } = useTranslation();
@@ -13,6 +13,7 @@ export function Sidebar() {
     { name: t('sidebar.stockKho', 'Stock Kho'), path: '/stock-kho', icon: <PackageOpen className="h-10 w-10" /> },
     { name: t('sidebar.stockSilo', 'Stock Silo'), path: '/stock-silo', icon: <Container className="h-10 w-10" /> },
     { name: t('sidebar.extruder', 'Extruder'), path: '/extruder', icon: <Factory className="h-10 w-10" /> },
+    { name: 'KPI RM', path: '/kpi-rm', icon: <Activity className="h-10 w-10" /> },
     { name: 'Truck Tracking', path: '/truck-tracking', icon: <Truck className="h-10 w-10" /> },
     { 
       name: t('sidebar.reports', 'Báo Cáo'), 
