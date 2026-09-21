@@ -12,7 +12,14 @@ export function Sidebar() {
     { name: t('sidebar.stockSilo', 'Stock Silo'), path: '/stock-silo', icon: <Container className="h-10 w-10" /> },
     { name: t('sidebar.extruder', 'Extruder'), path: '/extruder', icon: <Factory className="h-10 w-10" /> },
     { name: 'Truck Tracking', path: '/truck-tracking', icon: <Truck className="h-10 w-10" /> },
-    { name: t('sidebar.reports', 'Báo Cáo'), path: '/reports', icon: <FileText className="h-10 w-10" /> },
+    { 
+      name: t('sidebar.reports', 'Báo Cáo'), 
+      icon: <FileText className="h-10 w-10" />,
+      subItems: [
+        { name: 'Báo cáo mở quạt', path: '/reports/fans' },
+        { name: 'Báo cáo phun trùng', path: '/reports/fumigation' }
+      ]
+    },
     { name: 'Settings', path: '/settings', icon: <Settings className="h-10 w-10" /> },
   ];
 
@@ -30,20 +37,44 @@ export function Sidebar() {
           
           <nav className="flex flex-col gap-0.5 mt-2 flex-1 overflow-y-auto">
             <p className="px-3 mb-1 text-sm font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">{t('sidebar.menu', 'Menu')}</p>
-            {navItems.map((item) => (
-              <Link 
-                key={item.name} 
-                to={item.path}
-                className={`flex items-center gap-3 rounded-xl px-3 py-2 text-lg font-semibold transition ${
-                  location.pathname === item.path 
-                    ? 'bg-sky-500/10 text-sky-400' 
-                    : 'text-slate-400 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-slate-900 dark:hover:text-slate-200'
-                }`}
-              >
-                {item.icon}
-                {item.name}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              if (item.subItems) {
+                const isActive = location.pathname.startsWith('/reports');
+                return (
+                  <div key={item.name} className="flex flex-col gap-1">
+                    <div className={`flex items-center gap-3 rounded-xl px-3 py-2 text-lg font-semibold ${isActive ? 'text-sky-400' : 'text-slate-400'}`}>
+                      {item.icon}
+                      {item.name}
+                    </div>
+                    <div className="flex flex-col ml-11 gap-1 border-l-2 border-slate-200 dark:border-slate-800 pl-4 py-1">
+                      {item.subItems.map(sub => (
+                        <Link
+                          key={sub.name}
+                          to={sub.path}
+                          className={`text-sm font-medium py-1.5 transition ${location.pathname === sub.path ? 'text-sky-500 font-bold' : 'text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200'}`}
+                        >
+                          {sub.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+              return (
+                <Link 
+                  key={item.name} 
+                  to={item.path || '#'}
+                  className={`flex items-center gap-3 rounded-xl px-3 py-2 text-lg font-semibold transition ${
+                    location.pathname === item.path 
+                      ? 'bg-sky-500/10 text-sky-400' 
+                      : 'text-slate-400 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-slate-900 dark:hover:text-slate-200'
+                  }`}
+                >
+                  {item.icon}
+                  {item.name}
+                </Link>
+              );
+            })}
           </nav>
         </aside>
       </div>

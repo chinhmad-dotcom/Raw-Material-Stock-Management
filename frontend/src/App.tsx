@@ -1,4 +1,4 @@
-﻿import { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useThemeStore } from './store/themeStore';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { MainLayout } from './components/layout/MainLayout';
@@ -9,7 +9,8 @@ import { LoginPage } from './pages/LoginPage';
 import { SettingsPage } from './pages/SettingsPage';
 import ExtruderPage from './pages/ExtruderPage';
 import TruckTrackingPage from './pages/TruckTrackingPage';
-import ReportsPage from './pages/ReportsPage';
+import FanReportPage from './pages/FanReportPage';
+import FumigationReportPage from './pages/FumigationReportPage';
 
 import { useAuthStore } from './features/auth/store/authStore';
 
@@ -50,7 +51,9 @@ function App() {
           <Route path="stock-silo" element={<StockSilo />} />
                     <Route path="extruder" element={<ExtruderPage />} />
           <Route path="truck-tracking" element={<TruckTrackingPage />} />
-          <Route path="reports" element={<ReportsPage />} />
+          <Route path="reports/fans" element={<FanReportPage />} />
+          <Route path="reports/fumigation" element={<FumigationReportPage />} />
+          <Route path="reports" element={<Navigate to="/reports/fans" replace />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -4,7 +4,8 @@
       "id": "1",
       "email": "admin@stockrm.com",
       "role": "Admin",
-      "status": "Active"
+      "status": "Active",
+      "name": "Phạm Văn Chỉnh"
     },
     {
       "id": "1787561546639",
