@@ -24,8 +24,8 @@ interface DailyRecord {
 }
 
 const PDF_COLUMNS = [
-  { label: 'CORN#ARG', match: ['Corn (ARG#A,#B)'] },
-  { label: 'CORN#BRA', match: [] },
+  { label: 'CORN #ARG', match: ['Corn (ARG#A,#B)'] },
+  { label: 'CORN #BRA', match: [] },
   { label: 'WG', match: ['Feed Wheat (UKARAINE, Australia, ARGENTINA, Brazil)'] },
   { label: 'RBF', match: ['RBF, Rice Bran Fresh (S), Rice bran fresh (Premium)'] },
   { label: 'BR', match: ['Broken Rice #C,#B'] },
@@ -34,7 +34,7 @@ const PDF_COLUMNS = [
   { label: 'TBP', match: ['Tap By Product Fine, Tapioca by product - special (local)'] },
   { label: 'SBM', match: ['Soy Bean Meal -Ex-WH (Local)', 'F.F Soy Bean Meal'] },
   { label: 'COM', match: ['Corn Extrude'] },
-  { label: 'CORN#USA', match: [] },
+  { label: 'CORN #USA', match: [] },
   { label: 'SBH', match: ['Soy Bean Hull'] },
   { label: 'SBS', match: ['Soy Been Seed'] },
   { label: 'CANOLA', match: ['Canola meal'] },
@@ -288,7 +288,7 @@ export default function ElectricityCostReport() {
               <thead>
                 <tr className="bg-sky-500 text-white font-bold" style={{ fontSize: '12px' }}>
                   <th className="border border-black p-0.5" rowSpan={2}>DATE</th>
-                  {PDF_COLUMNS.map(c => <th key={c.label} className="border border-black p-0.5 whitespace-nowrap px-1">{c.label}</th>)}
+                  {PDF_COLUMNS.map(c => <th key={c.label} className="border border-black p-0.5 px-1 min-w-[35px] max-w-[50px] break-words whitespace-normal leading-tight">{c.label}</th>)}
                   <th className="border border-black p-0.5 whitespace-nowrap px-1">TOTAL</th>
                   <th className="border border-black p-0.5 whitespace-nowrap px-1">TOTAL</th>
                   <th className="border border-black p-0.5 whitespace-nowrap px-1">AVE</th>
