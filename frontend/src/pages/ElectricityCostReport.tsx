@@ -187,7 +187,6 @@ export default function ElectricityCostReport() {
           <div className="p-4" style={{ minWidth: '1500px' }}>
             <div className="text-center mb-4">
               <h1 className="font-bold text-blue-800 uppercase" style={{ fontSize: '18px' }}>BÁO CÁO NHẬP HÀNG HẰNG NGÀY</h1>
-              <p className="font-bold text-blue-700" style={{ fontSize: '14px' }}>Price Electric Average: 1,016 vnd/ Kw</p>
             </div>
             
             <table className="w-full border-collapse border border-black text-center" style={{ fontSize: '13px' }}>

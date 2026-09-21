@@ -1615,7 +1615,7 @@ if (reqPath === '/api/trucks/queue-history' && method === 'GET') {
     const defaultMaterials = ['CORN#ARG', 'CORN#BRA', 'WG', 'RBF', 'BR', 'DDGS', 'PKM', 'TBP', 'SBM', 'COM', 'CORN#USA', 'SBH', 'SBS', 'CANOLA', 'BDG', 'RSM', 'RBS', 'WBr'];
     if (materialsSet.size === 0) defaultMaterials.forEach(m => materialsSet.add(m));
 
-    for (let day = 1; day <= daysInMonth; day++) {
+    for (let day = 1; day <= 31; day++) {
       const dateStr = `${targetMonthPrefix}-${String(day).padStart(2, '0')}`;
       const dayData = {
         date: dateStr,
