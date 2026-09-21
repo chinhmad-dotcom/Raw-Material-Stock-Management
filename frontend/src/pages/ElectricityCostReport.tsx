@@ -95,6 +95,34 @@ export default function ElectricityCostReport() {
     });
   };
 
+  const handleEnergyOverride = (date: string, meter: string, type: 'before' | 'after', value: string) => {
+    const num = Number(value);
+    if (isNaN(num)) return;
+    
+    // Optimistic UI update
+    setData(prev => prev.map(r => {
+       if (r.date !== date) return r;
+       const updatedMeter = { ...r.energy[meter as keyof typeof r.energy], [type]: num };
+       updatedMeter.used = updatedMeter.after - updatedMeter.before;
+       if (updatedMeter.used < 0) updatedMeter.used = 0;
+       
+       return {
+         ...r,
+         energy: { ...r.energy, [meter]: updatedMeter }
+       };
+    }));
+
+    setSaving(true);
+    fetch(`http://localhost:5147/api/reports/electricity-energy-override`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ date, meter, type, value: num })
+    }).finally(() => {
+      setSaving(false);
+      fetchData();
+    });
+  };
+
   // Tính toán dữ liệu hiển thị
   const tableRows = useMemo(() => {
     return data.map(row => {
@@ -341,16 +369,52 @@ export default function ElectricityCostReport() {
                     <td className="border border-black p-0.5 bg-white font-bold">{row.hideEnergy ? '' : row.totalKwh.toFixed(0)}</td>
                     <td className="border border-black p-0.5 bg-white">{(row.ave > 0 && !row.hideEnergy) ? row.ave.toFixed(3) : '#DIV/0!'}</td>
                     
-                    <td className="border border-black p-0.5 bg-teal-100">{row.hideEnergy ? '' : row.energy.mcc13.before}</td>
-                    <td className="border border-black p-0.5 bg-teal-100">{row.hideEnergy ? '' : row.energy.mcc13.after}</td>
+                    <td className="border border-black p-0.5 bg-teal-100 p-0">
+                      {row.hideEnergy ? '' : (
+                        <input type="number" className="w-full bg-transparent text-center outline-none"
+                               value={row.energy.mcc13.before}
+                               onChange={e => handleEnergyOverride(row.date, 'mcc13', 'before', e.target.value)} />
+                      )}
+                    </td>
+                    <td className="border border-black p-0.5 bg-teal-100 p-0">
+                      {row.hideEnergy ? '' : (
+                        <input type="number" className="w-full bg-transparent text-center outline-none"
+                               value={row.energy.mcc13.after}
+                               onChange={e => handleEnergyOverride(row.date, 'mcc13', 'after', e.target.value)} />
+                      )}
+                    </td>
                     <td className="border border-black p-0.5 bg-teal-200">{row.hideEnergy ? '' : row.energy.mcc13.used}</td>
                     
-                    <td className="border border-black p-0.5 bg-teal-100">{row.hideEnergy ? '' : row.energy.mcc11.before}</td>
-                    <td className="border border-black p-0.5 bg-teal-100">{row.hideEnergy ? '' : row.energy.mcc11.after}</td>
+                    <td className="border border-black p-0.5 bg-teal-100 p-0">
+                      {row.hideEnergy ? '' : (
+                        <input type="number" className="w-full bg-transparent text-center outline-none"
+                               value={row.energy.mcc11.before}
+                               onChange={e => handleEnergyOverride(row.date, 'mcc11', 'before', e.target.value)} />
+                      )}
+                    </td>
+                    <td className="border border-black p-0.5 bg-teal-100 p-0">
+                      {row.hideEnergy ? '' : (
+                        <input type="number" className="w-full bg-transparent text-center outline-none"
+                               value={row.energy.mcc11.after}
+                               onChange={e => handleEnergyOverride(row.date, 'mcc11', 'after', e.target.value)} />
+                      )}
+                    </td>
                     <td className="border border-black p-0.5 bg-teal-200">{row.hideEnergy ? '' : row.energy.mcc11.used}</td>
                     
-                    <td className="border border-black p-0.5 bg-teal-100">{row.hideEnergy ? '' : row.energy.mcc12.before}</td>
-                    <td className="border border-black p-0.5 bg-teal-100">{row.hideEnergy ? '' : row.energy.mcc12.after}</td>
+                    <td className="border border-black p-0.5 bg-teal-100 p-0">
+                      {row.hideEnergy ? '' : (
+                        <input type="number" className="w-full bg-transparent text-center outline-none"
+                               value={row.energy.mcc12.before}
+                               onChange={e => handleEnergyOverride(row.date, 'mcc12', 'before', e.target.value)} />
+                      )}
+                    </td>
+                    <td className="border border-black p-0.5 bg-teal-100 p-0">
+                      {row.hideEnergy ? '' : (
+                        <input type="number" className="w-full bg-transparent text-center outline-none"
+                               value={row.energy.mcc12.after}
+                               onChange={e => handleEnergyOverride(row.date, 'mcc12', 'after', e.target.value)} />
+                      )}
+                    </td>
                     <td className="border border-black p-0.5 bg-teal-200">{row.hideEnergy ? '' : row.energy.mcc12.used}</td>
                   </tr>
                 ))}

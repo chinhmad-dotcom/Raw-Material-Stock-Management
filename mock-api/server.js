@@ -1587,19 +1587,22 @@ if (reqPath === '/api/trucks/queue-history' && method === 'GET') {
     if (!month || !year) return json(req, res, { error: 'Missing month or year' }, 400);
 
     const targetMonthPrefix = `${year}-${String(month).padStart(2, '0')}`;
+    const daysInMonth = new Date(year, month, 0).getDate();
     
     // Load data
     let dailyCache = {};
     try { dailyCache = JSON.parse(fs.readFileSync(path.join(__dirname, 'dailyReceived.json'), 'utf8')); } catch(e){}
     
-    let energyDaily = {};
-    try { energyDaily = JSON.parse(fs.readFileSync(path.join(__dirname, 'energyDaily.json'), 'utf8')); } catch(e){}
-    
     let removeData = {};
     try { removeData = JSON.parse(fs.readFileSync(path.join(__dirname, 'electricityRemove.json'), 'utf8')); } catch(e){}
+    
+    let energyDaily = {};
+    try { energyDaily = JSON.parse(fs.readFileSync(path.join(__dirname, 'energyDaily.json'), 'utf8')); } catch(e){}
 
-    const daysInMonth = new Date(year, month, 0).getDate();
-    const result = [];
+    let energyOverrides = {};
+    try { energyOverrides = JSON.parse(fs.readFileSync(path.join(__dirname, 'energyOverrides.json'), 'utf8')); } catch(e){}
+
+    const data = [];
 
     // Lọc ra danh sách các nguyên liệu có trong tháng này để tạo cột động
     const materialsSet = new Set();
@@ -1615,38 +1618,81 @@ if (reqPath === '/api/trucks/queue-history' && method === 'GET') {
     const defaultMaterials = ['CORN#ARG', 'CORN#BRA', 'WG', 'RBF', 'BR', 'DDGS', 'PKM', 'TBP', 'SBM', 'COM', 'CORN#USA', 'SBH', 'SBS', 'CANOLA', 'BDG', 'RSM', 'RBS', 'WBr'];
     if (materialsSet.size === 0) defaultMaterials.forEach(m => materialsSet.add(m));
 
+    // Auto-correction helper
+    const autoCorrectEnergy = (eData, prevData) => {
+       ['mcc11', 'mcc12', 'mcc13'].forEach(m => {
+          let before = eData[m].before;
+          let after = eData[m].after;
+          let used = eData[m].used;
+          
+          const prevAfter = prevData ? prevData[m].after : before;
+
+          // Nếu chỉ số đầu sai (<= 0) -> Lấy chỉ số cuối hôm trước
+          if (before <= 0 && prevAfter > 0) {
+              before = prevAfter;
+              if (after > before) {
+                  used = after - before; // Tính lại số điện
+              } else {
+                  after = before + used; // Giữ nguyên số điện, tính lại số cuối
+              }
+          }
+          
+          // Nếu chỉ số cuối sai (nhỏ hơn chỉ số đầu) -> Cộng số điện vào
+          if (after < before || after <= 0) {
+              after = before + used;
+          }
+
+          eData[m].before = before;
+          eData[m].after = after;
+          eData[m].used = used;
+       });
+    };
+
     for (let day = 1; day <= 31; day++) {
       const dateStr = `${targetMonthPrefix}-${String(day).padStart(2, '0')}`;
+      
+      let eData = {
+        mcc11: energyDaily[dateStr]?.['RCV1 (MCC11)'] || { before: 0, after: 0, used: 0 },
+        mcc12: energyDaily[dateStr]?.['RCV 2(MCC12)'] || { before: 0, after: 0, used: 0 },
+        mcc13: energyDaily[dateStr]?.['RCV3&4 (MCC13)'] || { before: 0, after: 0, used: 0 }
+      };
+
+      // Apply auto correction based on previous day BEFORE user overrides
+      const prevData = data.length > 0 ? data[data.length - 1].energy : null;
+      autoCorrectEnergy(eData, prevData);
+
+      if (energyOverrides[dateStr]) {
+         ['mcc11', 'mcc12', 'mcc13'].forEach(m => {
+            if (energyOverrides[dateStr][m]) {
+               if (energyOverrides[dateStr][m].before !== undefined) eData[m].before = energyOverrides[dateStr][m].before;
+               if (energyOverrides[dateStr][m].after !== undefined) eData[m].after = energyOverrides[dateStr][m].after;
+               eData[m].used = eData[m].after - eData[m].before;
+               if (eData[m].used < 0) eData[m].used = 0;
+            }
+         });
+      }
+
       const dayData = {
         date: dateStr,
         materials: {},
         remove: removeData[dateStr] || 0,
-        energy: {
-          mcc11: energyDaily[dateStr]?.['RCV1 (MCC11)'] || { before: 0, after: 0, used: 0 },
-          mcc12: energyDaily[dateStr]?.['RCV 2(MCC12)'] || { before: 0, after: 0, used: 0 },
-          mcc13: energyDaily[dateStr]?.['RCV3&4 (MCC13)'] || { before: 0, after: 0, used: 0 }
-        }
+        energy: eData
       };
       
-      let hasData = false;
-      materialsSet.forEach(mat => dayData.materials[mat] = 0);
+      materialsSet.forEach(m => dayData.materials[m] = 0);
       
       if (dailyCache[dateStr]) {
         dailyCache[dateStr].forEach(m => {
-          if (materialsSet.has(m.name)) {
-            dayData.materials[m.name] = m.received;
-            if (m.received > 0) hasData = true;
-          }
+           if (materialsSet.has(m.name)) {
+              dayData.materials[m.name] = m.received;
+           }
         });
       }
       
-      result.push(dayData);
+      data.push(dayData);
     }
     
-    return json(req, res, { 
-      data: result,
-      materials: Array.from(materialsSet)
-    });
+    return json(req, res, { data });
   }
 
   if (reqPath === '/api/reports/electricity-remove' && method === 'POST') {
@@ -1654,7 +1700,7 @@ if (reqPath === '/api/trucks/queue-history' && method === 'GET') {
     req.on('data', chunk => body += chunk.toString());
     req.on('end', () => {
       try {
-        const data = JSON.parse(body); // { date: "YYYY-MM-DD", remove: 123 }
+        const data = JSON.parse(body);
         const removePath = path.join(__dirname, 'electricityRemove.json');
         let removeData = {};
         if (fs.existsSync(removePath)) {
@@ -1683,6 +1729,9 @@ if (reqPath === '/api/trucks/queue-history' && method === 'GET') {
     let removeData = {};
     try { removeData = JSON.parse(fs.readFileSync(path.join(__dirname, 'electricityRemove.json'), 'utf8')); } catch(e){}
 
+    let energyOverrides = {};
+    try { energyOverrides = JSON.parse(fs.readFileSync(path.join(__dirname, 'energyOverrides.json'), 'utf8')); } catch(e){}
+
     const yearlyData = [];
 
     // PDF_COLUMNS match strings logic repeated here for totalTons calculation
@@ -1694,6 +1743,32 @@ if (reqPath === '/api/trucks/queue-history' && method === 'GET') {
       ['Soy Bean Hull'], ['Soy Been Seed'], ['Canola meal'], ['Brewer Dried Grain, Brew"s dried Grain - hight.Pro'],
       [], [], ['Rice Bran Solvent'], []
     ];
+
+    // Auto-correction helper
+    const autoCorrectEnergy = (eData, prevData) => {
+       ['mcc11', 'mcc12', 'mcc13'].forEach(m => {
+          let before = eData[m].before;
+          let after = eData[m].after;
+          let used = eData[m].used;
+          
+          const prevAfter = prevData ? prevData[m].after : before;
+          if (before <= 0 && prevAfter > 0) {
+              before = prevAfter;
+              if (after > before) {
+                  used = after - before; 
+              } else {
+                  after = before + used;
+              }
+          }
+          if (after < before || after <= 0) {
+              after = before + used;
+          }
+          eData[m].before = before; eData[m].after = after; eData[m].used = used;
+       });
+    };
+
+    // We need to keep track of the PREVIOUS day's energy data across months
+    let lastDayEnergy = null;
 
     for (let m = 1; m <= 12; m++) {
       const monthPrefix = `${year}-${String(m).padStart(2, '0')}`;
@@ -1726,10 +1801,28 @@ if (reqPath === '/api/trucks/queue-history' && method === 'GET') {
          // if (rowTons < 0) rowTons = 0;
          totalTons += rowTons;
          
-         if (energyDaily[dateStr] && !hideEnergy) {
-             totalKwh += (energyDaily[dateStr]['RCV1 (MCC11)']?.used || 0)
-                       + (energyDaily[dateStr]['RCV 2(MCC12)']?.used || 0)
-                       + (energyDaily[dateStr]['RCV3&4 (MCC13)']?.used || 0);
+         let eData = {
+           mcc11: energyDaily[dateStr]?.['RCV1 (MCC11)'] || { before: 0, after: 0, used: 0 },
+           mcc12: energyDaily[dateStr]?.['RCV 2(MCC12)'] || { before: 0, after: 0, used: 0 },
+           mcc13: energyDaily[dateStr]?.['RCV3&4 (MCC13)'] || { before: 0, after: 0, used: 0 }
+         };
+         
+         autoCorrectEnergy(eData, lastDayEnergy);
+         lastDayEnergy = eData;
+
+         if (energyOverrides[dateStr]) {
+            ['mcc11', 'mcc12', 'mcc13'].forEach(meter => {
+               if (energyOverrides[dateStr][meter]) {
+                  if (energyOverrides[dateStr][meter].before !== undefined) eData[meter].before = energyOverrides[dateStr][meter].before;
+                  if (energyOverrides[dateStr][meter].after !== undefined) eData[meter].after = energyOverrides[dateStr][meter].after;
+                  eData[meter].used = eData[meter].after - eData[meter].before;
+                  if (eData[meter].used < 0) eData[meter].used = 0;
+               }
+            });
+         }
+
+         if (!hideEnergy) {
+             totalKwh += eData.mcc11.used + eData.mcc12.used + eData.mcc13.used;
          }
       }
       
