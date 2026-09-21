@@ -18,6 +18,7 @@ export function Sidebar() {
       name: t('sidebar.reports', 'Báo Cáo'), 
       icon: <FileText className="h-10 w-10" />,
       subItems: [
+        { name: 'Báo cáo chi phí điện', path: '/reports/electricity-cost' },
         { name: 'Báo cáo mở quạt', path: '/reports/fans' },
         { name: 'Báo cáo phun trùng', path: '/reports/fumigation' }
       ]

@@ -582,6 +582,20 @@ const server = http.createServer(async (req, res) => {
             
             fs.copyFileSync(uploadedFile.filepath, path.join(UPLOADS_DIR, reportDate + '.xlsx'));
             syncMaterialsToSettings(parsedData.materials);
+            
+            try {
+              const dailyReceivedPath = path.join(__dirname, 'dailyReceived.json');
+              let dailyCache = {};
+              if (fs.existsSync(dailyReceivedPath)) {
+                  try { dailyCache = JSON.parse(fs.readFileSync(dailyReceivedPath, 'utf8')); } catch(e){}
+              }
+              dailyCache[reportDate] = parsedData.materials.map(m => ({ name: m.materialName, received: m.totalReceiveKg || 0 }));
+              fs.writeFileSync(dailyReceivedPath, JSON.stringify(dailyCache, null, 2));
+            } catch(e) { console.error('Failed to update dailyReceived cache', e); }
+            
+            // Tự động cào dữ liệu điện theo ngày (chạy ngầm)
+            const { fetchEnergyDaily } = require('./energyScraper');
+            fetchEnergyDaily([reportDate]).catch(e => console.error('Background fetchEnergyDaily error:', e));
           }
         
         return json(req, res, {
@@ -1567,25 +1581,100 @@ if (reqPath === '/api/trucks/queue-history' && method === 'GET') {
 
 // ==========================================================
 
+  if (reqPath === '/api/reports/electricity-cost' && method === 'GET') {
+    const month = url.searchParams.get('month');
+    const year = url.searchParams.get('year');
+    if (!month || !year) return json(req, res, { error: 'Missing month or year' }, 400);
+
+    const targetMonthPrefix = `${year}-${String(month).padStart(2, '0')}`;
+    
+    // Load data
+    let dailyCache = {};
+    try { dailyCache = JSON.parse(fs.readFileSync(path.join(__dirname, 'dailyReceived.json'), 'utf8')); } catch(e){}
+    
+    let energyDaily = {};
+    try { energyDaily = JSON.parse(fs.readFileSync(path.join(__dirname, 'energyDaily.json'), 'utf8')); } catch(e){}
+    
+    let removeData = {};
+    try { removeData = JSON.parse(fs.readFileSync(path.join(__dirname, 'electricityRemove.json'), 'utf8')); } catch(e){}
+
+    const daysInMonth = new Date(year, month, 0).getDate();
+    const result = [];
+
+    // Lọc ra danh sách các nguyên liệu có trong tháng này để tạo cột động
+    const materialsSet = new Set();
+    Object.keys(dailyCache).forEach(date => {
+      if (date.startsWith(targetMonthPrefix)) {
+        dailyCache[date].forEach(m => {
+          if (m.received > 0) materialsSet.add(m.name);
+        });
+      }
+    });
+    
+    // Nếu không có dữ liệu, dùng các cột mặc định theo PDF
+    const defaultMaterials = ['CORN#ARG', 'CORN#BRA', 'WG', 'RBF', 'BR', 'DDGS', 'PKM', 'TBP', 'SBM', 'COM', 'CORN#USA', 'SBH', 'SBS', 'CANOLA', 'BDG', 'RSM', 'RBS', 'WBr'];
+    if (materialsSet.size === 0) defaultMaterials.forEach(m => materialsSet.add(m));
+
+    for (let day = 1; day <= daysInMonth; day++) {
+      const dateStr = `${targetMonthPrefix}-${String(day).padStart(2, '0')}`;
+      const dayData = {
+        date: dateStr,
+        materials: {},
+        remove: removeData[dateStr] || 0,
+        energy: {
+          mcc11: energyDaily[dateStr]?.['RCV1 (MCC11)'] || { before: 0, after: 0, used: 0 },
+          mcc12: energyDaily[dateStr]?.['RCV 2(MCC12)'] || { before: 0, after: 0, used: 0 },
+          mcc13: energyDaily[dateStr]?.['RCV3&4 (MCC13)'] || { before: 0, after: 0, used: 0 }
+        }
+      };
+      
+      let hasData = false;
+      materialsSet.forEach(mat => dayData.materials[mat] = 0);
+      
+      if (dailyCache[dateStr]) {
+        dailyCache[dateStr].forEach(m => {
+          if (materialsSet.has(m.name)) {
+            dayData.materials[m.name] = m.received;
+            if (m.received > 0) hasData = true;
+          }
+        });
+      }
+      
+      result.push(dayData);
+    }
+    
+    return json(req, res, { 
+      data: result,
+      materials: Array.from(materialsSet)
+    });
+  }
+
+  if (reqPath === '/api/reports/electricity-remove' && method === 'POST') {
+    let body = '';
+    req.on('data', chunk => body += chunk.toString());
+    req.on('end', () => {
+      try {
+        const data = JSON.parse(body); // { date: "YYYY-MM-DD", remove: 123 }
+        const removePath = path.join(__dirname, 'electricityRemove.json');
+        let removeData = {};
+        if (fs.existsSync(removePath)) {
+            try { removeData = JSON.parse(fs.readFileSync(removePath, 'utf8')); } catch(e){}
+        }
+        removeData[data.date] = Number(data.remove) || 0;
+        fs.writeFileSync(removePath, JSON.stringify(removeData, null, 2));
+        return json(req, res, { success: true });
+      } catch(e) {
+        return json(req, res, { error: e.message }, 400);
+      }
+    });
+    return;
+  }
+
   json(req, res, { message: `Endpoint ${method} ${req.url} not found` }, 404);
 
 });
 
-server.listen(PORT, '0.0.0.0', () => {
-  console.log('');
-  console.log('  â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—');
-  console.log('  â•‘   StockRM Live Excel Mock API Server             â•‘');
-  console.log(`  â•‘   Running on http://localhost:${PORT}              â•‘`);
-  console.log('  â•‘   Reading: STOCK RAWMATERIAL REPORT              â•‘');
-  console.log('  â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•');
-  console.log('');
-});
+// Temporarily export for script
+module.exports = { parseExcelReport, getAvailableDates, getFilePathForDate };
 
-
-
-
-
-
-
-
-
+server.listen(PORT, '0.0.0.0', () => { console.log('Server is running'); });

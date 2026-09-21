@@ -134,4 +134,126 @@ const fetchEnergyRange = async (dateStrings) => {
   return loadEnergyData();
 };
 
-module.exports = { fetchEnergyRange, loadEnergyData };
+const energyDailyPath = path.join(__dirname, 'energyDaily.json');
+
+const loadEnergyDailyData = () => {
+  if(fs.existsSync(energyDailyPath)) {
+    try { return JSON.parse(fs.readFileSync(energyDailyPath, 'utf8')); } catch(e){}
+  }
+  return {}; 
+};
+
+const saveEnergyDailyData = (data) => {
+  fs.writeFileSync(energyDailyPath, JSON.stringify(data, null, 2));
+};
+
+const fetchEnergyDaily = async (dateStrings) => {
+  if (!dateStrings || dateStrings.length === 0) return {};
+  
+  let browser = null;
+  try {
+    browser = await puppeteer.launch({ headless: true });
+    console.log(`[Energy Scraper] Starting daily fetch for ${dateStrings.length} dates.`);
+    const page = await browser.newPage();
+    await page.setViewport({ width: 1280, height: 800 });
+    
+    await page.goto('http://172.21.36.245/energyreport/', { waitUntil: 'networkidle0' });
+    
+    for (const dStr of dateStrings) {
+      const minDate = new Date(dStr);
+      // Skip if future date
+      const today = new Date();
+      today.setHours(0,0,0,0);
+      if (minDate >= today) {
+        console.log(`[Energy Scraper] Skipping future/today date: ${dStr}`);
+        continue;
+      }
+      
+      const maxDate = new Date(minDate);
+      maxDate.setDate(maxDate.getDate() + 1);
+
+      console.log(`[Energy Scraper] Fetching daily data for: ${dStr} (${formatDateForEnergy(minDate)} to ${formatDateForEnergy(maxDate)})`);
+      
+      await page.evaluate((fStr, tStr, fY, fM, fD, tY, tM, tD) => {
+        const setVal = (sel, val) => { const el = document.querySelector(sel); if(el) el.value = val; };
+        setVal('select[name="DropDownList4"]', 'User define');
+        
+        const energyRadio = document.querySelector('input[id="RadioButtonList2_1"]');
+        if(energyRadio) energyRadio.checked = true;
+
+        setVal('input[name="TextBox2"]', fStr);
+        setVal('input[name="TextBox3"]', tStr);
+        
+        setVal('input[name="FromhY"]', fY);
+        setVal('input[name="FromhM"]', fM);
+        setVal('input[name="FromhD"]', fD);
+        
+        setVal('input[name="TohY"]', tY);
+        setVal('input[name="TohM"]', tM);
+        setVal('input[name="TohD"]', tD);
+        
+        setVal('select[name="DropDownList5"]', '06:00');
+        setVal('select[name="DropDownList6"]', '06:00');
+      }, formatDateForEnergy(minDate), formatDateForEnergy(maxDate), 
+         minDate.getFullYear().toString(), (minDate.getMonth()+1).toString(), minDate.getDate().toString(), 
+         maxDate.getFullYear().toString(), (maxDate.getMonth()+1).toString(), maxDate.getDate().toString());
+      
+      await page.click('input[name="Button5"]'); // View Data
+      await new Promise(r => setTimeout(r, 4000)); // wait for popup
+      
+      const pages = await browser.pages();
+      let extracted = {};
+      
+      if(pages.length > 1) {
+        const newPage = pages[pages.length - 1];
+        const data = await newPage.evaluate(() => {
+          const rows = Array.from(document.querySelectorAll('table tr'));
+          return rows.map(tr => Array.from(tr.querySelectorAll('td, th')).map(td => td.innerText.trim())).filter(row => row.length > 3);
+        });
+        
+        if(data.length > 0) {
+          const header = data[0];
+          const beforeIdx = header.findIndex(h => h.includes('Start') || h.includes('Đầu')); // Try English/Vietnamese
+          const afterIdx = header.findIndex(h => h.includes('End') || h.includes('Cuối'));
+          const usedIdx = header.findIndex(h => h.includes('Used') || h.includes('Tiêu Thụ'));
+          
+          if (usedIdx >= 0) {
+            for(let i = 1; i < data.length; i++) {
+              const meterName = data[i][0];
+              if(meterName) {
+                let usedVal = parseFloat((data[i][usedIdx] || '0').replace(/,/g, ''));
+                if (isNaN(usedVal) || usedVal < 0) usedVal = 0;
+                
+                let beforeVal = 0;
+                if (beforeIdx >= 0) beforeVal = parseFloat((data[i][beforeIdx] || '0').replace(/,/g, ''));
+                
+                let afterVal = 0;
+                if (afterIdx >= 0) afterVal = parseFloat((data[i][afterIdx] || '0').replace(/,/g, ''));
+                
+                extracted[meterName] = { before: beforeVal || 0, after: afterVal || 0, used: usedVal };
+              }
+            }
+          }
+        }
+        try { await newPage.close(); } catch(err){}
+      }
+      
+      if (Object.keys(extracted).length > 0) {
+        const energyDailyData = loadEnergyDailyData();
+        const dateKey = `${minDate.getFullYear()}-${String(minDate.getMonth() + 1).padStart(2, '0')}-${String(minDate.getDate()).padStart(2, '0')}`;
+        energyDailyData[dateKey] = extracted;
+        saveEnergyDailyData(energyDailyData);
+      }
+    }
+  } catch(e) {
+    console.error('[Energy Scraper] Error during daily fetch:', e);
+  } finally {
+    if(browser) {
+      try { await browser.close(); } catch(err){}
+    }
+  }
+  
+  return loadEnergyDailyData();
+};
+
+module.exports = { fetchEnergyRange, fetchEnergyDaily, loadEnergyData, loadEnergyDailyData };

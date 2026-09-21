@@ -11,6 +11,7 @@ import ExtruderPage from './pages/ExtruderPage';
 import TruckTrackingPage from './pages/TruckTrackingPage';
 import FanReportPage from './pages/FanReportPage';
 import FumigationReportPage from './pages/FumigationReportPage';
+import ElectricityCostReport from './pages/ElectricityCostReport';
 
 import { useAuthStore } from './features/auth/store/authStore';
 
@@ -53,7 +54,8 @@ function App() {
           <Route path="truck-tracking" element={<TruckTrackingPage />} />
           <Route path="reports/fans" element={<FanReportPage />} />
           <Route path="reports/fumigation" element={<FumigationReportPage />} />
-          <Route path="reports" element={<Navigate to="/reports/fans" replace />} />
+          <Route path="reports/electricity-cost" element={<ElectricityCostReport />} />
+          <Route path="reports" element={<Navigate to="/reports/electricity-cost" replace />} />
         </Route>
       </Routes>
     </BrowserRouter>
