@@ -1705,20 +1705,28 @@ if (reqPath === '/api/trucks/queue-history' && method === 'GET') {
          const dateStr = `${monthPrefix}-${String(d).padStart(2, '0')}`;
          
          let rowTons = 0;
+         let totalReceivedTons = 0;
          if (dailyCache[dateStr]) {
             dailyCache[dateStr].forEach(mat => {
                PDF_COLUMNS.forEach(matchArr => {
                   if (matchArr.includes(mat.name)) {
-                     rowTons += mat.received / 1000;
+                     const tons = mat.received / 1000;
+                     rowTons += tons;
+                     totalReceivedTons += tons;
                   }
                });
             });
          }
+         
+         const dateObj = new Date(year, m - 1, d);
+         const isSunday = dateObj.getDay() === 0;
+         const hideEnergy = isSunday && totalReceivedTons === 0;
+         
          rowTons -= (removeData[dateStr] || 0);
-         if (rowTons < 0) rowTons = 0;
+         // if (rowTons < 0) rowTons = 0;
          totalTons += rowTons;
          
-         if (energyDaily[dateStr]) {
+         if (energyDaily[dateStr] && !hideEnergy) {
              totalKwh += (energyDaily[dateStr]['RCV1 (MCC11)']?.used || 0)
                        + (energyDaily[dateStr]['RCV 2(MCC12)']?.used || 0)
                        + (energyDaily[dateStr]['RCV3&4 (MCC13)']?.used || 0);

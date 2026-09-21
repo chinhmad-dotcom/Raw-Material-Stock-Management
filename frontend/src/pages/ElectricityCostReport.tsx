@@ -95,6 +95,48 @@ export default function ElectricityCostReport() {
     });
   };
 
+  // Tính toán dữ liệu hiển thị
+  const tableRows = useMemo(() => {
+    return data.map(row => {
+      let totalReceivedTons = 0;
+      const mappedMaterials: Record<string, number> = {};
+      
+      PDF_COLUMNS.forEach(col => {
+        if (col.label === 'REMOVE') {
+          mappedMaterials[col.label] = row.remove;
+          return;
+        }
+        let sum = 0;
+        col.match.forEach(mName => {
+          if (row.materials[mName]) sum += row.materials[mName] / 1000;
+        });
+        mappedMaterials[col.label] = sum;
+        totalReceivedTons += sum;
+      });
+      
+      // Check if Sunday and no received materials
+      const [y, m, d] = row.date.split('-');
+      const dateObj = new Date(Number(y), Number(m) - 1, Number(d));
+      const isSunday = dateObj.getDay() === 0;
+      const hideEnergy = isSunday && totalReceivedTons === 0;
+      
+      // Trừ đi REMOVE
+      let totalTons = totalReceivedTons - (row.remove || 0);
+
+      const totalKwh = hideEnergy ? 0 : (row.energy.mcc11.used + row.energy.mcc12.used + row.energy.mcc13.used);
+      const ave = (totalTons > 0 && !hideEnergy) ? totalKwh / totalTons : 0;
+
+      return {
+        ...row,
+        mappedMaterials,
+        totalTons,
+        totalKwh,
+        ave,
+        hideEnergy
+      };
+    });
+  }, [data]);
+
   const exportToExcel = async () => {
     const workbook = new ExcelJS.Workbook();
     const worksheet = workbook.addWorksheet('Electricity Cost Report');
@@ -139,10 +181,10 @@ export default function ElectricityCostReport() {
     tableRows.forEach(row => {
       const rowData = [row.date];
       PDF_COLUMNS.forEach(c => rowData.push(row.mappedMaterials[c.label] || 0));
-      rowData.push(row.totalTons, row.totalKwh, row.ave > 0 ? row.ave : '#DIV/0!');
-      rowData.push(row.energy.mcc13.before, row.energy.mcc13.after, row.energy.mcc13.used);
-      rowData.push(row.energy.mcc11.before, row.energy.mcc11.after, row.energy.mcc11.used);
-      rowData.push(row.energy.mcc12.before, row.energy.mcc12.after, row.energy.mcc12.used);
+      rowData.push(row.totalTons, row.hideEnergy ? '' : row.totalKwh, (row.ave > 0 && !row.hideEnergy) ? row.ave : '#DIV/0!');
+      rowData.push(row.hideEnergy ? '' : row.energy.mcc13.before, row.hideEnergy ? '' : row.energy.mcc13.after, row.hideEnergy ? '' : row.energy.mcc13.used);
+      rowData.push(row.hideEnergy ? '' : row.energy.mcc11.before, row.hideEnergy ? '' : row.energy.mcc11.after, row.hideEnergy ? '' : row.energy.mcc11.used);
+      rowData.push(row.hideEnergy ? '' : row.energy.mcc12.before, row.hideEnergy ? '' : row.energy.mcc12.after, row.hideEnergy ? '' : row.energy.mcc12.used);
       
       const exRow = worksheet.addRow(rowData);
       exRow.font = { name: 'Times New Roman', size: 11 };
@@ -167,41 +209,6 @@ export default function ElectricityCostReport() {
     const buffer = await workbook.xlsx.writeBuffer();
     saveAs(new Blob([buffer]), `Electricity_Cost_Report_${selectedYear}_${selectedMonth}.xlsx`);
   };
-
-  // Tính toán dữ liệu hiển thị
-  const tableRows = useMemo(() => {
-    return data.map(row => {
-      let totalTons = 0;
-      const mappedMaterials: Record<string, number> = {};
-      
-      PDF_COLUMNS.forEach(col => {
-        if (col.label === 'REMOVE') {
-          mappedMaterials[col.label] = row.remove;
-          return;
-        }
-        let sum = 0;
-        col.match.forEach(mName => {
-          if (row.materials[mName]) sum += row.materials[mName] / 1000;
-        });
-        mappedMaterials[col.label] = sum;
-        totalTons += sum;
-      });
-      
-      // Trừ đi REMOVE
-      totalTons -= (row.remove || 0);
-
-      const totalKwh = row.energy.mcc11.used + row.energy.mcc12.used + row.energy.mcc13.used;
-      const ave = totalTons > 0 ? totalKwh / totalTons : 0;
-
-      return {
-        ...row,
-        mappedMaterials,
-        totalTons,
-        totalKwh,
-        ave
-      };
-    });
-  }, [data]);
 
   const totals = useMemo(() => {
     const sums: Record<string, number> = {};
@@ -331,20 +338,20 @@ export default function ElectricityCostReport() {
                       </td>
                     ))}
                     <td className="border border-black p-0.5 bg-white font-bold">{row.totalTons.toFixed(0)}</td>
-                    <td className="border border-black p-0.5 bg-white font-bold">{row.totalKwh.toFixed(0)}</td>
-                    <td className="border border-black p-0.5 bg-white">{row.ave > 0 ? row.ave.toFixed(3) : '#DIV/0!'}</td>
+                    <td className="border border-black p-0.5 bg-white font-bold">{row.hideEnergy ? '' : row.totalKwh.toFixed(0)}</td>
+                    <td className="border border-black p-0.5 bg-white">{(row.ave > 0 && !row.hideEnergy) ? row.ave.toFixed(3) : '#DIV/0!'}</td>
                     
-                    <td className="border border-black p-0.5 bg-teal-100">{row.energy.mcc13.before}</td>
-                    <td className="border border-black p-0.5 bg-teal-100">{row.energy.mcc13.after}</td>
-                    <td className="border border-black p-0.5 bg-teal-200">{row.energy.mcc13.used}</td>
+                    <td className="border border-black p-0.5 bg-teal-100">{row.hideEnergy ? '' : row.energy.mcc13.before}</td>
+                    <td className="border border-black p-0.5 bg-teal-100">{row.hideEnergy ? '' : row.energy.mcc13.after}</td>
+                    <td className="border border-black p-0.5 bg-teal-200">{row.hideEnergy ? '' : row.energy.mcc13.used}</td>
                     
-                    <td className="border border-black p-0.5 bg-teal-100">{row.energy.mcc11.before}</td>
-                    <td className="border border-black p-0.5 bg-teal-100">{row.energy.mcc11.after}</td>
-                    <td className="border border-black p-0.5 bg-teal-200">{row.energy.mcc11.used}</td>
+                    <td className="border border-black p-0.5 bg-teal-100">{row.hideEnergy ? '' : row.energy.mcc11.before}</td>
+                    <td className="border border-black p-0.5 bg-teal-100">{row.hideEnergy ? '' : row.energy.mcc11.after}</td>
+                    <td className="border border-black p-0.5 bg-teal-200">{row.hideEnergy ? '' : row.energy.mcc11.used}</td>
                     
-                    <td className="border border-black p-0.5 bg-teal-100">{row.energy.mcc12.before}</td>
-                    <td className="border border-black p-0.5 bg-teal-100">{row.energy.mcc12.after}</td>
-                    <td className="border border-black p-0.5 bg-teal-200">{row.energy.mcc12.used}</td>
+                    <td className="border border-black p-0.5 bg-teal-100">{row.hideEnergy ? '' : row.energy.mcc12.before}</td>
+                    <td className="border border-black p-0.5 bg-teal-100">{row.hideEnergy ? '' : row.energy.mcc12.after}</td>
+                    <td className="border border-black p-0.5 bg-teal-200">{row.hideEnergy ? '' : row.energy.mcc12.used}</td>
                   </tr>
                 ))}
                 
