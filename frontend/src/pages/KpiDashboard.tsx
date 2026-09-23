@@ -30,7 +30,7 @@ export default function KpiDashboard() {
     try {
       const [tgtRes, truckRes, elecRecRes, elecExtRes] = await Promise.all([
         fetch(`http://localhost:5147/api/kpi/targets`),
-        fetch(`http://localhost:5147/api/kpi/truck-turnaround?year=${selectedYear}`),
+        fetch(`http://localhost:5147/api/trucks/queue-report?from=${selectedYear}-01-01&to=${selectedYear}-12-31&sync=false`),
         fetch(`http://localhost:5147/api/reports/electricity-cost-yearly?year=${selectedYear}`),
         fetch(`http://localhost:5147/api/extruder/production?year=${selectedYear}`)
       ]);
@@ -39,7 +39,40 @@ export default function KpiDashboard() {
       if (tgtJson.data) setTargets(tgtJson.data);
       
       const truckJson = await truckRes.json();
-      if (truckJson.data) setTruckData(truckJson.data);
+      if (Array.isArray(truckJson)) {
+          const monthlyStats: Record<string, { total: number, delayed: number }> = {};
+          for (let i = 1; i <= 12; i++) {
+              monthlyStats[i.toString()] = { total: 0, delayed: 0 };
+          }
+          
+          truckJson.forEach((t: any) => {
+              const parts = (t.weight1 || '').split(' ');
+              if (parts.length > 0) {
+                  const dParts = parts[0].split('/');
+                  if (dParts.length === 3) {
+                      const m = parseInt(dParts[1]).toString();
+                      if (monthlyStats[m]) {
+                          monthlyStats[m].total++;
+                          
+                          const tParts = (t.timing || '').split(':').map(Number);
+                          const mins = tParts.length >= 3 ? ((tParts[0] * 24 * 60) + (tParts[1] * 60) + tParts[2]) : 0;
+                          if (mins > 60) {
+                              monthlyStats[m].delayed++;
+                          }
+                      }
+                  }
+              }
+          });
+          
+          const tChart = [];
+          for (let i = 1; i <= 12; i++) {
+              const mStr = i.toString();
+              const stat = monthlyStats[mStr];
+              const val = stat.total > 0 ? ((stat.total - stat.delayed) / stat.total) * 100 : 0;
+              tChart.push({ month: mStr, val });
+          }
+          setTruckData(tChart);
+      }
       
       const elecRecJson = await elecRecRes.json();
       if (elecRecJson.data) setElecReceiveData(elecRecJson.data);

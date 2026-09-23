@@ -1724,7 +1724,7 @@ if (reqPath === '/api/trucks/queue-history' && method === 'GET') {
     
     let records = [];
     try {
-        const file = path.join(__dirname, 'records.json');
+        const file = path.join(__dirname, 'queue-history.json');
         if (fs.existsSync(file)) {
            records = JSON.parse(fs.readFileSync(file, 'utf8'));
         }
@@ -1733,16 +1733,28 @@ if (reqPath === '/api/trucks/queue-history' && method === 'GET') {
     const data = [];
     for (let i = 1; i <= 12; i++) {
         const monthlyRecords = records.filter(r => {
-           const tOut = r.timeOut || r.TimeOut;
-           if (!tOut) return false;
-           const d = new Date(tOut);
-           return d.getMonth() + 1 === i && d.getFullYear() === year;
+           const dateStr = r.weight2 || r.weight1; // Use weight2 or weight1 as date (DD/MM/YYYY)
+           if (!dateStr) return false;
+           // dateStr is "DD/MM/YYYY HH:mm"
+           const parts = dateStr.split('/');
+           if (parts.length >= 3) {
+               const m = Number(parts[1]);
+               const y = Number(parts[2].split(' ')[0]);
+               return m === i && y === year;
+           }
+           return false;
         });
         
         const total = monthlyRecords.length;
         let under1Hour = 0;
         monthlyRecords.forEach(r => {
-           const mins = r.totalTimeMinutes !== undefined ? r.totalTimeMinutes : r.TotalTimeMinutes;
+           let mins = 0;
+           if (r.timing) {
+               const tParts = r.timing.split(':').map(Number);
+               if (tParts.length >= 3) {
+                   mins = (tParts[0] * 24 * 60) + (tParts[1] * 60) + tParts[2];
+               }
+           }
            // Giả định < 1H là <= 60 phút
            if (mins <= 60) under1Hour++;
         });
@@ -1750,9 +1762,6 @@ if (reqPath === '/api/trucks/queue-history' && method === 'GET') {
         let val = 0;
         if (total > 0) {
             val = (under1Hour / total) * 100;
-        } else {
-            // Nếu không có dữ liệu thật cho tháng đó, trả về 0
-            val = 0;
         }
         
         data.push({ month: i.toString(), val });
