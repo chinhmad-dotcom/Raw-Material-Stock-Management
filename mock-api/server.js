@@ -1719,6 +1719,74 @@ if (reqPath === '/api/trucks/queue-history' && method === 'GET') {
     return;
   }
 
+  if (reqPath === '/api/kpi/electricity-total' && method === 'GET') {
+    const year = Number(url.searchParams.get('year')) || new Date().getFullYear();
+    const { loadEnergyData } = require('./energyScraper');
+    const energyData = loadEnergyData(); // daily energy data
+    
+    let productionData = {};
+    try {
+        const file = path.join(__dirname, 'kpiProduction.json');
+        if (fs.existsSync(file)) {
+            productionData = JSON.parse(fs.readFileSync(file, 'utf8'));
+        }
+    } catch(e){}
+
+    const METERS = [
+      'RCV1 (MCC11)', 'RCV 2(MCC12)', 'RCV3&4 (MCC13)', 'Dyer (MCC21)',
+      'Line EXT(MCC25]', 'HM4_EX', 'EXT1', 'EXT2', 'MCC81', 'MCC82',
+      'MCC83', 'MCC84', 'MCC35', 'MCC91', 'MCC 92', 'MCC71'
+    ];
+
+    const data = [];
+    for (let i = 1; i <= 12; i++) {
+        const monthStr = String(i).padStart(2, '0');
+        const monthPrefix = `${year}-${monthStr}`;
+        const daysInMonth = new Date(year, i, 0).getDate();
+        
+        const metersTotal = {};
+        METERS.forEach(m => metersTotal[m] = 0);
+        
+        for (let d = 1; d <= daysInMonth; d++) {
+            const dateStr = `${monthPrefix}-${String(d).padStart(2, '0')}`;
+            if (energyData[dateStr]) {
+                METERS.forEach(m => {
+                    const e = energyData[dateStr][m];
+                    if (e && e.used > 0) {
+                        metersTotal[m] += e.used;
+                    }
+                });
+            }
+        }
+        
+        const prod = productionData[monthPrefix] || 0;
+        data.push({ month: i.toString(), production: prod, meters: metersTotal });
+    }
+    
+    return json(req, res, { data });
+  }
+
+  if (reqPath === '/api/kpi/electricity-production' && method === 'POST') {
+    let body = '';
+    req.on('data', chunk => body += chunk.toString());
+    req.on('end', () => {
+      let productionData = {};
+      const file = path.join(__dirname, 'kpiProduction.json');
+      try {
+          if (fs.existsSync(file)) {
+              productionData = JSON.parse(fs.readFileSync(file, 'utf8'));
+          }
+      } catch(e){}
+      
+      const payload = JSON.parse(body); // { monthKey: "2026-09", production: 1234 }
+      productionData[payload.monthKey] = payload.production;
+      
+      fs.writeFileSync(file, JSON.stringify(productionData, null, 2));
+      return json(req, res, { success: true });
+    });
+    return;
+  }
+
   if (reqPath === '/api/kpi/truck-turnaround' && method === 'GET') {
     const year = Number(url.searchParams.get('year')) || new Date().getFullYear();
     

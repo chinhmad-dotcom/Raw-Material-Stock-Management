@@ -18,7 +18,10 @@ export default function KpiDashboard() {
   
   // Dữ liệu biểu đồ
   const [truckData, setTruckData] = useState<{month: string, val: number}[]>([]);
-  const [elecReceiveData, setElecReceiveData] = useState<{month: string, val: number}[]>([]);
+  
+  // Chi phí điện năng (Table Data)
+  const [elecTotalData, setElecTotalData] = useState<any[]>([]);
+  
   const [elecExtruderData, setElecExtruderData] = useState<{month: string, val: number}[]>([]);
 
   useEffect(() => {
@@ -28,10 +31,10 @@ export default function KpiDashboard() {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const [tgtRes, truckRes, elecRecRes, elecExtRes] = await Promise.all([
+      const [tgtRes, truckRes, elecTotRes, elecExtRes] = await Promise.all([
         fetch(`http://localhost:5147/api/kpi/targets`),
         fetch(`http://localhost:5147/api/trucks/queue-report?from=${selectedYear}-01-01&to=${selectedYear}-12-31&sync=false`),
-        fetch(`http://localhost:5147/api/reports/electricity-cost-yearly?year=${selectedYear}`),
+        fetch(`http://localhost:5147/api/kpi/electricity-total?year=${selectedYear}`),
         fetch(`http://localhost:5147/api/extruder/production?year=${selectedYear}`)
       ]);
       
@@ -74,8 +77,8 @@ export default function KpiDashboard() {
           setTruckData(tChart);
       }
       
-      const elecRecJson = await elecRecRes.json();
-      if (elecRecJson.data) setElecReceiveData(elecRecJson.data);
+      const elecTotJson = await elecTotRes.json();
+      if (elecTotJson.data) setElecTotalData(elecTotJson.data);
 
       const elecExtJson = await elecExtRes.json();
       
@@ -129,10 +132,20 @@ export default function KpiDashboard() {
     return valid.length ? valid.reduce((s, d) => s + d.val, 0) / valid.length : 0;
   }, [truckData]);
 
-  const avgElecReceive = useMemo(() => {
-    const valid = elecReceiveData.filter(d => d.val > 0);
-    return valid.length ? valid.reduce((s, d) => s + d.val, 0) / valid.length : 0;
-  }, [elecReceiveData]);
+  const avgElecTotal = useMemo(() => {
+    let totalKwh = 0;
+    let totalProd = 0;
+    elecTotalData.forEach(m => {
+       const prod = Number(m.production) || 0;
+       if (prod > 0) {
+           totalProd += prod;
+           let sum = 0;
+           Object.values(m.meters).forEach((v: any) => sum += Number(v));
+           totalKwh += sum;
+       }
+    });
+    return totalProd > 0 ? (totalKwh / totalProd) : 0;
+  }, [elecTotalData]);
 
   const avgElecExtruder = useMemo(() => {
     const valid = elecExtruderData.filter(d => d.val > 0);
@@ -209,13 +222,13 @@ export default function KpiDashboard() {
           <div className="flex justify-between items-center mb-4">
             <div className="flex items-center gap-2 text-slate-600 font-semibold">
               <Zap className="w-5 h-5 text-amber-500" />
-              Chi phí điện Nhập hàng
+              Chi phí điện năng
             </div>
           </div>
           <div className="flex items-end justify-between">
             <div>
               <div className="text-3xl font-bold text-slate-800">
-                {avgElecReceive.toFixed(3)}
+                {avgElecTotal.toFixed(3)}
               </div>
               <div className="text-sm text-slate-500 mt-1">KWH/TON (Trung bình năm)</div>
             </div>
@@ -232,8 +245,8 @@ export default function KpiDashboard() {
           </div>
           <div className="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-sm">
              <span className="text-slate-500">Trạng thái:</span>
-             <span className={`font-semibold px-2 py-0.5 rounded-full ${avgElecReceive <= targets.elecReceive ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
-               {avgElecReceive <= targets.elecReceive && avgElecReceive > 0 ? 'ĐẠT' : (avgElecReceive === 0 ? 'CHƯA CÓ' : 'KHÔNG ĐẠT')}
+             <span className={`font-semibold px-2 py-0.5 rounded-full ${avgElecTotal <= targets.elecReceive ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+               {avgElecTotal <= targets.elecReceive && avgElecTotal > 0 ? 'ĐẠT' : (avgElecTotal === 0 ? 'CHƯA CÓ' : 'KHÔNG ĐẠT')}
              </span>
           </div>
         </div>
@@ -273,7 +286,7 @@ export default function KpiDashboard() {
       </div>
 
       {/* Charts Section */}
-      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 flex-1">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 flex-1 mb-6">
         {/* Chart 1 */}
         <div className="bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex flex-col">
           <h3 className="font-bold text-slate-700 mb-4">% Xe dưới 1H theo tháng</h3>
@@ -289,32 +302,6 @@ export default function KpiDashboard() {
                 <Line 
                   type="monotone" 
                   dataKey={() => targets.truck} 
-                  name="Mục tiêu" 
-                  stroke="#ef4444" 
-                  strokeWidth={2} 
-                  dot={false}
-                  strokeDasharray="5 5"
-                />
-              </ComposedChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
-
-        {/* Chart 2 */}
-        <div className="bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex flex-col">
-          <h3 className="font-bold text-slate-700 mb-4">Điện Nhập hàng (KWH/Tons)</h3>
-          <div className="flex-1 min-h-[300px]">
-            <ResponsiveContainer width="100%" height="100%">
-              <ComposedChart data={elecReceiveData}>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} />
-                <XAxis dataKey="month" tick={{fontSize: 12}} tickLine={false} />
-                <YAxis tick={{fontSize: 12}} tickLine={false} axisLine={false} />
-                <Tooltip cursor={{fill: 'transparent'}} contentStyle={{borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)'}} />
-                <Legend wrapperStyle={{fontSize: '12px'}}/>
-                <Bar dataKey="val" name="Thực tế" fill="#f59e0b" radius={[4, 4, 0, 0]} maxBarSize={40} />
-                <Line 
-                  type="step" 
-                  dataKey={() => targets.elecReceive} 
                   name="Mục tiêu" 
                   stroke="#ef4444" 
                   strokeWidth={2} 
@@ -351,6 +338,117 @@ export default function KpiDashboard() {
             </ResponsiveContainer>
           </div>
         </div>
+      </div>
+
+      {/* Electricity Energy Table Section */}
+      <div className="bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex flex-col overflow-hidden mb-6">
+          <h3 className="font-bold text-slate-700 mb-4 flex items-center gap-2">
+             <Zap className="w-5 h-5 text-amber-500" />
+             Chi phí điện năng từng tháng (KWH/Tons)
+          </h3>
+          <div className="overflow-x-auto">
+             <table className="w-full text-sm text-left whitespace-nowrap">
+                <thead className="bg-slate-50 text-slate-600 font-semibold uppercase text-xs">
+                   <tr>
+                      <th className="px-4 py-3 border-b border-slate-200">Meter / Month</th>
+                      {[1,2,3,4,5,6,7,8,9,10,11,12].map(m => (
+                         <th key={m} className="px-4 py-3 border-b border-slate-200 text-center">T{m}</th>
+                      ))}
+                      <th className="px-4 py-3 border-b border-slate-200 text-center">TOTAL</th>
+                   </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                   {/* Production Input Row */}
+                   <tr className="bg-indigo-50/50">
+                      <td className="px-4 py-3 font-bold text-slate-700">Sản lượng SX (Tons)</td>
+                      {elecTotalData.map((d, i) => (
+                         <td key={i} className="px-2 py-2 text-center">
+                            <input
+                               type="number"
+                               className="w-20 px-2 py-1 text-center border border-indigo-200 rounded text-indigo-700 font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white"
+                               value={d.production || ''}
+                               onChange={(e) => {
+                                  const val = Number(e.target.value);
+                                  const newData = [...elecTotalData];
+                                  newData[i].production = val;
+                                  setElecTotalData(newData);
+                                  
+                                  // Save to backend
+                                  const monthKey = `${selectedYear}-${String(d.month).padStart(2, '0')}`;
+                                  fetch('http://localhost:5147/api/kpi/electricity-production', {
+                                     method: 'POST',
+                                     headers: { 'Content-Type': 'application/json' },
+                                     body: JSON.stringify({ monthKey, production: val })
+                                  });
+                               }}
+                            />
+                         </td>
+                      ))}
+                      <td className="px-4 py-3 font-bold text-indigo-700 text-center">
+                         {elecTotalData.reduce((s, d) => s + (Number(d.production) || 0), 0)}
+                      </td>
+                   </tr>
+
+                   {/* Meter Rows */}
+                   {[
+                      'RCV1 (MCC11)', 'RCV 2(MCC12)', 'RCV3&4 (MCC13)', 'Dyer (MCC21)',
+                      'Line EXT(MCC25]', 'HM4_EX', 'EXT1', 'EXT2', 'MCC81', 'MCC82',
+                      'MCC83', 'MCC84', 'MCC35', 'MCC91', 'MCC 92', 'MCC71'
+                   ].map(meter => {
+                       const yearTotal = elecTotalData.reduce((s, d) => s + (d.meters[meter] || 0), 0);
+                       return (
+                           <tr key={meter} className="hover:bg-slate-50 transition-colors">
+                              <td className="px-4 py-2 font-medium text-slate-600">{meter}</td>
+                              {elecTotalData.map((d, i) => (
+                                 <td key={i} className="px-4 py-2 text-center text-slate-500">
+                                    {(d.meters[meter] || 0).toLocaleString('en-US')}
+                                 </td>
+                              ))}
+                              <td className="px-4 py-2 font-bold text-slate-700 text-center">{yearTotal.toLocaleString('en-US')}</td>
+                           </tr>
+                       );
+                   })}
+
+                   {/* Total KWH Row */}
+                   <tr className="bg-amber-50/30">
+                      <td className="px-4 py-3 font-bold text-amber-800">TỔNG KWH</td>
+                      {elecTotalData.map((d, i) => {
+                          const monthSum = Object.values(d.meters).reduce((s, v: any) => s + Number(v), 0) as number;
+                          return (
+                             <td key={i} className="px-4 py-3 text-center font-bold text-amber-700">
+                                {monthSum.toLocaleString('en-US')}
+                             </td>
+                          );
+                      })}
+                      <td className="px-4 py-3 font-bold text-amber-700 text-center text-base">
+                         {elecTotalData.reduce((s, d) => s + Object.values(d.meters).reduce((ms, v: any) => ms + Number(v), 0), 0).toLocaleString('en-US')}
+                      </td>
+                   </tr>
+
+                   {/* Final KPI Row */}
+                   <tr className="bg-green-50/50 border-t-2 border-green-200">
+                      <td className="px-4 py-3 font-bold text-green-800 text-base">KWH / TON</td>
+                      {elecTotalData.map((d, i) => {
+                          const monthSum = Object.values(d.meters).reduce((s, v: any) => s + Number(v), 0) as number;
+                          const prod = Number(d.production) || 0;
+                          const val = prod > 0 ? (monthSum / prod) : 0;
+                          return (
+                             <td key={i} className="px-4 py-3 text-center font-bold text-green-700">
+                                {val > 0 ? val.toFixed(3) : '-'}
+                             </td>
+                          );
+                      })}
+                      <td className="px-4 py-3 font-bold text-green-700 text-center text-base">
+                         {(() => {
+                             const totalKwh = elecTotalData.reduce((s, d) => s + Object.values(d.meters).reduce((ms, v: any) => ms + Number(v), 0), 0) as number;
+                             const totalProd = elecTotalData.reduce((s, d) => s + (Number(d.production) || 0), 0);
+                             return totalProd > 0 ? (totalKwh / totalProd).toFixed(3) : '-';
+                         })()}
+                      </td>
+                   </tr>
+                </tbody>
+             </table>
+          </div>
       </div>
     </div>
   );
