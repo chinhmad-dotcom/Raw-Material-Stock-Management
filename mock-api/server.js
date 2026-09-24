@@ -1787,6 +1787,71 @@ if (reqPath === '/api/trucks/queue-history' && method === 'GET') {
     return;
   }
 
+  if (reqPath === '/api/kpi/sync-electricity' && method === 'POST') {
+    let body = '';
+    req.on('data', chunk => body += chunk.toString());
+    req.on('end', async () => {
+       try {
+           const { year, month } = JSON.parse(body);
+           const { fetchEnergyRange, loadEnergyData } = require('./energyScraper');
+           
+           // Generate dates for the requested month
+           const daysInMonth = new Date(year, month, 0).getDate();
+           const datesToSync = [];
+           const today = new Date();
+           today.setHours(0,0,0,0);
+
+           for (let d = 1; d <= daysInMonth; d++) {
+               const dateObj = new Date(year, month - 1, d);
+               if (dateObj <= today) {
+                   datesToSync.push(`${year}-${String(month).padStart(2, '0')}-${String(d).padStart(2, '0')}`);
+               }
+           }
+           
+           if (datesToSync.length > 0) {
+               // Await for the requested month so the frontend can refresh immediately
+               await fetchEnergyRange(datesToSync);
+           }
+           
+           // Background check for previous months
+           const energyData = loadEnergyData();
+           const missingDates = [];
+           for (let m = 1; m < month; m++) {
+               let hasData = false;
+               const mStr = String(m).padStart(2, '0');
+               const days = new Date(year, m, 0).getDate();
+               for (let d = 1; d <= days; d++) {
+                   const checkDate = `${year}-${mStr}-${String(d).padStart(2, '0')}`;
+                   if (energyData[checkDate]) {
+                       hasData = true;
+                       break;
+                   }
+               }
+               if (!hasData) {
+                   for (let d = 1; d <= days; d++) {
+                       const checkDate = `${year}-${mStr}-${String(d).padStart(2, '0')}`;
+                       const dateObj = new Date(year, m - 1, d);
+                       if (dateObj <= today) {
+                           missingDates.push(checkDate);
+                       }
+                   }
+               }
+           }
+           
+           if (missingDates.length > 0) {
+               // Background sync
+               fetchEnergyRange(missingDates).catch(e => console.error('Background fetch missing months error:', e));
+           }
+           
+           return json(req, res, { success: true });
+       } catch (e) {
+           console.error('Error syncing electricity:', e);
+           return json(req, res, { error: e.message }, 500);
+       }
+    });
+    return;
+  }
+
   if (reqPath === '/api/kpi/truck-turnaround' && method === 'GET') {
     const year = Number(url.searchParams.get('year')) || new Date().getFullYear();
     

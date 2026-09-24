@@ -352,7 +352,32 @@ export default function KpiDashboard() {
                    <tr>
                       <th className="px-4 py-3 border-b border-slate-200">Meter / Month</th>
                       {[1,2,3,4,5,6,7,8,9,10,11,12].map(m => (
-                         <th key={m} className="px-4 py-3 border-b border-slate-200 text-center">T{m}</th>
+                         <th key={m} className="px-4 py-3 border-b border-slate-200 text-center">
+                            <div className="flex flex-col items-center gap-1">
+                               <span>T{m}</span>
+                               <button 
+                                 onClick={async () => {
+                                   if (!window.confirm(`Đồng bộ dữ liệu điện Tháng ${m}?`)) return;
+                                   const btn = document.getElementById(`sync-btn-${m}`);
+                                   if (btn) btn.innerHTML = '...';
+                                   try {
+                                     await fetch('http://localhost:5147/api/kpi/sync-electricity', {
+                                       method: 'POST',
+                                       headers: { 'Content-Type': 'application/json' },
+                                       body: JSON.stringify({ year: selectedYear, month: m })
+                                     });
+                                     await fetchData(); // reload table
+                                   } catch(e) { alert('Lỗi đồng bộ'); }
+                                   if (btn) btn.innerHTML = '↻';
+                                 }}
+                                 id={`sync-btn-${m}`}
+                                 className="text-indigo-500 hover:text-indigo-700 hover:bg-indigo-50 p-1 rounded transition-colors text-xs"
+                                 title={`Lấy dữ liệu T${m}`}
+                               >
+                                 ↻
+                               </button>
+                            </div>
+                         </th>
                       ))}
                       <th className="px-4 py-3 border-b border-slate-200 text-center">TOTAL</th>
                    </tr>

@@ -9127,5 +9127,1079 @@
       "after": -1,
       "used": 0
     }
+  },
+  "2026-09-21": {
+    "FM+WH+TR2000": {
+      "before": 19945364,
+      "after": 20889270,
+      "used": 943906
+    },
+    "MIXER FM": {
+      "before": 708987,
+      "after": 711918,
+      "used": 2931
+    },
+    "TOTAL ALL FACTO": {
+      "before": 22127380,
+      "after": 23080906,
+      "used": 953526
+    },
+    "ACB-TR2000KV": {
+      "before": 3802523,
+      "after": 3804808,
+      "used": 2285
+    },
+    "MCC1": {
+      "before": 984239,
+      "after": 984721,
+      "used": 482
+    },
+    "MCC2": {
+      "before": 672984,
+      "after": 673078,
+      "used": 94
+    },
+    "MCC3": {
+      "before": 324259,
+      "after": 324351,
+      "used": 92
+    },
+    "MCC4": {
+      "before": 825203,
+      "after": 825332,
+      "used": 129
+    },
+    "MCC5": {
+      "before": 518041,
+      "after": 518159,
+      "used": 118
+    },
+    "MCC6": {
+      "before": 990914,
+      "after": 991133,
+      "used": 219
+    },
+    "NHA_NUOC_THAI": {
+      "before": 319809,
+      "after": 320037,
+      "used": 228
+    },
+    "PACKING_5_6": {
+      "before": 473825,
+      "after": 474085,
+      "used": 260
+    },
+    "MCC9": {
+      "before": 4472,
+      "after": 4775,
+      "used": 303
+    },
+    "PHONG_PHU_GIA": {
+      "before": 87633,
+      "after": 87648,
+      "used": 15
+    },
+    "ROBOT_KTP_13": {
+      "before": 121189,
+      "after": 121251,
+      "used": 62
+    },
+    "ACB-MDB FM1": {
+      "before": 9521250,
+      "after": 9537158,
+      "used": 15908
+    },
+    "MCC15": {
+      "before": 976695,
+      "after": 977054,
+      "used": 359
+    },
+    "Line Mix(MCC41)": {
+      "before": 187248,
+      "after": 187461,
+      "used": 213
+    },
+    "Line Mix(MCC42)": {
+      "before": 168162,
+      "after": 170346,
+      "used": 2184
+    },
+    "BD&RG(MCC43)": {
+      "before": 353577,
+      "after": 354111,
+      "used": 534
+    },
+    "Line PL1(MCC51]": {
+      "before": 543376,
+      "after": 543789,
+      "used": 413
+    },
+    "Line PL3(MCC53]": {
+      "before": 84065,
+      "after": 84497,
+      "used": 432
+    },
+    "MCC71": {
+      "before": 426030,
+      "after": 426116,
+      "used": 86
+    },
+    "MCC72": {
+      "before": 51379,
+      "after": 51730,
+      "used": 351
+    },
+    "FAN912": {
+      "before": 915278,
+      "after": 915522,
+      "used": 244
+    },
+    "FAN1012": {
+      "before": 891059,
+      "after": 891769,
+      "used": 710
+    },
+    "PL908": {
+      "before": -1,
+      "after": 65878,
+      "used": 4595
+    },
+    "PL1008": {
+      "before": -1,
+      "after": 5008270,
+      "used": 4817
+    },
+    "MCC General FM1": {
+      "before": 195091,
+      "after": 196212,
+      "used": 1121
+    },
+    "MAY NEN KHI": {
+      "before": 91575,
+      "after": 93764,
+      "used": 2189
+    },
+    "MCC55": {
+      "before": 698246,
+      "after": 698698,
+      "used": 452
+    },
+    "FAN COOLLER5": {
+      "before": -1,
+      "after": 84478,
+      "used": 331
+    },
+    "PELLET 5": {
+      "before": -1,
+      "after": 851847,
+      "used": 2692
+    },
+    "MAY_NEN_KHI_FM": {
+      "before": 865253,
+      "after": 866376,
+      "used": 1123
+    },
+    "MCC56": {
+      "before": 452376,
+      "after": 452519,
+      "used": 143
+    },
+    "DustScreenSilo": {
+      "before": 38010,
+      "after": 38217,
+      "used": 207
+    },
+    "ACB-MDB FM2": {
+      "before": -1,
+      "after": 909143,
+      "used": 16979
+    },
+    "Line PL2(MCC52]": {
+      "before": 837515,
+      "after": 838309,
+      "used": 794
+    },
+    "Line PL4(MCC54]": {
+      "before": 995916,
+      "after": 996547,
+      "used": 631
+    },
+    "PL808": {
+      "before": -1,
+      "after": 913118,
+      "used": 4299
+    },
+    "PL1108": {
+      "before": -1,
+      "after": 981524,
+      "used": 6031
+    },
+    "FAN (M808)": {
+      "before": -1,
+      "after": 81692,
+      "used": 591
+    },
+    "FAN (M1108)": {
+      "before": 485249,
+      "after": 485938,
+      "used": 689
+    },
+    "HM5_RG": {
+      "before": 622851,
+      "after": 623432,
+      "used": 581
+    },
+    "EXPANDER_PL#3": {
+      "before": -1,
+      "after": 340550,
+      "used": 1354
+    },
+    "ACB-MDB WH": {
+      "before": 6621591,
+      "after": 6638161,
+      "used": 16570
+    },
+    "Line HM(MCC31]": {
+      "before": 306932,
+      "after": 306979,
+      "used": 47
+    },
+    "Line HM(MCC32]": {
+      "before": 939130,
+      "after": 940081,
+      "used": 951
+    },
+    "Line HM(MCC33]": {
+      "before": 598529,
+      "after": 599247,
+      "used": 718
+    },
+    "MCC35": {
+      "before": 525855,
+      "after": 526128,
+      "used": 273
+    },
+    "MCC81": {
+      "before": 404064,
+      "after": 404759,
+      "used": 695
+    },
+    "MCC82": {
+      "before": 969324,
+      "after": 969420,
+      "used": 96
+    },
+    "MCC83": {
+      "before": 577211,
+      "after": 577303,
+      "used": 92
+    },
+    "MCC General WH": {
+      "before": 33941,
+      "after": 34177,
+      "used": 236
+    },
+    "HM1": {
+      "before": 273496,
+      "after": 278010,
+      "used": 4514
+    },
+    "HM2": {
+      "before": 895662,
+      "after": 899019,
+      "used": 3357
+    },
+    "HM3": {
+      "before": 628018,
+      "after": 631707,
+      "used": 3689
+    },
+    "MCC-34-1": {
+      "before": 737105,
+      "after": 737252,
+      "used": 147
+    },
+    "MCC84": {
+      "before": 42126,
+      "after": 43121,
+      "used": 995
+    },
+    "MNK_Spare_Silo": {
+      "before": 575374,
+      "after": 576368,
+      "used": 994
+    },
+    "ACB-MDB WetBin": {
+      "before": 2110327,
+      "after": 2115117,
+      "used": 4790
+    },
+    "RCV1 (MCC11)": {
+      "before": 612995,
+      "after": 613121,
+      "used": 126
+    },
+    "RCV 2(MCC12)": {
+      "before": 420565,
+      "after": 421047,
+      "used": 482
+    },
+    "RCV3&4 (MCC13)": {
+      "before": 928860,
+      "after": 929640,
+      "used": 780
+    },
+    "Dyer (MCC21)": {
+      "before": -1,
+      "after": 98131,
+      "used": 40
+    },
+    "Line EXT(MCC25]": {
+      "before": 988554,
+      "after": 988717,
+      "used": 163
+    },
+    "MCC34": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    },
+    "MCC91": {
+      "before": -1,
+      "after": 457912,
+      "used": 168
+    },
+    "MCC General WB": {
+      "before": 172547,
+      "after": 172707,
+      "used": 160
+    },
+    "HM4_EX": {
+      "before": -1,
+      "after": 442191,
+      "used": 396
+    },
+    "EXT1": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    },
+    "EXT2": {
+      "before": -1,
+      "after": 666174,
+      "used": 520
+    },
+    "MCC78": {
+      "before": 378102,
+      "after": 379599,
+      "used": 1497
+    },
+    "MCC 92": {
+      "before": -1,
+      "after": 78307,
+      "used": 13
+    },
+    "MCC79": {
+      "before": 197511,
+      "after": 197936,
+      "used": 425
+    },
+    "Meter_Air WB": {
+      "before": 0,
+      "after": 0,
+      "used": 0
+    },
+    "ACB-Mini FM": {
+      "before": 71689,
+      "after": 76518,
+      "used": 4829
+    },
+    "MCC1-MiniFM": {
+      "before": 24169,
+      "after": 24253,
+      "used": 84
+    },
+    "MCC3-MiniFM": {
+      "before": 570456,
+      "after": 570632,
+      "used": 176
+    },
+    "MCC4-MiniFM": {
+      "before": 1800336,
+      "after": 1800781,
+      "used": 445
+    },
+    "MCC5-MiniFM": {
+      "before": 2095060,
+      "after": 2095670,
+      "used": 610
+    },
+    "MCC6-MiniFM": {
+      "before": 347610,
+      "after": 347722,
+      "used": 112
+    },
+    "HM6": {
+      "before": 394829,
+      "after": 394835,
+      "used": 6
+    },
+    "HM7": {
+      "before": 1133505,
+      "after": 1133508,
+      "used": 3
+    },
+    "Pellet Milll mi": {
+      "before": 154236,
+      "after": 156271,
+      "used": 2035
+    },
+    "Pellet Mill mi2": {
+      "before": 51901,
+      "after": 53178,
+      "used": 1277
+    },
+    "Liquid-1": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    },
+    "Liquid-2": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    },
+    "Cooler-1": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    },
+    "Cooler-2": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    },
+    "TopFeedMill": {
+      "before": 0,
+      "after": 0,
+      "used": 0
+    },
+    "Workhouse": {
+      "before": 0,
+      "after": 0,
+      "used": 0
+    },
+    "Adam1(HM WB)": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    },
+    "adam2(HM 01-02)": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    },
+    "Adam3(HM-03)": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    },
+    "Adam4(HM FM)": {
+      "before": 461932,
+      "after": 461932,
+      "used": 0
+    },
+    "Adam5(PL01-02)": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    },
+    "Adam6(PL03-04)": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    },
+    "Mo-cooler": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    },
+    "Total Steam": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    },
+    "Extruder Steam": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    },
+    "Steam_PL1": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    },
+    "Steam_PL3": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    },
+    "Steam_PL4": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    },
+    "FLOW STEAM PL5": {
+      "before": 7831461,
+      "after": 7836781,
+      "used": 5320
+    },
+    "FLOW STEAM PL2": {
+      "before": 10424753,
+      "after": 10438786,
+      "used": 14033
+    },
+    "IO": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    }
+  },
+  "2026-09-22": {
+    "FM+WH+TR2000": {
+      "before": 20889270,
+      "after": 20944135,
+      "used": 54865
+    },
+    "MIXER FM": {
+      "before": 711918,
+      "after": 715080,
+      "used": 3162
+    },
+    "TOTAL ALL FACTO": {
+      "before": 23080906,
+      "after": 23146539,
+      "used": 65633
+    },
+    "ACB-TR2000KV": {
+      "before": 3804808,
+      "after": 3806958,
+      "used": 2150
+    },
+    "MCC1": {
+      "before": 984721,
+      "after": 985241,
+      "used": 520
+    },
+    "MCC2": {
+      "before": 673078,
+      "after": 673160,
+      "used": 82
+    },
+    "MCC3": {
+      "before": 324351,
+      "after": 324436,
+      "used": 85
+    },
+    "MCC4": {
+      "before": 825332,
+      "after": 825437,
+      "used": 105
+    },
+    "MCC5": {
+      "before": 518159,
+      "after": 518251,
+      "used": 92
+    },
+    "MCC6": {
+      "before": 991133,
+      "after": 991306,
+      "used": 173
+    },
+    "NHA_NUOC_THAI": {
+      "before": 320037,
+      "after": 320214,
+      "used": 177
+    },
+    "PACKING_5_6": {
+      "before": 474085,
+      "after": 474351,
+      "used": 266
+    },
+    "MCC9": {
+      "before": 4775,
+      "after": 5083,
+      "used": 308
+    },
+    "PHONG_PHU_GIA": {
+      "before": 87648,
+      "after": 87662,
+      "used": 14
+    },
+    "ROBOT_KTP_13": {
+      "before": 121251,
+      "after": 121300,
+      "used": 49
+    },
+    "ACB-MDB FM1": {
+      "before": 9537158,
+      "after": 9555030,
+      "used": 17872
+    },
+    "MCC15": {
+      "before": 977054,
+      "after": 977410,
+      "used": 356
+    },
+    "Line Mix(MCC41)": {
+      "before": 187461,
+      "after": 187673,
+      "used": 212
+    },
+    "Line Mix(MCC42)": {
+      "before": 170346,
+      "after": 172646,
+      "used": 2300
+    },
+    "BD&RG(MCC43)": {
+      "before": 354111,
+      "after": 354761,
+      "used": 650
+    },
+    "Line PL1(MCC51]": {
+      "before": 543789,
+      "after": 544202,
+      "used": 413
+    },
+    "Line PL3(MCC53]": {
+      "before": 84497,
+      "after": 84906,
+      "used": 409
+    },
+    "MCC71": {
+      "before": 426116,
+      "after": 426209,
+      "used": 93
+    },
+    "MCC72": {
+      "before": 51730,
+      "after": 52097,
+      "used": 367
+    },
+    "FAN912": {
+      "before": 915522,
+      "after": 915914,
+      "used": 392
+    },
+    "FAN1012": {
+      "before": 891769,
+      "after": 892356,
+      "used": 587
+    },
+    "PL908": {
+      "before": 65878,
+      "after": 69467,
+      "used": 3589
+    },
+    "PL1008": {
+      "before": 5008270,
+      "after": 5013312,
+      "used": 5042
+    },
+    "MCC General FM1": {
+      "before": 196212,
+      "after": 197306,
+      "used": 1094
+    },
+    "MAY NEN KHI": {
+      "before": 93764,
+      "after": 95981,
+      "used": 2217
+    },
+    "MCC55": {
+      "before": 698698,
+      "after": 699182,
+      "used": 484
+    },
+    "FAN COOLLER5": {
+      "before": 84478,
+      "after": 84899,
+      "used": 421
+    },
+    "PELLET 5": {
+      "before": 851847,
+      "after": 855030,
+      "used": 3183
+    },
+    "MAY_NEN_KHI_FM": {
+      "before": 866376,
+      "after": 867531,
+      "used": 1155
+    },
+    "MCC56": {
+      "before": 452519,
+      "after": 452647,
+      "used": 128
+    },
+    "DustScreenSilo": {
+      "before": 38217,
+      "after": 38439,
+      "used": 222
+    },
+    "ACB-MDB FM2": {
+      "before": 909143,
+      "after": 926159,
+      "used": 17016
+    },
+    "Line PL2(MCC52]": {
+      "before": 838309,
+      "after": 839381,
+      "used": 1072
+    },
+    "Line PL4(MCC54]": {
+      "before": 996547,
+      "after": 997083,
+      "used": 536
+    },
+    "PL808": {
+      "before": 913118,
+      "after": 919012,
+      "used": 5894
+    },
+    "PL1108": {
+      "before": 981524,
+      "after": 986376,
+      "used": 4852
+    },
+    "FAN (M808)": {
+      "before": 81692,
+      "after": 82488,
+      "used": 796
+    },
+    "FAN (M1108)": {
+      "before": 485938,
+      "after": 486386,
+      "used": 448
+    },
+    "HM5_RG": {
+      "before": 623432,
+      "after": 624089,
+      "used": 657
+    },
+    "EXPANDER_PL#3": {
+      "before": 340550,
+      "after": 341461,
+      "used": 911
+    },
+    "ACB-MDB WH": {
+      "before": 6638161,
+      "after": 6655988,
+      "used": 17827
+    },
+    "Line HM(MCC31]": {
+      "before": 306979,
+      "after": 307044,
+      "used": 65
+    },
+    "Line HM(MCC32]": {
+      "before": 940081,
+      "after": 941119,
+      "used": 1038
+    },
+    "Line HM(MCC33]": {
+      "before": 599247,
+      "after": 600058,
+      "used": 811
+    },
+    "MCC35": {
+      "before": 526128,
+      "after": 526396,
+      "used": 268
+    },
+    "MCC81": {
+      "before": 404759,
+      "after": 404759,
+      "used": 0
+    },
+    "MCC82": {
+      "before": 969420,
+      "after": 969542,
+      "used": 122
+    },
+    "MCC83": {
+      "before": 577303,
+      "after": 577586,
+      "used": 283
+    },
+    "MCC General WH": {
+      "before": 34177,
+      "after": 34433,
+      "used": 256
+    },
+    "HM1": {
+      "before": 278010,
+      "after": 282717,
+      "used": 4707
+    },
+    "HM2": {
+      "before": 899019,
+      "after": 903282,
+      "used": 4263
+    },
+    "HM3": {
+      "before": 631707,
+      "after": 635719,
+      "used": 4012
+    },
+    "MCC-34-1": {
+      "before": 737252,
+      "after": 737423,
+      "used": 171
+    },
+    "MCC84": {
+      "before": 43121,
+      "after": 44118,
+      "used": 997
+    },
+    "MNK_Spare_Silo": {
+      "before": 576368,
+      "after": 577365,
+      "used": 997
+    },
+    "ACB-MDB WetBin": {
+      "before": 2115117,
+      "after": 2121749,
+      "used": 6632
+    },
+    "RCV1 (MCC11)": {
+      "before": 613121,
+      "after": 613125,
+      "used": 4
+    },
+    "RCV 2(MCC12)": {
+      "before": 421047,
+      "after": 421365,
+      "used": 318
+    },
+    "RCV3&4 (MCC13)": {
+      "before": 929640,
+      "after": 930399,
+      "used": 759
+    },
+    "Dyer (MCC21)": {
+      "before": 98131,
+      "after": 98242,
+      "used": 111
+    },
+    "Line EXT(MCC25]": {
+      "before": 988717,
+      "after": 989325,
+      "used": 608
+    },
+    "MCC34": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    },
+    "MCC91": {
+      "before": 457912,
+      "after": 458042,
+      "used": 130
+    },
+    "MCC General WB": {
+      "before": 172707,
+      "after": 172865,
+      "used": 158
+    },
+    "HM4_EX": {
+      "before": 442191,
+      "after": 443790,
+      "used": 1599
+    },
+    "EXT1": {
+      "before": -1,
+      "after": 88543,
+      "used": 1008
+    },
+    "EXT2": {
+      "before": 666174,
+      "after": 666174,
+      "used": 0
+    },
+    "MCC78": {
+      "before": 379599,
+      "after": 381152,
+      "used": 1553
+    },
+    "MCC 92": {
+      "before": 78307,
+      "after": 78319,
+      "used": 12
+    },
+    "MCC79": {
+      "before": 197936,
+      "after": 198300,
+      "used": 364
+    },
+    "Meter_Air WB": {
+      "before": 0,
+      "after": 0,
+      "used": 0
+    },
+    "ACB-Mini FM": {
+      "before": 76518,
+      "after": 80655,
+      "used": 4137
+    },
+    "MCC1-MiniFM": {
+      "before": 24253,
+      "after": 24317,
+      "used": 64
+    },
+    "MCC3-MiniFM": {
+      "before": 570632,
+      "after": 570833,
+      "used": 201
+    },
+    "MCC4-MiniFM": {
+      "before": 1800781,
+      "after": 1801186,
+      "used": 405
+    },
+    "MCC5-MiniFM": {
+      "before": 2095670,
+      "after": 2096171,
+      "used": 501
+    },
+    "MCC6-MiniFM": {
+      "before": 347722,
+      "after": 347827,
+      "used": 105
+    },
+    "HM6": {
+      "before": 394835,
+      "after": 394837,
+      "used": 2
+    },
+    "HM7": {
+      "before": 1133508,
+      "after": 1133512,
+      "used": 4
+    },
+    "Pellet Milll mi": {
+      "before": 156271,
+      "after": 157671,
+      "used": 1400
+    },
+    "Pellet Mill mi2": {
+      "before": 53178,
+      "after": 54550,
+      "used": 1372
+    },
+    "Liquid-1": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    },
+    "Liquid-2": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    },
+    "Cooler-1": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    },
+    "Cooler-2": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    },
+    "TopFeedMill": {
+      "before": 0,
+      "after": 0,
+      "used": 0
+    },
+    "Workhouse": {
+      "before": 0,
+      "after": 0,
+      "used": 0
+    },
+    "Adam1(HM WB)": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    },
+    "adam2(HM 01-02)": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    },
+    "Adam3(HM-03)": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    },
+    "Adam4(HM FM)": {
+      "before": 461932,
+      "after": 461932,
+      "used": 0
+    },
+    "Adam5(PL01-02)": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    },
+    "Adam6(PL03-04)": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    },
+    "Mo-cooler": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    },
+    "Total Steam": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    },
+    "Extruder Steam": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    },
+    "Steam_PL1": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    },
+    "Steam_PL3": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    },
+    "Steam_PL4": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    },
+    "FLOW STEAM PL5": {
+      "before": 7836781,
+      "after": 7842085,
+      "used": 5304
+    },
+    "FLOW STEAM PL2": {
+      "before": 10438786,
+      "after": 10462706,
+      "used": 23920
+    },
+    "IO": {
+      "before": -1,
+      "after": -1,
+      "used": 0
+    }
   }
 }

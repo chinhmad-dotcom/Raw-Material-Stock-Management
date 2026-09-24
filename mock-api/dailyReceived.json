@@ -30998,5 +30998,3505 @@
       "name": "Poultry Meal",
       "received": 0
     }
+  ],
+  "2026-09-21": [
+    {
+      "name": "Corn (ARG#A,#B)",
+      "received": 96050
+    },
+    {
+      "name": "Corn (Brazil #A,#B)",
+      "received": 0
+    },
+    {
+      "name": "Corn (USA #A)",
+      "received": 0
+    },
+    {
+      "name": "Corn VN ( Local)",
+      "received": 0
+    },
+    {
+      "name": "Corn Extrude",
+      "received": 0
+    },
+    {
+      "name": "Corn Gluten Meal (USA)",
+      "received": 0
+    },
+    {
+      "name": "RBF(24h)",
+      "received": 0
+    },
+    {
+      "name": "RBF, Rice Bran Fresh (S), Rice bran fresh (Premium)",
+      "received": 114920
+    },
+    {
+      "name": "Rice Bran Solvent",
+      "received": 0
+    },
+    {
+      "name": "Unpolished Rice #1, #2",
+      "received": 0
+    },
+    {
+      "name": "Wheat Bran",
+      "received": 34270
+    },
+    {
+      "name": "Paddy Rice",
+      "received": 0
+    },
+    {
+      "name": "Feed Wheat (UKARAINE, Australia, ARGENTINA, Brazil)",
+      "received": 0
+    },
+    {
+      "name": "Feed Wheat (Brazil)",
+      "received": 0
+    },
+    {
+      "name": "Broken Rice #C,#B",
+      "received": 35330
+    },
+    {
+      "name": "Tapioca #C, # D 2, #D 1",
+      "received": 0
+    },
+    {
+      "name": "Tap By Product Fine, Tapioca by product - special (local)",
+      "received": 63900
+    },
+    {
+      "name": "Soy Been Meal ( Brazil )",
+      "received": 0
+    },
+    {
+      "name": "Soy Bean Meal -Ex-WH (Local)",
+      "received": 0
+    },
+    {
+      "name": "Soy Been Meal (Arg)",
+      "received": 33000
+    },
+    {
+      "name": "Soy Been Meal (USA)",
+      "received": 0
+    },
+    {
+      "name": "Soy Bean Hull",
+      "received": 0
+    },
+    {
+      "name": "F.F Soy Bean Meal",
+      "received": 25000
+    },
+    {
+      "name": "Soy Been Seed",
+      "received": 38840
+    },
+    {
+      "name": "Palm kernel Expeller",
+      "received": 103770
+    },
+    {
+      "name": "Canola meal",
+      "received": 0
+    },
+    {
+      "name": "Brewer Dried Grain, Brew\"s dried Grain - hight.Pro",
+      "received": 0
+    },
+    {
+      "name": "Coconut meal",
+      "received": 0
+    },
+    {
+      "name": "DDGS, DDGS-pro-26",
+      "received": 138000
+    },
+    {
+      "name": "Sunflower Meal (Ukaine)",
+      "received": 0
+    },
+    {
+      "name": "Mung Bean Shell",
+      "received": 0
+    },
+    {
+      "name": "Rapeseed meal (India)",
+      "received": 0
+    },
+    {
+      "name": "Feather Meal (83.42%)",
+      "received": 0
+    },
+    {
+      "name": "Feather Meal (86.34%)",
+      "received": 0
+    },
+    {
+      "name": "Feather Meal (84.64%)",
+      "received": 0
+    },
+    {
+      "name": "Feather Meal",
+      "received": 0
+    },
+    {
+      "name": "Feather Meal (88.13%)",
+      "received": 0
+    },
+    {
+      "name": "Feather Meal (85.37%)",
+      "received": 0
+    },
+    {
+      "name": "Poultry Meal (60%)",
+      "received": 0
+    },
+    {
+      "name": "Basa  Fish Meal",
+      "received": 0
+    },
+    {
+      "name": "Fish Head Meal (53.22%)",
+      "received": 0
+    },
+    {
+      "name": "Fish Head Meal (53.84%)",
+      "received": 0
+    },
+    {
+      "name": "Fish Meal (60.18%)",
+      "received": 0
+    },
+    {
+      "name": "Fish Meal (59.89%)",
+      "received": 0
+    },
+    {
+      "name": "Fish Meal (61.26%)",
+      "received": 0
+    },
+    {
+      "name": "Fish Meal (61%)",
+      "received": 0
+    },
+    {
+      "name": "Fish Meal (60.79%)",
+      "received": 0
+    },
+    {
+      "name": "Fish Meal",
+      "received": 0
+    },
+    {
+      "name": "Fish Meal (61.53%)",
+      "received": 0
+    },
+    {
+      "name": "Fish Meal (60.54%)",
+      "received": 0
+    },
+    {
+      "name": "MEAT BONE MEAL (49.6%)",
+      "received": 0
+    },
+    {
+      "name": "MEAT BONE MEAL (49.9%)",
+      "received": 0
+    },
+    {
+      "name": "MEAT BONE MEAL (49.09%)",
+      "received": 0
+    },
+    {
+      "name": "MEAT BONE MEAL (51.47%)",
+      "received": 0
+    },
+    {
+      "name": "MEAT BONE MEAL",
+      "received": 0
+    },
+    {
+      "name": "MEAT BONE MEAL (50.71%)",
+      "received": 0
+    },
+    {
+      "name": "MEAT BONE MEAL (53.3%)",
+      "received": 0
+    },
+    {
+      "name": "MEAT BONE MEAL (49.65%)",
+      "received": 0
+    },
+    {
+      "name": "MEAT BONE MEAL (54.43%)",
+      "received": 0
+    },
+    {
+      "name": "MEAT BONE MEAL (51.67%)",
+      "received": 0
+    },
+    {
+      "name": "DI-Calcium Phosphate 21%",
+      "received": 0
+    },
+    {
+      "name": "Monodicalcium Phosphate (Morocco,usa)\r\n(1000kg)",
+      "received": 0
+    },
+    {
+      "name": "Monocalcium Phosphate ( China)",
+      "received": 0
+    },
+    {
+      "name": "Limestone (local)",
+      "received": 31890
+    },
+    {
+      "name": "Calcium Feed",
+      "received": 0
+    },
+    {
+      "name": "Limestone (Coarse)",
+      "received": 0
+    },
+    {
+      "name": "Dextrose Monohydrate",
+      "received": 0
+    },
+    {
+      "name": "Sweet Whey Powder",
+      "received": 0
+    },
+    {
+      "name": "Deproteinized Whey",
+      "received": 40000
+    },
+    {
+      "name": "Dairylac 80 (USA)",
+      "received": 0
+    },
+    {
+      "name": "Shrimp Soluble Extract",
+      "received": 0
+    },
+    {
+      "name": "HP 300 (Soya Bean Product)",
+      "received": 0
+    },
+    {
+      "name": "Provisoy (VN)",
+      "received": 0
+    },
+    {
+      "name": "Tradi-Mega LD (Tra linseed 70%) \r\nFrance",
+      "received": 0
+    },
+    {
+      "name": "Tradi-Mega",
+      "received": 0
+    },
+    {
+      "name": "X - Soy 600 (brazil)",
+      "received": 0
+    },
+    {
+      "name": "Toatl X - Soy",
+      "received": 0
+    },
+    {
+      "name": "NEXTIDE",
+      "received": 0
+    },
+    {
+      "name": "NEXTIDE (58.5%)",
+      "received": 0
+    },
+    {
+      "name": "Salt",
+      "received": 0
+    },
+    {
+      "name": "Coffe Husk Meal",
+      "received": 0
+    },
+    {
+      "name": "Wheat gluten (Germany)",
+      "received": 0
+    },
+    {
+      "name": "Bakery Meal (Biscuit meal)",
+      "received": 0
+    },
+    {
+      "name": "Insect Meal",
+      "received": 0
+    },
+    {
+      "name": "Insect oil (Local), (dầu côn trùng)",
+      "received": 0
+    },
+    {
+      "name": "Vedafeed",
+      "received": 0
+    },
+    {
+      "name": "Soybean Oil",
+      "received": 0
+    },
+    {
+      "name": "Fish Oil",
+      "received": 0
+    },
+    {
+      "name": "MOLASSES",
+      "received": 0
+    },
+    {
+      "name": "DL-Methionine (Begium)",
+      "received": 0
+    },
+    {
+      "name": "Rhodimet AT88 (China)",
+      "received": 0
+    },
+    {
+      "name": "L-Lysine 78%",
+      "received": 0
+    },
+    {
+      "name": "CTC 20%",
+      "received": 0
+    },
+    {
+      "name": "Chlortetracyline (CTC 15%)",
+      "received": 0
+    },
+    {
+      "name": "L-Lysine 70%",
+      "received": 0
+    },
+    {
+      "name": "L-lysine Liquid lysine feed grade (Indo)",
+      "received": 0
+    },
+    {
+      "name": "L-Threonine (China)",
+      "received": 0
+    },
+    {
+      "name": "L-Tryptophan",
+      "received": 0
+    },
+    {
+      "name": "Carob Powder",
+      "received": 0
+    },
+    {
+      "name": "Carani (Algierial)",
+      "received": 0
+    },
+    {
+      "name": "Euro Biosweet",
+      "received": 0
+    },
+    {
+      "name": "Dabomb-P (soya protein)",
+      "received": 0
+    },
+    {
+      "name": "Urea",
+      "received": 0
+    },
+    {
+      "name": "Bangifex 190 (China)",
+      "received": 0
+    },
+    {
+      "name": "Biotronic Top Liquip (China)",
+      "received": 0
+    },
+    {
+      "name": "Liquid Vitacid (Liquid Vitacidex)",
+      "received": 0
+    },
+    {
+      "name": "Monosodium glutamate",
+      "received": 0
+    },
+    {
+      "name": "C-C 60%,",
+      "received": 0
+    },
+    {
+      "name": "C-C 75%",
+      "received": 0
+    },
+    {
+      "name": "Pep 125 (Biomin)",
+      "received": 0
+    },
+    {
+      "name": "Zinc Oxide",
+      "received": 0
+    },
+    {
+      "name": "Dengard 80% Coated,  TIAMULIN FUMARATE PREMIX 80% (China)",
+      "received": 0
+    },
+    {
+      "name": "Rodotium 80% (Bulgaria)",
+      "received": 0
+    },
+    {
+      "name": "Pulmotil Premix (10 kg)",
+      "received": 0
+    },
+    {
+      "name": "Miclozan 200 (Italy)",
+      "received": 0
+    },
+    {
+      "name": "Tilmovet 20% Granular Premix (Bulgaria)",
+      "received": 1641.19
+    },
+    {
+      "name": "Sacox (Salinomycine premix 12%)",
+      "received": 0
+    },
+    {
+      "name": "APA Enmy P",
+      "received": 115.64
+    },
+    {
+      "name": "Lucantin Red 10%",
+      "received": 0
+    },
+    {
+      "name": "Leader Red (Jiuzhou Red) (CN)",
+      "received": 0
+    },
+    {
+      "name": "Canthaxanthin 10%",
+      "received": 0
+    },
+    {
+      "name": "M-TOX PLUS, MT.X+ (France)",
+      "received": 0
+    },
+    {
+      "name": "Feed curb (singapore) (25kg)",
+      "received": 0
+    },
+    {
+      "name": "Betafin S4",
+      "received": 0
+    },
+    {
+      "name": "Betafin LQD 38%",
+      "received": 0
+    },
+    {
+      "name": "Sodium Bicabonate",
+      "received": 0
+    },
+    {
+      "name": "Endox Dry-M (Singapore)",
+      "received": 0
+    },
+    {
+      "name": "Myco Sorb  A+ (USA)",
+      "received": 0
+    },
+    {
+      "name": "Allplex-B  (USA, Local)",
+      "received": 0
+    },
+    {
+      "name": "Allplex-GF (Local)",
+      "received": 0
+    },
+    {
+      "name": "Allplex-S (Local)",
+      "received": 0
+    },
+    {
+      "name": "Clinacox (20kg)",
+      "received": 0
+    },
+    {
+      "name": "Pigortek 659 (france)",
+      "received": 0
+    },
+    {
+      "name": "Myco Curb liqud",
+      "received": 0
+    },
+    {
+      "name": "Natuphos (125kg)",
+      "received": 0
+    },
+    {
+      "name": "Acid Lac Premium Liquip (Singapore)",
+      "received": 0
+    },
+    {
+      "name": "Phytocee Powder (India)",
+      "received": 0
+    },
+    {
+      "name": "Enerzyme (20kg)",
+      "received": 0
+    },
+    {
+      "name": "Rovabio Advance T-flex 25",
+      "received": 0
+    },
+    {
+      "name": "ROVABIO# PHY PLUS 10000T (SG)",
+      "received": 0
+    },
+    {
+      "name": "Rovabio  Max Advance L, Rovabio Advance Phy L\r\n(228kg/thùng)",
+      "received": 0
+    },
+    {
+      "name": "Mycostatin-20",
+      "received": 0
+    },
+    {
+      "name": "PhyLink (Singapore)",
+      "received": 0
+    },
+    {
+      "name": "Mycofix Plus 3.0, 5.0",
+      "received": 0
+    },
+    {
+      "name": "Novasil Plus",
+      "received": 0
+    },
+    {
+      "name": "Biofil Yellow 2%",
+      "received": 0
+    },
+    {
+      "name": "Xamacol 40 (25kg)",
+      "received": 0
+    },
+    {
+      "name": "Leader Yellow (china)",
+      "received": 0
+    },
+    {
+      "name": "Versazyme (25kg)",
+      "received": 0
+    },
+    {
+      "name": "Roxolin - (QUIXALUD )",
+      "received": 0
+    },
+    {
+      "name": "Advance Haquinol",
+      "received": 176
+    },
+    {
+      "name": "FLORPAN -S ( florfenicol 3%)  (20kg)",
+      "received": 0
+    },
+    {
+      "name": "APA FLOFE 4P, FlorPAN-4S ( florfenicol 4%)  (20kg)",
+      "received": 0
+    },
+    {
+      "name": "Flubenol 5%",
+      "received": 0
+    },
+    {
+      "name": "Pigfen 40mg/g (Bulgaria) (20kg)",
+      "received": 0
+    },
+    {
+      "name": "Avi-Mul Top Feed Grade (Italy), (900kg)",
+      "received": 0
+    },
+    {
+      "name": "Actisaf",
+      "received": 0
+    },
+    {
+      "name": "Advance Amoxicillin (VN)(20Kg)",
+      "received": 0
+    },
+    {
+      "name": "Vetrimoxin 50 Matrix (Italy)",
+      "received": 0
+    },
+    {
+      "name": "Amoxycilin 80%",
+      "received": 1880.3
+    },
+    {
+      "name": "Advance Timicox 20 (VN)(20Kg)",
+      "received": 0
+    },
+    {
+      "name": "Larvadex (20kg)",
+      "received": 0
+    },
+    {
+      "name": "Axtra# PRIME 501 T (Singapore)",
+      "received": 0
+    },
+    {
+      "name": "Porzyme TP-100HP Dry (Finland)",
+      "received": 0
+    },
+    {
+      "name": "Avatec 15% (20kg)",
+      "received": 0
+    },
+    {
+      "name": "Surmax 10%",
+      "received": 0
+    },
+    {
+      "name": "Cygro 1% (maduramycin- 20kg)",
+      "received": 0
+    },
+    {
+      "name": "Enradin 8% (20kg)",
+      "received": 0
+    },
+    {
+      "name": "Tylan (22.68 kg)",
+      "received": 0
+    },
+    {
+      "name": "Flavomycin 80",
+      "received": 81.95
+    },
+    {
+      "name": "Maxiban",
+      "received": 0
+    },
+    {
+      "name": "Availa - ZN 120",
+      "received": 0
+    },
+    {
+      "name": "Rodotium 10%",
+      "received": 0
+    },
+    {
+      "name": "Intelli Bond C",
+      "received": 0
+    },
+    {
+      "name": "LignoBond DD, Sodium Lignosulphonate",
+      "received": 0
+    },
+    {
+      "name": "Microplex 1000ppm",
+      "received": 0
+    },
+    {
+      "name": "Rovimix E - 50 (25KG)",
+      "received": 0
+    },
+    {
+      "name": "BMD, zambac MD (size 1 kg)",
+      "received": 0
+    },
+    {
+      "name": "Gallipro  Tect (20kg)",
+      "received": 0
+    },
+    {
+      "name": "BioPlus YC (Czech Republic) (20kg)",
+      "received": 0
+    },
+    {
+      "name": "Stafac 50 (5%) (25kg)",
+      "received": 0
+    },
+    {
+      "name": "Elancoban",
+      "received": 0
+    },
+    {
+      "name": "Tiamet 100( Italy) 25kg",
+      "received": 0
+    },
+    {
+      "name": "Covotek (France)",
+      "received": 0
+    },
+    {
+      "name": "Sucram (Switzerland), SUCRAM 5S HYDRO",
+      "received": 0
+    },
+    {
+      "name": "Sucram (Switzerland)",
+      "received": 0
+    },
+    {
+      "name": "Hizox (France)",
+      "received": 0
+    },
+    {
+      "name": "Salcurb RME Liquid (singapore)",
+      "received": 0
+    },
+    {
+      "name": "Salcurb RME Liquid (singapore",
+      "received": 0
+    },
+    {
+      "name": "L-Valine (china)",
+      "received": 0
+    },
+    {
+      "name": "VITAMIN E 50",
+      "received": 0
+    },
+    {
+      "name": "Copper sulfate (thai)",
+      "received": 0
+    },
+    {
+      "name": "Linpro (canada)",
+      "received": 0
+    },
+    {
+      "name": "Tota Linpro (canada)",
+      "received": 0
+    },
+    {
+      "name": "Monimax (20kg)",
+      "received": 0
+    },
+    {
+      "name": "Nor Grape PX 100 (France)",
+      "received": 0
+    },
+    {
+      "name": "APA FENBEN 10P",
+      "received": 1382.9
+    },
+    {
+      "name": "YUCOMY-20 PREMIX POWDER (20kg)",
+      "received": 0
+    },
+    {
+      "name": "L-Isoleucine (CHINA) 20kg",
+      "received": 0
+    },
+    {
+      "name": "L-Arginine (china)",
+      "received": 0
+    },
+    {
+      "name": "Ferm O tide",
+      "received": 0
+    },
+    {
+      "name": "Mypro (china)",
+      "received": 0
+    },
+    {
+      "name": "DPS 50(USA)",
+      "received": 15000
+    },
+    {
+      "name": "AP 920",
+      "received": 0
+    },
+    {
+      "name": "FiberMax- 7 (USA)",
+      "received": 0
+    },
+    {
+      "name": "TARTRAZINE 50% content (India)",
+      "received": 0
+    },
+    {
+      "name": "BPS Plus (France)",
+      "received": 0
+    },
+    {
+      "name": "Glycine",
+      "received": 0
+    },
+    {
+      "name": "Mfeed + (France)",
+      "received": 0
+    },
+    {
+      "name": "XTRACT Nature (Switzerland)",
+      "received": 0
+    },
+    {
+      "name": "Novipel S (Belgium)",
+      "received": 0
+    },
+    {
+      "name": "Toxy-Nil Dry ( Belgium)",
+      "received": 0
+    },
+    {
+      "name": "Toatl Toxy-Nil Dry",
+      "received": 0
+    },
+    {
+      "name": "Levucell sb 10",
+      "received": 0
+    },
+    {
+      "name": "Megacid-F (singapore)",
+      "received": 0
+    },
+    {
+      "name": "FRA Butyrin Ultra (Netherlands)",
+      "received": 0
+    },
+    {
+      "name": "FRA Butyrin Mono (Netherlands)",
+      "received": 0
+    },
+    {
+      "name": "Citrex Powder (Malaysia)",
+      "received": 0
+    },
+    {
+      "name": "PoultryGrow 250 (Canada)",
+      "received": 0
+    },
+    {
+      "name": "Hemicell HT (usa)",
+      "received": 0
+    },
+    {
+      "name": "Mix oil powder (20KG)",
+      "received": 0
+    },
+    {
+      "name": "ID PHYT CAPCIN P2T 02.50 (Switzerland)",
+      "received": 0
+    },
+    {
+      "name": "Valosin FG50 (Tylvalosin), (5kg)",
+      "received": 0
+    },
+    {
+      "name": "CIBENZA DP 100",
+      "received": 0
+    },
+    {
+      "name": "Alterion Ne20 ( Singapore)",
+      "received": 0
+    },
+    {
+      "name": "Dia- V Nursery (USA)",
+      "received": 0
+    },
+    {
+      "name": "LUCTASWEET–  78049Z (China)",
+      "received": 0
+    },
+    {
+      "name": "Acid Buf 10 (Ireland)",
+      "received": 0
+    },
+    {
+      "name": "DH VITAMIN PREMIX",
+      "received": 0
+    },
+    {
+      "name": "Kessent MF Dry (Singapore)",
+      "received": 0
+    },
+    {
+      "name": "BIOTIN 2%",
+      "received": 0
+    },
+    {
+      "name": "Lysoforte TM Brand Dry (Singapore)",
+      "received": 0
+    },
+    {
+      "name": "Rumifat R100 (Malaysia)",
+      "received": 0
+    },
+    {
+      "name": "Rumifat Plus (Malaysia)",
+      "received": 0
+    },
+    {
+      "name": "DELTA  ACIDOLINE XT (France)",
+      "received": 0
+    },
+    {
+      "name": "Kemzin 2000 Dry (Singapore)",
+      "received": 0
+    },
+    {
+      "name": "Diamond V Original XPC Ultra (USA)",
+      "received": 0
+    },
+    {
+      "name": "Nutracor (Malaysia)",
+      "received": 0
+    },
+    {
+      "name": "AMINOPLUS# (USA)",
+      "received": 0
+    },
+    {
+      "name": "Stearolac 90 (Malaysia)",
+      "received": 0
+    },
+    {
+      "name": "Toxfin Dry (Singapore)",
+      "received": 0
+    },
+    {
+      "name": "Kulactic (USA)",
+      "received": 0
+    },
+    {
+      "name": "Globatan (France)",
+      "received": 0
+    },
+    {
+      "name": "KingBrown (polyphenols)(France)",
+      "received": 0
+    },
+    {
+      "name": "FEED GRADE MONTMORILLONITE (CN)",
+      "received": 0
+    },
+    {
+      "name": "Doxan 50 (Viet Nam)",
+      "received": 27.4
+    },
+    {
+      "name": "Caliton (China)",
+      "received": 0
+    },
+    {
+      "name": "Anti-Fly (Viet Nam)",
+      "received": 0
+    },
+    {
+      "name": "Syngen X (USA)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 10M (Lot 47)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 10M (Lot 48)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 10M (Lot 38)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 10M (Lot 07)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 10M (Lot 4)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 10M (Lot 40)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 44M",
+      "received": 0
+    },
+    {
+      "name": "Conc. 51M",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52M (Lot 60)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52M (Lot 62)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52M (Lot 64)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52M (Lot 58)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52M (Lot 24)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52M (Lot 87)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52M (Lot 04)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52M (Lot 06)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52M (Lot 03)",
+      "received": 0
+    },
+    {
+      "name": "Conc. PX C250",
+      "received": 0
+    },
+    {
+      "name": "Conc.10V (Lot 17)",
+      "received": 0
+    },
+    {
+      "name": "Conc.10V (Lot 35)",
+      "received": 0
+    },
+    {
+      "name": "Conc.10V (Lot 36)",
+      "received": 0
+    },
+    {
+      "name": "Conc.10V (Lot 34)",
+      "received": 0
+    },
+    {
+      "name": "Conc.10V (Lot 28)",
+      "received": 0
+    },
+    {
+      "name": "Conc.10V (Lot 2)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 13V",
+      "received": 0
+    },
+    {
+      "name": "Conc. 12V (chờ adj out)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 34V (Lot 34 )",
+      "received": 0
+    },
+    {
+      "name": "Conc. 34V (Lot 26)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 34V (Lot 15 )",
+      "received": 0
+    },
+    {
+      "name": "Conc. 34V (Lot 04)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 34V (Lot 05)",
+      "received": 0
+    },
+    {
+      "name": "Conc.20V",
+      "received": 0
+    },
+    {
+      "name": "Conc. 21V (Lot 33)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 21V (Lot 35)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 21V (Lot 37)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 21V (Lot 23)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 21V (Lot 18)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 25V (Lot 33)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 25V (Lot 41)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 25V (Lot 31)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 25V (Lot 32)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 25V (Lot 35)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 25V (Lot 36)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 31V (Lot 18)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 31V (Lot 15)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 31V (Lot 13)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 31V (Lot 17)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 31V (Lot 19)",
+      "received": 0
+    },
+    {
+      "name": "Conc.48V (Lot 47)",
+      "received": 0
+    },
+    {
+      "name": "Conc.48V (Lot 35)",
+      "received": 0
+    },
+    {
+      "name": "Conc.48V (Lot 36)",
+      "received": 0
+    },
+    {
+      "name": "Conc.48V (Lot 05)",
+      "received": 0
+    },
+    {
+      "name": "Conc.48V (Lot 37)",
+      "received": 0
+    },
+    {
+      "name": "Conc.48V (Lot 34)",
+      "received": 0
+    },
+    {
+      "name": "Conc.50V",
+      "received": 0
+    },
+    {
+      "name": "Conc. 51V (Lot 35)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 51V (Lot 36)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 51V (Lot 18)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 51V (Lot 04)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 51VF",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52V (Lot 16)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52V (Lot 36)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52V (Lot 37)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52V (Lot 38)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52V (Lot 30)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52V (Lot 41)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52V (Lot 06)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 53V",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52VF",
+      "received": 0
+    },
+    {
+      "name": "Conc. 62VF",
+      "received": 0
+    },
+    {
+      "name": "Conc. 62V (Lot 35)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 62V (Lot 36)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 62V (Lot 26)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 62V (Lot 34)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 62PV (Lot 18)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 62PV (Lot 34)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 62PV (Lot 35)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 62PV (Lot 26)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 62PV (Lot 03)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 62PVF",
+      "received": 0
+    },
+    {
+      "name": "Conc. 66V (Lot 34)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 66V (Lot 35)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 66V (Lot 36)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 66V (Lot 31)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 66V (Lot 07)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 67V (Lot 23)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 67V (Lot 29)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 67V (Lot 35)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 67V (Lot 36)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 67V (Lot 47)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 67V (Lot 33)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52SV (Lot 34)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52SV (Lot 35)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52SV (Lot 36)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52SV (Lot 28)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52SV (Lot 15)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52SV (Lot 04)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52SVF",
+      "received": 0
+    },
+    {
+      "name": "Conc. 67SV (Lot 5)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 67SV (Lot 35)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 67SV (Lot 34)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 67SV (Lot 36)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 67SV (Lot 17)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 67SV (Lot 04)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 67SVF",
+      "received": 0
+    },
+    {
+      "name": "Conc. 572S (Lot 36)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 572S (Lot 37)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 572S (Lot 34)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 572S (Lot 10)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 572S (Lot 05)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 572G (Lot 32)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 572G (Lot 26)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 572G (Lot 16)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 571 (Lot 34)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 571 (Lot 36)",
+      "received": -30
+    },
+    {
+      "name": "Conc. 571 (Lot 12)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 571 (Lot 35)",
+      "received": 30
+    },
+    {
+      "name": "Conc. 582 (Lot 04)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 582 (Lot 05)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 582 (Lot 36)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 582 (Lot 38)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 582 (Lot 17)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 582 (Lot 24)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 582 (Lot 43)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 582 (Lot 35)",
+      "received": 0
+    },
+    {
+      "name": "Conc. MC-0697 (Lot 14)",
+      "received": 0
+    },
+    {
+      "name": "Conc. MC-0697 (Lot 34)",
+      "received": -60
+    },
+    {
+      "name": "Conc. MC-0697 (Lot 35)",
+      "received": 0
+    },
+    {
+      "name": "Conc. MC-0697 (Lot 36)",
+      "received": 0
+    },
+    {
+      "name": "Conc. MC-0697 (Lot 31)",
+      "received": 0
+    },
+    {
+      "name": "Conc. MC-0697 (Lot 02)",
+      "received": 0
+    },
+    {
+      "name": "Conc. MC-0697 (Lot 33)",
+      "received": 60
+    },
+    {
+      "name": "Conc. MC-0697B (Lot 33)",
+      "received": 0
+    },
+    {
+      "name": "Conc. MC-0697B (Lot 36)",
+      "received": 0
+    },
+    {
+      "name": "Conc. MC-0697B (Lot 15)",
+      "received": 0
+    },
+    {
+      "name": "Conc. MC-0697G (Lot 28)",
+      "received": 0
+    },
+    {
+      "name": "Conc. MC-0697G (Lot 32)",
+      "received": 0
+    },
+    {
+      "name": "Conc. MC-0697G (Lot 34)",
+      "received": 0
+    },
+    {
+      "name": "Conc. MC-0697G (Lot 21)",
+      "received": 0
+    },
+    {
+      "name": "MS Swine 0314 (25kg)",
+      "received": 0
+    },
+    {
+      "name": "Conc. CORR ABS (Lot 23)",
+      "received": 0
+    },
+    {
+      "name": "Conc. CORR ABS (Lot 20)",
+      "received": 0
+    },
+    {
+      "name": "Conc. VP PP (Lot 25 )",
+      "received": 0
+    },
+    {
+      "name": "Conc.  MD-0103 (Lot 22)",
+      "received": 0
+    },
+    {
+      "name": "Conc.EP2 (Lot 23)",
+      "received": 0
+    },
+    {
+      "name": "Conc.EP2 (Lot 26)",
+      "received": 0
+    },
+    {
+      "name": "Conc.EP2 (Lot 02)",
+      "received": 0
+    },
+    {
+      "name": "Conc. Red  2% (Lot 57)",
+      "received": 0
+    },
+    {
+      "name": "Conc. Red  2% (Lot 58)",
+      "received": 0
+    },
+    {
+      "name": "Conc. Red  2% (Lot 60)",
+      "received": 0
+    },
+    {
+      "name": "Conc. Red  2% (Lot 08)",
+      "received": 0
+    },
+    {
+      "name": "Conc. Red  2% (Lot 45)",
+      "received": 0
+    },
+    {
+      "name": "Conc. Red  2% (Lot 34)",
+      "received": 0
+    },
+    {
+      "name": "Conc. Yellow  2% (Lot 12)",
+      "received": 0
+    },
+    {
+      "name": "Conc. Yellow  2% (Lot 23)",
+      "received": 0
+    },
+    {
+      "name": "TRADI-Impact LD - France",
+      "received": 0
+    },
+    {
+      "name": "Conc. Amnil (Lot 33)",
+      "received": 0
+    },
+    {
+      "name": "Conc. Amnil (Lot 34)",
+      "received": 0
+    },
+    {
+      "name": "Conc. Amnil (Lot 36)",
+      "received": 0
+    },
+    {
+      "name": "Conc. Amnil (Lot 28)",
+      "received": 0
+    },
+    {
+      "name": "C-C 75% (230kg)",
+      "received": 0
+    },
+    {
+      "name": "Myco Curb (1000kg)",
+      "received": 0
+    },
+    {
+      "name": "Rovabio  Max LC, Max Advance L\r\n(228kg/thung)",
+      "received": 0
+    },
+    {
+      "name": "Tiamutin 80% ,Tiamulin hydrogen Fumarate 80%, Dengard 80% Coated (25kg)",
+      "received": 3277.52
+    },
+    {
+      "name": "PULMOTIL",
+      "received": 0
+    },
+    {
+      "name": "MYCOSTATIN",
+      "received": 539.1899999999999
+    },
+    {
+      "name": "ROXOLIN",
+      "received": 1458
+    },
+    {
+      "name": "APA FLOFE 4P ( florfenicol 4%)  (20kg)",
+      "received": 3942.3
+    },
+    {
+      "name": "FLUBENOL",
+      "received": 0
+    },
+    {
+      "name": "Pigfer 40mg/g (Bulgaria)",
+      "received": 0
+    },
+    {
+      "name": "Amoxycilin",
+      "received": 0
+    },
+    {
+      "name": "Advance Timicox 20 (VN)",
+      "received": 0
+    },
+    {
+      "name": "AVATEC",
+      "received": 0
+    },
+    {
+      "name": "Surmax 10% 25kg",
+      "received": 25.03
+    },
+    {
+      "name": "ENRADIN",
+      "received": 0
+    },
+    {
+      "name": "MAXIBAN",
+      "received": 229.16000000000003
+    },
+    {
+      "name": "BMD",
+      "received": 134.9
+    },
+    {
+      "name": "TIAMVET",
+      "received": 0
+    },
+    {
+      "name": "Monimax",
+      "received": 0
+    },
+    {
+      "name": "Chlortetracyline (CTC)",
+      "received": 41.91999999999999
+    },
+    {
+      "name": "Sacox (Salinomycine)",
+      "received": 361.91
+    },
+    {
+      "name": "Elancoban (25kg)",
+      "received": 113.29
+    },
+    {
+      "name": "Production Date (Lot VN)",
+      "received": 0
+    },
+    {
+      "name": "L-Isoleucine (korea) 20kg",
+      "received": 0
+    },
+    {
+      "name": "Ferm O tide (usa)",
+      "received": 0
+    },
+    {
+      "name": "Tota lFRA Butyrin Mono",
+      "received": 0
+    },
+    {
+      "name": "Mix oil powder",
+      "received": 0
+    },
+    {
+      "name": "Poultry Meal",
+      "received": 0
+    }
+  ],
+  "2026-09-22": [
+    {
+      "name": "Corn (ARG#A,#B)",
+      "received": -71490
+    },
+    {
+      "name": "Corn (Brazil #A,#B)",
+      "received": 0
+    },
+    {
+      "name": "Corn (USA #A)",
+      "received": 0
+    },
+    {
+      "name": "Corn VN ( Local)",
+      "received": 0
+    },
+    {
+      "name": "Corn Extrude",
+      "received": 130000
+    },
+    {
+      "name": "Corn Gluten Meal (USA)",
+      "received": 0
+    },
+    {
+      "name": "RBF(24h)",
+      "received": 0
+    },
+    {
+      "name": "RBF, Rice Bran Fresh (S), Rice bran fresh (Premium)",
+      "received": 136110
+    },
+    {
+      "name": "Rice Bran Solvent",
+      "received": 0
+    },
+    {
+      "name": "Unpolished Rice #1, #2",
+      "received": 0
+    },
+    {
+      "name": "Wheat Bran",
+      "received": 31640
+    },
+    {
+      "name": "Paddy Rice",
+      "received": 0
+    },
+    {
+      "name": "Feed Wheat (UKARAINE, Australia, ARGENTINA, Brazil)",
+      "received": 0
+    },
+    {
+      "name": "Feed Wheat (Brazil)",
+      "received": 0
+    },
+    {
+      "name": "Broken Rice #C,#B",
+      "received": 0
+    },
+    {
+      "name": "Tapioca #C, # D 2, #D 1",
+      "received": 0
+    },
+    {
+      "name": "Tap By Product Fine, Tapioca by product - special (local)",
+      "received": 65480
+    },
+    {
+      "name": "Soy Been Meal ( Brazil )",
+      "received": 0
+    },
+    {
+      "name": "Soy Bean Meal -Ex-WH (Local)",
+      "received": 0
+    },
+    {
+      "name": "Soy Been Meal (Arg)",
+      "received": 0
+    },
+    {
+      "name": "Soy Been Meal (USA)",
+      "received": 0
+    },
+    {
+      "name": "Soy Bean Hull",
+      "received": 0
+    },
+    {
+      "name": "F.F Soy Bean Meal",
+      "received": 20000
+    },
+    {
+      "name": "Soy Been Seed",
+      "received": -20000
+    },
+    {
+      "name": "Palm kernel Expeller",
+      "received": 67800
+    },
+    {
+      "name": "Canola meal",
+      "received": 0
+    },
+    {
+      "name": "Brewer Dried Grain, Brew\"s dried Grain - hight.Pro",
+      "received": 32400
+    },
+    {
+      "name": "Coconut meal",
+      "received": 0
+    },
+    {
+      "name": "DDGS, DDGS-pro-26",
+      "received": 139850
+    },
+    {
+      "name": "Sunflower Meal (Ukaine)",
+      "received": 0
+    },
+    {
+      "name": "Mung Bean Shell",
+      "received": 0
+    },
+    {
+      "name": "Rapeseed meal (India)",
+      "received": 0
+    },
+    {
+      "name": "Feather Meal (83.42%)",
+      "received": 0
+    },
+    {
+      "name": "Feather Meal (86.34%)",
+      "received": 0
+    },
+    {
+      "name": "Feather Meal (84.64%)",
+      "received": 0
+    },
+    {
+      "name": "Feather Meal",
+      "received": 0
+    },
+    {
+      "name": "Feather Meal (88.13%)",
+      "received": 0
+    },
+    {
+      "name": "Feather Meal (85.37%)",
+      "received": 0
+    },
+    {
+      "name": "Poultry Meal (60%)",
+      "received": 0
+    },
+    {
+      "name": "Basa  Fish Meal",
+      "received": 0
+    },
+    {
+      "name": "Fish Head Meal (53.22%)",
+      "received": 0
+    },
+    {
+      "name": "Fish Head Meal (53.84%)",
+      "received": 0
+    },
+    {
+      "name": "Fish Meal (60.18%)",
+      "received": 0
+    },
+    {
+      "name": "Fish Meal (59.89%)",
+      "received": 0
+    },
+    {
+      "name": "Fish Meal (61.26%)",
+      "received": 0
+    },
+    {
+      "name": "Fish Meal (61%)",
+      "received": 0
+    },
+    {
+      "name": "Fish Meal (60.79%)",
+      "received": 0
+    },
+    {
+      "name": "Fish Meal",
+      "received": 0
+    },
+    {
+      "name": "Fish Meal (61.53%)",
+      "received": 0
+    },
+    {
+      "name": "Fish Meal (60.54%)",
+      "received": 0
+    },
+    {
+      "name": "MEAT BONE MEAL (49.6%)",
+      "received": 0
+    },
+    {
+      "name": "MEAT BONE MEAL (49.9%)",
+      "received": 0
+    },
+    {
+      "name": "MEAT BONE MEAL (49.09%)",
+      "received": 0
+    },
+    {
+      "name": "MEAT BONE MEAL (51.47%)",
+      "received": 0
+    },
+    {
+      "name": "MEAT BONE MEAL",
+      "received": 0
+    },
+    {
+      "name": "MEAT BONE MEAL (50.71%)",
+      "received": 0
+    },
+    {
+      "name": "MEAT BONE MEAL (53.3%)",
+      "received": 0
+    },
+    {
+      "name": "MEAT BONE MEAL (49.65%)",
+      "received": 0
+    },
+    {
+      "name": "MEAT BONE MEAL (54.43%)",
+      "received": 0
+    },
+    {
+      "name": "MEAT BONE MEAL (51.67%)",
+      "received": 0
+    },
+    {
+      "name": "DI-Calcium Phosphate 21%",
+      "received": 0
+    },
+    {
+      "name": "Monodicalcium Phosphate (Morocco,usa)\r\n(1000kg)",
+      "received": 0
+    },
+    {
+      "name": "Monocalcium Phosphate ( China)",
+      "received": 0
+    },
+    {
+      "name": "Limestone (local)",
+      "received": 61610
+    },
+    {
+      "name": "Calcium Feed",
+      "received": 0
+    },
+    {
+      "name": "Limestone (Coarse)",
+      "received": 0
+    },
+    {
+      "name": "Dextrose Monohydrate",
+      "received": 0
+    },
+    {
+      "name": "Sweet Whey Powder",
+      "received": 0
+    },
+    {
+      "name": "Deproteinized Whey",
+      "received": 0
+    },
+    {
+      "name": "Dairylac 80 (USA)",
+      "received": 0
+    },
+    {
+      "name": "Shrimp Soluble Extract",
+      "received": 0
+    },
+    {
+      "name": "HP 300 (Soya Bean Product)",
+      "received": 0
+    },
+    {
+      "name": "Provisoy (VN)",
+      "received": 0
+    },
+    {
+      "name": "Tradi-Mega LD (Tra linseed 70%) \r\nFrance",
+      "received": 0
+    },
+    {
+      "name": "Tradi-Mega",
+      "received": 0
+    },
+    {
+      "name": "X - Soy 600 (brazil)",
+      "received": 0
+    },
+    {
+      "name": "Toatl X - Soy",
+      "received": 0
+    },
+    {
+      "name": "NEXTIDE",
+      "received": 0
+    },
+    {
+      "name": "NEXTIDE (58.5%)",
+      "received": 0
+    },
+    {
+      "name": "Salt",
+      "received": 0
+    },
+    {
+      "name": "Coffe Husk Meal",
+      "received": 0
+    },
+    {
+      "name": "Wheat gluten (Germany)",
+      "received": 0
+    },
+    {
+      "name": "Bakery Meal (Biscuit meal)",
+      "received": 0
+    },
+    {
+      "name": "Insect Meal",
+      "received": 0
+    },
+    {
+      "name": "Insect oil (Local), (dầu côn trùng)",
+      "received": 0
+    },
+    {
+      "name": "Vedafeed",
+      "received": 0
+    },
+    {
+      "name": "Soybean Oil",
+      "received": 0
+    },
+    {
+      "name": "Fish Oil",
+      "received": 0
+    },
+    {
+      "name": "MOLASSES",
+      "received": 47280
+    },
+    {
+      "name": "DL-Methionine (Begium)",
+      "received": 0
+    },
+    {
+      "name": "Rhodimet AT88 (China)",
+      "received": 0
+    },
+    {
+      "name": "L-Lysine 78%",
+      "received": 17500
+    },
+    {
+      "name": "CTC 20%",
+      "received": 0
+    },
+    {
+      "name": "Chlortetracyline (CTC 15%)",
+      "received": 0
+    },
+    {
+      "name": "L-Lysine 70%",
+      "received": 0
+    },
+    {
+      "name": "L-lysine Liquid lysine feed grade (Indo)",
+      "received": 0
+    },
+    {
+      "name": "L-Threonine (China)",
+      "received": 0
+    },
+    {
+      "name": "L-Tryptophan",
+      "received": 0
+    },
+    {
+      "name": "Carob Powder",
+      "received": 0
+    },
+    {
+      "name": "Carani (Algierial)",
+      "received": 0
+    },
+    {
+      "name": "Euro Biosweet",
+      "received": 0
+    },
+    {
+      "name": "Dabomb-P (soya protein)",
+      "received": 0
+    },
+    {
+      "name": "Urea",
+      "received": 0
+    },
+    {
+      "name": "Bangifex 190 (China)",
+      "received": 0
+    },
+    {
+      "name": "Biotronic Top Liquip (China)",
+      "received": 0
+    },
+    {
+      "name": "Liquid Vitacid (Liquid Vitacidex)",
+      "received": 0
+    },
+    {
+      "name": "Monosodium glutamate",
+      "received": 0
+    },
+    {
+      "name": "C-C 60%,",
+      "received": 0
+    },
+    {
+      "name": "C-C 75%",
+      "received": 0
+    },
+    {
+      "name": "Pep 125 (Biomin)",
+      "received": 0
+    },
+    {
+      "name": "Zinc Oxide",
+      "received": 8000
+    },
+    {
+      "name": "Dengard 80% Coated,  TIAMULIN FUMARATE PREMIX 80% (China)",
+      "received": 0
+    },
+    {
+      "name": "Rodotium 80% (Bulgaria)",
+      "received": 0
+    },
+    {
+      "name": "Pulmotil Premix (10 kg)",
+      "received": 0
+    },
+    {
+      "name": "Miclozan 200 (Italy)",
+      "received": 0
+    },
+    {
+      "name": "Tilmovet 20% Granular Premix (Bulgaria)",
+      "received": 1641.19
+    },
+    {
+      "name": "Sacox (Salinomycine premix 12%)",
+      "received": 0
+    },
+    {
+      "name": "APA Enmy P",
+      "received": 115.64
+    },
+    {
+      "name": "Lucantin Red 10%",
+      "received": 0
+    },
+    {
+      "name": "Leader Red (Jiuzhou Red) (CN)",
+      "received": 0
+    },
+    {
+      "name": "Canthaxanthin 10%",
+      "received": 0
+    },
+    {
+      "name": "M-TOX PLUS, MT.X+ (France)",
+      "received": 0
+    },
+    {
+      "name": "Feed curb (singapore) (25kg)",
+      "received": 0
+    },
+    {
+      "name": "Betafin S4",
+      "received": 0
+    },
+    {
+      "name": "Betafin LQD 38%",
+      "received": 0
+    },
+    {
+      "name": "Sodium Bicabonate",
+      "received": 0
+    },
+    {
+      "name": "Endox Dry-M (Singapore)",
+      "received": 0
+    },
+    {
+      "name": "Myco Sorb  A+ (USA)",
+      "received": 0
+    },
+    {
+      "name": "Allplex-B  (USA, Local)",
+      "received": 0
+    },
+    {
+      "name": "Allplex-GF (Local)",
+      "received": 0
+    },
+    {
+      "name": "Allplex-S (Local)",
+      "received": 0
+    },
+    {
+      "name": "Clinacox (20kg)",
+      "received": 0
+    },
+    {
+      "name": "Pigortek 659 (france)",
+      "received": 0
+    },
+    {
+      "name": "Myco Curb liqud",
+      "received": 0
+    },
+    {
+      "name": "Natuphos (125kg)",
+      "received": 0
+    },
+    {
+      "name": "Acid Lac Premium Liquip (Singapore)",
+      "received": 0
+    },
+    {
+      "name": "Phytocee Powder (India)",
+      "received": 500
+    },
+    {
+      "name": "Enerzyme (20kg)",
+      "received": 0
+    },
+    {
+      "name": "Rovabio Advance T-flex 25",
+      "received": 0
+    },
+    {
+      "name": "ROVABIO# PHY PLUS 10000T (SG)",
+      "received": 0
+    },
+    {
+      "name": "Rovabio  Max Advance L, Rovabio Advance Phy L\r\n(228kg/thùng)",
+      "received": 0
+    },
+    {
+      "name": "Mycostatin-20",
+      "received": 0
+    },
+    {
+      "name": "PhyLink (Singapore)",
+      "received": 0
+    },
+    {
+      "name": "Mycofix Plus 3.0, 5.0",
+      "received": 0
+    },
+    {
+      "name": "Novasil Plus",
+      "received": 0
+    },
+    {
+      "name": "Biofil Yellow 2%",
+      "received": 0
+    },
+    {
+      "name": "Xamacol 40 (25kg)",
+      "received": 0
+    },
+    {
+      "name": "Leader Yellow (china)",
+      "received": 0
+    },
+    {
+      "name": "Versazyme (25kg)",
+      "received": 0
+    },
+    {
+      "name": "Roxolin - (QUIXALUD )",
+      "received": 0
+    },
+    {
+      "name": "Advance Haquinol",
+      "received": 170.67
+    },
+    {
+      "name": "FLORPAN -S ( florfenicol 3%)  (20kg)",
+      "received": 0
+    },
+    {
+      "name": "APA FLOFE 4P, FlorPAN-4S ( florfenicol 4%)  (20kg)",
+      "received": 0
+    },
+    {
+      "name": "Flubenol 5%",
+      "received": 0
+    },
+    {
+      "name": "Pigfen 40mg/g (Bulgaria) (20kg)",
+      "received": 0
+    },
+    {
+      "name": "Avi-Mul Top Feed Grade (Italy), (900kg)",
+      "received": 0
+    },
+    {
+      "name": "Actisaf",
+      "received": 0
+    },
+    {
+      "name": "Advance Amoxicillin (VN)(20Kg)",
+      "received": 0
+    },
+    {
+      "name": "Vetrimoxin 50 Matrix (Italy)",
+      "received": 0
+    },
+    {
+      "name": "Amoxycilin 80%",
+      "received": 1859.3
+    },
+    {
+      "name": "Advance Timicox 20 (VN)(20Kg)",
+      "received": 0
+    },
+    {
+      "name": "Larvadex (20kg)",
+      "received": 0
+    },
+    {
+      "name": "Axtra# PRIME 501 T (Singapore)",
+      "received": 0
+    },
+    {
+      "name": "Porzyme TP-100HP Dry (Finland)",
+      "received": 0
+    },
+    {
+      "name": "Avatec 15% (20kg)",
+      "received": 0
+    },
+    {
+      "name": "Surmax 10%",
+      "received": 0
+    },
+    {
+      "name": "Cygro 1% (maduramycin- 20kg)",
+      "received": 0
+    },
+    {
+      "name": "Enradin 8% (20kg)",
+      "received": 0
+    },
+    {
+      "name": "Tylan (22.68 kg)",
+      "received": 0
+    },
+    {
+      "name": "Flavomycin 80",
+      "received": 81.95
+    },
+    {
+      "name": "Maxiban",
+      "received": 0
+    },
+    {
+      "name": "Availa - ZN 120",
+      "received": 0
+    },
+    {
+      "name": "Rodotium 10%",
+      "received": 0
+    },
+    {
+      "name": "Intelli Bond C",
+      "received": 0
+    },
+    {
+      "name": "LignoBond DD, Sodium Lignosulphonate",
+      "received": 0
+    },
+    {
+      "name": "Microplex 1000ppm",
+      "received": 0
+    },
+    {
+      "name": "Rovimix E - 50 (25KG)",
+      "received": 0
+    },
+    {
+      "name": "BMD, zambac MD (size 1 kg)",
+      "received": 0
+    },
+    {
+      "name": "Gallipro  Tect",
+      "received": 0
+    },
+    {
+      "name": "BioPlus YC (Czech Republic) (20kg)",
+      "received": 0
+    },
+    {
+      "name": "Stafac 50 (5%) (25kg)",
+      "received": 0
+    },
+    {
+      "name": "Elancoban",
+      "received": 0
+    },
+    {
+      "name": "Tiamet 100( Italy) 25kg",
+      "received": 0
+    },
+    {
+      "name": "Covotek (France)",
+      "received": 0
+    },
+    {
+      "name": "Sucram (Switzerland), SUCRAM 5S HYDRO",
+      "received": 0
+    },
+    {
+      "name": "Sucram (Switzerland)",
+      "received": 0
+    },
+    {
+      "name": "Hizox (France)",
+      "received": 0
+    },
+    {
+      "name": "Salcurb RME Liquid (singapore)",
+      "received": 0
+    },
+    {
+      "name": "Salcurb RME Liquid (singapore",
+      "received": 0
+    },
+    {
+      "name": "L-Valine (china)",
+      "received": 0
+    },
+    {
+      "name": "VITAMIN E 50",
+      "received": 0
+    },
+    {
+      "name": "Copper sulfate (thai)",
+      "received": 0
+    },
+    {
+      "name": "Linpro (canada)",
+      "received": 0
+    },
+    {
+      "name": "Tota Linpro (canada)",
+      "received": 0
+    },
+    {
+      "name": "Monimax (20kg)",
+      "received": 0
+    },
+    {
+      "name": "Nor Grape PX 100 (France)",
+      "received": 0
+    },
+    {
+      "name": "APA FENBEN 10P",
+      "received": 1382.9
+    },
+    {
+      "name": "YUCOMY-20 PREMIX POWDER (20kg)",
+      "received": 0
+    },
+    {
+      "name": "L-Isoleucine (CHINA) 20kg",
+      "received": 0
+    },
+    {
+      "name": "L-Arginine (china)",
+      "received": 0
+    },
+    {
+      "name": "Ferm O tide",
+      "received": 0
+    },
+    {
+      "name": "Mypro (china)",
+      "received": 0
+    },
+    {
+      "name": "DPS 50(USA)",
+      "received": 0
+    },
+    {
+      "name": "AP 920",
+      "received": 0
+    },
+    {
+      "name": "FiberMax- 7 (USA)",
+      "received": 0
+    },
+    {
+      "name": "TARTRAZINE 50% content (India)",
+      "received": 0
+    },
+    {
+      "name": "BPS Plus (France)",
+      "received": 0
+    },
+    {
+      "name": "Glycine",
+      "received": 0
+    },
+    {
+      "name": "Mfeed + (France)",
+      "received": 0
+    },
+    {
+      "name": "XTRACT Nature (Switzerland)",
+      "received": 0
+    },
+    {
+      "name": "Novipel S (Belgium)",
+      "received": 0
+    },
+    {
+      "name": "Toxy-Nil Dry ( Belgium)",
+      "received": 0
+    },
+    {
+      "name": "Toatl Toxy-Nil Dry",
+      "received": 0
+    },
+    {
+      "name": "Levucell sb 10",
+      "received": 0
+    },
+    {
+      "name": "Megacid-F (singapore)",
+      "received": 0
+    },
+    {
+      "name": "FRA Butyrin Ultra (Netherlands)",
+      "received": 0
+    },
+    {
+      "name": "FRA Butyrin Mono (Netherlands)",
+      "received": 0
+    },
+    {
+      "name": "Citrex Powder (Malaysia)",
+      "received": 0
+    },
+    {
+      "name": "PoultryGrow 250 (Canada)",
+      "received": 0
+    },
+    {
+      "name": "Hemicell HT (usa)",
+      "received": 0
+    },
+    {
+      "name": "Mix oil powder (20KG)",
+      "received": 0
+    },
+    {
+      "name": "ID PHYT CAPCIN P2T 02.50 (Switzerland)",
+      "received": 0
+    },
+    {
+      "name": "Valosin FG50 (Tylvalosin), (5kg)",
+      "received": 0
+    },
+    {
+      "name": "CIBENZA DP 100",
+      "received": 0
+    },
+    {
+      "name": "Alterion Ne20 ( Singapore)",
+      "received": 0
+    },
+    {
+      "name": "Dia- V Nursery (USA)",
+      "received": 0
+    },
+    {
+      "name": "LUCTASWEET–  78049Z (China)",
+      "received": 0
+    },
+    {
+      "name": "Acid Buf 10 (Ireland)",
+      "received": 0
+    },
+    {
+      "name": "DH VITAMIN PREMIX",
+      "received": 0
+    },
+    {
+      "name": "Kessent MF Dry (Singapore)",
+      "received": 0
+    },
+    {
+      "name": "BIOTIN 2%",
+      "received": 0
+    },
+    {
+      "name": "Lysoforte TM Brand Dry (Singapore)",
+      "received": 0
+    },
+    {
+      "name": "Rumifat R100 (Malaysia)",
+      "received": 0
+    },
+    {
+      "name": "Rumifat Plus (Malaysia)",
+      "received": 0
+    },
+    {
+      "name": "DELTA  ACIDOLINE XT (France)",
+      "received": 0
+    },
+    {
+      "name": "Kemzin 2000 Dry (Singapore)",
+      "received": 0
+    },
+    {
+      "name": "Diamond V Original XPC Ultra (USA)",
+      "received": 0
+    },
+    {
+      "name": "Nutracor (Malaysia)",
+      "received": 0
+    },
+    {
+      "name": "AMINOPLUS# (USA)",
+      "received": 0
+    },
+    {
+      "name": "Stearolac 90 (Malaysia)",
+      "received": 0
+    },
+    {
+      "name": "Toxfin Dry (Singapore)",
+      "received": 0
+    },
+    {
+      "name": "Kulactic (USA)",
+      "received": 0
+    },
+    {
+      "name": "Globatan (France)",
+      "received": 0
+    },
+    {
+      "name": "KingBrown (polyphenols)(France)",
+      "received": 0
+    },
+    {
+      "name": "FEED GRADE MONTMORILLONITE (CN)",
+      "received": 0
+    },
+    {
+      "name": "Doxan 50 (Viet Nam)",
+      "received": 27.4
+    },
+    {
+      "name": "Caliton (China)",
+      "received": 0
+    },
+    {
+      "name": "Anti-Fly (Viet Nam)",
+      "received": 0
+    },
+    {
+      "name": "Syngen X (USA)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 10M (Lot 47)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 10M (Lot 48)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 10M (Lot 38)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 10M (Lot 07)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 10M (Lot 4)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 10M (Lot 40)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 44M",
+      "received": 0
+    },
+    {
+      "name": "Conc. 51M",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52M (Lot 60)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52M (Lot 62)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52M (Lot 64)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52M (Lot 58)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52M (Lot 24)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52M (Lot 87)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52M (Lot 04)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52M (Lot 06)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52M (Lot 03)",
+      "received": 0
+    },
+    {
+      "name": "Conc. PX C250",
+      "received": 0
+    },
+    {
+      "name": "Conc.10V (Lot 17)",
+      "received": 0
+    },
+    {
+      "name": "Conc.10V (Lot 35)",
+      "received": 0
+    },
+    {
+      "name": "Conc.10V (Lot 36)",
+      "received": 0
+    },
+    {
+      "name": "Conc.10V (Lot 34)",
+      "received": 0
+    },
+    {
+      "name": "Conc.10V (Lot 28)",
+      "received": 0
+    },
+    {
+      "name": "Conc.10V (Lot 2)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 13V",
+      "received": 0
+    },
+    {
+      "name": "Conc. 12V (chờ adj out)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 34V (Lot 34 )",
+      "received": 0
+    },
+    {
+      "name": "Conc. 34V (Lot 26)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 34V (Lot 15 )",
+      "received": 0
+    },
+    {
+      "name": "Conc. 34V (Lot 04)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 34V (Lot 05)",
+      "received": 0
+    },
+    {
+      "name": "Conc.20V",
+      "received": 0
+    },
+    {
+      "name": "Conc. 21V (Lot 33)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 21V (Lot 35)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 21V (Lot 37)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 21V (Lot 23)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 21V (Lot 18)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 25V (Lot 33)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 25V (Lot 41)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 25V (Lot 31)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 25V (Lot 32)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 25V (Lot 35)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 25V (Lot 36)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 31V (Lot 18)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 31V (Lot 15)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 31V (Lot 13)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 31V (Lot 17)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 31V (Lot 19)",
+      "received": 0
+    },
+    {
+      "name": "Conc.48V (Lot 47)",
+      "received": 0
+    },
+    {
+      "name": "Conc.48V (Lot 35)",
+      "received": 0
+    },
+    {
+      "name": "Conc.48V (Lot 36)",
+      "received": 0
+    },
+    {
+      "name": "Conc.48V (Lot 05)",
+      "received": 0
+    },
+    {
+      "name": "Conc.48V (Lot 37)",
+      "received": 0
+    },
+    {
+      "name": "Conc.48V (Lot 34)",
+      "received": 0
+    },
+    {
+      "name": "Conc.50V",
+      "received": 0
+    },
+    {
+      "name": "Conc. 51V (Lot 35)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 51V (Lot 36)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 51V (Lot 18)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 51V (Lot 04)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 51VF",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52V (Lot 16)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52V (Lot 36)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52V (Lot 37)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52V (Lot 38)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52V (Lot 30)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52V (Lot 41)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52V (Lot 06)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 53V",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52VF",
+      "received": 0
+    },
+    {
+      "name": "Conc. 62VF",
+      "received": 0
+    },
+    {
+      "name": "Conc. 62V (Lot 35)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 62V (Lot 36)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 62V (Lot 26)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 62V (Lot 34)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 62PV (Lot 18)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 62PV (Lot 34)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 62PV (Lot 35)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 62PV (Lot 26)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 62PV (Lot 03)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 62PVF",
+      "received": 0
+    },
+    {
+      "name": "Conc. 66V (Lot 34)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 66V (Lot 35)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 66V (Lot 36)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 66V (Lot 31)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 66V (Lot 07)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 67V (Lot 23)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 67V (Lot 29)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 67V (Lot 35)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 67V (Lot 36)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 67V (Lot 47)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 67V (Lot 33)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52SV (Lot 34)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52SV (Lot 35)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52SV (Lot 36)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52SV (Lot 28)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52SV (Lot 15)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52SV (Lot 04)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 52SVF",
+      "received": 0
+    },
+    {
+      "name": "Conc. 67SV (Lot 5)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 67SV (Lot 35)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 67SV (Lot 34)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 67SV (Lot 36)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 67SV (Lot 17)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 67SV (Lot 04)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 67SVF",
+      "received": 0
+    },
+    {
+      "name": "Conc. 572S (Lot 36)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 572S (Lot 37)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 572S (Lot 34)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 572S (Lot 10)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 572S (Lot 05)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 572G (Lot 32)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 572G (Lot 26)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 572G (Lot 16)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 571 (Lot 34)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 571 (Lot 36)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 571 (Lot 12)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 571 (Lot 35)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 582 (Lot 04)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 582 (Lot 05)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 582 (Lot 36)",
+      "received": -60
+    },
+    {
+      "name": "Conc. 582 (Lot 38)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 582 (Lot 17)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 582 (Lot 24)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 582 (Lot 43)",
+      "received": 0
+    },
+    {
+      "name": "Conc. 582 (Lot 35)",
+      "received": 60
+    },
+    {
+      "name": "Conc. MC-0697 (Lot 14)",
+      "received": 0
+    },
+    {
+      "name": "Conc. MC-0697 (Lot 34)",
+      "received": -60
+    },
+    {
+      "name": "Conc. MC-0697 (Lot 35)",
+      "received": 0
+    },
+    {
+      "name": "Conc. MC-0697 (Lot 36)",
+      "received": 0
+    },
+    {
+      "name": "Conc. MC-0697 (Lot 31)",
+      "received": 0
+    },
+    {
+      "name": "Conc. MC-0697 (Lot 02)",
+      "received": 0
+    },
+    {
+      "name": "Conc. MC-0697 (Lot 33)",
+      "received": 60
+    },
+    {
+      "name": "Conc. MC-0697B (Lot 33)",
+      "received": 0
+    },
+    {
+      "name": "Conc. MC-0697B (Lot 36)",
+      "received": 0
+    },
+    {
+      "name": "Conc. MC-0697B (Lot 15)",
+      "received": 0
+    },
+    {
+      "name": "Conc. MC-0697G (Lot 28)",
+      "received": 0
+    },
+    {
+      "name": "Conc. MC-0697G (Lot 32)",
+      "received": 0
+    },
+    {
+      "name": "Conc. MC-0697G (Lot 34)",
+      "received": 0
+    },
+    {
+      "name": "Conc. MC-0697G (Lot 21)",
+      "received": 0
+    },
+    {
+      "name": "MS Swine 0314 (25kg)",
+      "received": 0
+    },
+    {
+      "name": "Conc. CORR ABS (Lot 23)",
+      "received": 0
+    },
+    {
+      "name": "Conc. CORR ABS (Lot 20)",
+      "received": 0
+    },
+    {
+      "name": "Conc. VP PP (Lot 25 )",
+      "received": 0
+    },
+    {
+      "name": "Conc.  MD-0103 (Lot 22)",
+      "received": 0
+    },
+    {
+      "name": "Conc.EP2 (Lot 23)",
+      "received": 0
+    },
+    {
+      "name": "Conc.EP2 (Lot 26)",
+      "received": 0
+    },
+    {
+      "name": "Conc.EP2 (Lot 02)",
+      "received": 0
+    },
+    {
+      "name": "Conc. Red  2% (Lot 57)",
+      "received": 0
+    },
+    {
+      "name": "Conc. Red  2% (Lot 58)",
+      "received": 0
+    },
+    {
+      "name": "Conc. Red  2% (Lot 60)",
+      "received": 0
+    },
+    {
+      "name": "Conc. Red  2% (Lot 08)",
+      "received": 0
+    },
+    {
+      "name": "Conc. Red  2% (Lot 45)",
+      "received": 0
+    },
+    {
+      "name": "Conc. Red  2% (Lot 34)",
+      "received": 0
+    },
+    {
+      "name": "Conc. Yellow  2% (Lot 12)",
+      "received": 0
+    },
+    {
+      "name": "Conc. Yellow  2% (Lot 23)",
+      "received": 0
+    },
+    {
+      "name": "TRADI-Impact LD - France",
+      "received": 0
+    },
+    {
+      "name": "Conc. Amnil (Lot 33)",
+      "received": 0
+    },
+    {
+      "name": "Conc. Amnil (Lot 34)",
+      "received": 0
+    },
+    {
+      "name": "Conc. Amnil (Lot 36)",
+      "received": 0
+    },
+    {
+      "name": "Conc. Amnil (Lot 28)",
+      "received": 0
+    },
+    {
+      "name": "C-C 75% (230kg)",
+      "received": 0
+    },
+    {
+      "name": "Myco Curb (1000kg)",
+      "received": 0
+    },
+    {
+      "name": "Rovabio  Max LC, Max Advance L\r\n(228kg/thung)",
+      "received": 0
+    },
+    {
+      "name": "Tiamutin 80% ,Tiamulin hydrogen Fumarate 80%, Dengard 80% Coated (25kg)",
+      "received": 3265.52
+    },
+    {
+      "name": "PULMOTIL",
+      "received": 0
+    },
+    {
+      "name": "MYCOSTATIN",
+      "received": 539.1899999999999
+    },
+    {
+      "name": "ROXOLIN",
+      "received": 1458
+    },
+    {
+      "name": "APA FLOFE 4P ( florfenicol 4%)  (20kg)",
+      "received": 3942.3
+    },
+    {
+      "name": "FLUBENOL",
+      "received": 0
+    },
+    {
+      "name": "Pigfer 40mg/g (Bulgaria)",
+      "received": 0
+    },
+    {
+      "name": "Amoxycilin",
+      "received": 0
+    },
+    {
+      "name": "Advance Timicox 20 (VN)",
+      "received": 0
+    },
+    {
+      "name": "AVATEC",
+      "received": 0
+    },
+    {
+      "name": "Surmax 10% 25kg",
+      "received": 18.68
+    },
+    {
+      "name": "ENRADIN",
+      "received": 0
+    },
+    {
+      "name": "MAXIBAN",
+      "received": 206.48000000000002
+    },
+    {
+      "name": "BMD",
+      "received": 134.9
+    },
+    {
+      "name": "TIAMVET",
+      "received": 0
+    },
+    {
+      "name": "Monimax",
+      "received": 0
+    },
+    {
+      "name": "Chlortetracyline (CTC)",
+      "received": 41.91999999999999
+    },
+    {
+      "name": "Sacox (Salinomycine)",
+      "received": 350
+    },
+    {
+      "name": "Elancoban (25kg)",
+      "received": 113.29
+    },
+    {
+      "name": "Production Date (Lot VN)",
+      "received": 0
+    },
+    {
+      "name": "L-Isoleucine (korea) 20kg",
+      "received": 0
+    },
+    {
+      "name": "Ferm O tide (usa)",
+      "received": 0
+    },
+    {
+      "name": "Tota lFRA Butyrin Mono",
+      "received": 0
+    },
+    {
+      "name": "Mix oil powder",
+      "received": 0
+    },
+    {
+      "name": "Poultry Meal",
+      "received": 0
+    }
   ]
 }
