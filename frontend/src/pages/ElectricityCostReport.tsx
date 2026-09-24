@@ -207,7 +207,7 @@ export default function ElectricityCostReport() {
 
     // Data rows
     tableRows.forEach(row => {
-      const rowData = [row.date];
+      const rowData: any[] = [row.date];
       PDF_COLUMNS.forEach(c => rowData.push(row.mappedMaterials[c.label] || 0));
       rowData.push(row.totalTons, row.hideEnergy ? '' : row.totalKwh, (row.ave > 0 && !row.hideEnergy) ? row.ave : '#DIV/0!');
       rowData.push(row.hideEnergy ? '' : row.energy.mcc13.before, row.hideEnergy ? '' : row.energy.mcc13.after, row.hideEnergy ? '' : row.energy.mcc13.used);
@@ -223,7 +223,7 @@ export default function ElectricityCostReport() {
     });
 
     // Total Row
-    const tRow1 = [''];
+    const tRow1: any[] = [''];
     PDF_COLUMNS.forEach(c => tRow1.push(totals.materials[c.label] || 0));
     tRow1.push(totals.totalTons, totals.totalKwh, '', '', '', '', '', '', '', '', '', '');
     const exTRow1 = worksheet.addRow(tRow1);

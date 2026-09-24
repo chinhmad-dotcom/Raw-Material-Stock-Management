@@ -13,6 +13,7 @@ export default function KpiDashboard() {
   const [selectedYear, setSelectedYear] = useState(currentYear);
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [activeTab, setActiveTab] = useState<'overview' | 'electricity'>('overview');
   
   const [targets, setTargets] = useState({ truck: 80, elecReceive: 0.8, elecExtruder: 220 });
   
@@ -185,8 +186,25 @@ export default function KpiDashboard() {
         </div>
       </header>
 
-      {/* Summary Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      {/* Tabs */}
+      <div className="flex border-b border-slate-200 mb-6">
+        <button
+          className={`px-6 py-3 font-medium text-sm transition-colors border-b-2 ${activeTab === 'overview' ? 'border-blue-600 text-blue-600' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
+          onClick={() => setActiveTab('overview')}
+        >
+          Tổng quan KPI
+        </button>
+        <button
+          className={`px-6 py-3 font-medium text-sm transition-colors border-b-2 ${activeTab === 'electricity' ? 'border-blue-600 text-blue-600' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
+          onClick={() => setActiveTab('electricity')}
+        >
+          Chi tiết Điện năng (KWH/Tons)
+        </button>
+      </div>
+
+      <div className={`flex-col h-full ${activeTab === 'overview' ? 'flex' : 'hidden'}`}>
+        {/* Summary Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         {/* Card 1: Xe */}
         <div className="bg-white rounded-xl p-5 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
           <div className="flex justify-between items-center mb-4">
@@ -343,7 +361,9 @@ export default function KpiDashboard() {
           </div>
         </div>
       </div>
+      </div>
 
+      <div className={`flex-col h-full ${activeTab === 'electricity' ? 'flex' : 'hidden'}`}>
       {/* Electricity Energy Table Section */}
       <div className="bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex flex-col overflow-hidden mb-6">
           <h3 className="font-bold text-slate-700 mb-4 flex items-center justify-between">
@@ -441,7 +461,7 @@ export default function KpiDashboard() {
                    <tr className="bg-amber-50/30">
                       <td className="px-4 py-3 font-bold text-amber-800">TỔNG KWH</td>
                       {elecTotalData.map((d, i) => {
-                          const monthSum = Object.values(d.meters).reduce((s, v: any) => s + Number(v), 0) as number;
+                          const monthSum = Object.values(d.meters).reduce((s: any, v: any) => s + Number(v), 0) as number;
                           return (
                              <td key={i} className="px-4 py-3 text-center font-bold text-amber-700">
                                 {monthSum.toLocaleString('en-US')}
@@ -449,7 +469,7 @@ export default function KpiDashboard() {
                           );
                       })}
                       <td className="px-4 py-3 font-bold text-amber-700 text-center text-base">
-                         {elecTotalData.reduce((s, d) => s + Object.values(d.meters).reduce((ms, v: any) => ms + Number(v), 0), 0).toLocaleString('en-US')}
+                         {elecTotalData.reduce((s: any, d: any) => s + Object.values(d.meters).reduce((ms: any, v: any) => ms + Number(v), 0), 0).toLocaleString('en-US')}
                       </td>
                    </tr>
 
@@ -457,7 +477,7 @@ export default function KpiDashboard() {
                    <tr className="bg-green-50/50 border-t-2 border-green-200">
                       <td className="px-4 py-3 font-bold text-green-800 text-base">KWH / TON</td>
                       {elecTotalData.map((d, i) => {
-                          const monthSum = Object.values(d.meters).reduce((s, v: any) => s + Number(v), 0) as number;
+                          const monthSum = Object.values(d.meters).reduce((s: any, v: any) => s + Number(v), 0) as number;
                           const prod = Number(d.production) || 0;
                           const val = prod > 0 ? (monthSum / prod) : 0;
                           return (
@@ -471,7 +491,7 @@ export default function KpiDashboard() {
                              let sumKwhPerTon = 0;
                              let count = 0;
                              elecTotalData.forEach(d => {
-                                 const monthSum = Object.values(d.meters).reduce((s, v: any) => s + Number(v), 0) as number;
+                                 const monthSum = Object.values(d.meters).reduce((s: any, v: any) => s + Number(v), 0) as number;
                                  const prod = Number(d.production) || 0;
                                  const val = prod > 0 ? (monthSum / prod) : 0;
                                  if (val > 0) {
@@ -486,6 +506,7 @@ export default function KpiDashboard() {
                 </tbody>
              </table>
           </div>
+      </div>
       </div>
     </div>
   );
