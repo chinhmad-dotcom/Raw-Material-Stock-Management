@@ -1722,7 +1722,7 @@ if (reqPath === '/api/trucks/queue-history' && method === 'GET') {
   if (reqPath === '/api/kpi/electricity-total' && method === 'GET') {
     const year = Number(url.searchParams.get('year')) || new Date().getFullYear();
     const { loadEnergyData } = require('./energyScraper');
-    const energyData = loadEnergyData(); // daily energy data
+    const energyData = loadEnergyData(); // Monthly energy data
     
     let productionData = {};
     try {
@@ -1742,21 +1742,17 @@ if (reqPath === '/api/trucks/queue-history' && method === 'GET') {
     for (let i = 1; i <= 12; i++) {
         const monthStr = String(i).padStart(2, '0');
         const monthPrefix = `${year}-${monthStr}`;
-        const daysInMonth = new Date(year, i, 0).getDate();
         
         const metersTotal = {};
         METERS.forEach(m => metersTotal[m] = 0);
         
-        for (let d = 1; d <= daysInMonth; d++) {
-            const dateStr = `${monthPrefix}-${String(d).padStart(2, '0')}`;
-            if (energyData[dateStr]) {
-                METERS.forEach(m => {
-                    const e = energyData[dateStr][m];
-                    if (e && e.used > 0) {
-                        metersTotal[m] += e.used;
-                    }
-                });
-            }
+        if (energyData[monthPrefix]) {
+            METERS.forEach(m => {
+                const used = energyData[monthPrefix][m];
+                if (used && used > 0) {
+                    metersTotal[m] = used;
+                }
+            });
         }
         
         const prod = productionData[monthPrefix] || 0;
@@ -1795,7 +1791,8 @@ if (reqPath === '/api/trucks/queue-history' && method === 'GET') {
            const { year, month } = JSON.parse(body);
            const { fetchEnergyRange, loadEnergyData } = require('./energyScraper');
            
-           // Generate dates for the requested month
+           // Generate a date array for the requested month
+           // (fetchEnergyRange uses the min/max of the array to query the whole month)
            const daysInMonth = new Date(year, month, 0).getDate();
            const datesToSync = [];
            const today = new Date();
@@ -1817,22 +1814,15 @@ if (reqPath === '/api/trucks/queue-history' && method === 'GET') {
            const energyData = loadEnergyData();
            const missingDates = [];
            for (let m = 1; m < month; m++) {
-               let hasData = false;
                const mStr = String(m).padStart(2, '0');
-               const days = new Date(year, m, 0).getDate();
-               for (let d = 1; d <= days; d++) {
-                   const checkDate = `${year}-${mStr}-${String(d).padStart(2, '0')}`;
-                   if (energyData[checkDate]) {
-                       hasData = true;
-                       break;
-                   }
-               }
-               if (!hasData) {
+               const monthKey = `${year}-${mStr}`;
+               if (!energyData[monthKey]) {
+                   // Generate dates for missing month
+                   const days = new Date(year, m, 0).getDate();
                    for (let d = 1; d <= days; d++) {
-                       const checkDate = `${year}-${mStr}-${String(d).padStart(2, '0')}`;
                        const dateObj = new Date(year, m - 1, d);
                        if (dateObj <= today) {
-                           missingDates.push(checkDate);
+                           missingDates.push(`${year}-${mStr}-${String(d).padStart(2, '0')}`);
                        }
                    }
                }
