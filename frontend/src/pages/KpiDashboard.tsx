@@ -134,18 +134,21 @@ export default function KpiDashboard() {
   }, [truckData]);
 
   const avgElecTotal = useMemo(() => {
-    let totalKwh = 0;
-    let totalProd = 0;
+    let sumKwhPerTon = 0;
+    let count = 0;
     elecTotalData.forEach(m => {
        const prod = Number(m.production) || 0;
        if (prod > 0) {
-           totalProd += prod;
-           let sum = 0;
-           Object.values(m.meters).forEach((v: any) => sum += Number(v));
-           totalKwh += sum;
+           let monthKwh = 0;
+           Object.values(m.meters).forEach((v: any) => monthKwh += Number(v));
+           const val = monthKwh / prod;
+           if (val > 0) {
+               sumKwhPerTon += val;
+               count++;
+           }
        }
     });
-    return totalProd > 0 ? (totalKwh / totalProd) : 0;
+    return count > 0 ? (sumKwhPerTon / count) : 0;
   }, [elecTotalData]);
 
   const avgElecExtruder = useMemo(() => {
@@ -465,9 +468,18 @@ export default function KpiDashboard() {
                       })}
                       <td className="px-4 py-3 font-bold text-green-700 text-center text-base">
                          {(() => {
-                             const totalKwh = elecTotalData.reduce((s, d) => s + Object.values(d.meters).reduce((ms, v: any) => ms + Number(v), 0), 0) as number;
-                             const totalProd = elecTotalData.reduce((s, d) => s + (Number(d.production) || 0), 0);
-                             return totalProd > 0 ? (totalKwh / totalProd).toFixed(3) : '-';
+                             let sumKwhPerTon = 0;
+                             let count = 0;
+                             elecTotalData.forEach(d => {
+                                 const monthSum = Object.values(d.meters).reduce((s, v: any) => s + Number(v), 0) as number;
+                                 const prod = Number(d.production) || 0;
+                                 const val = prod > 0 ? (monthSum / prod) : 0;
+                                 if (val > 0) {
+                                     sumKwhPerTon += val;
+                                     count++;
+                                 }
+                             });
+                             return count > 0 ? (sumKwhPerTon / count).toFixed(3) : '-';
                          })()}
                       </td>
                    </tr>
