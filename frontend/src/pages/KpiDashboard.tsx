@@ -294,9 +294,6 @@ export default function KpiDashboard() {
           </div>
         </div>
       </div>
-
-      {/* Charts Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 flex-1 mb-4">
         
           {/* Card 4: Kaizen */}
           <div className="bg-white rounded-xl p-4 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
@@ -332,6 +329,9 @@ export default function KpiDashboard() {
           </div>
 
         </div>
+
+      {/* Charts Section */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 flex-1 mb-4">
 
         <div className="grid grid-cols-3 gap-4 flex-1">
           {/* Chart 1 */}
