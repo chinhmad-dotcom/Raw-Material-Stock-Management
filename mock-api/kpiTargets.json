@@ -1,5 +1,6 @@
 {
   "truck": 95.5,
   "elecReceive": 3.07,
-  "elecExtruder": 3.27
+  "elecExtruder": 3.27,
+  "loss": 0.72
 }
