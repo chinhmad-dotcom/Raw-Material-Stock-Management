@@ -378,25 +378,25 @@ export default function KpiDashboard() {
              </button>
           </h3>
           <div className="overflow-x-auto">
-             <table className="w-full text-sm text-left whitespace-nowrap">
+             <table className="w-full text-xs text-left whitespace-nowrap">
                 <thead className="bg-slate-50 text-slate-600 font-semibold uppercase text-xs">
                    <tr>
-                      <th className="px-4 py-3 border-b border-slate-200">Meter / Month</th>
+                      <th className="px-2 py-2 border-b border-slate-200 text-[10px] md:text-xs">Meter / Month</th>
                       {[1,2,3,4,5,6,7,8,9,10,11,12].map(m => (
-                         <th key={m} className="px-4 py-3 border-b border-slate-200 text-center">T{m}</th>
+                         <th key={m} className="px-2 py-2 border-b border-slate-200 text-[10px] md:text-xs text-center">T{m}</th>
                       ))}
-                      <th className="px-4 py-3 border-b border-slate-200 text-center">TOTAL</th>
+                      <th className="px-2 py-2 border-b border-slate-200 text-[10px] md:text-xs text-center">TOTAL</th>
                    </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100">
                    {/* Production Input Row */}
                    <tr className="bg-indigo-50/50">
-                      <td className="px-4 py-3 font-bold text-slate-700">Sản lượng SX (Tons)</td>
+                      <td className="px-2 py-2 text-xs font-bold text-slate-700">Sản lượng SX (Tons)</td>
                       {elecTotalData.map((d, i) => (
                          <td key={i} className="px-2 py-2 text-center">
                             <input
                                type="number"
-                               className="w-20 px-2 py-1 text-center border border-indigo-200 rounded text-indigo-700 font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white"
+                               className="w-14 px-1 text-xs py-1 text-center border border-indigo-200 rounded text-indigo-700 font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white"
                                value={d.production || ''}
                                onChange={(e) => {
                                   const val = Number(e.target.value);
@@ -415,7 +415,7 @@ export default function KpiDashboard() {
                             />
                          </td>
                       ))}
-                      <td className="px-4 py-3 font-bold text-indigo-700 text-center">
+                      <td className="px-2 py-2 text-xs font-bold text-indigo-700 text-center">
                          {elecTotalData.reduce((s, d) => s + (Number(d.production) || 0), 0)}
                       </td>
                    </tr>
@@ -429,47 +429,47 @@ export default function KpiDashboard() {
                        const yearTotal = elecTotalData.reduce((s, d) => s + (d.meters[meter] || 0), 0);
                        return (
                            <tr key={meter} className="hover:bg-slate-50 transition-colors">
-                              <td className="px-4 py-2 font-medium text-slate-600">{meter}</td>
+                              <td className="px-2 py-1.5 text-xs font-medium text-slate-600">{meter}</td>
                               {elecTotalData.map((d, i) => (
-                                 <td key={i} className="px-4 py-2 text-center text-slate-500">
+                                 <td key={i} className="px-2 py-1.5 text-xs text-center text-slate-500">
                                     {(d.meters[meter] || 0).toLocaleString('en-US')}
                                  </td>
                               ))}
-                              <td className="px-4 py-2 font-bold text-slate-700 text-center">{yearTotal.toLocaleString('en-US')}</td>
+                              <td className="px-2 py-1.5 text-xs font-bold text-slate-700 text-center">{yearTotal.toLocaleString('en-US')}</td>
                            </tr>
                        );
                    })}
 
                    {/* Total KWH Row */}
                    <tr className="bg-amber-50/30">
-                      <td className="px-4 py-3 font-bold text-amber-800">TỔNG KWH</td>
+                      <td className="px-2 py-2 text-xs font-bold text-amber-800">TỔNG KWH</td>
                       {elecTotalData.map((d, i) => {
                           const monthSum = Object.values(d.meters).reduce((s: any, v: any) => s + Number(v), 0) as number;
                           return (
-                             <td key={i} className="px-4 py-3 text-center font-bold text-amber-700">
+                             <td key={i} className="px-2 py-2 text-xs text-center font-bold text-amber-700">
                                 {monthSum.toLocaleString('en-US')}
                              </td>
                           );
                       })}
-                      <td className="px-4 py-3 font-bold text-amber-700 text-center text-base">
+                      <td className="px-2 py-2 text-xs font-bold text-amber-700 text-center text-base">
                          {elecTotalData.reduce((s: any, d: any) => s + Object.values(d.meters).reduce((ms: any, v: any) => ms + Number(v), 0), 0).toLocaleString('en-US')}
                       </td>
                    </tr>
 
                    {/* Final KPI Row */}
                    <tr className="bg-green-50/50 border-t-2 border-green-200">
-                      <td className="px-4 py-3 font-bold text-green-800 text-base">KWH / TON</td>
+                      <td className="px-2 py-2 text-xs font-bold text-green-800 text-base">KWH / TON</td>
                       {elecTotalData.map((d, i) => {
                           const monthSum = Object.values(d.meters).reduce((s: any, v: any) => s + Number(v), 0) as number;
                           const prod = Number(d.production) || 0;
                           const val = prod > 0 ? (monthSum / prod) : 0;
                           return (
-                             <td key={i} className="px-4 py-3 text-center font-bold text-green-700">
+                             <td key={i} className="px-2 py-2 text-xs text-center font-bold text-green-700">
                                 {val > 0 ? val.toFixed(3) : '-'}
                              </td>
                           );
                       })}
-                      <td className="px-4 py-3 font-bold text-green-700 text-center text-base">
+                      <td className="px-2 py-2 text-xs font-bold text-green-700 text-center text-base">
                          {(() => {
                              let sumKwhPerTon = 0;
                              let count = 0;
@@ -501,25 +501,25 @@ export default function KpiDashboard() {
                </div>
             </h3>
             <div className="overflow-x-auto">
-               <table className="w-full text-sm text-left whitespace-nowrap">
+               <table className="w-full text-xs text-left whitespace-nowrap">
                   <thead className="bg-slate-50 text-slate-600 font-semibold uppercase text-xs">
                      <tr>
-                        <th className="px-4 py-3 border-b border-slate-200">Chỉ số</th>
+                        <th className="px-2 py-2 border-b border-slate-200 text-[10px] md:text-xs">Chỉ số</th>
                         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(m => (
-                           <th key={m} className="px-4 py-3 border-b border-slate-200 text-center">T{m}</th>
+                           <th key={m} className="px-2 py-2 border-b border-slate-200 text-[10px] md:text-xs text-center">T{m}</th>
                         ))}
-                        <th className="px-4 py-3 border-b border-slate-200 text-center text-indigo-700">TRUNG BÌNH</th>
+                        <th className="px-2 py-2 border-b border-slate-200 text-[10px] md:text-xs text-center text-indigo-700">TRUNG BÌNH</th>
                      </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-100">
                      <tr className="hover:bg-slate-50 transition-colors">
-                        <td className="px-4 py-3 font-bold text-slate-700">Loss (%)</td>
+                        <td className="px-2 py-2 text-xs font-bold text-slate-700">Loss (%)</td>
                         {lossData.map((d, i) => (
                            <td key={i} className="px-2 py-2 text-center">
                               <input
                                  type="number"
                                  step="0.01"
-                                 className="w-20 px-2 py-1 text-center border border-slate-200 rounded text-slate-700 font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white"
+                                 className="w-14 px-1 text-xs py-1 text-center border border-slate-200 rounded text-slate-700 font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white"
                                  value={d.val || ''}
                                  onChange={(e) => {
                                      const val = Number(e.target.value);
@@ -536,7 +536,7 @@ export default function KpiDashboard() {
                               />
                            </td>
                         ))}
-                        <td className="px-4 py-3 font-bold text-indigo-700 text-center text-base">
+                        <td className="px-2 py-2 text-xs font-bold text-indigo-700 text-center text-base">
                            {avgLoss.toFixed(1)}
                         </td>
                      </tr>
