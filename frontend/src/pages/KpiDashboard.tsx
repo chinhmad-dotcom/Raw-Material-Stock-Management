@@ -31,11 +31,12 @@ export default function KpiDashboard() {
   const fetchData = async () => {
     setLoading(true);
     try {
+      const ts = Date.now();
       const [tgtRes, truckRes, elecTotRes, elecExtRes] = await Promise.all([
-        fetch(`http://localhost:5147/api/kpi/targets`),
-        fetch(`http://localhost:5147/api/trucks/queue-report?from=${selectedYear}-01-01&to=${selectedYear}-12-31&sync=false`),
-        fetch(`http://localhost:5147/api/kpi/electricity-total?year=${selectedYear}`),
-        fetch(`http://localhost:5147/api/extruder/production?year=${selectedYear}`)
+        fetch(`http://localhost:5147/api/kpi/targets?_t=${ts}`),
+        fetch(`http://localhost:5147/api/trucks/queue-report?from=${selectedYear}-01-01&to=${selectedYear}-12-31&sync=false&_t=${ts}`),
+        fetch(`http://localhost:5147/api/kpi/electricity-total?year=${selectedYear}&_t=${ts}`),
+        fetch(`http://localhost:5147/api/extruder/production?year=${selectedYear}&_t=${ts}`)
       ]);
       
       const tgtJson = await tgtRes.json();
@@ -361,6 +362,7 @@ export default function KpiDashboard() {
                            body: JSON.stringify({ year: selectedYear, month: targetMonth })
                        });
                        await fetchData();
+                       alert('Đã tải xong tháng hiện tại. Các tháng cũ đang được đồng bộ ngầm, vui lòng đợi vài phút và nhấn F5 để xem!');
                    } catch(e) { alert('Lỗi đồng bộ'); }
                    if (btn) btn.innerHTML = '↻ Đồng bộ dữ liệu';
                }}
