@@ -13,9 +13,9 @@ export default function KpiDashboard() {
   const [selectedYear, setSelectedYear] = useState(currentYear);
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
-  const [activeTab, setActiveTab] = useState<'overview' | 'electricity'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'electricity' | 'loss'>('overview');
   
-  const [targets, setTargets] = useState({ truck: 80, elecReceive: 0.8, elecExtruder: 220 });
+  const [targets, setTargets] = useState({ truck: 80, elecReceive: 0.8, loss: 1.5 });
   
   // Dữ liệu biểu đồ
   const [truckData, setTruckData] = useState<{month: string, val: number}[]>([]);
@@ -23,7 +23,7 @@ export default function KpiDashboard() {
   // Chi phí điện năng (Table Data)
   const [elecTotalData, setElecTotalData] = useState<any[]>([]);
   
-  const [elecExtruderData, setElecExtruderData] = useState<{month: string, val: number}[]>([]);
+  const [lossData, setLossData] = useState<{month: string, val: number}[]>([]);
 
   useEffect(() => {
     fetchData();
@@ -33,11 +33,11 @@ export default function KpiDashboard() {
     setLoading(true);
     try {
       const ts = Date.now();
-      const [tgtRes, truckRes, elecTotRes, elecExtRes] = await Promise.all([
+      const [tgtRes, truckRes, elecTotRes, lossRes] = await Promise.all([
         fetch(`http://localhost:5147/api/kpi/targets?_t=${ts}`),
         fetch(`http://localhost:5147/api/trucks/queue-report?from=${selectedYear}-01-01&to=${selectedYear}-12-31&sync=false&_t=${ts}`),
         fetch(`http://localhost:5147/api/kpi/electricity-total?year=${selectedYear}&_t=${ts}`),
-        fetch(`http://localhost:5147/api/extruder/production?year=${selectedYear}&_t=${ts}`)
+        fetch(`http://localhost:5147/api/kpi/loss?year=${selectedYear}&_t=${ts}`)
       ]);
       
       const tgtJson = await tgtRes.json();
@@ -82,31 +82,8 @@ export default function KpiDashboard() {
       const elecTotJson = await elecTotRes.json();
       if (elecTotJson.data) setElecTotalData(elecTotJson.data);
 
-      const elecExtJson = await elecExtRes.json();
-      
-      // Compute extruder yearly average from daily extruder data
-      if (Array.isArray(elecExtJson)) {
-          const extMonthly = Array(12).fill(0).map(() => ({ totalTons: 0, totalKwh: 0 }));
-          elecExtJson.forEach((r: any) => {
-              if (r.year === selectedYear) {
-                  const mIdx = Number(r.month) - 1;
-                  if (mIdx >= 0 && mIdx < 12) {
-                      const bap = r.produce_bap || 0;
-                      const nanh = r.produce_nanh || 0;
-                      extMonthly[mIdx].totalTons += (bap + nanh);
-                      
-                      const e = r.electricity || {};
-                      const kwh = (e.scraped_e1 || 0) + (e.scraped_e2 || 0) + (e.scraped_hamer || 0) + (e.scraped_line || 0);
-                      extMonthly[mIdx].totalKwh += kwh;
-                  }
-              }
-          });
-          const extChart = extMonthly.map((m, idx) => ({
-              month: (idx + 1).toString(),
-              val: m.totalTons > 0 ? m.totalKwh / m.totalTons : 0
-          }));
-          setElecExtruderData(extChart);
-      }
+      const lossJson = await lossRes.json();
+      setLossData(lossJson.data || []);
 
     } catch (e) {
       console.error(e);
@@ -152,10 +129,10 @@ export default function KpiDashboard() {
     return count > 0 ? (sumKwhPerTon / count) : 0;
   }, [elecTotalData]);
 
-  const avgElecExtruder = useMemo(() => {
-    const valid = elecExtruderData.filter(d => d.val > 0);
+  const avgLoss = useMemo(() => {
+    const valid = lossData.filter(d => d.val > 0);
     return valid.length ? valid.reduce((s, d) => s + d.val, 0) / valid.length : 0;
-  }, [elecExtruderData]);
+  }, [lossData]);
 
   return (
     <div className="flex flex-col h-full animate-in fade-in duration-500 bg-slate-50 dark:bg-slate-950 p-2 md:p-4 overflow-auto">
@@ -199,6 +176,12 @@ export default function KpiDashboard() {
           onClick={() => setActiveTab('electricity')}
         >
           Chi tiết Điện năng (KWH/Tons)
+        </button>
+        <button
+          className={`px-6 py-3 font-medium text-sm transition-colors border-b-2 ${activeTab === 'loss' ? 'border-blue-600 text-blue-600' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
+          onClick={() => setActiveTab('loss')}
+        >
+          Nhập liệu Loss
         </button>
       </div>
 
@@ -252,7 +235,7 @@ export default function KpiDashboard() {
               <div className="text-3xl font-bold text-slate-800">
                 {avgElecTotal.toFixed(3)}
               </div>
-              <div className="text-sm text-slate-500 mt-1">KWH/TON (Trung bình năm)</div>
+              <div className="text-sm text-slate-500 mt-1">% (Trung bình năm)</div>
             </div>
             <div className="text-right flex flex-col items-end">
               <label className="text-xs text-slate-500 font-medium mb-1 uppercase">Target (Max)</label>
@@ -278,13 +261,13 @@ export default function KpiDashboard() {
           <div className="flex justify-between items-center mb-4">
             <div className="flex items-center gap-2 text-slate-600 font-semibold">
               <Zap className="w-5 h-5 text-blue-500" />
-              Chi phí điện Extruder
+              Kiểm soát Loss
             </div>
           </div>
           <div className="flex items-end justify-between">
             <div>
               <div className="text-3xl font-bold text-slate-800">
-                {avgElecExtruder.toFixed(1)}
+                {avgLoss.toFixed(1)}
               </div>
               <div className="text-sm text-slate-500 mt-1">KWH/TON (Trung bình năm)</div>
             </div>
@@ -293,15 +276,15 @@ export default function KpiDashboard() {
               <input 
                 type="number"
                 className="w-20 border border-slate-200 rounded px-2 py-1 text-right text-blue-600 font-bold focus:outline-none focus:border-blue-500 bg-blue-50"
-                value={targets.elecExtruder}
-                onChange={e => handleTargetChange('elecExtruder', e.target.value)}
+                value={targets.loss}
+                onChange={e => handleTargetChange('loss', e.target.value)}
               />
             </div>
           </div>
           <div className="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-sm">
              <span className="text-slate-500">Trạng thái:</span>
-             <span className={`font-semibold px-2 py-0.5 rounded-full ${avgElecExtruder <= targets.elecExtruder ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
-               {avgElecExtruder <= targets.elecExtruder && avgElecExtruder > 0 ? 'ĐẠT' : (avgElecExtruder === 0 ? 'CHƯA CÓ' : 'KHÔNG ĐẠT')}
+             <span className={`font-semibold px-2 py-0.5 rounded-full ${avgLoss <= targets.loss ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+               {avgLoss <= targets.loss && avgLoss > 0 ? 'ĐẠT' : (avgLoss === 0 ? 'CHƯA CÓ' : 'KHÔNG ĐẠT')}
              </span>
           </div>
         </div>
@@ -337,10 +320,10 @@ export default function KpiDashboard() {
 
         {/* Chart 3 */}
         <div className="bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex flex-col">
-          <h3 className="font-bold text-slate-700 mb-4">Điện Extruder (KWH/Tons)</h3>
+          <h3 className="font-bold text-slate-700 mb-4">Kiểm soát Loss (%)</h3>
           <div className="flex-1 min-h-[300px]">
             <ResponsiveContainer width="100%" height="100%">
-              <ComposedChart data={elecExtruderData}>
+              <ComposedChart data={lossData}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
                 <XAxis dataKey="month" tick={{fontSize: 12}} tickLine={false} />
                 <YAxis tick={{fontSize: 12}} domain={['auto', 'auto']} tickLine={false} axisLine={false} />
@@ -349,7 +332,7 @@ export default function KpiDashboard() {
                 <Bar dataKey="val" name="Thực tế" fill="#3b82f6" radius={[4, 4, 0, 0]} maxBarSize={40} />
                 <Line 
                   type="step" 
-                  dataKey={() => targets.elecExtruder} 
+                  dataKey={() => targets.loss} 
                   name="Mục tiêu" 
                   stroke="#ef4444" 
                   strokeWidth={2} 

@@ -1695,8 +1695,40 @@ if (reqPath === '/api/trucks/queue-history' && method === 'GET') {
     return json(req, res, { data });
   }
 
+
+  if (reqPath === '/api/kpi/loss' && method === 'GET') {
+    const year = Number(url.searchParams.get('year')) || new Date().getFullYear();
+    const file = path.join(__dirname, 'kpiLoss.json');
+    let data = {};
+    try { data = JSON.parse(fs.readFileSync(file, 'utf8')); } catch(e){}
+    const results = [];
+    for (let i = 1; i <= 12; i++) {
+        results.push({ month: i, val: data[`${year}-${i}`] || 0 });
+    }
+    return json(req, res, { data: results });
+  }
+
+  if (reqPath === '/api/kpi/loss' && method === 'POST') {
+    let body = '';
+    req.on('data', chunk => body += chunk.toString());
+    req.on('end', () => {
+        try {
+            const { year, month, val } = JSON.parse(body);
+            const file = path.join(__dirname, 'kpiLoss.json');
+            let data = {};
+            try { data = JSON.parse(fs.readFileSync(file, 'utf8')); } catch(e){}
+            data[`${year}-${month}`] = Number(val) || 0;
+            fs.writeFileSync(file, JSON.stringify(data, null, 2));
+            return json(req, res, { success: true });
+        } catch (e) {
+            return json(req, res, { success: false });
+        }
+    });
+    return;
+  }
+
   if (reqPath === '/api/kpi/targets' && method === 'GET') {
-    let targets = { truck: 80, elecReceive: 0.8, elecExtruder: 220 };
+    let targets = { truck: 80, elecReceive: 0.8, loss: 1.5 };
     const file = path.join(__dirname, 'kpiTargets.json');
     try { targets = JSON.parse(fs.readFileSync(file, 'utf8')); } catch(e){}
     return json(req, res, { data: targets });
@@ -1706,7 +1738,7 @@ if (reqPath === '/api/trucks/queue-history' && method === 'GET') {
     let body = '';
     req.on('data', chunk => body += chunk.toString());
     req.on('end', () => {
-      let targets = { truck: 80, elecReceive: 0.8, elecExtruder: 220 };
+      let targets = { truck: 80, elecReceive: 0.8, loss: 1.5 };
       const file = path.join(__dirname, 'kpiTargets.json');
       try { targets = JSON.parse(fs.readFileSync(file, 'utf8')); } catch(e){}
       
