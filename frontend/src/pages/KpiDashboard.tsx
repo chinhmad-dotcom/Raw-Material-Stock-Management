@@ -142,7 +142,7 @@ export default function KpiDashboard() {
   return (
     <div className="flex flex-col h-full animate-in fade-in duration-500 bg-slate-50 dark:bg-slate-950 p-2 md:p-4 overflow-auto">
       {/* Header */}
-      <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+      <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4">
         <div>
           <h1 className="text-2xl font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
             <Activity className="w-8 h-8 text-blue-600" />
@@ -169,7 +169,7 @@ export default function KpiDashboard() {
       </header>
 
       {/* Tabs */}
-      <div className="flex border-b border-slate-200 mb-6">
+      <div className="flex border-b border-slate-200 mb-4">
         <button
           className={`px-6 py-3 font-medium text-sm transition-colors border-b-2 ${activeTab === 'overview' ? 'border-blue-600 text-blue-600' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
           onClick={() => setActiveTab('overview')}
@@ -192,10 +192,10 @@ export default function KpiDashboard() {
 
       <div className={`flex-col h-full ${activeTab === 'overview' ? 'flex' : 'hidden'}`}>
         {/* Summary Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         {/* Card 1: Xe */}
-        <div className="bg-white rounded-xl p-5 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
-          <div className="flex justify-between items-center mb-4">
+        <div className="bg-white rounded-xl p-4 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+          <div className="flex justify-between items-center mb-2">
             <div className="flex items-center gap-2 text-slate-600 font-semibold">
               <Truck className="w-5 h-5 text-indigo-500" />
               % Xe hoàn thành &lt; 1H
@@ -228,8 +228,8 @@ export default function KpiDashboard() {
         </div>
 
         {/* Card 2: Nhập hàng */}
-        <div className="bg-white rounded-xl p-5 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
-          <div className="flex justify-between items-center mb-4">
+        <div className="bg-white rounded-xl p-4 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+          <div className="flex justify-between items-center mb-2">
             <div className="flex items-center gap-2 text-slate-600 font-semibold">
               <Zap className="w-5 h-5 text-amber-500" />
               Chi phí điện năng
@@ -262,8 +262,8 @@ export default function KpiDashboard() {
         </div>
 
         {/* Card 3: Extruder */}
-        <div className="bg-white rounded-xl p-5 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
-          <div className="flex justify-between items-center mb-4">
+        <div className="bg-white rounded-xl p-4 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+          <div className="flex justify-between items-center mb-2">
             <div className="flex items-center gap-2 text-slate-600 font-semibold">
               <Zap className="w-5 h-5 text-blue-500" />
               Kiểm soát Loss
@@ -296,11 +296,11 @@ export default function KpiDashboard() {
       </div>
 
       {/* Charts Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 flex-1 mb-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 flex-1 mb-4">
         
           {/* Card 4: Kaizen */}
-          <div className="bg-white rounded-xl p-5 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
-            <div className="flex justify-between items-center mb-4">
+          <div className="bg-white rounded-xl p-4 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+            <div className="flex justify-between items-center mb-2">
               <div className="flex items-center gap-2 text-slate-600 font-semibold">
                 <Activity className="w-5 h-5 text-green-500" />
                 Số lượng Kaizen
@@ -333,11 +333,11 @@ export default function KpiDashboard() {
 
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-3 gap-4 flex-1">
           {/* Chart 1 */}
-        <div className="bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex flex-col">
-          <h3 className="font-bold text-slate-700 mb-4">% Xe dưới 1H theo tháng</h3>
-          <div className="flex-1 min-h-[300px]">
+        <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-col min-h-[250px]">
+          <h3 className="font-bold text-slate-700 mb-2">% Xe dưới 1H theo tháng</h3>
+          <div className="flex-1 min-h-[250px]">
             <ResponsiveContainer width="100%" height="100%">
               <ComposedChart data={truckData}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
@@ -361,9 +361,9 @@ export default function KpiDashboard() {
         </div>
 
         {/* Chart 3 */}
-        <div className="bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex flex-col">
-          <h3 className="font-bold text-slate-700 mb-4">Kiểm soát Loss (%)</h3>
-          <div className="flex-1 min-h-[300px]">
+        <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-col min-h-[250px]">
+          <h3 className="font-bold text-slate-700 mb-2">Kiểm soát Loss (%)</h3>
+          <div className="flex-1 min-h-[250px]">
             <ResponsiveContainer width="100%" height="100%">
               <ComposedChart data={lossData}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
@@ -384,11 +384,9 @@ export default function KpiDashboard() {
               </ComposedChart>
             </ResponsiveContainer>
           </div>
-        </div>
-      
-        {/* Kaizen List Section */}
-        <div className="mt-6 bg-white p-5 rounded-xl shadow-sm border border-slate-200">
-           <div className="flex items-center justify-between mb-4">
+                {/* Kaizen List Section */}
+        <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-col h-full min-h-[250px]">
+           <div className="flex items-center justify-between mb-2">
               <h3 className="font-bold text-slate-700">Danh sách Kaizen ({selectedYear})</h3>
               <button
                 className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded shadow-sm text-sm font-medium transition-colors"
@@ -414,24 +412,24 @@ export default function KpiDashboard() {
               </button>
            </div>
            <div className="overflow-x-auto">
-              <table className="w-full text-sm text-left whitespace-nowrap">
+              <table className="w-full text-xs text-left">
                  <thead className="bg-slate-50 text-slate-600 font-semibold uppercase text-xs">
                     <tr>
-                       <th className="px-4 py-3 border-b border-slate-200">Tên Kaizen</th>
-                       <th className="px-4 py-3 border-b border-slate-200">Tên người làm</th>
-                       <th className="px-4 py-3 border-b border-slate-200">Người hỗ trợ</th>
-                       <th className="px-4 py-3 border-b border-slate-200 w-24 text-center">Hành động</th>
+                       <th className="px-2 py-2 border-b border-slate-200">Tên Kaizen</th>
+                       <th className="px-2 py-2 border-b border-slate-200">Tên người làm</th>
+                       <th className="px-2 py-2 border-b border-slate-200">Người hỗ trợ</th>
+                       <th className="px-2 py-2 border-b border-slate-200 w-24 text-center">Hành động</th>
                     </tr>
                  </thead>
                  <tbody className="divide-y divide-slate-100">
                     {kaizenData.length === 0 ? (
-                       <tr><td colSpan={4} className="px-4 py-4 text-center text-slate-500">Chưa có dữ liệu</td></tr>
+                       <tr><td colSpan={4} className="px-2 py-2 text-center text-slate-500">Chưa có dữ liệu</td></tr>
                     ) : kaizenData.map((k, i) => (
                        <tr key={i} className="hover:bg-slate-50">
-                          <td className="px-4 py-3 font-medium text-slate-700">{k.name}</td>
-                          <td className="px-4 py-3 text-slate-600">{k.owner}</td>
-                          <td className="px-4 py-3 text-slate-600">{k.helper}</td>
-                          <td className="px-4 py-3 text-center">
+                          <td className="px-2 py-2 font-medium text-slate-700">{k.name}</td>
+                          <td className="px-2 py-2 text-slate-600">{k.owner}</td>
+                          <td className="px-2 py-2 text-slate-600">{k.helper}</td>
+                          <td className="px-2 py-2 text-center">
                              <button
                                className="text-red-500 hover:text-red-700 font-medium text-xs"
                                onClick={() => {
@@ -452,10 +450,11 @@ export default function KpiDashboard() {
         </div>
 
       </div>
-      <div className={`flex-col h-full ${activeTab === 'electricity' ? 'flex' : 'hidden'}`}>
+      </div>
+        <div className={`flex-col h-full ${activeTab === 'electricity' ? 'flex' : 'hidden'}`}>
       {/* Electricity Energy Table Section */}
-      <div className="bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex flex-col overflow-hidden mb-6">
-          <h3 className="font-bold text-slate-700 mb-4 flex items-center justify-between">
+      <div className="bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex flex-col overflow-hidden mb-4">
+          <h3 className="font-bold text-slate-700 mb-2 flex items-center justify-between">
              <div className="flex items-center gap-2">
                  <Zap className="w-5 h-5 text-amber-500" />
                  Chi phí điện năng từng tháng (KWH/Tons)
@@ -599,8 +598,8 @@ export default function KpiDashboard() {
       </div>
 
       <div className={`flex-col h-full ${activeTab === 'loss' ? 'flex' : 'hidden'}`}>
-        <div className="bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex flex-col overflow-hidden mb-6">
-            <h3 className="font-bold text-slate-700 mb-4 flex items-center justify-between">
+        <div className="bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex flex-col overflow-hidden mb-4">
+            <h3 className="font-bold text-slate-700 mb-2 flex items-center justify-between">
                <div className="flex items-center gap-2">
                    <Activity className="w-5 h-5 text-indigo-500" />
                    Nhập liệu Loss hàng tháng (%)
