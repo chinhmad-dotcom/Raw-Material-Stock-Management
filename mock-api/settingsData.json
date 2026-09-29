@@ -6338,6 +6338,186 @@
       "density": 0.7,
       "maxStorageAgeDays": 120,
       "dohThreshold": 5
+    },
+    {
+      "id": "1790665386771ph6cm",
+      "sku": "RM-NEXT",
+      "name": "NEXTIDE (58%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17906653867896wedg",
+      "sku": "RM-CONC",
+      "name": "Conc. 34V (Lot )",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1790665428829rqmhp",
+      "sku": "RM-MEAT",
+      "name": "MEAT BONE MEAL (50.21%)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1790665428845muvra",
+      "sku": "RM-CONC",
+      "name": "Conc. 10M (Lot 49)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1790665428846t488k",
+      "sku": "RM-CONC",
+      "name": "Conc. 52M (Lot 66)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1790665428847x6bxw",
+      "sku": "RM-CONC",
+      "name": "Conc.10V (Lot 37)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1790665428849y0utr",
+      "sku": "RM-CONC",
+      "name": "Conc. 25V (Lot 37)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1790665428851ck2bn",
+      "sku": "RM-CONC",
+      "name": "Conc. 51V (Lot 38)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1790665428852rirfb",
+      "sku": "RM-CONC",
+      "name": "Conc. 52V (Lot 39)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1790665428854bj7go",
+      "sku": "RM-CONC",
+      "name": "Conc. 62PV (Lot 36)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "179066542885473144",
+      "sku": "RM-CONC",
+      "name": "Conc. 62PV (Lot 37)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17906654288558wh0b",
+      "sku": "RM-CONC",
+      "name": "Conc. 66V (Lot 37)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17906654288570081c",
+      "sku": "RM-CONC",
+      "name": "Conc. 52SV (Lot 37)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1790665428858e4nts",
+      "sku": "RM-CONC",
+      "name": "Conc. 67SV (Lot 37)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1790665428860mqj3f",
+      "sku": "RM-CONC",
+      "name": "Conc. 572G (Lot 34)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1790665428862dj7xb",
+      "sku": "RM-CONC",
+      "name": "Conc. 571 (Lot 37)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "179066542886202h86",
+      "sku": "RM-CONC",
+      "name": "Conc. 582 (Lot 40)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1790665428864t9ked",
+      "sku": "RM-CONC",
+      "name": "Conc. MC-0697B (Lot 37)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "17906654288646bvah",
+      "sku": "RM-CONC",
+      "name": "Conc. MC-0697G (Lot 36)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
+    },
+    {
+      "id": "1790665428866mmgnz",
+      "sku": "RM-CONC",
+      "name": "Conc. Red  2% (Lot 62)",
+      "unit": "Ton",
+      "density": 0.7,
+      "maxStorageAgeDays": 120,
+      "dohThreshold": 5
     }
   ],
   "logs": [

@@ -1707,22 +1707,29 @@
       "kwhPerTon": 0
     },
     "nanhHap": {
-      "ton": 0,
-      "tonPerHour": 0,
-      "totalKWh": 0,
-      "kwhPerTon": 0
+      "ton": 85,
+      "tonPerHour": 4.358974358974359,
+      "totalKWh": 3685,
+      "kwhPerTon": 43.35294117647059
     },
     "oee": {
-      "average": 0,
+      "average": 0.7175925925925926,
       "target": 0.78
     },
-    "losses": [],
+    "losses": [
+      {
+        "code": "153",
+        "description": "Ngưng máy có kế hoạch",
+        "occurrences": 2,
+        "timeMins": 4.5
+      }
+    ],
     "warnings": [],
     "electricity": {
       "e1": 0,
-      "e2": 0,
-      "line": 0,
-      "hamer": 0
+      "e2": 1792,
+      "line": 567,
+      "hamer": 1326
     }
   },
   {
@@ -1730,10 +1737,10 @@
     "month": 9,
     "date": 18,
     "bapHap": {
-      "ton": 0,
-      "tonPerHour": 0,
-      "totalKWh": 0,
-      "kwhPerTon": 0
+      "ton": 138,
+      "tonPerHour": 9.2,
+      "totalKWh": 2620,
+      "kwhPerTon": 18.985507246376812
     },
     "nanhHap": {
       "ton": 0,
@@ -1742,16 +1749,23 @@
       "kwhPerTon": 0
     },
     "oee": {
-      "average": 0,
+      "average": 0.9660818713450293,
       "target": 0.78
     },
-    "losses": [],
+    "losses": [
+      {
+        "code": "153",
+        "description": "Ngưng máy có kế hoạch",
+        "occurrences": 3,
+        "timeMins": 9
+      }
+    ],
     "warnings": [],
     "electricity": {
-      "e1": 0,
+      "e1": 1074,
       "e2": 0,
-      "line": 0,
-      "hamer": 0
+      "line": 463,
+      "hamer": 1083
     }
   },
   {
@@ -1823,22 +1837,35 @@
       "kwhPerTon": 0
     },
     "nanhHap": {
-      "ton": 0,
-      "tonPerHour": 0,
-      "totalKWh": 0,
-      "kwhPerTon": 0
+      "ton": 22,
+      "tonPerHour": 4.4,
+      "totalKWh": 1105,
+      "kwhPerTon": 50.22727272727273
     },
     "oee": {
-      "average": 0,
+      "average": 0.5238095238095238,
       "target": 0.78
     },
-    "losses": [],
+    "losses": [
+      {
+        "code": "153",
+        "description": "Ngưng máy có kế hoạch",
+        "occurrences": 3,
+        "timeMins": 17
+      },
+      {
+        "code": "532",
+        "description": "lổi van hơi auto 729",
+        "occurrences": 1,
+        "timeMins": 2
+      }
+    ],
     "warnings": [],
     "electricity": {
       "e1": 0,
-      "e2": 0,
-      "line": 0,
-      "hamer": 0
+      "e2": 532,
+      "line": 176,
+      "hamer": 397
     }
   },
   {
@@ -1846,10 +1873,10 @@
     "month": 9,
     "date": 22,
     "bapHap": {
-      "ton": 0,
-      "tonPerHour": 0,
-      "totalKWh": 0,
-      "kwhPerTon": 0
+      "ton": 130,
+      "tonPerHour": 6.5,
+      "totalKWh": 3217,
+      "kwhPerTon": 24.746153846153845
     },
     "nanhHap": {
       "ton": 0,
@@ -1858,16 +1885,23 @@
       "kwhPerTon": 0
     },
     "oee": {
-      "average": 0,
+      "average": 0.6798245614035087,
       "target": 0.78
     },
-    "losses": [],
+    "losses": [
+      {
+        "code": "153",
+        "description": "Ngưng máy có kế hoạch",
+        "occurrences": 1,
+        "timeMins": 4
+      }
+    ],
     "warnings": [],
     "electricity": {
-      "e1": 0,
+      "e1": 1008,
       "e2": 0,
-      "line": 0,
-      "hamer": 0
+      "line": 610,
+      "hamer": 1599
     }
   },
   {
@@ -1875,28 +1909,41 @@
     "month": 9,
     "date": 23,
     "bapHap": {
-      "ton": 0,
-      "tonPerHour": 0,
-      "totalKWh": 0,
-      "kwhPerTon": 0
+      "ton": 23,
+      "tonPerHour": 6.571428571428571,
+      "totalKWh": 579,
+      "kwhPerTon": 25.17391304347826
     },
     "nanhHap": {
-      "ton": 0,
-      "tonPerHour": 0,
-      "totalKWh": 0,
+      "ton": 27,
+      "tonPerHour": 4.153846153846154,
+      "totalKWh": -443312,
       "kwhPerTon": 0
     },
     "oee": {
-      "average": 0,
+      "average": 0.6841948621553885,
       "target": 0.78
     },
-    "losses": [],
+    "losses": [
+      {
+        "code": "153",
+        "description": "Ngưng máy có kế hoạch",
+        "occurrences": 2,
+        "timeMins": 13.5
+      },
+      {
+        "code": "200",
+        "description": "Chuyển nguyên liệu hấp",
+        "occurrences": 1,
+        "timeMins": 0.5
+      }
+    ],
     "warnings": [],
     "electricity": {
-      "e1": 0,
-      "e2": 0,
-      "line": 0,
-      "hamer": 0
+      "e1": 184,
+      "e2": 571,
+      "line": 302,
+      "hamer": 761
     }
   },
   {
@@ -1910,22 +1957,29 @@
       "kwhPerTon": 0
     },
     "nanhHap": {
-      "ton": 0,
-      "tonPerHour": 0,
-      "totalKWh": 0,
-      "kwhPerTon": 0
+      "ton": 28,
+      "tonPerHour": 4,
+      "totalKWh": 1411,
+      "kwhPerTon": 50.392857142857146
     },
     "oee": {
-      "average": 0,
+      "average": 0.6666666666666666,
       "target": 0.78
     },
-    "losses": [],
+    "losses": [
+      {
+        "code": "153",
+        "description": "Ngưng máy có kế hoạch",
+        "occurrences": 3,
+        "timeMins": 9
+      }
+    ],
     "warnings": [],
     "electricity": {
       "e1": 0,
-      "e2": 0,
-      "line": 0,
-      "hamer": 0
+      "e2": 680,
+      "line": 217,
+      "hamer": 514
     }
   },
   {
@@ -1933,28 +1987,41 @@
     "month": 9,
     "date": 25,
     "bapHap": {
-      "ton": 0,
-      "tonPerHour": 0,
-      "totalKWh": 0,
-      "kwhPerTon": 0
+      "ton": 58,
+      "tonPerHour": 7.25,
+      "totalKWh": 1331,
+      "kwhPerTon": 22.948275862068964
     },
     "nanhHap": {
-      "ton": 0,
-      "tonPerHour": 0,
-      "totalKWh": 0,
-      "kwhPerTon": 0
+      "ton": 25,
+      "tonPerHour": 5.882352941176471,
+      "totalKWh": 800,
+      "kwhPerTon": 32
     },
     "oee": {
-      "average": 0,
+      "average": 0.8079497764017888,
       "target": 0.78
     },
-    "losses": [],
+    "losses": [
+      {
+        "code": "153",
+        "description": "Ngưng máy có kế hoạch",
+        "occurrences": 3,
+        "timeMins": 3.5
+      },
+      {
+        "code": "200",
+        "description": "Chuyển nguyên liệu hấp",
+        "occurrences": 1,
+        "timeMins": 0.25
+      }
+    ],
     "warnings": [],
     "electricity": {
-      "e1": 0,
-      "e2": 0,
-      "line": 0,
-      "hamer": 0
+      "e1": 468,
+      "e2": 361,
+      "line": 380,
+      "hamer": 922
     }
   },
   {
