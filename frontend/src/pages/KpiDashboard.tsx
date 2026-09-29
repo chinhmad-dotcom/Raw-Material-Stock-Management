@@ -140,7 +140,7 @@ export default function KpiDashboard() {
   }, [lossData]);
 
   return (
-    <div className="flex flex-col h-full animate-in fade-in duration-500 bg-slate-50 dark:bg-slate-950 p-2 md:p-4 overflow-auto">
+    <div className="flex flex-col h-screen animate-in fade-in duration-500 bg-slate-50 dark:bg-slate-950 p-2 md:p-4 overflow-hidden">
       {/* Header */}
       <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4">
         <div>
@@ -190,11 +190,11 @@ export default function KpiDashboard() {
         </button>
       </div>
 
-      <div className={`flex-col h-full ${activeTab === 'overview' ? 'flex' : 'hidden'}`}>
+      <div className={`flex-col flex-1 min-h-0 overflow-hidden ${activeTab === 'overview' ? 'flex' : 'hidden'}`}>
         {/* Summary Cards */}
         <div className="grid grid-cols-4 gap-4 mb-4">
         {/* Card 1: Xe */}
-        <div className="bg-white rounded-xl p-4 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+        <div className="bg-white rounded-xl p-3 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
           <div className="flex justify-between items-center mb-2">
             <div className="flex items-center gap-2 text-slate-600 font-semibold">
               <Truck className="w-5 h-5 text-indigo-500" />
@@ -228,7 +228,7 @@ export default function KpiDashboard() {
         </div>
 
         {/* Card 2: Nhập hàng */}
-        <div className="bg-white rounded-xl p-4 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+        <div className="bg-white rounded-xl p-3 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
           <div className="flex justify-between items-center mb-2">
             <div className="flex items-center gap-2 text-slate-600 font-semibold">
               <Zap className="w-5 h-5 text-amber-500" />
@@ -262,7 +262,7 @@ export default function KpiDashboard() {
         </div>
 
         {/* Card 3: Extruder */}
-        <div className="bg-white rounded-xl p-4 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+        <div className="bg-white rounded-xl p-3 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
           <div className="flex justify-between items-center mb-2">
             <div className="flex items-center gap-2 text-slate-600 font-semibold">
               <Zap className="w-5 h-5 text-blue-500" />
@@ -296,7 +296,7 @@ export default function KpiDashboard() {
 
         
           {/* Card 4: Kaizen */}
-          <div className="bg-white rounded-xl p-4 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+          <div className="bg-white rounded-xl p-3 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
             <div className="flex justify-between items-center mb-2">
               <div className="flex items-center gap-2 text-slate-600 font-semibold">
                 <Activity className="w-5 h-5 text-green-500" />
@@ -332,9 +332,9 @@ export default function KpiDashboard() {
         </div>
 
       {/* Charts Section */}
-        <div className="grid grid-cols-3 gap-4 flex-1 mb-4">
+        <div className="grid grid-cols-3 gap-4 flex-1 min-h-0 mb-2">
           {/* Chart 1 */}
-        <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-col min-h-[250px]">
+        <div className="bg-white p-3 rounded-xl shadow-sm border border-slate-200 flex flex-col h-full min-h-0">
           <h3 className="font-bold text-slate-700 mb-2">% Xe dưới 1H theo tháng</h3>
           <div className="flex-1 min-h-[250px]">
             <ResponsiveContainer width="100%" height="100%">
@@ -360,7 +360,7 @@ export default function KpiDashboard() {
         </div>
 
         {/* Chart 3 */}
-        <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-col min-h-[250px]">
+        <div className="bg-white p-3 rounded-xl shadow-sm border border-slate-200 flex flex-col h-full min-h-0">
           <h3 className="font-bold text-slate-700 mb-2">Kiểm soát Loss (%)</h3>
           <div className="flex-1 min-h-[250px]">
             <ResponsiveContainer width="100%" height="100%">
@@ -384,7 +384,7 @@ export default function KpiDashboard() {
             </ResponsiveContainer>
           </div>
                 {/* Kaizen List Section */}
-        <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-col h-full min-h-[250px]">
+        <div className="bg-white p-3 rounded-xl shadow-sm border border-slate-200 flex flex-col h-full min-h-0">
            <div className="flex items-center justify-between mb-2">
               <h3 className="font-bold text-slate-700">Danh sách Kaizen ({selectedYear})</h3>
               <button
@@ -410,9 +410,9 @@ export default function KpiDashboard() {
                  + Thêm Kaizen
               </button>
            </div>
-           <div className="overflow-x-auto">
-              <table className="w-full text-xs text-left">
-                 <thead className="bg-slate-50 text-slate-600 font-semibold uppercase text-xs">
+           <div className="overflow-auto flex-1 min-h-0">
+              <table className="w-full text-[11px] text-left">
+                 <thead className="bg-slate-50 text-slate-600 font-semibold uppercase text-[10px]">
                     <tr>
                        <th className="px-2 py-2 border-b border-slate-200">Tên Kaizen</th>
                        <th className="px-2 py-2 border-b border-slate-200">Tên người làm</th>
@@ -449,7 +449,8 @@ export default function KpiDashboard() {
         </div>
 
       </div>
-        <div className={`flex-col h-full ${activeTab === 'electricity' ? 'flex' : 'hidden'}`}>
+        <div className={`flex-col flex-1 overflow-auto ${activeTab === 'electricity' ? 'flex' : 'hidden'}`}>
+        {/* Tab Chi tiết Điện năng */}
       {/* Electricity Energy Table Section */}
       <div className="bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex flex-col overflow-hidden mb-4">
           <h3 className="font-bold text-slate-700 mb-2 flex items-center justify-between">
