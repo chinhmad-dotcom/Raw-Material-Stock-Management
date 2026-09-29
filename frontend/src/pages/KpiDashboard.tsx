@@ -192,7 +192,7 @@ export default function KpiDashboard() {
 
       <div className={`flex-col h-full ${activeTab === 'overview' ? 'flex' : 'hidden'}`}>
         {/* Summary Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <div className="grid grid-cols-4 gap-4 mb-4">
         {/* Card 1: Xe */}
         <div className="bg-white rounded-xl p-4 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
           <div className="flex justify-between items-center mb-2">
@@ -293,7 +293,7 @@ export default function KpiDashboard() {
              </span>
           </div>
         </div>
-      </div>
+
         
           {/* Card 4: Kaizen */}
           <div className="bg-white rounded-xl p-4 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
@@ -329,11 +329,10 @@ export default function KpiDashboard() {
           </div>
 
         </div>
+        </div>
 
       {/* Charts Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 flex-1 mb-4">
-
-        <div className="grid grid-cols-3 gap-4 flex-1">
+        <div className="grid grid-cols-3 gap-4 flex-1 mb-4">
           {/* Chart 1 */}
         <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-col min-h-[250px]">
           <h3 className="font-bold text-slate-700 mb-2">% Xe dưới 1H theo tháng</h3>
@@ -449,7 +448,6 @@ export default function KpiDashboard() {
            </div>
         </div>
 
-      </div>
       </div>
         <div className={`flex-col h-full ${activeTab === 'electricity' ? 'flex' : 'hidden'}`}>
       {/* Electricity Energy Table Section */}
