@@ -255,6 +255,15 @@ export default function QueueDashboard() {
     if (parts.length < 3) return false;
     const totalMinutes = (parts[0] * 24 * 60) + (parts[1] * 60) + parts[2];
     return totalMinutes > 60;
+  }).sort((a, b) => {
+    const parseTime = (dateStr: string) => {
+      if (!dateStr) return 0;
+      const parts = dateStr.split(' ');
+      if (parts.length < 2) return 0;
+      const [d, m, y] = parts[0].split('/');
+      return new Date(`${y}-${m}-${d}T${parts[1]}:00`).getTime();
+    };
+    return parseTime(b.weight2 || b.weight1 || b.arrive) - parseTime(a.weight2 || a.weight1 || a.arrive);
   });
 
   const getTruckType = (material: string) => {
