@@ -382,8 +382,10 @@ export default function KpiDashboard() {
                 />
               </ComposedChart>
             </ResponsiveContainer>
+            </div>
           </div>
-                {/* Kaizen List Section */}
+
+          {/* Kaizen List Section */}
         <div className="bg-white p-3 rounded-xl shadow-sm border border-slate-200 flex flex-col h-full min-h-0">
            <div className="flex items-center justify-between mb-2">
               <h3 className="font-bold text-slate-700">Danh sách Kaizen ({selectedYear})</h3>
@@ -650,7 +652,6 @@ export default function KpiDashboard() {
         </div>
       </div>
 
-    </div>
     </div>
   );
 }
