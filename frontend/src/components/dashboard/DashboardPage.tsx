@@ -18,7 +18,7 @@ export function DashboardPage() {
   const { t, i18n } = useTranslation();
   const { user, logout } = useAuthStore();
   const { theme, toggleTheme } = useThemeStore();
-  const { summary, loading, error, availableDates, selectedDate, loadAvailableDates, setSelectedDate, loadDashboard } = useDashboardStore();
+  const { summary, error, availableDates, selectedDate, loadAvailableDates, setSelectedDate, loadDashboard } = useDashboardStore();
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [importResult, setImportResult] = useState<ExcelImportResult | null>(null);
   const [importError, setImportError] = useState<string | null>(null);
@@ -306,11 +306,7 @@ export function DashboardPage() {
         </div>
       </section>
 
-      {loading && (
-        <div className="rounded-3xl border border-slate-200 dark:border-white/10 bg-white dark:bg-slate-900/80 p-6 text-slate-700 dark:text-slate-300 shadow-panel">
-          {t('dashboardPage.loadingContent')}
-        </div>
-      )}
+      
     </div>
   );
 }
