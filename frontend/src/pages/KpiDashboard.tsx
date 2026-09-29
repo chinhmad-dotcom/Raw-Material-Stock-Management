@@ -329,7 +329,6 @@ export default function KpiDashboard() {
           </div>
 
         </div>
-        </div>
 
       {/* Charts Section */}
         <div className="grid grid-cols-3 gap-4 flex-1 min-h-0 mb-2">
@@ -450,6 +449,7 @@ export default function KpiDashboard() {
            </div>
         </div>
 
+      </div>
       </div>
         <div className={`flex-col flex-1 overflow-auto ${activeTab === 'electricity' ? 'flex' : 'hidden'}`}>
         {/* Tab Chi tiết Điện năng */}
