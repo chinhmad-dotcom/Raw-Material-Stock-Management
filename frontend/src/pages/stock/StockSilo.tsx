@@ -6,7 +6,7 @@ import { useAuthStore } from '../../features/auth/store/authStore';
 import { fumigationApi, FumigationLog } from '../../api/fumigationApi';
 
 export default function StockSilo() {
-  const { summary, loadDashboard, loading } = useDashboardStore();
+  const { summary, selectedDate, loadDashboard, loading } = useDashboardStore();
   const user = useAuthStore(state => state.user);
   // Rules from settings
   const [materials, setMaterials] = useState<any[]>([]);
@@ -256,6 +256,7 @@ export default function StockSilo() {
       <div className="flex flex-wrap items-center justify-between p-1.5 sm:p-2  bg-white dark:bg-slate-900/80 border-b border-slate-200 dark:border-white/10 shadow-sm relative z-50 gap-2 min-h-[60px]">
         <div className="flex items-center gap-4">
           <h1 className="text-lg md:text-xl font-black tracking-wider text-slate-800 dark:text-slate-100">SILO</h1>
+            <span className="text-xs md:text-sm font-medium text-slate-500 bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full border border-slate-200 dark:border-white/10">Ngày cập nhật: {selectedDate || '---'}</span>
           {alertCount > 0 && (
             <span className="bg-red-100 text-red-600 font-bold px-3 py-1 rounded-full text-xs md:text-sm whitespace-nowrap">
               {alertCount} Cảnh Báo

@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import React, { useState, useRef, useEffect } from 'react';
-import { PackageOpen, UploadCloud, Loader2 } from 'lucide-react';
+import { PackageOpen, UploadCloud, Loader2, AlertTriangle, Settings2, X, Save } from 'lucide-react';
 import { useAuthStore } from '../../features/auth/store/authStore';
 import { UserMenu } from '../../components/layout/UserMenu';
 import { uploadAdditiveStockExcel } from '../../api/import';
@@ -47,12 +47,16 @@ const ZONES = [
 const StockKho: React.FC = () => {
   const { t } = useTranslation();
   const [uploading, setUploading] = useState(false);
+  const [editingLoc, setEditingLoc] = useState<string | null>(null);
+  const [editCapacity, setEditCapacity] = useState<number>(0);
+  const [editUnit, setEditUnit] = useState<'tons'|'pallets'>('tons');
+
   const fileInputRef = useRef<HTMLInputElement>(null);
   
   const user = useAuthStore(state => state.user);
   const userRole = user?.role;
   
-  const { summary, loadDashboard } = useDashboardStore();
+  const { summary, selectedDate, locationConfigs, loadDashboard } = useDashboardStore();
   const additives = summary?.additives || [];
 
   useEffect(() => {
@@ -78,6 +82,23 @@ const StockKho: React.FC = () => {
   // Helper to find additives by location prefix
   const getAdditivesAt = (loc: string) => additives.filter(a => a.warehouseLocation === loc && a.currentStockTons > 0);
 
+  const handleSaveLocConfig = async () => {
+    if (!editingLoc) return;
+    try {
+      const payload = { id: editingLoc, maxCapacity: editCapacity, unit: editUnit };
+      await fetch('http://localhost:5147/api/settings/locations', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      setEditingLoc(null);
+      loadDashboard();
+    } catch(e) {
+      alert('Error saving config');
+    }
+  };
+
+
   return (
     <div className="flex h-full w-full flex-col gap-2 overflow-y-auto px-2 py-2 text-slate-900 dark:text-slate-100">
       
@@ -88,7 +109,10 @@ const StockKho: React.FC = () => {
             <PackageOpen className="h-5 w-5 text-sky-600 dark:text-sky-400" />
           </div>
           <div>
-            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">{t('pages.stockKho.title', 'Sơ Đồ Kho')}</h2>
+            <div className="flex items-center gap-3">
+                <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">{t('pages.stockKho.title', 'Sơ Đồ Kho')}</h2>
+                <span className="text-xs md:text-sm font-medium text-slate-500 bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full border border-slate-200 dark:border-white/10">Ngày cập nhật: {selectedDate || '---'}</span>
+              </div>
             
           </div>
         </div>
@@ -107,9 +131,41 @@ const StockKho: React.FC = () => {
             <div className="grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-1.5">
               {zone.locations.map(loc => {
                 const items = getAdditivesAt(loc);
+                
+                const locConfig = (locationConfigs || []).find(c => c.id === loc);
+                const hasCriticalAge = items.some(i => i.isCriticalAgeAlert || i.isNearExpiryAlert);
+                const hasLowStock = items.some(i => i.isLowStockAlert);
+                const totalTons = items.reduce((sum, item) => sum + item.currentStockTons, 0);
+                let isAlmostFull = false;
+                if (locConfig && locConfig.maxCapacity > 0) {
+                    if (totalTons >= locConfig.maxCapacity * 0.9) isAlmostFull = true;
+                }
+
                 return (
-                  <div key={loc} className="flex min-h-[60px] flex-col rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-slate-950 p-1.5 shadow-inner hover:border-sky-500/50 transition-colors">
-                    <div className="mb-1 text-xs font-black text-slate-500 dark:text-slate-500">{loc}</div>
+                  <div key={loc} 
+                       onClick={() => {
+                          if (userRole === 'Admin' || userRole === 'Manager') {
+                            setEditingLoc(loc);
+                            setEditCapacity(locConfig?.maxCapacity || 0);
+                            setEditUnit(locConfig?.unit || 'tons');
+                          }
+                       }}
+                       className={`relative flex min-h-[60px] flex-col rounded-xl border ${isAlmostFull ? 'border-amber-500 ring-1 ring-amber-500/50' : 'border-slate-200 dark:border-white/10'} bg-white dark:bg-slate-950 p-1.5 shadow-inner hover:border-sky-500/50 transition-colors cursor-pointer`}>
+                    
+                    {/* Alerts Row */}
+                    <div className="absolute top-1 right-1 flex gap-1 z-10">
+                       {hasCriticalAge && <span className="bg-red-500 text-white text-[8px] font-bold px-1 rounded animate-pulse" title="Quá hạn / Gần hết hạn">HẠN</span>}
+                       {hasLowStock && <span className="bg-orange-500 text-white text-[8px] font-bold px-1 rounded animate-pulse" title="Stock thấp (< 5 ngày)">LOW</span>}
+                       {isAlmostFull && <span className="bg-amber-500 text-white text-[8px] font-bold px-1 rounded animate-pulse" title="Gần đầy / Đầy">ĐẦY</span>}
+                    </div>
+
+                    <div className="flex items-center gap-1 mb-1">
+                      <span className="text-xs font-black text-slate-500 dark:text-slate-500">{loc}</span>
+                      {locConfig && locConfig.maxCapacity > 0 && (
+                        <span className="text-[9px] text-slate-400">({totalTons.toFixed(1)}/{locConfig.maxCapacity} {locConfig.unit})</span>
+                      )}
+                    </div>
+
                     {items.length > 0 ? (
                       <div className="grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] gap-x-2 gap-y-1">
                         {items.map(item => (
@@ -152,12 +208,51 @@ const StockKho: React.FC = () => {
               ))}
             </div>
           </section>
-      </div>
-
+      
+      {editingLoc && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm">
+          <div className="w-full max-w-sm rounded-2xl bg-white dark:bg-slate-900 p-5 shadow-2xl border border-slate-200 dark:border-white/10">
+            <div className="flex items-center justify-between mb-4 border-b border-slate-200 dark:border-white/10 pb-2">
+              <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
+                <Settings2 className="w-5 h-5 text-sky-500" /> Cài đặt Location {editingLoc}
+              </h3>
+              <button onClick={() => setEditingLoc(null)} className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Sức chứa tối đa (Max Capacity)</label>
+                <input 
+                  type="number" 
+                  value={editCapacity} 
+                  onChange={e => setEditCapacity(Number(e.target.value))}
+                  className="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 py-2 text-sm text-slate-900 dark:text-white focus:border-sky-500 focus:outline-none"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Đơn vị</label>
+                <select 
+                  value={editUnit} 
+                  onChange={e => setEditUnit(e.target.value as 'tons'|'pallets')}
+                  className="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 py-2 text-sm text-slate-900 dark:text-white focus:border-sky-500 focus:outline-none"
+                >
+                  <option value="tons">Khối lượng (Tấn)</option>
+                  <option value="pallets">Số Pallet</option>
+                </select>
+              </div>
+              <div className="pt-2">
+                <button onClick={handleSaveLocConfig} className="w-full flex justify-center items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white font-bold py-2 px-4 rounded-lg transition-colors">
+                  <Save className="w-4 h-4" /> Lưu Cài Đặt
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
     </div>
   );
 };
 
 export default StockKho;
-
-

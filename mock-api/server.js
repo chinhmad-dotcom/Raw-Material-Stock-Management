@@ -755,7 +755,7 @@ const server = http.createServer(async (req, res) => {
   if (reqPath.startsWith('/api/settings/')) {
     const resource = reqPath.split('/')[3]; // users, silos, materials, logs
 
-    if (!['users', 'silos', 'materials', 'logs'].includes(resource)) {
+    if (!['users', 'silos', 'materials', 'logs', 'locations'].includes(resource)) {
       return json(req, res, { error: 'Not found' }, 404);
     }
 

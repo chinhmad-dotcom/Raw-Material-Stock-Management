@@ -152,16 +152,17 @@
       "density": 0.7,
       "maxStorageAgeDays": 30,
       "dohThreshold": 5,
-      "color": "#f4e32a"
+      "color": "#d0bf06"
     },
     {
       "id": "178737172072866e8b",
-      "sku": "RM-CORN",
+      "sku": "Corn (Brazil #A,#B)",
       "name": "Corn (Brazil #A,#B)",
       "unit": "Ton",
       "density": 0.7,
       "maxStorageAgeDays": 90,
-      "dohThreshold": 5
+      "dohThreshold": 5,
+      "color": "#ffe852"
     },
     {
       "id": "17873717207285zgyx",
@@ -171,7 +172,7 @@
       "density": 0.7,
       "maxStorageAgeDays": 45,
       "dohThreshold": 5,
-      "color": "#fbd756"
+      "color": "#f7e297"
     },
     {
       "id": "178737172072913wmq",
@@ -6537,5 +6538,6 @@
       "successCount": 1135,
       "errorCount": 0
     }
-  ]
+  ],
+  "locations": []
 }

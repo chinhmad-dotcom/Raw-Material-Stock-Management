@@ -8,6 +8,7 @@ interface DashboardState {
   error: string | null;
   availableDates: string[];
   selectedDate: string | null;
+  locationConfigs: any[];
   loadDashboard: (date?: string) => Promise<void>;
   loadAvailableDates: () => Promise<void>;
   setSelectedDate: (date: string) => void;
@@ -19,14 +20,16 @@ export const useDashboardStore = create<DashboardState>((set, get) => ({
   error: null,
   availableDates: [],
   selectedDate: null,
+  locationConfigs: [],
   
   loadDashboard: async (date?: string) => {
     set({ loading: true, error: null });
     try {
       const targetDate = date || get().selectedDate || undefined;
-      const [summary, configRes] = await Promise.all([
+      const [summary, configRes, locRes] = await Promise.all([
         fetchDashboardSummary(targetDate),
-        fetch('http://localhost:5147/api/settings/silos').catch(() => null)
+        fetch('http://localhost:5147/api/settings/silos').catch(() => null),
+        fetch('http://localhost:5147/api/settings/locations').catch(() => null)
       ]);
       
       if (configRes && configRes.ok) {
@@ -40,7 +43,12 @@ export const useDashboardStore = create<DashboardState>((set, get) => ({
         });
       }
       
-      set({ summary, loading: false });
+      
+      let locationConfigs = [];
+      if (locRes && locRes.ok) {
+        locationConfigs = await locRes.json();
+      }
+      set({ summary, locationConfigs, loading: false });
     } catch (error) {
       set({ loading: false, error: error instanceof Error ? error.message : 'Failed to load dashboard' });
     }
