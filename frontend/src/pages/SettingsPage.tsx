@@ -5,12 +5,11 @@ import { AccountTab } from '../features/settings/components/AccountTab';
 import { SiloTab } from '../features/settings/components/SiloTab';
 import { MaterialsTab } from '../features/settings/components/MaterialsTab';
 import { LogsTab } from '../features/settings/components/LogsTab';
-import { LocationsTab } from '../features/settings/components/LocationsTab';
 import { ProfileTab } from '../features/settings/components/ProfileTab';
 import { useAuthStore } from '../features/auth/store/authStore';
 import { useThemeStore } from '../store/themeStore';
 
-type Tab = 'profile' | 'accounts' | 'silos' | 'locations' | 'materials' | 'logs';
+type Tab = 'profile' | 'accounts' | 'silos' | 'materials' | 'logs';
 
 import { useTranslation } from 'react-i18next';
 
@@ -30,8 +29,7 @@ export function SettingsPage() {
     { id: 'profile', label: t('pages.settings.tabs.profile', 'My Profile'), icon: <Users className="h-4 w-4" /> },
     { id: 'accounts', label: t('pages.settings.tabs.accounts', 'Account Management'), icon: <Users className="h-4 w-4" /> },
     { id: 'silos', label: t('pages.settings.tabs.silos', 'Location parameters'), icon: <Container className="h-4 w-4" /> },
-      { id: 'locations', label: 'Vị trí kho NL', icon: <Container className="h-4 w-4" /> },
-    { id: 'materials', label: t('pages.settings.tabs.materials', 'Raw Materials & Rules'), icon: <Database className="h-4 w-4" /> },
+      { id: 'materials', label: t('pages.settings.tabs.materials', 'Raw Materials & Rules'), icon: <Database className="h-4 w-4" /> },
     { id: 'logs', label: t('pages.settings.tabs.logs', 'Audit & Mail Logs'), icon: <Terminal className="h-4 w-4" /> },
   ] as const;
 
@@ -68,7 +66,6 @@ export function SettingsPage() {
         {activeTab === 'profile' && <ProfileTab />}
         {activeTab === 'accounts' && isAdmin && <AccountTab />}
         {activeTab === 'silos' && <SiloTab />}
-        {activeTab === 'locations' && <LocationsTab />}
         {activeTab === 'materials' && <MaterialsTab />}
         {activeTab === 'logs' && <LogsTab />}
       </div>

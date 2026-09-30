@@ -85,8 +85,8 @@ const StockKho: React.FC = () => {
   const handleSaveLocConfig = async () => {
     if (!editingLoc) return;
     try {
-      const payload = { id: editingLoc, maxCapacity: editCapacity, unit: editUnit };
-      await fetch('http://localhost:5147/api/settings/locations', {
+      const payload = { siloCode: editingLoc, maxCapacity: editCapacity, unit: editUnit };
+      await fetch('http://localhost:5147/api/settings/silos', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -132,7 +132,7 @@ const StockKho: React.FC = () => {
               {zone.locations.map(loc => {
                 const items = getAdditivesAt(loc);
                 
-                const locConfig = (locationConfigs || []).find(c => c.id === loc);
+                const locConfig = (locationConfigs || []).find(c => c.siloCode === loc);
                 const hasCriticalAge = items.some(i => i.isCriticalAgeAlert || i.isNearExpiryAlert);
                 const hasLowStock = items.some(i => i.isLowStockAlert);
                 const totalTons = items.reduce((sum, item) => sum + item.currentStockTons, 0);
@@ -144,17 +144,17 @@ const StockKho: React.FC = () => {
                 return (
                   <div key={loc} 
                        onClick={() => {
-                          if (userRole === 'Admin' || userRole === 'Manager') {
+                          
                             setEditingLoc(loc);
                             setEditCapacity(locConfig?.maxCapacity || 0);
                             setEditUnit(locConfig?.unit || 'tons');
-                          }
+                          
                        }}
                        className={`relative flex min-h-[60px] flex-col rounded-xl border ${isAlmostFull ? 'border-amber-500 ring-1 ring-amber-500/50' : 'border-slate-200 dark:border-white/10'} bg-white dark:bg-slate-950 p-1.5 shadow-inner hover:border-sky-500/50 transition-colors cursor-pointer`}>
                     
                     {/* Alerts Row */}
                     <div className="absolute top-1 right-1 flex gap-1 z-10">
-                       {hasCriticalAge && <span className="bg-red-500 text-white text-[8px] font-bold px-1 rounded animate-pulse" title="Quá hạn / Gần hết hạn">HẠN</span>}
+                       {hasCriticalAge && <span className="bg-red-500 text-white text-[8px] font-bold px-1 rounded animate-pulse" title="Quá ngày tuổi">QUÁ NGÀY</span>}
                        {hasLowStock && <span className="bg-orange-500 text-white text-[8px] font-bold px-1 rounded animate-pulse" title="Stock thấp (< 5 ngày)">LOW</span>}
                        {isAlmostFull && <span className="bg-amber-500 text-white text-[8px] font-bold px-1 rounded animate-pulse" title="Gần đầy / Đầy">ĐẦY</span>}
                     </div>

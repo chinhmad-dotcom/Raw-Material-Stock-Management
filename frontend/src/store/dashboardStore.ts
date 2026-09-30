@@ -26,14 +26,15 @@ export const useDashboardStore = create<DashboardState>((set, get) => ({
     set({ loading: true, error: null });
     try {
       const targetDate = date || get().selectedDate || undefined;
-      const [summary, configRes, locRes] = await Promise.all([
+      const [summary, configRes] = await Promise.all([
         fetchDashboardSummary(targetDate),
-        fetch('http://localhost:5147/api/settings/silos').catch(() => null),
-        fetch('http://localhost:5147/api/settings/locations').catch(() => null)
+        fetch('http://localhost:5147/api/settings/silos').catch(() => null)
       ]);
       
+      let locationConfigs = [];
       if (configRes && configRes.ok) {
         const configs = await configRes.json();
+        locationConfigs = configs;
         summary.silos = summary.silos.filter((s: any) => {
            return !configs.find((c: any) => c.siloCode === s.siloCode && c.materialName === s.materialName && c.isHidden);
         });
@@ -43,11 +44,6 @@ export const useDashboardStore = create<DashboardState>((set, get) => ({
         });
       }
       
-      
-      let locationConfigs = [];
-      if (locRes && locRes.ok) {
-        locationConfigs = await locRes.json();
-      }
       set({ summary, locationConfigs, loading: false });
     } catch (error) {
       set({ loading: false, error: error instanceof Error ? error.message : 'Failed to load dashboard' });
