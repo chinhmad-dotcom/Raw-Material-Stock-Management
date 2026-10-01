@@ -11,7 +11,7 @@ export function LoginPage() {
   const [view, setView] = useState<AuthView>('login');
 
   return (
-    <div className="relative flex min-h-[100dvh] items-center justify-center bg-slate-900 text-slate-100 overflow-hidden">
+    <div className="dark relative flex min-h-[100dvh] items-center justify-center bg-slate-950 text-slate-100 overflow-hidden">
       
       {/* Background Image */}
       <div 
@@ -19,7 +19,7 @@ export function LoginPage() {
         style={{ backgroundImage: `url("/factory-bg.png")` }}
       />
       {/* Subtle Overlay to ensure text readability */}
-      <div className="absolute inset-0 z-0 bg-black/20 pointer-events-none" />
+      <div className="absolute inset-0 z-0 bg-black/30 pointer-events-none backdrop-blur-[2px]" />
 
       <div className="absolute top-4 right-4 z-50">
         <button 
@@ -30,55 +30,55 @@ export function LoginPage() {
         </button>
       </div>
   
-      {/* Auth Card Wrapper */}
-      <div className="relative z-10 w-full max-w-[400px] px-4 sm:px-0 flex flex-col justify-center max-h-screen py-4">
+      {/* Auth Card Wrapper - Reduced padding/margins to fit vertically without scrolling */}
+      <div className="relative z-10 w-full max-w-[400px] px-4 sm:px-0 flex flex-col justify-center max-h-screen">
         
-        {/* Header / Logo (Outside form, visible on background) */}
-        <div className="mb-4 sm:mb-6 text-center flex flex-col items-center shrink-0">
-          <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/90 text-sky-600 ring-1 ring-white/50 shadow-2xl backdrop-blur-md">
-            <Boxes className="h-7 w-7" />
+        {/* Header / Logo */}
+        <div className="mb-3 text-center flex flex-col items-center shrink-0">
+          <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-sky-400 ring-1 ring-white/30 shadow-2xl backdrop-blur-md">
+            <Boxes className="h-5 w-5" />
           </div>
-          <h1 className="text-3xl font-extrabold tracking-widest text-white drop-shadow-lg mb-1">
+          <h1 className="text-2xl font-extrabold tracking-widest text-white drop-shadow-lg mb-1">
             STOCK<span className="text-sky-400">RM</span>
           </h1>
-          <p className="text-[10px] sm:text-xs font-bold tracking-[0.1em] text-white/90 drop-shadow-md uppercase">{t('auth.industrialDashboard', 'Industrial Dashboard')}</p>
+          <p className="text-[10px] font-bold tracking-[0.1em] text-white/90 drop-shadow-md uppercase">{t('auth.industrialDashboard', 'Industrial Dashboard')}</p>
         </div>
 
-        {/* Form Container */}
-        <div className="rounded-2xl sm:rounded-[2rem] border border-white/20 dark:border-white/10 bg-white/90 dark:bg-slate-900/80 p-5 sm:p-7 shadow-2xl backdrop-blur-xl ring-1 ring-black/5 dark:ring-white/5 transition-all duration-300 overflow-y-auto custom-scrollbar">
+        {/* Form Container - Glassmorphism */}
+        <div className="rounded-2xl border border-white/20 bg-white/10 p-5 shadow-2xl backdrop-blur-xl transition-all duration-300">
           
           {/* Toggle Tabs */}
           {view !== 'forgot-password' && (
-            <div className="flex w-full mb-6 rounded-xl bg-slate-100/80 dark:bg-slate-950/50 p-1 border border-slate-200/50 dark:border-white/5 shrink-0">
+            <div className="flex w-full mb-4 rounded-xl bg-black/20 p-1 border border-white/10 shrink-0">
             <button 
               onClick={() => setView('login')}
-              className={`flex-1 rounded-lg py-1.5 sm:py-2 text-xs sm:text-sm font-semibold transition-all \${view === 'login' ? 'bg-sky-500 text-white shadow-md' : 'text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
+              className={`flex-1 rounded-lg py-1.5 text-xs font-semibold transition-all \${view === 'login' ? 'bg-sky-500 text-white shadow-md' : 'text-slate-300 hover:text-white'}`}
             >{t('auth.loginTab', 'Log In')}</button>
             <button 
               onClick={() => setView('register')}
-              className={`flex-1 rounded-lg py-1.5 sm:py-2 text-xs sm:text-sm font-semibold transition-all \${view === 'register' ? 'bg-sky-500 text-white shadow-md' : 'text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
+              className={`flex-1 rounded-lg py-1.5 text-xs font-semibold transition-all \${view === 'register' ? 'bg-sky-500 text-white shadow-md' : 'text-slate-300 hover:text-white'}`}
             >{t('auth.registerTab', 'Register')}</button>
           </div>
           )}
 
-          <div className="mb-5 text-center shrink-0">
-            <h2 className="text-lg sm:text-xl font-bold text-slate-800 dark:text-slate-100">
+          <div className="mb-4 text-center shrink-0">
+            <h2 className="text-lg font-bold text-white drop-shadow-sm">
               {view === 'login' ? 'Welcome Back' : view === 'register' ? 'Create Account' : 'Reset Password'}
             </h2>
-            <p className="mt-1 text-[10px] sm:text-xs text-slate-500 dark:text-slate-400">
+            <p className="mt-1 text-[10px] text-slate-200">
               {view === 'login' ? 'Log in to the warehouse management system' : view === 'register' ? 'Register a new account to access the system' : 'We will send a reset request to your admin.'}
             </p>
           </div>
 
-          <div className="shrink-0 text-slate-900 dark:text-slate-100">
+          <div className="shrink-0 text-slate-100">
             {view === 'login' && <LoginForm onForgotPassword={() => setView('forgot-password')} />}
             {view === 'register' && <RegisterForm />}
             {view === 'forgot-password' && <ForgotPasswordForm onBack={() => setView('login')} />}
           </div>
         </div>
 
-        {/* Footer info (Outside form, visible on background) */}
-        <div className="mt-6 sm:mt-8 text-center text-[10px] text-white/80 drop-shadow-md shrink-0 font-medium tracking-wide">
+        {/* Footer info */}
+        <div className="mt-4 text-center text-[10px] text-white/80 drop-shadow-md shrink-0 font-medium tracking-wide">
           &copy; {new Date().getFullYear()} STOCKRM. Secured by Industrial Standards.
         </div>
       </div>

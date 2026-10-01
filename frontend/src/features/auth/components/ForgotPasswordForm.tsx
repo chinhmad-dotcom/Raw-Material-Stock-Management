@@ -53,23 +53,23 @@ export function ForgotPasswordForm({ onBack }: { onBack: () => void }) {
     <div className="w-full">
       <button 
         onClick={onBack}
-        className="mb-6 flex items-center gap-2 text-xs font-semibold text-sky-400 hover:text-sky-300 transition"
+        className="mb-4 flex items-center gap-2 text-xs font-semibold text-sky-400 hover:text-sky-300 transition"
       >
         <ArrowLeft className="h-4 w-4" /> BACK TO LOGIN
       </button>
 
       {successMsg && (
-        <div className="mb-6 rounded-xl border border-emerald-500/20 bg-emerald-500/10 p-4 text-sm text-emerald-400">
+        <div className="mb-4 rounded-xl border border-emerald-500/20 bg-emerald-500/10 p-4 text-sm text-emerald-400">
           {successMsg}
         </div>
       )}
       {globalError && (
-        <div className="mb-6 rounded-xl border border-rose-500/20 bg-rose-500/10 p-4 text-sm text-rose-300">
+        <div className="mb-4 rounded-xl border border-rose-500/20 bg-rose-500/10 p-4 text-sm text-rose-300">
           {globalError}
         </div>
       )}
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div className="space-y-1.5">
           <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Email Address</label>
           <div className="relative">
@@ -92,7 +92,7 @@ export function ForgotPasswordForm({ onBack }: { onBack: () => void }) {
             <button
             type="submit"
             disabled={isLoading}
-            className="flex w-full items-center justify-center gap-2 rounded-xl bg-sky-500 px-4 py-3 text-sm font-bold text-slate-950 transition hover:bg-sky-400 focus:ring-2 focus:ring-sky-500/50 disabled:cursor-not-allowed disabled:bg-sky-500/50 shadow-[0_0_15px_rgba(14,165,233,0.3)] hover:shadow-[0_0_20px_rgba(14,165,233,0.5)]"
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-sky-500 px-4 py-2.5 text-sm font-bold text-slate-950 transition hover:bg-sky-400 focus:ring-2 focus:ring-sky-500/50 disabled:cursor-not-allowed disabled:bg-sky-500/50 shadow-[0_0_15px_rgba(14,165,233,0.3)] hover:shadow-[0_0_20px_rgba(14,165,233,0.5)]"
             >
             {isLoading && <Loader2 className="h-4 w-4 animate-spin" />}
             {isLoading ? 'SENDING REQUEST...' : 'RESET PASSWORD'}
