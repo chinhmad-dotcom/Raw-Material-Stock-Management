@@ -1,3 +1,6 @@
+const fs = require('fs');
+
+const code = `
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
@@ -155,25 +158,7 @@ app.post('/api/auth/login', async (req, res) => {
 });
 
 
-
-// ALIASES TO MATCH FRONTEND EXPECTATIONS
-app.use((req, res, next) => {
-  if (req.url.startsWith('/api/reports/fans')) {
-    req.url = req.url.replace('/api/reports/fans', '/api/collection/fans');
-  } else if (req.url.startsWith('/api/reports/fumigations')) {
-    req.url = req.url.replace('/api/reports/fumigations', '/api/collection/fumigations');
-  } else if (req.url.startsWith('/api/trucks/queue-history')) {
-    req.url = req.url.replace('/api/trucks/queue-history', '/api/collection/queueHistory');
-  } else if (req.url.startsWith('/api/kpi/kaizen')) {
-    req.url = req.url.replace('/api/kpi/kaizen', '/api/collection/kpiKaizen');
-  } else if (req.url.startsWith('/api/extruder/production')) {
-    req.url = req.url.replace('/api/extruder/production', '/api/collection/extruderData');
-  }
-  next();
-});
-
-// 3. GENERIC COLLECTIONS API
- // (queueHistory, fans, fumigations, records, kpiKaizen, extruderData)
+// 3. GENERIC COLLECTIONS API (queueHistory, fans, fumigations, records, kpiKaizen, extruderData)
 // Defines standard CRUD for these native collections
 const NATIVE_COLLECTIONS = ['queueHistory', 'fans', 'fumigations', 'records', 'kpiKaizen', 'extruderData'];
 
@@ -227,5 +212,9 @@ app.get('/api/kpi/dailyReceived', async (req, res) => res.json(await getSystemDo
 
 // Start Server
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`🚀 Firestore Express Backend running at http://localhost:${PORT}`);
+  console.log(\`🚀 Firestore Express Backend running at http://localhost:\${PORT}\`);
 });
+`;
+
+fs.writeFileSync('mock-api/server-firestore.js', code.trim());
+console.log('Created extensive server-firestore.js');

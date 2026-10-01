@@ -1,13 +1,7 @@
 const fs = require('fs');
+let c = fs.readFileSync('mock-api/server-firestore.js', 'utf8');
 
-let locContent = fs.readFileSync('frontend/src/features/settings/components/LocationsTab.tsx', 'utf8');
-locContent = locContent.replace(/\\`/g, '`');
-locContent = locContent.replace(/\\\$/g, '$');
-fs.writeFileSync('frontend/src/features/settings/components/LocationsTab.tsx', locContent);
+c = c.replace(/\(queueHistory, fans, fumigations, records, kpiKaizen, extruderData\)/, '// (queueHistory, fans, fumigations, records, kpiKaizen, extruderData)');
 
-let khoContent = fs.readFileSync('frontend/src/pages/stock/StockKho.tsx', 'utf8');
-// Check missing closing div in StockKho
-// Let's run a balance check
-let opens = (khoContent.match(/<div(\s|>)/g) || []).length;
-let closes = (khoContent.match(/<\/div>/g) || []).length;
-console.log('StockKho div balance:', opens, closes);
+fs.writeFileSync('mock-api/server-firestore.js', c);
+console.log('Fixed syntax error');
