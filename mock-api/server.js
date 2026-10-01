@@ -1,8 +1,19 @@
+const { syncStartupFiles, uploadToFirebase } = require('./firebaseStorage');
 const http = require('http');
 const { URL } = require('url');
 const path = require('path');
 const fs = require('fs');
 const XLSX = require('xlsx');
+
+function saveFileWithSync(filePath, data, encoding = 'utf8') {
+  fs.writeFileSync(filePath, data, encoding);
+  const fileName = path.basename(filePath);
+  if (fileName.endsWith('.json')) {
+    // Fire and forget upload
+    uploadToFirebase(filePath, fileName).catch(console.error);
+  }
+}
+
 
 const PORT = 5147;
 const UPLOADS_DIR = path.join(__dirname, 'uploads');
@@ -45,7 +56,7 @@ function loadSettings() {
 }
 function saveSettings(data) {
   // WARNINGS LOGIC HERE 
-fs.writeFileSync(SETTINGS_FILE_PATH, JSON.stringify(data, null, 2));
+saveFileWithSync(SETTINGS_FILE_PATH, JSON.stringify(data, null, 2));
 }
 let settingsData = loadSettings();
 
@@ -590,7 +601,7 @@ const server = http.createServer(async (req, res) => {
                   try { dailyCache = JSON.parse(fs.readFileSync(dailyReceivedPath, 'utf8')); } catch(e){}
               }
               dailyCache[reportDate] = parsedData.materials.map(m => ({ name: m.materialName, received: m.totalReceiveKg || 0 }));
-              fs.writeFileSync(dailyReceivedPath, JSON.stringify(dailyCache, null, 2));
+              saveFileWithSync(dailyReceivedPath, JSON.stringify(dailyCache, null, 2));
             } catch(e) { console.error('Failed to update dailyReceived cache', e); }
             
             // Tự động cào dữ liệu điện theo ngày (chạy ngầm)
@@ -1073,7 +1084,7 @@ for (let d = 1; d <= 31; d++) {
 
           // Save to extruderData.json
         // WARNINGS LOGIC HERE 
-let allData = []; try { const p = path.join(__dirname, 'extruderData.json'); if (fs.existsSync(p)) allData = JSON.parse(fs.readFileSync(p, 'utf8')); } catch(e){} allData = allData.filter(d => !(d.year === reportYear && d.month === reportMonth)); allData.push(...results); fs.writeFileSync(path.join(__dirname, 'extruderData.json'), JSON.stringify(allData, null, 2));
+let allData = []; try { const p = path.join(__dirname, 'extruderData.json'); if (fs.existsSync(p)) allData = JSON.parse(fs.readFileSync(p, 'utf8')); } catch(e){} allData = allData.filter(d => !(d.year === reportYear && d.month === reportMonth)); allData.push(...results); saveFileWithSync(path.join(__dirname, 'extruderData.json'), JSON.stringify(allData, null, 2));
 
         // Fetch energy for these dates asynchronously
         const uniqueDates = Array.from(new Set(results.filter(r => (r.bapHap?.ton > 0 || r.nanhHap?.ton > 0)).map(r => `${r.year}-${String(r.month).padStart(2, '0')}-${String(r.date).padStart(2, '0')}`)));
@@ -1173,7 +1184,7 @@ const getRecords = () => {
 };
 
 const saveRecords = (data) => {
-  fs.writeFileSync(recordsPath, JSON.stringify(data, null, 2));
+  saveFileWithSync(recordsPath, JSON.stringify(data, null, 2));
 };
 
 const getReasons = () => {
@@ -1312,7 +1323,7 @@ const getFans = () => {
 };
 
 const saveFans = (data) => {
-  fs.writeFileSync(fansPath, JSON.stringify(data, null, 2));
+  saveFileWithSync(fansPath, JSON.stringify(data, null, 2));
 };
 
 if (reqPath === '/api/fans' && method === 'GET') {
@@ -1401,7 +1412,7 @@ const getFumigations = () => {
 };
 
 const saveFumigations = (data) => {
-  fs.writeFileSync(fumigationsPath, JSON.stringify(data, null, 2));
+  saveFileWithSync(fumigationsPath, JSON.stringify(data, null, 2));
 };
 
 if (reqPath === '/api/fumigations' && method === 'GET') {
@@ -1518,7 +1529,7 @@ if (reqPath === '/api/trucks/queue-report' && method === 'GET') {
             historyData.push(item);
           }
         });
-        fs.writeFileSync(historyPath, JSON.stringify(historyData, null, 2));
+        saveFileWithSync(historyPath, JSON.stringify(historyData, null, 2));
       } catch (scrapeErr) {
         console.error('[Scrape Error]', scrapeErr.message);
         cpQueueCredentials = null; // reset
@@ -1718,7 +1729,7 @@ if (reqPath === '/api/trucks/queue-history' && method === 'GET') {
             let data = {};
             try { data = JSON.parse(fs.readFileSync(file, 'utf8')); } catch(e){}
             data[`${year}-${month}`] = Number(val) || 0;
-            fs.writeFileSync(file, JSON.stringify(data, null, 2));
+            saveFileWithSync(file, JSON.stringify(data, null, 2));
             return json(req, res, { success: true });
         } catch (e) {
             return json(req, res, { success: false });
@@ -1759,7 +1770,7 @@ if (reqPath === '/api/trucks/queue-history' && method === 'GET') {
                 data.push(newKaizen);
             }
             
-            fs.writeFileSync(file, JSON.stringify(data, null, 2));
+            saveFileWithSync(file, JSON.stringify(data, null, 2));
             return json(req, res, { success: true, data: newKaizen });
         } catch (e) {
             return json(req, res, { success: false });
@@ -1774,7 +1785,7 @@ if (reqPath === '/api/trucks/queue-history' && method === 'GET') {
     let data = [];
     try { data = JSON.parse(fs.readFileSync(file, 'utf8')); } catch(e){}
     data = data.filter(d => d.id !== id);
-    fs.writeFileSync(file, JSON.stringify(data, null, 2));
+    saveFileWithSync(file, JSON.stringify(data, null, 2));
     return json(req, res, { success: true });
   }
 
@@ -1796,7 +1807,7 @@ if (reqPath === '/api/trucks/queue-history' && method === 'GET') {
       const payload = JSON.parse(body);
       targets = { ...targets, ...payload };
       
-      fs.writeFileSync(file, JSON.stringify(targets, null, 2));
+      saveFileWithSync(file, JSON.stringify(targets, null, 2));
       return json(req, res, { success: true });
     });
     return;
@@ -1860,7 +1871,7 @@ if (reqPath === '/api/trucks/queue-history' && method === 'GET') {
       const payload = JSON.parse(body); // { monthKey: "2026-09", production: 1234 }
       productionData[payload.monthKey] = payload.production;
       
-      fs.writeFileSync(file, JSON.stringify(productionData, null, 2));
+      saveFileWithSync(file, JSON.stringify(productionData, null, 2));
       return json(req, res, { success: true });
     });
     return;
@@ -1987,7 +1998,7 @@ if (reqPath === '/api/trucks/queue-history' && method === 'GET') {
             try { removeData = JSON.parse(fs.readFileSync(removePath, 'utf8')); } catch(e){}
         }
         removeData[data.date] = Number(data.remove) || 0;
-        fs.writeFileSync(removePath, JSON.stringify(removeData, null, 2));
+        saveFileWithSync(removePath, JSON.stringify(removeData, null, 2));
         return json(req, res, { success: true });
       } catch(e) {
         return json(req, res, { error: e.message }, 400);
@@ -2119,4 +2130,27 @@ if (reqPath === '/api/trucks/queue-history' && method === 'GET') {
 // Temporarily export for script
 module.exports = { parseExcelReport, getAvailableDates, getFilePathForDate };
 
-server.listen(PORT, '0.0.0.0', () => { console.log('Server is running'); });
+
+const DB_FILES = [
+  'settingsData.json',
+  'energyData.json',
+  'energyDaily.json',
+  'queue-history.json',
+  'extruderData.json',
+  'fans.json',
+  'fumigations.json',
+  'records.json',
+  'kpiProduction.json',
+  'kpiLoss.json',
+  'kpiTargets.json',
+  'kpiKaizen.json',
+  'dailyReceived.json'
+];
+async function startServer() {
+  await syncStartupFiles(DB_FILES);
+  server.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server running at http://localhost:${PORT}`);
+  });
+}
+startServer();
+
