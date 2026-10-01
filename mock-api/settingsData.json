@@ -123,6 +123,12 @@
       "maxCapacity": 6000,
       "color": "#3b82f6",
       "id": "1789446578510"
+    },
+    {
+      "siloCode": "B17.2",
+      "maxCapacity": 40,
+      "unit": "tons",
+      "id": "1790841406259"
     }
   ],
   "materials": [
