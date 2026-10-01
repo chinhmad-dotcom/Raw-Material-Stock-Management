@@ -1198,13 +1198,13 @@
       "kwhPerTon": 16.841269841269842
     },
     "nanhHap": {
-      "ton": 35,
-      "tonPerHour": 4.666666666666667,
+      "ton": 38,
+      "tonPerHour": 5.066666666666666,
       "totalKWh": 1217,
-      "kwhPerTon": 34.77142857142857
+      "kwhPerTon": 32.026315789473685
     },
     "oee": {
-      "average": 0.8625730994152047,
+      "average": 0.895906432748538,
       "target": 0.78
     },
     "losses": [
@@ -1234,13 +1234,13 @@
       "kwhPerTon": 20.58974358974359
     },
     "nanhHap": {
-      "ton": 36,
-      "tonPerHour": 4.8,
+      "ton": 38,
+      "tonPerHour": 5.066666666666666,
       "totalKWh": 1254,
-      "kwhPerTon": 34.833333333333336
+      "kwhPerTon": 33
     },
     "oee": {
-      "average": 0.8736842105263157,
+      "average": 0.8884990253411305,
       "target": 0.78
     },
     "losses": [
@@ -1270,13 +1270,13 @@
       "kwhPerTon": 19.496062992125985
     },
     "nanhHap": {
-      "ton": 17,
-      "tonPerHour": 4.857142857142857,
+      "ton": 19,
+      "tonPerHour": 5.428571428571429,
       "totalKWh": 604,
-      "kwhPerTon": 35.529411764705884
+      "kwhPerTon": 31.789473684210527
     },
     "oee": {
-      "average": 0.9003721424774055,
+      "average": 0.9448165869218501,
       "target": 0.78
     },
     "losses": [
@@ -1354,13 +1354,13 @@
       "kwhPerTon": 0
     },
     "nanhHap": {
-      "ton": 22,
-      "tonPerHour": 4.4,
+      "ton": 25,
+      "tonPerHour": 5,
       "totalKWh": 807,
-      "kwhPerTon": 36.68181818181818
+      "kwhPerTon": 32.28
     },
     "oee": {
-      "average": 0.7333333333333333,
+      "average": 0.8333333333333333,
       "target": 0.78
     },
     "losses": [
@@ -1390,13 +1390,13 @@
       "kwhPerTon": 0
     },
     "nanhHap": {
-      "ton": 46,
-      "tonPerHour": 4.181818181818182,
+      "ton": 58,
+      "tonPerHour": 5.2727272727272725,
       "totalKWh": 1787,
-      "kwhPerTon": 38.84782608695652
+      "kwhPerTon": 30.810344827586206
     },
     "oee": {
-      "average": 0.6994047619047619,
+      "average": 0.8779761904761905,
       "target": 0.78
     },
     "losses": [
@@ -1420,10 +1420,10 @@
     "month": 9,
     "date": 9,
     "bapHap": {
-      "ton": 74,
-      "tonPerHour": 6.166666666666667,
+      "ton": 88,
+      "tonPerHour": 7.333333333333333,
       "totalKWh": 1996,
-      "kwhPerTon": 26.972972972972972
+      "kwhPerTon": 22.681818181818183
     },
     "nanhHap": {
       "ton": 0,
@@ -1432,7 +1432,7 @@
       "kwhPerTon": 0
     },
     "oee": {
-      "average": 0.6285714285714286,
+      "average": 0.7669172932330827,
       "target": 0.78
     },
     "losses": [
@@ -1462,13 +1462,13 @@
       "kwhPerTon": 0
     },
     "nanhHap": {
-      "ton": 47,
-      "tonPerHour": 4.476190476190476,
+      "ton": 54,
+      "tonPerHour": 5.142857142857143,
       "totalKWh": 1825,
-      "kwhPerTon": 38.829787234042556
+      "kwhPerTon": 33.7962962962963
     },
     "oee": {
-      "average": 0.7439393939393939,
+      "average": 0.8575757575757577,
       "target": 0.78
     },
     "losses": [
@@ -1498,13 +1498,13 @@
       "kwhPerTon": 19.125
     },
     "nanhHap": {
-      "ton": 38,
-      "tonPerHour": 4.470588235294118,
+      "ton": 43,
+      "tonPerHour": 5.0588235294117645,
       "totalKWh": 1542,
-      "kwhPerTon": 40.578947368421055
+      "kwhPerTon": 35.86046511627907
     },
     "oee": {
-      "average": 0.8395800106326422,
+      "average": 0.8743022328548644,
       "target": 0.78
     },
     "losses": [
@@ -1534,13 +1534,13 @@
       "kwhPerTon": 0
     },
     "nanhHap": {
-      "ton": 52,
-      "tonPerHour": 4.521739130434782,
+      "ton": 58,
+      "tonPerHour": 5.043478260869565,
       "totalKWh": 2100,
-      "kwhPerTon": 40.38461538461539
+      "kwhPerTon": 36.206896551724135
     },
     "oee": {
-      "average": 0.7559523809523809,
+      "average": 0.8318452380952381,
       "target": 0.78
     },
     "losses": [
@@ -1635,13 +1635,13 @@
       "kwhPerTon": 18.125
     },
     "nanhHap": {
-      "ton": 34,
-      "tonPerHour": 4.533333333333333,
+      "ton": 37,
+      "tonPerHour": 4.933333333333334,
       "totalKWh": 1308,
-      "kwhPerTon": 38.470588235294116
+      "kwhPerTon": 35.351351351351354
     },
     "oee": {
-      "average": 0.8949140528087897,
+      "average": 0.9171362750310118,
       "target": 0.78
     },
     "losses": [
@@ -1707,13 +1707,13 @@
       "kwhPerTon": 0
     },
     "nanhHap": {
-      "ton": 85,
-      "tonPerHour": 4.358974358974359,
+      "ton": 95,
+      "tonPerHour": 4.871794871794871,
       "totalKWh": 3685,
-      "kwhPerTon": 43.35294117647059
+      "kwhPerTon": 38.78947368421053
     },
     "oee": {
-      "average": 0.7175925925925926,
+      "average": 0.8148148148148148,
       "target": 0.78
     },
     "losses": [
@@ -1837,13 +1837,13 @@
       "kwhPerTon": 0
     },
     "nanhHap": {
-      "ton": 22,
-      "tonPerHour": 4.4,
+      "ton": 25,
+      "tonPerHour": 5,
       "totalKWh": 1105,
-      "kwhPerTon": 50.22727272727273
+      "kwhPerTon": 44.2
     },
     "oee": {
-      "average": 0.5238095238095238,
+      "average": 0.5952380952380952,
       "target": 0.78
     },
     "losses": [
@@ -1873,10 +1873,10 @@
     "month": 9,
     "date": 22,
     "bapHap": {
-      "ton": 130,
-      "tonPerHour": 6.5,
+      "ton": 143,
+      "tonPerHour": 7.15,
       "totalKWh": 3217,
-      "kwhPerTon": 24.746153846153845
+      "kwhPerTon": 22.496503496503497
     },
     "nanhHap": {
       "ton": 0,
@@ -1885,7 +1885,7 @@
       "kwhPerTon": 0
     },
     "oee": {
-      "average": 0.6798245614035087,
+      "average": 0.7587719298245613,
       "target": 0.78
     },
     "losses": [
@@ -1909,19 +1909,19 @@
     "month": 9,
     "date": 23,
     "bapHap": {
-      "ton": 23,
-      "tonPerHour": 6.571428571428571,
+      "ton": 26,
+      "tonPerHour": 7.428571428571429,
       "totalKWh": 579,
-      "kwhPerTon": 25.17391304347826
+      "kwhPerTon": 22.26923076923077
     },
     "nanhHap": {
-      "ton": 27,
-      "tonPerHour": 4.153846153846154,
-      "totalKWh": -443312,
-      "kwhPerTon": 0
+      "ton": 31,
+      "tonPerHour": 4.769230769230769,
+      "totalKWh": 1239,
+      "kwhPerTon": 39.96774193548387
     },
     "oee": {
-      "average": 0.6841948621553885,
+      "average": 0.7686114700814535,
       "target": 0.78
     },
     "losses": [
@@ -1957,13 +1957,13 @@
       "kwhPerTon": 0
     },
     "nanhHap": {
-      "ton": 28,
-      "tonPerHour": 4,
+      "ton": 31,
+      "tonPerHour": 4.428571428571429,
       "totalKWh": 1411,
-      "kwhPerTon": 50.392857142857146
+      "kwhPerTon": 45.516129032258064
     },
     "oee": {
-      "average": 0.6666666666666666,
+      "average": 0.737037037037037,
       "target": 0.78
     },
     "losses": [
@@ -1987,19 +1987,19 @@
     "month": 9,
     "date": 25,
     "bapHap": {
-      "ton": 58,
-      "tonPerHour": 7.25,
+      "ton": 63,
+      "tonPerHour": 7.875,
       "totalKWh": 1331,
-      "kwhPerTon": 22.948275862068964
+      "kwhPerTon": 21.126984126984127
     },
     "nanhHap": {
       "ton": 25,
       "tonPerHour": 5.882352941176471,
-      "totalKWh": 800,
-      "kwhPerTon": 32
+      "totalKWh": 780,
+      "kwhPerTon": 31.2
     },
     "oee": {
-      "average": 0.8079497764017888,
+      "average": 0.8565267744524712,
       "target": 0.78
     },
     "losses": [
@@ -2019,7 +2019,7 @@
     "warnings": [],
     "electricity": {
       "e1": 468,
-      "e2": 361,
+      "e2": 341,
       "line": 380,
       "hamer": 922
     }
@@ -2029,28 +2029,41 @@
     "month": 9,
     "date": 26,
     "bapHap": {
-      "ton": 0,
-      "tonPerHour": 0,
-      "totalKWh": 0,
-      "kwhPerTon": 0
+      "ton": 64,
+      "tonPerHour": 7.529411764705882,
+      "totalKWh": 1376,
+      "kwhPerTon": 21.5
     },
     "nanhHap": {
-      "ton": 0,
-      "tonPerHour": 0,
-      "totalKWh": 0,
-      "kwhPerTon": 0
+      "ton": 20,
+      "tonPerHour": 5.714285714285714,
+      "totalKWh": 773,
+      "kwhPerTon": 38.65
     },
     "oee": {
-      "average": 0,
+      "average": 0.77745879851143,
       "target": 0.78
     },
-    "losses": [],
+    "losses": [
+      {
+        "code": "153",
+        "description": "Ngưng máy có kế hoạch",
+        "occurrences": 3,
+        "timeMins": 11
+      },
+      {
+        "code": "200",
+        "description": "Chuyển nguyên liệu hấp",
+        "occurrences": 1,
+        "timeMins": 1
+      }
+    ],
     "warnings": [],
     "electricity": {
-      "e1": 0,
-      "e2": 0,
-      "line": 0,
-      "hamer": 0
+      "e1": 511,
+      "e2": 336,
+      "line": 375,
+      "hamer": 927
     }
   },
   {
@@ -2087,28 +2100,35 @@
     "month": 9,
     "date": 28,
     "bapHap": {
-      "ton": 0,
-      "tonPerHour": 0,
-      "totalKWh": 0,
-      "kwhPerTon": 0
+      "ton": 72,
+      "tonPerHour": 9,
+      "totalKWh": 1271,
+      "kwhPerTon": 17.65277777777778
     },
     "nanhHap": {
-      "ton": 0,
-      "tonPerHour": 0,
-      "totalKWh": 0,
-      "kwhPerTon": 0
+      "ton": 35,
+      "tonPerHour": 5,
+      "totalKWh": 938,
+      "kwhPerTon": 26.8
     },
     "oee": {
-      "average": 0,
+      "average": 0.9131844763423711,
       "target": 0.78
     },
-    "losses": [],
+    "losses": [
+      {
+        "code": "153",
+        "description": "Ngưng máy có kế hoạch",
+        "occurrences": 3,
+        "timeMins": 9
+      }
+    ],
     "warnings": [],
     "electricity": {
-      "e1": 0,
-      "e2": 0,
-      "line": 0,
-      "hamer": 0
+      "e1": 450,
+      "e2": 204,
+      "line": 444,
+      "hamer": 1111
     }
   },
   {
@@ -2116,10 +2136,10 @@
     "month": 9,
     "date": 29,
     "bapHap": {
-      "ton": 0,
-      "tonPerHour": 0,
-      "totalKWh": 0,
-      "kwhPerTon": 0
+      "ton": 135,
+      "tonPerHour": 9,
+      "totalKWh": 2350,
+      "kwhPerTon": 17.40740740740741
     },
     "nanhHap": {
       "ton": 0,
@@ -2128,16 +2148,23 @@
       "kwhPerTon": 0
     },
     "oee": {
-      "average": 0,
+      "average": 0.9511961722488039,
       "target": 0.78
     },
-    "losses": [],
+    "losses": [
+      {
+        "code": "153",
+        "description": "Ngưng máy có kế hoạch",
+        "occurrences": 3,
+        "timeMins": 9
+      }
+    ],
     "warnings": [],
     "electricity": {
-      "e1": 0,
+      "e1": 758,
       "e2": 0,
-      "line": 0,
-      "hamer": 0
+      "line": 493,
+      "hamer": 1099
     }
   },
   {
@@ -2145,28 +2172,35 @@
     "month": 9,
     "date": 30,
     "bapHap": {
-      "ton": 0,
-      "tonPerHour": 0,
-      "totalKWh": 0,
-      "kwhPerTon": 0
+      "ton": 63,
+      "tonPerHour": 9,
+      "totalKWh": 1198,
+      "kwhPerTon": 19.015873015873016
     },
     "nanhHap": {
-      "ton": 0,
-      "tonPerHour": 0,
-      "totalKWh": 0,
-      "kwhPerTon": 0
+      "ton": 34,
+      "tonPerHour": 4,
+      "totalKWh": 1554,
+      "kwhPerTon": 45.705882352941174
     },
     "oee": {
-      "average": 0,
+      "average": 0.7046783625730993,
       "target": 0.78
     },
-    "losses": [],
+    "losses": [
+      {
+        "code": "153",
+        "description": "Ngưng máy có kế hoạch",
+        "occurrences": 2,
+        "timeMins": 6.5
+      }
+    ],
     "warnings": [],
     "electricity": {
-      "e1": 0,
-      "e2": 0,
-      "line": 0,
-      "hamer": 0
+      "e1": 471,
+      "e2": 837,
+      "line": 398,
+      "hamer": 1046
     }
   },
   {

@@ -26,7 +26,10 @@ export default function ExtruderProduction() {
           if (a.year !== b.year) return b.year - a.year;
           return b.month - a.month;
         });
-        
+        if (sorted[0]) {
+          setSelectedYear(sorted[0].year);
+          setSelectedMonth(sorted[0].month);
+        }
       }
     } catch (err: any) {
       console.error('Failed to fetch extruder data:', err);
